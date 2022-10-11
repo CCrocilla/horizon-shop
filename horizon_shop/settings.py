@@ -11,19 +11,28 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
 from pathlib import Path
+if os.path.isfile('env.py'):
+    import env                      # NOQA
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+# Templates Directory
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+TEMPLATES_DIR_ALLAUTH = os.path.join(BASE_DIR, 'templates', 'allauth/')
+TEMPLATES_DIR_HOME = os.path.join(BASE_DIR, 'templates', 'home/')
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-4xav0jnb1(#+oe)m^a=-x3xc4h!p=(bf*0s=08_nnof6=v!-ku'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG = True if os.environ.get('DEBUG') == 'True' else False
 DEBUG = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
@@ -49,6 +58,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'home',
 ]
 
 MIDDLEWARE = [
@@ -66,7 +76,11 @@ ROOT_URLCONF = 'horizon_shop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            TEMPLATES_DIR,
+            TEMPLATES_DIR_ALLAUTH,
+            TEMPLATES_DIR_HOME,
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
