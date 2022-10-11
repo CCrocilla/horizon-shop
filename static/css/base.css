@@ -1,0 +1,15 @@
+/* Remove any default margin, padding and border */
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #708599;
+    /* color: #C84B31; */
+    font-weight: 500;
+}
