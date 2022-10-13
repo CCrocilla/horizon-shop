@@ -28,6 +28,7 @@
     <link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css">
 
 
+
     {% endblock %}
 
 
@@ -52,10 +53,10 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
             <div class="container-fluid d-flex justify-content-start">
                 <a class="navbar-brand" href="{% url 'homepage' %}">
-                    <h1 class="display-4 ms-3 d-inline-block">Horizon Shop</h1>
+                    <h1 class="text-warning display-4 ms-3 d-inline-block">Horizon Shop</h1>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
                     aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -174,31 +175,110 @@
     <!--                 Footer                      -->
     <!-- ============================================-->
 
-    <footer>
+    <footer class="bg-dark">
+        <div class="container-fluid bg-dark text-body footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-12 col-md-8 col-lg-6">
+                        <h2 class="h2 text-warning border-bottom pb-3 border-light logo">Horizon Shop</h2>
+                        <ul class="list-unstyled text-light footer-link-list">
+                            <li class="btn btn-link">
+                                <i class="fas fa-map-marker-alt fa-fw"></i>
+                                <a class="text-decoration-none text-info"
+                                    href="https://www.google.com/maps/search/35+King's+Inns,+Henrietta+Street,+Dublin+1/@53.3476836,-6.2735268,15z/data=!3m1!4b1"
+                                    target="_blank">
+                                    35 King's Inns, Henrietta Street, Dublin 1
+                                </a>
 
-    </footer>
+                            </li>
+                            <li class="btn btn-link">
+                                <i class="fa fa-phone fa-fw"></i>
+                                <a class="text-decoration-none text-info" href="tel:+353 (0) 123456789">
+                                    +353 (0) 123456789
+                                </a>
+                            </li>
+                            <li class="btn btn-link">
+                                <i class="fa fa-envelope fa-fw"></i>
+                                <a class="text-decoration-none text-info"
+                                    href="mailto:horizonshop.djangoproject@gmail.com">horizonshop.djangoproject@gmail.com</a>
+                            </li>
+                        </ul>
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-square btn-outline-light btn-social" href="https://twitter.com/"
+                                target="_blank">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a class="btn btn-square btn-outline-light btn-social" href="http://facebook.com/"
+                                target="_blank">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a class="btn btn-square btn-outline-light btn-social" href="https://www.instagram.com/"
+                                target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a class="btn btn-square btn-outline-light btn-social" href="https://www.linkedin.com/"
+                                target="_blank">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-6">
+                        <h5 class="h2 text-warning border-bottom pb-3 border-light logo">Quick Links</h5>
+                        <a class="btn btn-link" href="">About Us</a>
+                        <a class="btn btn-link" href="">Contact Us</a>
+                        <a class="btn btn-link" href="">Our Services</a>
+                        <a class="btn btn-link" href="">Terms & Condition</a>
+                        <a class="btn btn-link" href="">Support</a>
+                    </div>
 
-    <!-- ============================================-->
-    <!--              Final Section                  -->
-    <!-- ============================================-->
-
-    <div class="container py-2">
-        <div class="row">
-            <div class="col-12">
-                <div class="text-center">
-                    <p class="mb-0 text-dark">Copyright Reserved &copy; Horizon Shop with&nbsp;<i
-                            class="fas fa-heart text-danger"></i>
-                        Claudio Crocilla
-                    </p>
+                    <div class="col-12 col-md-12 col-lg-6">
+                        <h5 class="h2 text-warning border-bottom pb-3 border-light logo">Newsletter</h5>
+                        <p class="text-light">Subscribe to the newsletter for free!</p>
+                        <div class="position-relative mx-auto" style="max-width: 1000px;">
+                            <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text"
+                                placeholder="Your email">
+                            <button type="button"
+                                class="btn btn-warning py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
+
+        <!-- ============================================-->
+        <!--            Final Section Copyright          -->
+        <!-- ============================================-->
+        <div class="container py-2 ">
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-center">
+                        <p class="mb-0 text-light">Copyright Reserved &copy; Horizon Shop with&nbsp;<i
+                                class="fas fa-heart text-danger"></i>
+                            Claudio Crocilla
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
 
 
     {% block postloadjs %}
 
+    <script src="{% static 'js/wow.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.js' %}"></script>
+
     {% endblock %}
+
 </body>
 
 </html>

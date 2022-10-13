@@ -10,28 +10,319 @@
     </div>
 </div>
 
-<!-- Offers Carousel Section -->
+
+<!-- Start Banner Hero -->
 <section>
-    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div id="homepage-hero-carousel" class="carousel slide" data-bs-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-bs-target="#homepage-hero-carousel" data-bs-slide-to="0" class="active"></li>
+            <li data-bs-target="#homepage-hero-carousel" data-bs-slide-to="1"></li>
+            <li data-bs-target="#homepage-hero-carousel" data-bs-slide-to="2"></li>
+        </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="..." class="d-block w-100" alt="...">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src="" alt="">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left align-self-center">
+                                <h1 class="h1 text-warning"><b>Horizon Shop</b></h1>
+                                <h3 class="h2">Everything for your needs!</h3>
+                                <p>
+                                    100% Everything that you have always dreamed of!
+                                    <strong>Free Shipping</strong> for order higher than 50 Euro!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="carousel-item">
-                <img src="..." class="d-block w-100" alt="...">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src="" alt="">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left">
+                                <h1 class="h1">New Products</h1>
+                                <h3 class="h2">An horizon of products is just waiting for you! </h3>
+                                <p>
+                                    Is there anything that you were thinking of? A new Car? Too big? Ok! No Problem.
+                                    Maybe you are looking for a new guitar? Great!
+                                    Here we have everything!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="carousel-item">
-                <img src="..." class="d-block w-100" alt="...">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src="" alt="">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left">
+                                <h1 class="h1">Used Products</h1>
+                                <h3 class="h2">We all are important! </h3>
+                                <p>
+                                    You can sell everything that you need! Are you registered? Great! Click here to
+                                    access your Sell Manager Page!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+        <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#homepage-hero-carousel" role="button"
+            data-bs-slide="prev">
+            <i class="fas fa-chevron-left"></i>
+        </a>
+        <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#homepage-hero-carousel" role="button"
+            data-bs-slide="next">
+            <i class="fas fa-chevron-right"></i>
+        </a>
     </div>
 </section>
+<!-- End Banner Hero-->
+
+
+<!-- Start Product Visualization -->
+<section class="py-5 my-5">
+    <div class="products-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="title-all text-center">
+                        <h1>New Products</h1>
+                        <p>Below the latest products added to Horizon Shop!!!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row special-list">
+                <div class="col-lg-3 col-md-6 special-grid best-seller">
+                    <div class="products-single fix">
+                        <div class="box-img-hover">
+                            <div class="type-lb">
+                                <p class="sale">Sale</p>
+                            </div>
+                            <img src="{% static 'images/cars.jpg' %}" class="img-fluid" alt="Image">
+                            <div class="mask-icon">
+                                <ul>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i
+                                                class="fas fa-eye"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i
+                                                class="fas fa-sync-alt"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right"
+                                            title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                </ul>
+                                <a class="cart" href="#">Add to Cart</a>
+                            </div>
+                        </div>
+                        <div class="why-text">
+                            <h4>Price: 7.79 Euro</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 special-grid top-featured">
+                    <div class="products-single fix">
+                        <div class="box-img-hover">
+                            <div class="type-lb">
+                                <p class="new">New</p>
+                            </div>
+                            <img src="{% static 'images/spider-man.jpg' %}" class="img-fluid" alt="Image">
+                            <div class="mask-icon">
+                                <ul>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i
+                                                class="fas fa-eye"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i
+                                                class="fas fa-sync-alt"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right"
+                                            title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                </ul>
+                                <a class="cart" href="#">Add to Cart</a>
+                            </div>
+                        </div>
+                        <div class="why-text">
+                            <h4>Price: 9.79 Euro</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 special-grid top-featured">
+                    <div class="products-single fix">
+                        <div class="box-img-hover">
+                            <div class="type-lb">
+                                <p class="sale">Sale</p>
+                            </div>
+                            <img src="{% static 'images/product.jpg' %}" class="img-fluid" alt="Image">
+                            <div class="mask-icon">
+                                <ul>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i
+                                                class="fas fa-eye"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i
+                                                class="fas fa-sync-alt"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right"
+                                            title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                </ul>
+                                <a class="cart" href="#">Add to Cart</a>
+                            </div>
+                        </div>
+                        <div class="why-text">
+                            <h4>Price: 10.79 Euro</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 special-grid best-seller">
+                    <div class="products-single fix">
+                        <div class="box-img-hover">
+                            <div class="type-lb">
+                                <p class="sale">Sale</p>
+                            </div>
+                            <img src="{% static 'images/waffel.jpg' %}" class="img-fluid" alt="Image">
+                            <div class="mask-icon">
+                                <ul>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i
+                                                class="fas fa-eye"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i
+                                                class="fas fa-sync-alt"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right"
+                                            title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                </ul>
+                                <a class="cart" href="#">Add to Cart</a>
+                            </div>
+                        </div>
+                        <div class="why-text">
+                            <h4>Price: 15.79 Euro</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Products  -->
+
+
+
+
+
+<!-- Testimonial Start -->
+<section class="py-5 my-5">
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h2 class="text-warning">Testimonials</h6>
+                    <h1 class="mb-4">Our Client voice!</h1>
+            </div>
+
+            <div id="#homepage-testimonial-carousel" class="carousel slide" data-bs-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-bs-target="#homepage-testimonial-carousel" data-bs-slide-to="3" class="active"></li>
+                    <li data-bs-target="#homepage-testimonial-carousel" data-bs-slide-to="4"></li>
+                    <li data-bs-target="#homepage-testimonial-carousel" data-bs-slide-to="5"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="container">
+                            <div class="row p-5">
+                                <div class="testimonial-item">
+                                    <div class="testimonial-img position-relative">
+                                        <img class=" img-fluid rounded-circle mx-auto mb-5 w-25"
+                                            style="max-width: 500px;" src="{% static 'images/kamala.webp' %}">
+                                        <div class="btn-square bg-primary rounded-circle">
+                                            <i class="fa fa-quote-left text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-text text-center rounded p-4">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                                            veniam, quis
+                                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                            consequat.
+                                        </p>
+                                        <h5 class="mb-1">Rosi</h5>
+                                        <span class="fst-italic">The Best</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="container">
+                            <div class="row p-5">
+                                <div class="testimonial-item">
+                                    <div class="testimonial-img position-relative">
+                                        <img class="img-fluid rounded-circle mx-auto mb-5 w-25"
+                                            style="max-width: 500px;" src="{% static 'images/kamala.webp' %}">
+                                        <div class="btn-square bg-primary rounded-circle">
+                                            <i class="fa fa-quote-left text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-text text-center rounded p-4">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                                            ad minim
+                                            veniam, quis
+                                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                            consequat.
+                                        </p>
+                                        <h5 class="mb-1">Kamala</h5>
+                                        <span class="fst-italic">Professor</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="container">
+                            <div class="row p-5">
+                                <div class="testimonial-item">
+                                    <div class="testimonial-img position-relative">
+                                        <img class="img-fluid rounded-circle mx-auto mb-5 w-25"
+                                            style="max-width: 500px;" src="{% static 'images/kamala.webp' %}">
+                                        <div class="btn-square bg-primary rounded-circle">
+                                            <i class="fa fa-quote-left text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-text text-center rounded p-4">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                            sed do
+                                            eiusmod tempor incididunt ut labore et dolore magna
+                                            aliqua. Ut enim ad minim
+                                            veniam, quis
+                                            nostrud exercitation ullamco laboris nisi ut aliquip ex
+                                            ea commodo consequat.
+                                        </p>
+                                        <h5 class="mb-1">Claudio</h5>
+                                        <span class="fst-italic">Unknown</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#homepage-testimonial-carousel"
+                    role="button" data-bs-slide="prev">
+                    <i class="fas fa-chevron-left"></i>
+                </a>
+                <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#homepage-testimonial-carousel"
+                    role="button" data-bs-slide="next">
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Testimonial End -->
+
 {% endblock %}

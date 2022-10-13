@@ -32,12 +32,14 @@ TEMPLATES_DIR_HOME = os.path.join(BASE_DIR, 'templates', 'home/')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True if os.environ.get('DEBUG') == 'True' else False
-DEBUG = True
+DEBUG = True if os.environ.get('DEBUG') == 'True' else False
+
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
+
 ALLOWED_HOSTS = []
+
 
 CSRF_TRUSTED_ORIGINS = [
     'https://*.gitpod.io']
@@ -56,6 +58,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'home',
+    'products',
 ]
 
 MIDDLEWARE = [
