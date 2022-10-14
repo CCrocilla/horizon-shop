@@ -9,7 +9,7 @@
 
 body {
     font-family: 'Ubuntu', sans-serif;
-    background-color: #708599;
+    /* background-color: #708599; */
     /* color: #C84B31; */
     font-weight: 500;
 }
@@ -333,7 +333,7 @@ body {
     color: #ffffff;
 }
 
-/* .mask-icon a.cart:hover {
+.mask-icon a.cart:hover {
     background: #000000;
     color: #ffffff;
 }
@@ -341,9 +341,10 @@ body {
 .mask-icon ul li a:hover {
     background: #000000;
     color: #ffffff;
-} */
+}
 
-/* .products-single .mask-icon {
+
+.products-single .mask-icon {
     background: rgba(1, 1, 1, 0.5);
     top: -100%;
     -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
@@ -370,7 +371,7 @@ body {
     -moz-animation: bounceY 0.9s linear;
     -ms-animation: bounceY 0.9s linear;
     animation: bounceY 0.9s linear;
-} */
+}
 
 @keyframes bounceY {
     0% {
