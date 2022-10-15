@@ -1,0 +1,11 @@
+[MASTER]
+ignore=
+	static,templates,migrations,south_migrations
+load-plugins=
+    pylint_django
+django-settings-module=
+    horizon_shop.settings
+disable=
+    C0114, # (missing-module-docstring)
+    C0115, # (missing-class-docstring)
+    C0116, # (missing-function-docstring)

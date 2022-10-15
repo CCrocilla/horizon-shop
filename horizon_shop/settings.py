@@ -21,8 +21,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Templates Directory
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
-TEMPLATES_DIR_ALLAUTH = os.path.join(BASE_DIR, 'templates', 'allauth/')
-TEMPLATES_DIR_HOME = os.path.join(BASE_DIR, 'templates', 'home/')
+TEMPLATES_DIR_ALLAUTH = os.path.join(BASE_DIR, 'allauth/')
+TEMPLATES_DIR_HOME = os.path.join(BASE_DIR, 'home/')
+TEMPLATES_DIR_CONTACT_US = os.path.join(BASE_DIR, 'contact_us/')
 
 
 # Quick-start development settings - unsuitable for production
@@ -57,8 +58,11 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'crispy_forms',
+    'crispy_bootstrap5',
     'home',
     'products',
+    'contact_us',
 ]
 
 MIDDLEWARE = [
@@ -80,6 +84,7 @@ TEMPLATES = [
             TEMPLATES_DIR,
             TEMPLATES_DIR_ALLAUTH,
             TEMPLATES_DIR_HOME,
+            TEMPLATES_DIR_CONTACT_US,
             ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -105,6 +110,7 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
+
 # Allauth Config:
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
@@ -116,6 +122,11 @@ LOGIN_REDIRECT_URL = '/'
 
 
 WSGI_APPLICATION = 'horizon_shop.wsgi.application'
+
+
+# Crispy Form Config
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 
 # Database
