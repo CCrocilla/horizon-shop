@@ -53,9 +53,9 @@
 
 <body class="bg-azure-lt">
     <header class="fixed-top">
-        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-            {% include 'includes/navbar-desktop.html' %}
-        </nav>
+        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-dark"> -->
+        {% include 'includes/navbar-desktop.html' %}
+        <!-- </nav> -->
     </header>
 
     {% block page_header %}
@@ -65,11 +65,11 @@
     <!-- ============================================-->
     <!--                 Block Content               -->
     <!-- ============================================-->
+    <div class="mt-4 pt-4">
+        {% block content %}
 
-    {% block content %}
-
-    {% endblock %}
-
+        {% endblock %}
+    </div>
 
     <!-- ============================================-->
     <!--                 Footer                      -->
@@ -84,7 +84,7 @@
                         <ul class="list-unstyled text-light footer-link-list">
                             <li class="btn btn-link">
                                 <i class="fas fa-map-marker-alt fa-fw"></i>
-                                <a class="text-decoration-none text-info"
+                                <a class="text-decoration-none text-white"
                                     href="https://www.google.com/maps/search/35+King's+Inns,+Henrietta+Street,+Dublin+1/@53.3476836,-6.2735268,15z/data=!3m1!4b1"
                                     target="_blank">
                                     35 King's Inns, Henrietta Street, Dublin 1
@@ -93,30 +93,30 @@
                             </li>
                             <li class="btn btn-link">
                                 <i class="fa fa-phone fa-fw"></i>
-                                <a class="text-decoration-none text-info" href="tel:+353 (0) 123456789">
+                                <a class="text-decoration-none text-white" href="tel:+353 (0) 123456789">
                                     +353 (0) 123456789
                                 </a>
                             </li>
                             <li class="btn btn-link">
                                 <i class="fa fa-envelope fa-fw"></i>
-                                <a class="text-decoration-none text-info"
+                                <a class="text-decoration-none text-white"
                                     href="mailto:horizonshop.djangoproject@gmail.com">horizonshop.djangoproject@gmail.com</a>
                             </li>
                         </ul>
                         <div class="d-flex pt-2">
-                            <a class="btn btn-square btn-outline-light btn-social" href="https://twitter.com/"
+                            <a class="btn btn-square btn-outline-warning btn-social" href="https://twitter.com/"
                                 target="_blank">
                                 <i class="fab fa-twitter"></i>
                             </a>
-                            <a class="btn btn-square btn-outline-light btn-social" href="http://facebook.com/"
+                            <a class="btn btn-square btn-outline-warning btn-social" href="http://facebook.com/"
                                 target="_blank">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
-                            <a class="btn btn-square btn-outline-light btn-social" href="https://www.instagram.com/"
+                            <a class="btn btn-square btn-outline-warning btn-social" href="https://www.instagram.com/"
                                 target="_blank">
                                 <i class="fab fa-instagram"></i>
                             </a>
-                            <a class="btn btn-square btn-outline-light btn-social" href="https://www.linkedin.com/"
+                            <a class="btn btn-square btn-outline-warning btn-social" href="https://www.linkedin.com/"
                                 target="_blank">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
@@ -138,7 +138,7 @@
                             <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text"
                                 placeholder="Your email">
                             <button type="button"
-                                class="btn btn-warning py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                                class="btn btn-yellow py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
                         </div>
                     </div>
                 </div>

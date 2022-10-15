@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block extra_title %} - Contact Us{% endblock %}
+
+{% block content %}
+
+<!-- ======================= -->
+<!--         Messages        -->
+<!-- ======================= -->
+{% if messages %}
+
+{% for message in messages %}
+
+{% if "signed" in message|safe %}
+
+{% else %}
+
+<div id="msg" class="alert alert-{{ message.tags }} alert-dismissible mt-3 rounded-3 fade show" role="alert">
+    {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+
+{% endfor %}
+
+{% endif %}
+<!-- ======================= -->
+<!--       End Messages      -->
+<!-- ======================= -->
+
+
+<!-- ============================================-->
+<!--               Contact Us Form               -->
+<!-- ============================================-->
+<div class="container mt-5 pt-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-12">
+            <div class="form-group">
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <div>
+                        <a href="" class="">Terms & Condition</a>
+                    </div>
+
+                    <div class="mt-5">
+                        <input type="reset" value="Reset"
+                            class="m-2 btn btn-lg btn-minwidth btn-outline-primary rounded-3" aria-label="Reset">
+                        <button type="submit" class="m-2 btn btn-lg btn-minwidth btn-outline-warning rounded-3"
+                            aria-label="Submit">Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
