@@ -82,11 +82,18 @@
         </a>
     </div>
 </section>
+<div class="wave-navbar">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#EDF4FF" fill-opacity="1"
+            d="M0,96L48,128C96,160,192,224,288,213.3C384,203,480,117,576,117.3C672,117,768,203,864,202.7C960,203,1056,117,1152,117.3C1248,117,1344,203,1392,245.3L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+        </path>
+    </svg>
+</div>
 <!-- End Banner Hero-->
 
 
 <!-- Start Product Visualization -->
-<section class="py-5 bg-light">
+<section class="bg-light">
     <div class="products-box">
         <div class="container">
             <div class="row">
@@ -98,107 +105,115 @@
                 </div>
             </div>
             <div class="row special-list">
-                <div class="col-lg-3 col-md-6 special-grid best-seller">
+                <div class="col-12 col-md-6 col-lg-4 special-grid best-seller">
                     <div class="products-single fix">
                         <div class="box-img-hover">
                             <div class="type-lb">
-                                <p class="sale text-dark">Sale</p>
+                                <p class="sale">Sale</p>
                             </div>
-                            <img src="https://picsum.photos/400/500" class="img-fluid" alt="Image">
-                            <!-- <div class=" ">
-                                <ul>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i
-                                                class="fas fa-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i
-                                                class="fas fa-sync-alt"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right"
-                                            title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
-                                </ul>
+                            <img src="{% static 'images/cars.jpg' %}" class="img-fluid" alt="Image">
+                            <div class="mask-icon">
                                 <a class="cart" href="#">Add to Cart</a>
-                            </div> -->
+                                <a class="wish" href="#">Wishlist</a>
+                            </div>
                         </div>
-                        <div class="why-text text-dark">
-                            <h4>Price: 7.79 Euro</h4>
+                        <div class="why-text">
+                            <div class="card-body">
+                                <ul class="list-unstyled d-flex justify-content-between">
+                                    <li>
+                                        <i class="text-yellow fa fa-star"></i>
+                                        <i class="text-yellow fa fa-star"></i>
+                                        <i class="text-yellow fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                    </li>
+                                    <li class="text-muted text-right">480.00 Euro</li>
+                                </ul>
+                                <a href="" class="h2 text-decoration-none text-dark">Cloud Nike
+                                    Shoes</a>
+                                <p class="card-text text-dark">
+                                    Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed,
+                                    commodo
+                                    ullamcorper.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6 special-grid top-featured">
+                <div class="col-12 col-md-6 col-lg-4 special-grid top-featured">
                     <div class="products-single fix">
                         <div class="box-img-hover">
                             <div class="type-lb">
-                                <p class="new text-dark">New</p>
+                                <p class="sale">Sale</p>
                             </div>
-                            <img src="https://picsum.photos/400/500" class="img-fluid" alt="Image">
-                            <!-- <div class=" ">
-                                <ul>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i
-                                                class="fas fa-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i
-                                                class="fas fa-sync-alt"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right"
-                                            title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
-                                </ul>
+                            <img src="{% static 'images/cars.jpg' %}" class="img-fluid" alt="Image">
+                            <div class="mask-icon">
                                 <a class="cart" href="#">Add to Cart</a>
-                            </div> -->
+                                <a class="wish" href="#">Wishlist</a>
+                            </div>
                         </div>
-                        <div class="why-text text-dark">
-                            <h4>Price: 9.79 Euro</h4>
+                        <div class="why-text">
+                            <div class="card-body">
+                                <ul class="list-unstyled d-flex justify-content-between">
+                                    <li>
+                                        <i class="text-yellow fa fa-star"></i>
+                                        <i class="text-yellow fa fa-star"></i>
+                                        <i class="text-yellow fa fa-star"></i>
+                                        <i class="text-yellow fa fa-star"></i>
+                                        <i class="text-yellow fa fa-star"></i>
+                                    </li>
+                                    <li class="text-muted text-right">360.00 Euro</li>
+                                </ul>
+                                <a href="" class="h2 text-decoration-none text-dark">Summer Addides
+                                    Shoes</a>
+                                <p class="card-text text-dark">
+                                    Curabitur ac mi sit amet diam luctus porta. Phasellus pulvinar sagittis diam, et
+                                    scelerisque
+                                    ipsum lobortis nec.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6 special-grid top-featured">
+                <div class="col-12 col-md-6 col-lg-4 special-grid best-seller">
                     <div class="products-single fix">
                         <div class="box-img-hover">
                             <div class="type-lb">
-                                <p class="sale text-dark">Sale</p>
+                                <p class="sale">Sale</p>
                             </div>
-                            <img src="https://picsum.photos/400/500" class="img-fluid" alt="Image">
-                            <!-- <div class=" ">
-                                <ul>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i
-                                                class="fas fa-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i
-                                                class="fas fa-sync-alt"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right"
-                                            title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
-                                </ul>
-                                <a class="cart" href="#">Add to Cart</a>
-                            </div> -->
-                        </div>
-                        <div class="why-text text-dark">
-                            <h4>Price: 10.79 Euro</h4>
-                        </div>
-                    </div>
-                </div>
+                            <img src="{% static 'images/cars.jpg' %}" class="img-fluid" alt="Image">
+                            <div class="mask-icon">
 
-                <div class="col-lg-3 col-md-6 special-grid best-seller">
-                    <div class="products-single fix">
-                        <div class="box-img-hover">
-                            <div class="type-lb">
-                                <p class="sale text-dark">Sale</p>
-                            </div>
-                            <img src="https://picsum.photos/400/500" class="img-fluid" alt="Image">
-                            <!-- <div class=" ">
-                                <ul>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i
-                                                class="fas fa-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i
-                                                class="fas fa-sync-alt"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right"
-                                            title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
-                                </ul>
                                 <a class="cart" href="#">Add to Cart</a>
-                            </div> -->
+                                <a class="wish" href="#">Wishlist</a>
+                            </div>
                         </div>
-                        <div class="why-text text-dark">
-                            <h4>Price: 15.79 Euro</h4>
+                        <div class="why-text">
+                            <div class="card-body">
+                                <ul class="list-unstyled d-flex justify-content-between">
+                                    <li>
+                                        <i class="text-yellow fa fa-star"></i>
+                                        <i class="text-yellow fa fa-star"></i>
+                                        <i class="text-yellow fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                    </li>
+                                    <li class="text-muted text-right">240.00 Euro</li>
+                                </ul>
+                                <a href="" class="h2 text-decoration-none text-dark">Gym Weight</a>
+                                <p class="card-text text-dark">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt in culpa qui officia
+                                    deserunt.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </section>
 <!-- End New Products  -->
@@ -207,9 +222,9 @@
 
 <!-- Start Used Products -->
 <section class="bg-light">
-    <div class="container py-5 text-dark">
+    <div class="container py-5">
         <div class="row text-center py-3">
-            <div class="col-lg-6 m-auto">
+            <div class="col-lg-12 m-auto title-all text-center text-dark">
                 <h1 class="h1">Used Products</h1>
                 <p>
                     Below the latest used products added to Horizon Shop!!!
@@ -298,121 +313,10 @@
 <!-- End Used Products -->
 
 
-<!-- Testimonial Start -->
-<section>
-    <div class="container-fluid py-5">
-        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
-            <h2 class="text-yellow">Testimonials</h2>
-            <h1 class="mb-2 text-dark">Our Client voice!</h1>
-        </div>
+<!-- Testimonials Start -->
 
-        <div id="homepage-testimonial-carousel" class="carousel slide" data-bs-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-bs-target="#homepage-testimonial-carousel" data-bs-slide-to="0" class="active"></li>
-                <li data-bs-target="#homepage-testimonial-carousel" data-bs-slide-to="1"></li>
-                <li data-bs-target="#homepage-testimonial-carousel" data-bs-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="container">
-                        <div class="row p-5">
-                            <div class="col-12">
-                                <div class="testimonial-item">
-                                    <div class="testimonial-img position-relative text-center align-items-center">
-                                        <img class=" img-fluid rounded-circle mx-auto mb-5 w-25"
-                                            src="{% static 'images/kamala.webp' %}">
-                                        <div class="btn-square bg-dark rounded-circle">
-                                            <i class="fa fa-quote-left text-yellow"></i>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-text text-center text-dark rounded p-4">
-                                        <p class="h2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                            veniam, quis
-                                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                            consequat.
-                                        </p>
-                                        <h3 class="mb-1">Rosi</h3>
-                                        <span class="fst-italic">The Best</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+{% include 'home/includes/testimonials.html' %}
 
-                <div class="carousel-item">
-                    <div class="container">
-                        <div class="row p-5">
-                            <div class="col-12">
-                                <div class="testimonial-item">
-                                    <div class="testimonial-img position-relative text-center align-items-center">
-                                        <img class="img-fluid rounded-circle mx-auto mb-5 w-25"
-                                            style="max-width: 500px;" src="{% static 'images/kamala.webp' %}">
-                                        <div class="btn-square bg-dark rounded-circle">
-                                            <i class="fa fa-quote-left text-yellow"></i>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-text text-center text-dark rounded p-4">
-                                        <p class="h2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                                            ad minim
-                                            veniam, quis
-                                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                            consequat.
-                                        </p>
-                                        <h3 class="mb-1">Kamala</h3>
-                                        <span class="fst-italic">Professor</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="carousel-item">
-                    <div class="container">
-                        <div class="row p-5">
-                            <div class="col-12">
-                                <div class="testimonial-item">
-                                    <div
-                                        class="testimonial-img position-relative text-center align-items-center mx-auto">
-                                        <img class="img-fluid rounded-circle mx-auto mb-5 w-25"
-                                            style="max-width: 500px;" src="{% static 'images/kamala.webp' %}">
-                                        <div class="btn-square bg-dark rounded-circle">
-                                            <i class="fa fa-quote-left text-yellow"></i>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-text text-center text-dark rounded p-4">
-
-                                        <p class="h2">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                            sed do
-                                            eiusmod tempor incididunt ut labore et dolore magna
-                                            aliqua. Ut enim ad minim
-                                            veniam, quis
-                                            nostrud exercitation ullamco laboris nisi ut aliquip ex
-                                            ea commodo consequat.
-                                        </p>
-                                        <h3 class="mb-1">Claudio</h3>
-                                        <span class="fst-italic">Unknown</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#homepage-testimonial-carousel"
-                role="button" data-bs-slide="prev">
-                <i class="fas fa-chevron-left"></i>
-            </a>
-            <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#homepage-testimonial-carousel"
-                role="button" data-bs-slide="next">
-                <i class="fas fa-chevron-right"></i>
-            </a>
-        </div>
-    </div>
-</section>
-<!-- Testimonial End -->
+<!-- Testimonials End -->
 
 {% endblock %}
