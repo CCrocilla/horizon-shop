@@ -22,11 +22,19 @@ class ContactUsForm(ModelForm):
 
         widgets = {
             'full_name': forms.TextInput(
-                attrs={'class': 'form-control rounded-3'}),
+                attrs={
+                    'class': 'form-control rounded-3'
+                    }),
             'email': forms.EmailInput(
-                attrs={'class': 'form-control rounded-3'}),
+                attrs={
+                    'class': 'form-control rounded-3'
+                    }),
             'comment': forms.Textarea(
-                attrs={'class': 'form-control rounded-3', 'rows': 3, 'cols': 5}),
+                attrs={
+                    'class': 'form-control rounded-3', 'rows': 3, 'cols': 5
+                    }),
             'terms': forms.CheckboxInput(
-                attrs={'class': 'checkbox', 'required': ''}),
+                attrs={
+                    'class': 'checkbox', 'required': ''
+                    }),
             }
