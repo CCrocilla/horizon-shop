@@ -25,6 +25,7 @@ TEMPLATES_DIR_ALLAUTH = os.path.join(BASE_DIR, 'allauth/')
 TEMPLATES_DIR_HOME = os.path.join(BASE_DIR, 'home/')
 TEMPLATES_DIR_CONTACT_US = os.path.join(BASE_DIR, 'contact_us/')
 TEMPLATES_DIR_DASHBOARD = os.path.join(BASE_DIR, 'dashboard/')
+TEMPLATES_DIR_PRODUCTS = os.path.join(BASE_DIR, 'products/')
 
 
 # Quick-start development settings - unsuitable for production
@@ -88,6 +89,7 @@ TEMPLATES = [
             TEMPLATES_DIR_HOME,
             TEMPLATES_DIR_CONTACT_US,
             TEMPLATES_DIR_DASHBOARD,
+            TEMPLATES_DIR_PRODUCTS,
             ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -96,6 +98,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'products.views.categories',
+                'products.views.subcategories',
             ],
         },
     },
