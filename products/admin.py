@@ -12,6 +12,7 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'friendly_name')
     list_filter = ('name', )
     search_fields = ('friendly_name', )
+    prepopulated_fields = {'slug': ('name',)}
 
 
 @admin.register(SubCategory)
@@ -33,6 +34,7 @@ class ProductAdmin(admin.ModelAdmin):
         'category', 'brand', 'title', 'release_date')
     search_fields = (
         'created_by', 'category', 'created_date', 'brand', 'release_date')
+    prepopulated_fields = {'slug': ('title',)}
 
 
 @admin.register(ProductComments)

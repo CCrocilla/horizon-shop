@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %} {{ product.title }} {% endblock %}
+
+{% block content %}
+<section class="container my-5 py-5">
+    <div class="row g-3">
+        <div class="col-md-5 order-md-first bg-light">
+            <img class="img-fluid mx-auto d-block" width="200px" alt="Responsive image" src="{{ product.image.url }}">
+        </div>
+        <div class="col-md-7 ps-md-3 ps-lg-5">
+            <h1 class="mb-0 h3">Title: {{ product.title }}</h1>
+            <p><span class="lead">Created by: {{ product.created_by }}</span></p>
+            <p>{{ product.description|slice:":500" }}...</p>
+            <div class="container">
+                <div class="row d-flex flex-column py-3">
+                    <div class="col-12">
+                        <span class="h3 fw-bold">Price: {{ product.price }} Euro</span>
+                    </div>
+                    <div class="col-12">
+                        <button type="button" class="btn btn-warning">Add to basket</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

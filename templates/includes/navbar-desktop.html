@@ -55,7 +55,7 @@
 
                     {% if user.is_authenticated %}
 
-                    <div class="d-none d-xl-block ps-2">
+                    <div class="d-none d-md-block ps-2">
                         <div>
                             {% if not user.first_name %}
 
@@ -131,14 +131,14 @@
                             </span>
                         </a>
                     </li>
-                    <a class="nav-link" href="./#">
+                    <a class="nav-link" href="{% url 'new_products' %}">
                         <span class="nav-link-title">
                             New Products
                         </span>
                     </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./#">
+                        <a class="nav-link" href="{% url 'used_products' %}">
                             <span class="nav-link-title">
                                 Used Products
                             </span>
@@ -153,6 +153,15 @@
                             </span>
                         </a>
                         <div class="dropdown-menu">
+
+                            {% for category in categories %}
+
+                            <a class="dropdown-item" href="./#">
+                                {{ category.friendly_name }}
+                            </a>
+
+                            {% endfor %}
+
                             <a class="dropdown-item" href="./#">
                                 Electronics
                             </a>

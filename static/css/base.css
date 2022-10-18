@@ -816,11 +816,6 @@ Dashboard
     border-bottom: 2px solid transparent;
 }
 
-.form-control,
-.form-select {
-    border-radius: 2rem;
-}
-
 #sidenavAccordion {
     background-color: #1D273B;
 }
