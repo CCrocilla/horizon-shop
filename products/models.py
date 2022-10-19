@@ -25,6 +25,7 @@ class SubCategory(models.Model):
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
     category = models.ForeignKey(
         Category, null=True, blank=True, on_delete=models.SET_NULL)
+    slug = models.SlugField(max_length=254, unique=True)
 
     class Meta:
         verbose_name_plural = 'Sub-Categories'
