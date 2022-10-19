@@ -30,10 +30,26 @@ class NewProductsListView(ListView):
     Class to display the List of New Product
     """
     model = Product
-    queryset = Product.objects.filter(product_status=0).order_by('-created_date')
+    # queryset = Product.objects.filter(
+    #     product_status=0).order_by('-created_date')
     queryset = Product.objects.all()
     template_name = 'products/new_products.html'
     fields = '__all__'
+
+# class NewProductsListView(View):
+#     """
+#     Class to display Users' Dashboard
+#     """
+#     model = Product()
+#     template_name = 'products/new_products.html'
+
+#     def get(self, request):
+#         products = Product.objects.filter(product_status=0).order_by('-created_date')
+
+#         context = {
+#                 'products': products,
+#             }
+#         return render(request, self.template_name, context)
 
 
 class UsedProductsListView(ListView):
@@ -41,16 +57,10 @@ class UsedProductsListView(ListView):
     Class to display the List of Used Product
     """
     model = Product
-    # queryset = Product.objects.filter(
-    #     product_status=1).order_by('-created_date')
-    queryset = Product.objects.all()
+    queryset = Product.objects.filter(
+        product_status=1).order_by('-created_date')
     template_name = 'products/used_products.html'
     paginate_by = 6
-
-
-def get_all_new_products(request):
-    products = Product.objects.all()
-    return render(request, 'products/new_products.html', {'products': products})
 
 
 class ProductDetailsView(DetailView):
