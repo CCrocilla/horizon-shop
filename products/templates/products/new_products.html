@@ -5,45 +5,28 @@
 {% block content %}
 <section class="container">
     <div class="row">
-        <div class="col-12">
-            <div class="bg-dark my-5 py-5">
+        <div class="col">
+            <div class="my-5 py-5">
                 <h1 class="text-center text-yellow">New Products List</h1>
-            </div>
 
-            <div class="bg-dark my-5 py-5">
-                <h1 class="text-center text-yellow">{{ product }}</h1>
-            </div>
-        </div>
-    </div>
-</section>
-
-{% for product in products %}
-<section class="container">
-    <div class="row">
-        <div class="col-12">
-            <div class="text-dark">
-                <h1 class="mt-4">Products</h1>
                 <ol class="breadcrumb mb-4">
-                    <li class="active">Buy!</li>
+                    <li class="active">All new Products: </li>
                 </ol>
 
-                <div class="row d-flex ">
-                    <div class="col-12 col-md-10 col-xl-8 col-xxl-6 alert alert-light">
-                        <div class="bg-dark my-5 py-5">
-                            <div class="col">
-                                <div class="card bg-azure-lt">
-                                    <img class="img-fluid" alt="Responsive image" src="{{ product.image.url }}">
-                                    <div class="card-body">
-                                        <p class="card-text">
-                                            <a class="text-dark text-decoration-none" href="">{{ product.title }}</a>
-                                        </p>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <small class="text-muted">Best buy!</small>
-                                        </div>
-                                    </div>
-                                </div>
+                <div class="row d-flex align-items-center">
+                    <div class="col-12 col-md-4 col-lg-3">
+                        {% for product in products %}
+
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{ product.image.url }}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ product.title }}</h5>
+                                <p class="card-text">{{ product.description }}</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
                             </div>
                         </div>
+
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -51,6 +34,4 @@
     </div>
 </section>
 
-
-{% endfor %}
 {% endblock %}

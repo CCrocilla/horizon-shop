@@ -18,6 +18,7 @@ from django.urls import path
 from django.urls import include
 from django.conf import settings
 from django.conf.urls.static import static
+from .views import ErrorPage404
 
 
 urlpatterns = [
@@ -28,3 +29,5 @@ urlpatterns = [
     path('products/', include('products.urls')),
     path('dashboard/', include('dashboard.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = 'horizon_shop.views.ErrorPage404'

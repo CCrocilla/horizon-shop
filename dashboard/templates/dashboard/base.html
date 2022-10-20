@@ -23,8 +23,11 @@
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="{% static 'css/theme.min.css' %}" rel="stylesheet" type="text/css">
-    <link href="{% static 'css/rating-stars.css' %}" rel="stylesheet" type="text/css">
+
+    <!-- Tabler -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta12/dist/css/tabler.min.css">
+
+    <link href="{% static 'css/rating.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css">
 
     {% endblock %}
@@ -39,20 +42,72 @@
     <!-- ============================================-->
     <!--                    Navbar                   -->
     <!-- ============================================-->
-    <nav class="sb-topnav navbar navbar-expand sb-sidenav-dark ">
-        <a class="fs-2 ps-3 text-decoration-none text-white" href="{% url 'homepage' %}"
-            aria-label="Go to Homepage">Horizon Shop</a>
-        <!-- Sidebar Toggle-->
-        <a class="fs-2 btn btn-link btn-sm order-0 order-lg-0 mx-3 text-light text-decoration-none d-inline-block"
-            id="sidebarToggle" href="#!" aria-label="Open Sidebar"><i class="fas fa-bars"></i></a>
-        <ul class="navbar-nav ms-auto me-3">
-            <li class="nav-item">
-                <a class="nav-link text-light text-decoration-none" href="{% url 'account_logout' %}">
-                    <i class="fas fa-user fa-fw me-2"></i>Logout
+
+    <header class="sb-topnav navbar navbar-expand sb-sidenav-dark navbar navbar-expand-md navbar-dark d-print-none">
+        <div class="container-fluid">
+            <!-- Sidebar Toggle-->
+            <a class="fs-2 btn btn-link btn-sm order-0 order-lg-0 mx-3 text-light text-decoration-none d-inline-block text-yellow"
+                id="sidebarToggle" href="#!" aria-label="Open Sidebar"><i class="fas fa-bars"></i></a>
+
+            <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
+                <a class="text-decoration-none" href="{% url 'homepage' %}">
+                    <h1 class="fs-1 text-decoration-none text-yellow">Horizon Shop</h1>
                 </a>
-            </li>
-        </ul>
-    </nav>
+            </h1>
+
+            <div class="navbar-nav flex-row order-md-last">
+
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
+                        aria-label="Open user menu">
+                        <span class="avatar bg-azure-lt"><i class="fas fa-user text-yellow fs-4"></i></span>
+
+                        {% if user.is_authenticated %}
+
+                        <div class="d-none d-md-block ps-2">
+                            <div>
+                                {% if not user.first_name %}
+
+                                Hi, {{ user }}!
+
+                                {% else %}
+
+                                Hi, {{ user.first_name }}!
+
+                                {%endif%}
+                            </div>
+                            <div class="mt-1 small text-muted"></div>
+                        </div>
+
+                        {% endif %}
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                        {% if user.is_authenticated %}
+                        <a class="dropdown-item" href="{% url 'dashboard' %}">My Horizon Shop</a>
+                        <a class="dropdown-item" href="#">My Profile</a>
+                        <a class="dropdown-item" href="#">My Orders</a>
+                        <a class="dropdown-item" href="#">My Products</a>
+                        <a class="dropdown-item" href="#">My Reviews</a>
+                        <a class="dropdown-item" href="#">My Testimonials</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+
+                        {% else %}
+
+                        <a class="dropdown-item" href="{% url 'account_signup' %}">
+                            Sign Up
+                        </a>
+
+                        <a class="dropdown-item" href="{% url 'account_login' %}">
+                            Sign In
+                        </a>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
     <!-- ============================================ -->
     <!--                    Sidebar                  -->
@@ -131,19 +186,20 @@
                         <!-- ============================== -->
                         <!--          Testimonials          -->
                         <!-- ============================== -->
-                        <a id="myfeedback" class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                            data-bs-target="#collapseFeedback" aria-expanded="false" aria-controls="collapseFeedback">
+                        <a id="mytestimonials" class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTestimonial" aria-expanded="false"
+                            aria-controls="collapseTestimonial">
                             <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                             My Testimonials
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-                        <div class="collapse" id="collapseFeedback" aria-labelledby="myfeedback"
-                            data-bs-parent="#sidenavAccordionFeedback">
-                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPagesFeedback">
-                                <a class="nav-link" href="">
+                        <div class="collapse" id="collapseTestimonial" aria-labelledby="mytestimonials"
+                            data-bs-parent="#sidenavAccordionPagesTestimonial">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPagesTestimonial">
+                                <a class="nav-link" href="{% url 'testimonial-add' %}">
                                     Add Testimonial
                                 </a>
-                                <a class="nav-link" href="">
+                                <a class="nav-link" href="{% url 'testimonials-list' %}">
                                     Testimonial List
                                 </a>
                             </nav>
@@ -209,8 +265,6 @@
     </script>
     <script src="https://kit.fontawesome.com/0644654b1f.js" crossorigin="anonymous"></script>
     <script src="{% static 'js/navbar-script.js' %}"></script>
-    <script src=""></script>
-
 </body>
 
 </html>

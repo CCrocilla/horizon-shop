@@ -4,6 +4,7 @@ from django.views import View
 
 
 class HomeView(View):
+    """ View to display the homepage """
     template_name = 'home/index.html'
 
     def get(self, request):

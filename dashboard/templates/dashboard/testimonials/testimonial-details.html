@@ -1,0 +1,69 @@
+{% extends 'dashboard/base.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block extra_title %} - Testimonial Details{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<section class="py-4 mb-4">
+    <div class="container mb-6">
+        <div class="row">
+            <div class="col-12 col-md-8 col-lg-6 offset-md-2 offset-lg-3 border border-5 rounded-3">
+                <h3 class="mt-3 fw-bold text-dark"> Testimonial Details </h3>
+                <hr class="w-10 text-dark" style="height:2px;" />
+                <div class="row">
+                    <div class="col-12">
+                        <label class="form-label mt-2">Author:</label>
+                        <span class="form-control border-2 fw-bold">
+                            {{ testimonial.created_by }}
+                        </span>
+                    </div>
+                </div>
+                <div>
+                    <label class="form-label mt-2">Title:</label>
+                    <span class="form-control border-2 fw-bold">
+                        {{ testimonial.title }}
+                    </span>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <label class="form-label mt-2">Date:</label>
+                        <span class="form-control border-2 fw-bold">
+                            {{ testimonial.created_date }}
+                        </span>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label mt-2">Rating:</label>
+                        <span class="form-control border-2 fw-bold">
+                            {{ testimonial.rating_stars }}
+                        </span>
+                    </div>
+                    <div class="mb-5 col-12">
+                        <label class="form-label mt-2">Comment: </label>
+                        <span class="form-control border-2 fw-bold ">
+                            {{ testimonial.comment }}
+                        </span>
+                    </div>
+                </div>
+                <a class="btn btn-minwidth btn-outline-yellow mb-4 rounded-3" href="{% url 'testimonials-list' %}"
+                    aria-label="Testimonial List">Back to List</a>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+{% else %}
+
+{% include 'dashboard/includes/auth-error.html' %}
+
+{% endif %}
+
+{% endblock %}

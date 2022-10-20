@@ -1,0 +1,85 @@
+{% extends 'dashboard/base.html' %}
+
+{% block extra_title %} - Dashboard{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+
+<!-- ======================= -->
+<!--         Messages        -->
+<!-- ======================= -->
+
+{% if messages %}
+
+{% for message in messages %}
+
+{% if "signed" in message|safe %}
+
+{% else %}
+
+<div id="msg" class="alert alert-{{ message.tags }} alert-dismissible mt-3 rounded-3 fade show" role="alert">
+    {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+
+{% endfor %}
+
+{% endif %}
+
+<!-- ======================= -->
+<!--       End Messages      -->
+<!-- ======================= -->
+
+
+<div class="container text-dark">
+    <h1 class="mt-4 text-center">Testimonial Manager</h1>
+    <ol class="breadcrumb mb-4 mx-auto d-flex justify-content-center">
+        <li class="active">Review, update or delete your Testimonial!</li>
+    </ol>
+
+    <div class="row">
+        {% for testimonial in testimonial_list %}
+
+        {% if testimonial.created_by.id == user.id %}
+        <div class="col-12">
+
+            <div class="p-3 mb-2 mt-2 alert alert-dark rounded-3">
+                <h3> Title:
+                    <a href="{% url 'testimonial-details' testimonial.pk %}">
+                        <strong>{{testimonial.title}}</strong>
+                    </a>
+                </h3>
+                <div>Author: {{ testimonial.created_by.username }}</div>
+                <div>Rating: {{ testimonial.rating_stars }}/5 </div>
+                <div>Date: {{ testimonial.created_date }}</div>
+                <br />
+                <div>Comment: {{ testimonial.comment|slice:":300" }}... <br /></div>
+
+
+                <a class="btn btn-minwidth btn-outline-primary rounded-3 mt-4"
+                    href="{% url 'testimonial-update' testimonial.pk %}" aria-label="Update">Edit</a>
+                <a class="btn btn-minwidth btn-outline-danger rounded-3 mt-4"
+                    href="{% url 'testimonial-delete' testimonial.pk %}" aria-label="Delete">Delete</a>
+
+            </div>
+        </div>
+
+        {% endif %}
+
+        {% endfor %}
+
+    </div>
+</div>
+
+{% else %}
+
+{% include 'dashboard/includes/auth-error.html' %}
+
+{% endif %}
+
+{% endblock %}
