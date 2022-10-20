@@ -25,31 +25,31 @@ def subcategories(request):
     }
 
 
-class NewProductsListView(ListView):
-    """
-    Class to display the List of New Product
-    """
-    model = Product
-    # queryset = Product.objects.filter(
-    #     product_status=0).order_by('-created_date')
-    queryset = Product.objects.all()
-    template_name = 'products/new_products.html'
-    fields = '__all__'
-
-# class NewProductsListView(View):
+# class NewProductsListView(ListView):
 #     """
-#     Class to display Users' Dashboard
+#     Class to display the List of New Product
 #     """
-#     model = Product()
+#     model = Product
+#     # queryset = Product.objects.filter(
+#     #     product_status=0).order_by('-created_date')
+#     queryset = Product.objects.all()
 #     template_name = 'products/new_products.html'
+#     fields = '__all__'
 
-#     def get(self, request):
-#         products = Product.objects.filter(product_status=0).order_by('-created_date')
+class NewProductsListView(View):
+    """
+    Class to display Users' Dashboard
+    """
+    model = Product()
+    template_name = 'products/new_products.html'
 
-#         context = {
-#                 'products': products,
-#             }
-#         return render(request, self.template_name, context)
+    def get(self, request):
+        products = Product.objects.filter(product_status=0).order_by('-created_date')
+
+        context = {
+                'products': products,
+            }
+        return render(request, self.template_name, context)
 
 
 class UsedProductsListView(ListView):

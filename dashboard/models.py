@@ -7,7 +7,7 @@ class Testimonial(models.Model):
     """ Model Testimonial """
     created_by = models.ForeignKey(
         User, null=True, blank=True, on_delete=models.CASCADE)
-    created_date = models.DateTimeField(auto_now_add=True)
+    created_date = models.DateField(auto_now_add=True)
     title = models.CharField(max_length=100)
     comment = models.TextField(max_length=650, blank=False, null=False)
     rating_stars = models.IntegerField(null=True, blank=False)

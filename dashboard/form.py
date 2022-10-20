@@ -26,8 +26,8 @@ class TestimonialForm(ModelForm):
         widgets = {
             'created_by': forms.HiddenInput(),
             'title': forms.TextInput(
-                attrs={'class': 'form-control'}),
+                attrs={'class': 'form-control text-dark'}),
             'comment': forms.Textarea(
-                attrs={'class': 'form-control'}),
+                attrs={'class': 'form-control text-dark'}),
             'rating_stars': forms.HiddenInput(),
         }

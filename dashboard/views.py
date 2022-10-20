@@ -24,7 +24,7 @@ class DashboardView(View):
     
     
 ################################
-#        Testimonial Views        #
+#       Testimonial Views      #
 ################################
 class TestimonialAddView(SuccessMessageMixin, CreateView):
     """
@@ -33,7 +33,7 @@ class TestimonialAddView(SuccessMessageMixin, CreateView):
     model = Testimonial
     form_class = TestimonialForm
     template_name = 'dashboard/testimonials/testimonial-add.html'
-    success_url = reverse_lazy('testimonial-list')
+    success_url = reverse_lazy('testimonials-list')
     success_message = "Testimonial was created successfully!"
 
     def get_initial(self):
@@ -45,13 +45,13 @@ class TestimonialListView(ListView):
     Class to display the User's Testimonial
     """
     model = Testimonial
-    template_name = 'dashboard/testimonials/testimonial-list.html'
+    template_name = 'dashboard/testimonials/testimonials-list.html'
     ordering = ['-created_date']
     fields = '__all__'
 
     def get_testimonial_auth_user(self):
         """
-        This should return a list of all the Testimonial
+        Return a list of all the Testimonial
         for the authenticated user.
         """
         user = self.request.user
@@ -83,5 +83,5 @@ class TestimonialDeleteView(SuccessMessageMixin, DeleteView):
     """
     model = Testimonial
     template_name = 'dashboard/testimonials/testimonial-delete.html'
-    success_url = reverse_lazy('testimonial-list')
+    success_url = reverse_lazy('testimonials-list')
     success_message = "Testimonial deleted successfully!"

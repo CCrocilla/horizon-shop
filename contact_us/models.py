@@ -2,7 +2,7 @@ from django.db import models
 
 
 class ContactUs(models.Model):
-    """ Model for Users' Feedback """
+    """ Model for Contact Us Page """
     created_date = models.DateTimeField(auto_now_add=True)
     full_name = models.CharField(max_length=100)
     email = models.EmailField(max_length=254)

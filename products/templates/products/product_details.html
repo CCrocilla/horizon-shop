@@ -5,11 +5,11 @@
 
 {% block content %}
 <section class="container my-5 py-5">
-    <div class="row g-3">
-        <div class="col-md-5 order-md-first bg-light">
+    <div class="row">
+        <div class="col-12 col-md-5 order-md-first bg-light">
             <img class="img-fluid mx-auto d-block" width="200px" alt="Responsive image" src="{{ product.image.url }}">
         </div>
-        <div class="col-md-7 ps-md-3 ps-lg-5">
+        <div class="col-12 col-md-7 ps-md-3 ps-lg-5">
             <h1 class="mb-0 h3">Title: {{ product.title }}</h1>
             <p><span class="lead">Created by: {{ product.created_by }}</span></p>
             <p>{{ product.description|slice:":500" }}...</p>

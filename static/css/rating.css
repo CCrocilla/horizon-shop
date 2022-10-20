@@ -1,0 +1,49 @@
+.rating {
+    float: left;
+}
+
+.rating:not(:checked)>input {
+    position: absolute;
+    top: -9999px;
+    clip-path: fill-box;
+}
+
+.rating:not(:checked)>label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 200%;
+    color: #ddd;
+}
+
+.rating:not(:checked)>label:before {
+    content: '★ ';
+}
+
+.rating>input:checked~label {
+    color: rgb(255, 176, 30);
+
+}
+
+.rating:not(:checked)>label:hover,
+.rating:not(:checked)>label:hover~label {
+    color: rgb(255, 176, 30);
+
+}
+
+.rating>input:checked+label:hover,
+.rating>input:checked+label:hover~label,
+.rating>input:checked~label:hover,
+.rating>input:checked~label:hover~label,
+.rating>label:hover~input:checked~label {
+    color: rgb(255, 176, 30);
+
+}
+
+.rating>label:active {
+    position: relative;
+    top: 2px;
+    left: 2px;
+}
