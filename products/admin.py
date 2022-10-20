@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Category
 from .models import SubCategory
 from .models import Product
-from .models import ProductComments
+from .models import ProductComment
 from .models import ProductRating
 
 
@@ -21,6 +21,7 @@ class SubCategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'friendly_name')
     list_filter = ('name', )
     search_fields = ('friendly_name', )
+    prepopulated_fields = {'slug': ('name',)}
 
 
 @admin.register(Product)
@@ -28,17 +29,17 @@ class ProductAdmin(admin.ModelAdmin):
     """ Product """
     list_display = (
         'category', 'title', 'brand',
-        'release_date', 'created_by',
-        'created_date', 'price', 'product_status')
+        'created_by', 'created_date',
+        'price', 'product_status')
     list_filter = (
-        'category', 'brand', 'title', 'release_date')
+        'category', 'brand', 'title')
     search_fields = (
-        'created_by', 'category', 'created_date', 'brand', 'release_date')
+        'created_by', 'category', 'created_date', 'brand')
     prepopulated_fields = {'slug': ('title',)}
 
 
-@admin.register(ProductComments)
-class ProductCommentsAdmin(admin.ModelAdmin):
+@admin.register(ProductComment)
+class ProductCommentAdmin(admin.ModelAdmin):
     """ Product Comment """
     list_display = (
         'product', 'commented_by', 'commented_date', 'comment')
