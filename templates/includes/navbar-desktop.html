@@ -131,6 +131,13 @@
                             </span>
                         </a>
                     </li>
+                    <a class="nav-link" href="{% url 'all_products' %}">
+                        <span class="nav-link-title">
+                            All Products
+                        </span>
+                    </a>
+                    </li>
+                    </li>
                     <a class="nav-link" href="{% url 'new_products' %}">
                         <span class="nav-link-title">
                             New Products
@@ -156,27 +163,18 @@
 
                             {% for category in categories %}
 
-                            <a class="dropdown-item" href="./#">
+                            <a class="dropdown-item" href="{{ category.get_absolute_url }}">
                                 {{ category.friendly_name }}
                             </a>
 
                             {% endfor %}
 
-                            <a class="dropdown-item" href="./#">
-                                Electronics
-                            </a>
-                            <a class="dropdown-item" href="./#">
-                                Home & Gardens
-                            </a>
-                            <a class="dropdown-item" href="./#">
-                                Console & Videogames
-                            </a>
                         </div>
                     </li>
 
                 </ul>
                 <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
-                    <form action="./" method="get" autocomplete="off" novalidate="">
+                    <form action="{% url 'all_products' %}" method="GET" autocomplete="off" novalidate="">
                         <div class="input-icon border border-white">
                             <span class="input-icon-addon">
                                 <!-- Download SVG icon from http://tabler-icons.io/i/search -->
@@ -188,7 +186,7 @@
                                     <line x1="21" y1="21" x2="15" y2="15"></line>
                                 </svg>
                             </span>
-                            <input type="text" value="" class="form-control" placeholder="Search..."
+                            <input type="text" name="q" class="form-control" placeholder="Search..."
                                 aria-label="Search in website">
                         </div>
                     </form>

@@ -7,7 +7,20 @@
 <section class="container my-5 py-5">
     <div class="row">
         <div class="col-12 col-md-5 order-md-first bg-light">
-            <img class="img-fluid mx-auto d-block" width="200px" alt="Responsive image" src="{{ product.image.url }}">
+            {% if product.image %}
+
+            <a href="">
+                <img src="{{ product.image.url }}" class="card-img-top img-fluid mx-auto d-block"
+                    alt="Image {{ product.title }}">
+            </a>
+
+            {% else %}
+
+            <a href="">
+                <img src="{{ MEDIA_URL }}noimage.webp" class="card-img-top img-fluid" alt="Image {{ product.title }}">
+            </a>
+
+            {% endif %}
         </div>
         <div class="col-12 col-md-7 ps-md-3 ps-lg-5">
             <h1 class="mb-0 h3">Title: {{ product.title }}</h1>
@@ -19,7 +32,8 @@
                         <span class="h3 fw-bold">Price: {{ product.price }} Euro</span>
                     </div>
                     <div class="col-12">
-                        <button type="button" class="btn btn-warning">Add to basket</button>
+                        <a href="#" class="btn btn-primary">Add to Backet</a>
+                        <a href="#" class="btn btn-primary">Add to Wishlist</a>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import reverse
 from django.contrib.auth.models import User
 
 
@@ -19,6 +20,9 @@ class Category(models.Model):
     def get_friendly_name(self):
         return self.friendly_name
 
+    def get_absolute_url(self):
+        return reverse('search_by', args=[self.slug])
+
 
 class SubCategory(models.Model):
     name = models.CharField(max_length=254)
@@ -36,6 +40,9 @@ class SubCategory(models.Model):
     def get_friendly_name(self):
         return self.friendly_name
 
+    def get_absolute_url(self):
+        return reverse('search_by', args=[self.slug])
+
 
 class Product(models.Model):
     category = models.ForeignKey(
@@ -47,7 +54,6 @@ class Product(models.Model):
     title = models.CharField(max_length=254)
     description = models.TextField()
     brand = models.CharField(max_length=254, null=True, blank=True)
-    release_date = models.DateField()
     created_by = models.ForeignKey(
         User,
         null=True,
@@ -63,12 +69,15 @@ class Product(models.Model):
     class Meta:
         """ Sorting by Create Date """
         ordering = ['-created_date']
-        
+
+    def get_absolute_url(self):
+        return reverse('product_details', args=[self.slug])
+
     def __str__(self):
         return self.title
 
 
-class ProductComments(models.Model):
+class ProductComment(models.Model):
     product = models.ForeignKey(
         Product, blank=True, null=True, on_delete=models.CASCADE)
     commented_by = models.ForeignKey(

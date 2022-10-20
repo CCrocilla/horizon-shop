@@ -12,6 +12,7 @@ class ContactUs(models.Model):
     class Meta:
         """ Sorting by Create Date """
         ordering = ['created_date']
+        verbose_name_plural = 'Contact Us'
 
     def __str__(self):
         """ Return Full Name """
