@@ -4,6 +4,8 @@ from django.conf.urls.static import static
 
 from .views import DashboardView
 
+from .views import CustomerView
+
 from .views import TestimonialAddView
 from .views import TestimonialListView
 from .views import TestimonialDetailsView
@@ -24,14 +26,16 @@ urlpatterns = [
     ##########################################
     #            Customer Paths              #
     ##########################################
-
-
-
+    path(
+        'customer/update',
+        CustomerView.as_view(),
+        name='customer-update'
+        ),
     ##########################################
     #       Shipping Addresses Paths         #
     ##########################################
     path(
-        'address/add',
+        'shpping_address/add',
         ShippingAddressAddView.as_view(),
         name='shipping-address-add'
         ),
