@@ -9,7 +9,7 @@
 {% if user.is_authenticated %}
 
 <div class="text-dark">
-    <h1 class="mt-4 text-center">Delete Testimonial: {{ testimonial.title }}</h1>
+    <h1 class="mt-4 text-center">Delete Shipping Address: {{ shippingaddress.shipping_name }}</h1>
     <ol class="breadcrumb mx-auto d-flex justify-content-center mb-4">
         <li class="active"> Attention: The process is irreversible! </li>
     </ol>
@@ -29,7 +29,7 @@
                                     to the previous page!
                                 </div>
                                 <div class="modal-footer m-3">
-                                    <a href="{% url 'testimonials-list' %}"
+                                    <a href="{% url 'shipping-address-list' %}"
                                         class="btn  btn-minwidth btn-outline-primary rounded-3" aria-label="Back">Back
                                     </a>
                                     <button type="submit"

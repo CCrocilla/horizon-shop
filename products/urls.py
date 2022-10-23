@@ -1,7 +1,10 @@
 from django.contrib import admin
+
 from . import views
+
 from django.urls import path
 from django.urls import include
+
 from .views import AllProductsListView
 from .views import NewProductsListView
 from .views import UsedProductsListView

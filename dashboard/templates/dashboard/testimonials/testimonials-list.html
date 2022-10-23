@@ -13,23 +13,7 @@
 <!--         Messages        -->
 <!-- ======================= -->
 
-{% if messages %}
-
-{% for message in messages %}
-
-{% if "signed" in message|safe %}
-
-{% else %}
-
-<div id="msg" class="alert alert-{{ message.tags }} alert-dismissible mt-3 rounded-3 fade show" role="alert">
-    {{ message }}
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-{% endif %}
-
-{% endfor %}
-
-{% endif %}
+{% include 'dashboard/includes/messages.html' %}
 
 <!-- ======================= -->
 <!--       End Messages      -->
