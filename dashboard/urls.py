@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 from .views import DashboardView
 
 from .views import CustomerView
+from .views import CustomerPasswordChangeView
 
 from .views import TestimonialAddView
 from .views import TestimonialListView
@@ -30,6 +31,11 @@ urlpatterns = [
         'customer/update',
         CustomerView.as_view(),
         name='customer-update'
+        ),
+    path(
+        'customer/change_password/',
+        CustomerPasswordChangeView.as_view(),
+        name='change-password'
         ),
     ##########################################
     #       Shipping Addresses Paths         #

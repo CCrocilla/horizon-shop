@@ -4,9 +4,12 @@ from django.shortcuts import reverse
 from django.shortcuts import HttpResponseRedirect
 from django.urls import reverse_lazy
 
-from django.contrib import messages
 from django.contrib.auth.forms import User
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.mixins import LoginRequiredMixin
+
+from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 
 from django.views import View
@@ -61,9 +64,9 @@ class CustomerView(LoginRequiredMixin, View):
         customer_form = CustomerForm(request.POST, instance=request.user)
         customer_extra_form = CustomerExtraForm(request.POST, request.FILES, instance=request.user.customer)
 
-        if customer_extra_form.is_valid():
+        if customer_form.is_valid():
             print("I AM VALID: CUSTOMER_EXTRA")
-            if customer_form.is_valid():
+            if customer_extra_form.is_valid():
                 print("I AM VALID: CUSTOMER_FORM")
                 customer_form.save()
                 customer_extra_form.save()
@@ -77,6 +80,13 @@ class CustomerView(LoginRequiredMixin, View):
                 'Error: Form not filled in correctly! Please try again!'
                 )
             return redirect(request.path)
+
+
+class CustomerPasswordChangeView(SuccessMessageMixin, PasswordChangeView):
+    template_name = 'dashboard/customer/customer-change-password.html'
+    form_class = PasswordChangeForm
+    success_url = reverse_lazy('change-password')
+    success_message = "Hurray! Your password has been changed successfully!"
 
 
 ################################

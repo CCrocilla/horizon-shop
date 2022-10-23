@@ -60,7 +60,16 @@
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
                         aria-label="Open user menu">
-                        <span class="avatar bg-azure-lt"><i class="fas fa-user text-yellow fs-4"></i></span>
+
+                        {% if user.customer.avatar.url %}
+                        <span class="avatar avatar-sm">
+                            <img class="" src="{{ user.customer.avatar.url }}" alt="Client Avatar">
+                        </span>
+                        {% else %}
+                        <span class="avatar bg-azure-lt">
+                            <i class="fas fa-user text-yellow fs-4"></i>
+                        </span>
+                        {% endif%}
 
                         {% if user.is_authenticated %}
 
@@ -154,7 +163,7 @@
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="{% url 'customer-update' %}">Edit Profile</a>
-                                <a class="nav-link" href="">Change Password</a>
+                                <a class="nav-link" href="{% url 'change-password' %}">Change Password</a>
                                 <a class="nav-link" href="{% url 'shipping-address-add' %}">Add Address</a>
                                 <a class="nav-link" href="{% url 'shipping-address-list' %}">List Addresses</a>
                             </nav>
