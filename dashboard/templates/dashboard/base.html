@@ -84,7 +84,7 @@
                     <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                         {% if user.is_authenticated %}
                         <a class="dropdown-item" href="{% url 'dashboard' %}">My Horizon Shop</a>
-                        <a class="dropdown-item" href="#">My Profile</a>
+                        <a class="dropdown-item" href="{% url 'customer-update' %}">My Profile</a>
                         <a class="dropdown-item" href="{% url 'shipping-address-list' %}">My Addresses</a>
                         <a class="dropdown-item" href="#">My Orders</a>
                         <a class="dropdown-item" href="#">My Products</a>
@@ -153,7 +153,7 @@
                         <div class="collapse" id="collapseLayouts" aria-labelledby="myprofile"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="">Edit Profile</a>
+                                <a class="nav-link" href="{% url 'customer-update' %}">Edit Profile</a>
                                 <a class="nav-link" href="">Change Password</a>
                                 <a class="nav-link" href="{% url 'shipping-address-add' %}">Add Address</a>
                                 <a class="nav-link" href="{% url 'shipping-address-list' %}">List Addresses</a>

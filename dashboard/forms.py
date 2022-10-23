@@ -1,9 +1,14 @@
 """ Imports """
 from django import forms
 from django.forms import ModelForm
+from django.contrib import messages
+
 from django.contrib.auth.models import User
-from .models import Testimonial
+from django.contrib.auth.forms import UserChangeForm
+
+from .models import Customer
 from .models import ShippingAddress
+from .models import Testimonial
 
 
 class TestimonialForm(ModelForm):
@@ -14,9 +19,9 @@ class TestimonialForm(ModelForm):
 
     class Meta:
         model = Testimonial
-        
+
         fields = ('created_by', 'title', 'comment', 'rating_stars')
-        
+
         labels = {
             'created_by': '',
             'title': 'Title',
@@ -31,6 +36,40 @@ class TestimonialForm(ModelForm):
             'comment': forms.Textarea(
                 attrs={'class': 'form-control text-dark'}),
             'rating_stars': forms.HiddenInput(),
+        }
+
+
+class CustomerForm(ModelForm):
+    """ Form for User's Information Edit Page """
+    class Meta:
+        model = User
+        fields = ('username', 'email')
+
+        labels = {
+            'username': 'Username*',
+            'email': 'Email*',
+        }
+
+        widgets = {
+            'username': forms.TextInput(
+                attrs={'class': 'form-control'}),
+
+            'email': forms.EmailInput(
+                attrs={'class': 'form-control'}),
+        }
+
+
+class CustomerExtraForm(ModelForm):
+    """ Form for User's Extra Information Edit Page """
+    class Meta:
+        model = Customer
+        fields = ['first_name', 'last_name', 'avatar']
+
+        widgets = {
+                'first_name': forms.TextInput(attrs={'class': 'form-control'}),
+                'last_name': forms.TextInput(attrs={'class': 'form-control'}),
+                'avatar': forms.FileInput(
+                    attrs={'class': 'form-control-file'}),
         }
 
 

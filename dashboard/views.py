@@ -1,6 +1,10 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
+from django.shortcuts import reverse
+from django.shortcuts import HttpResponseRedirect
 from django.urls import reverse_lazy
 
+from django.contrib import messages
 from django.contrib.auth.forms import User
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
@@ -13,9 +17,12 @@ from django.views.generic import UpdateView
 from django.views.generic import DeleteView
 
 from .models import Testimonial
-from .form import TestimonialForm
 from .models import ShippingAddress
-from .form import ShippingAddressForm
+
+from .forms import CustomerForm
+from .forms import CustomerExtraForm
+from .forms import ShippingAddressForm
+from .forms import TestimonialForm
 
 
 class DashboardView(View):
@@ -29,8 +36,47 @@ class DashboardView(View):
 ################################
 #        Customer Views        #
 ################################
+class CustomerView(LoginRequiredMixin, View):
+    """
+    Class to Edit Customer Information
+    """
+    model = User
+    template_name = 'dashboard/customer/customer.html'
 
+    def get(self, request):
+        print("IN THE GET!!!")
+        """ Function to retrive data for Booking """
+        customer_form = CustomerForm(instance=request.user)
+        customer_extra_form = CustomerExtraForm(instance=request.user.customer)
 
+        context = {
+            'customer_form': customer_form,
+            'customer_extra_form': customer_extra_form,
+        }
+        return render(request, self.template_name, context)
+
+    def post(self, request, *args, **kwargs):
+        """ Post Function Booking """
+        print("INSIDE THE POST!!!")
+        customer_form = CustomerForm(request.POST, instance=request.user)
+        customer_extra_form = CustomerExtraForm(request.POST, request.FILES, instance=request.user.customer)
+
+        if customer_extra_form.is_valid():
+            print("I AM VALID: CUSTOMER_EXTRA")
+            if customer_form.is_valid():
+                print("I AM VALID: CUSTOMER_FORM")
+                customer_form.save()
+                customer_extra_form.save()
+
+                messages.success(request, 'Profile Updated Correctly!')
+                url = reverse('customer-update', )
+                return HttpResponseRedirect(url)
+        else:
+            messages.info(
+                request,
+                'Error: Form not filled in correctly! Please try again!'
+                )
+            return redirect(request.path)
 
 
 ################################
