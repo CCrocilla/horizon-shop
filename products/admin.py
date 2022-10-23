@@ -9,18 +9,18 @@ from .models import ProductRating
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     """ Category """
-    list_display = ('name', 'friendly_name')
+    list_display = ('name', )
     list_filter = ('name', )
-    search_fields = ('friendly_name', )
+    search_fields = ('name', )
     prepopulated_fields = {'slug': ('name',)}
 
 
 @admin.register(SubCategory)
 class SubCategoryAdmin(admin.ModelAdmin):
     """ Sub-Categories """
-    list_display = ('name', 'friendly_name')
+    list_display = ('name', )
     list_filter = ('name', )
-    search_fields = ('friendly_name', )
+    search_fields = ('name', )
     prepopulated_fields = {'slug': ('name',)}
 
 

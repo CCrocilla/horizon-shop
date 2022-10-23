@@ -1,0 +1,71 @@
+{% extends 'dashboard/base.html' %}
+
+{% block extra_title %} - Dashboard{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+
+<!-- ======================= -->
+<!--         Messages        -->
+<!-- ======================= -->
+
+{% include 'dashboard/includes/messages.html' %}
+
+<!-- ======================= -->
+<!--       End Messages      -->
+<!-- ======================= -->
+
+
+<div class="container text-dark">
+    <h1 class="mt-4 text-center">Shipping Address List</h1>
+    <ol class="breadcrumb mb-4 mx-auto d-flex justify-content-center">
+        <li class="active">Review, update or delete your Address!</li>
+    </ol>
+
+    <div class="row">
+        {% for shipping in shippingaddress_list %}
+
+        {% if shipping.created_by.id == user.id %}
+        <div class="col-4">
+
+            <div class="p-3 mb-2 mt-2 alert alert-dark rounded-3">
+                <h3> Name:
+                    <a href="#">
+                        <strong>{{ shipping.shipping_name }}</strong>
+                    </a>
+                </h3>
+                <div>Author: {{ shipping.created_by }}</div> <!-- Needs to be removed! -->
+                <div>Country: {{ shipping.country }} </div>
+                <div>Phone: {{ shipping.phone_number }}</div>
+                <div>Address 1: {{ shipping.address_street_1 }}</div>
+                <div>Address 2: {{ shipping.address_street_2 }}</div>
+                <div>City: {{ shipping.city }}</div>
+                <div>Postcode: {{ shipping.postcode }}</div>
+                <br />
+
+
+                <a class="btn btn-minwidth btn-outline-primary rounded-3 mt-4"
+                    href="{% url 'shipping-address-update' shipping.pk %}" aria-label="Update">Edit</a>
+                <a class="btn btn-minwidth btn-outline-warning rounded-3 mt-4"
+                    href="{% url 'shipping-address-delete' shipping.pk %}" aria-label="Delete">Delete</a>
+            </div>
+        </div>
+
+        {% endif %}
+
+        {% endfor %}
+
+    </div>
+</div>
+
+{% else %}
+
+{% include 'dashboard/includes/auth-error.html' %}
+
+{% endif %}
+
+{% endblock %}

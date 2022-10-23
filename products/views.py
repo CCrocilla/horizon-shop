@@ -2,19 +2,24 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from django.shortcuts import reverse
 from django.shortcuts import get_object_or_404
-from django.views import View
+
+from django.contrib.auth.forms import User
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.messages.views import SuccessMessageMixin
+
 from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
+
+from django.views import View
 from django.views.generic import ListView
 from django.views.generic import DetailView
 from django.views.generic import CreateView
 from django.views.generic import UpdateView
 from django.views.generic import DeleteView
-from django.contrib.auth.forms import User
+
 from .models import Product
 from .models import Category
 from .models import SubCategory
+
 from django.db.models import Q
 
 
@@ -41,17 +46,25 @@ class AllProductsListView(View):
         products = Product.objects.order_by('-created_date')
         search_term = None
 
+        if 'sort' in request.GET:
+            sort = request.GET['sort']
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sort = f'-{sort}'
+            products = products.order_by(sort)
+
         if 'q' in request.GET:
             search_term = request.GET['q']
             if not search_term:
                 messages.error(request, messages.ERROR, 'No Search createria entered!')
                 return redirect(reverse('all_products'))
 
-            searched = Q(title__icontains=search_term) | Q(description__icontains=search_term) | Q(brand__icontains=search_term)
+            searched = Q(title__icontains=search_term) | Q(description__icontains=search_term) | Q(brand__icontains=search_term) | Q(category__name__icontains=search_term) | Q(subcategory__name__icontains=search_term)
             products = products.filter(searched).order_by('-created_date')
-            print(products)
-            
+
         context = {
+
                 'products': products,
                 'search_term': search_term
             }
@@ -84,7 +97,7 @@ class NewProductsListView(View):
 
     def get(self, request):
         products = Product.objects.filter(product_status=0).order_by('-created_date')
-            
+    
         context = {
                 'products': products,
             }
@@ -100,7 +113,7 @@ class UsedProductsListView(View):
 
     def get(self, request):
         products = Product.objects.filter(product_status=1).order_by('-created_date')
-            
+
         context = {
                 'products': products,
             }

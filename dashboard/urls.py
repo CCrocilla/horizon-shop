@@ -1,13 +1,19 @@
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+
 from .views import DashboardView
+
 from .views import TestimonialAddView
 from .views import TestimonialListView
 from .views import TestimonialDetailsView
 from .views import TestimonialUpdateView
 from .views import TestimonialDeleteView
 
+from .views import ShippingAddressAddView
+from .views import ShippingAddressListView
+from .views import ShippingAddressUpdateView
+from .views import ShippingAddressDeleteView
 
 
 urlpatterns = [
@@ -15,6 +21,35 @@ urlpatterns = [
         '', DashboardView.as_view(), name='dashboard'),
     path(
         '', include('django.contrib.auth.urls')),
+    ##########################################
+    #            Customer Paths              #
+    ##########################################
+
+
+
+    ##########################################
+    #       Shipping Addresses Paths         #
+    ##########################################
+    path(
+        'address/add',
+        ShippingAddressAddView.as_view(),
+        name='shipping-address-add'
+        ),
+    path(
+        'shipping_address/list',
+        ShippingAddressListView.as_view(),
+        name='shipping-address-list'
+        ),
+    path(
+        'shipping_address/<int:pk>/update',
+        ShippingAddressUpdateView.as_view(),
+        name='shipping-address-update'
+        ),
+    path(
+        'shipping_address/<int:pk>/delete',
+        ShippingAddressDeleteView.as_view(),
+        name='shipping-address-delete'
+        ),
     ##########################################
     #           Testimonial Paths            #
     ##########################################

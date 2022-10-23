@@ -8,7 +8,6 @@ PRODUCT_STATUS = ((0, 'New'), (1, 'Used'))
 
 class Category(models.Model):
     name = models.CharField(max_length=254)
-    friendly_name = models.CharField(max_length=254, null=True, blank=True)
     slug = models.SlugField(max_length=254, unique=True)
 
     class Meta:
@@ -17,18 +16,14 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-    def get_friendly_name(self):
-        return self.friendly_name
-
     def get_absolute_url(self):
         return reverse('search_by', args=[self.slug])
 
 
 class SubCategory(models.Model):
-    name = models.CharField(max_length=254)
-    friendly_name = models.CharField(max_length=254, null=True, blank=True)
     category = models.ForeignKey(
         Category, null=True, blank=True, on_delete=models.SET_NULL)
+    name = models.CharField(max_length=254)
     slug = models.SlugField(max_length=254, unique=True)
 
     class Meta:
@@ -36,9 +31,6 @@ class SubCategory(models.Model):
 
     def __str__(self):
         return self.name
-
-    def get_friendly_name(self):
-        return self.friendly_name
 
     def get_absolute_url(self):
         return reverse('search_by', args=[self.slug])

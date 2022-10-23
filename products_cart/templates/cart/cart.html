@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block extra_title %} - Cart{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="container">
+    <div class="row">
+        <div class="col">
+            <div class="my-5 py-5">
+                <h1 class="text-center text-dark">Shopping Cart</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {% if cart %}
+
+            <div class="table-responsive rounded-3"></div>
+
+            {% else %}
+
+            <h3 class="mb-5">No Item in your Cart!</h3>
+
+            <a href="{% url 'all_products' %}" class="btn btn-dark rounded-3 btn-lg">
+                <span class="text-uppercase">Start Shopping</span>
+            </a>
+
+            <a href="{% url 'account_login' %}" class="btn btn-dark rounded-3 btn-lg">
+                <span class="text-uppercase">Sign In</span>
+            </a>
+
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

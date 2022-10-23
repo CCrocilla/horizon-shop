@@ -31,7 +31,7 @@
                     </a>
 
                     <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link text-yellow"
-                        href="">
+                        href="{% url 'cart' %}">
                         <div class="fs-6 text-center text-yellow">
                             <div>
                                 <p class="my-0">
@@ -76,10 +76,11 @@
                     {% if user.is_authenticated %}
                     <a class="dropdown-item" href="{% url 'dashboard' %}">My Horizon Shop</a>
                     <a class="dropdown-item" href="#">My Profile</a>
+                    <a class="dropdown-item" href="{% url 'shipping-address-list' %}">My Addresses</a>
                     <a class="dropdown-item" href="#">My Orders</a>
                     <a class="dropdown-item" href="#">My Products</a>
                     <a class="dropdown-item" href="#">My Reviews</a>
-                    <a class="dropdown-item" href="#">My Testimonials</a>
+                    <a class="dropdown-item" href="{% url 'testimonials-list' %}">My Testimonials</a>
                     <div class="dropdown-divider"></div>
                     <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
 
@@ -120,7 +121,7 @@
                     </li>
                     <li class="nav-item active d-md-none">
                         <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link text-yellow"
-                            href="">
+                            href="{% url 'cart' %}">
                             <span class="nav-link-title">
                                 <i class="fas fa-shopping-cart fa-lg"></i>
                                 {% if grand_total %}
@@ -164,7 +165,7 @@
                             {% for category in categories %}
 
                             <a class="dropdown-item" href="{{ category.get_absolute_url }}">
-                                {{ category.friendly_name }}
+                                {{ category.name }}
                             </a>
 
                             {% endfor %}
