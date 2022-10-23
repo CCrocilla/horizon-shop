@@ -97,7 +97,7 @@ class NewProductsListView(View):
 
     def get(self, request):
         products = Product.objects.filter(product_status=0).order_by('-created_date')
-    
+
         context = {
                 'products': products,
             }

@@ -152,7 +152,7 @@ Carousel Hero & Testimonials
     font-size: 1rem;
 }
 
-.testimonials__picture {
+.testimonials-picture {
     width: 6rem;
     height: 6rem;
     position: absolute;
@@ -160,7 +160,7 @@ Carousel Hero & Testimonials
     transform: translate(-50%, -50%);
 }
 
-.testimonials__picture img {
+.testimonials-picture img {
     border: 0.325rem solid rgba(29, 39, 59, 0.7);
 }
 
@@ -529,8 +529,14 @@ small ul li {
     font-size: 1.1rem;
 }
 
+
+.login .form-label {
+    color: #1D273B;
+    font-size: 1.1rem;
+}
+
 /*--------------------------------------------------------------
-Editing Profile Page
+Customer Updating Information Page
 --------------------------------------------------------------*/
 .ht-check-none #id_is_active+.helptext {
     display: none;
@@ -538,6 +544,20 @@ Editing Profile Page
 
 .ht-check-none #id_password {
     display: none;
+}
+
+
+/*--------------------------------------------------------------
+Customer Avatar
+--------------------------------------------------------------*/
+.avatar-picture img {
+    width: 6rem;
+    height: 6rem;
+    position: absolute;
+    left: 40%;
+    border-radius: 100px;
+    z-index: 10;
+    top: 10px;
 }
 
 

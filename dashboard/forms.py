@@ -11,34 +11,6 @@ from .models import ShippingAddress
 from .models import Testimonial
 
 
-class TestimonialForm(ModelForm):
-    """ Form for Testimonials """
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['created_by'].disabled = True
-
-    class Meta:
-        model = Testimonial
-
-        fields = ('created_by', 'title', 'comment', 'rating_stars')
-
-        labels = {
-            'created_by': '',
-            'title': 'Title',
-            'comment': 'Comment',
-            'rating_stars': '',
-        }
-
-        widgets = {
-            'created_by': forms.HiddenInput(),
-            'title': forms.TextInput(
-                attrs={'class': 'form-control text-dark'}),
-            'comment': forms.Textarea(
-                attrs={'class': 'form-control text-dark'}),
-            'rating_stars': forms.HiddenInput(),
-        }
-
-
 class CustomerForm(ModelForm):
     """ Form for User's Information Edit Page """
     class Meta:
@@ -46,8 +18,8 @@ class CustomerForm(ModelForm):
         fields = ('username', 'email')
 
         labels = {
-            'username': 'Username*',
-            'email': 'Email*',
+            'username': 'Username *',
+            'email': 'Email *',
         }
 
         widgets = {
@@ -64,6 +36,12 @@ class CustomerExtraForm(ModelForm):
     class Meta:
         model = Customer
         fields = ['first_name', 'last_name', 'avatar']
+
+        labels = {
+            'first_name': 'First Name *',
+            'last_name': 'Last Name *',
+            'avatar': 'Avatar',
+        }
 
         widgets = {
                 'first_name': forms.TextInput(attrs={'class': 'form-control'}),
@@ -99,4 +77,32 @@ class ShippingAddressForm(ModelForm):
                     attrs={'class': 'form-control text-dark'}),
             'postcode': forms.TextInput(
                     attrs={'class': 'form-control text-dark'}),
+        }
+
+
+class TestimonialForm(ModelForm):
+    """ Form for Testimonials """
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['created_by'].disabled = True
+
+    class Meta:
+        model = Testimonial
+
+        fields = ('created_by', 'title', 'comment', 'rating_stars')
+
+        labels = {
+            'created_by': '',
+            'title': 'Title',
+            'comment': 'Comment',
+            'rating_stars': '',
+        }
+
+        widgets = {
+            'created_by': forms.HiddenInput(),
+            'title': forms.TextInput(
+                attrs={'class': 'form-control text-dark'}),
+            'comment': forms.Textarea(
+                attrs={'class': 'form-control text-dark'}),
+            'rating_stars': forms.HiddenInput(),
         }
