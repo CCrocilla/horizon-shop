@@ -41,18 +41,20 @@
                                             {{ customer_form.username }}
                                             <label class="small mb-1">Email:</label>
                                             {{ customer_form.email }}
-                                        </div>
 
-                                        <label class="small mb-1">First Name:</label>
-                                        {{ customer_extra_form.first_name }}
-                                        <label class="small mb-1">Last Name:</label>
-                                        {{ customer_extra_form.last_name }}
-                                        <label class="small mb-1">Change Avatar:</label>
-                                        {{ customer_extra_form.avatar }}
 
-                                        <div class="btn btn-info btn-lg">
-                                            <a href="#">Change Password?</a>
+                                            <label class="small mb-1">First Name:</label>
+                                            {{ customer_form.first_name }}
+                                            <label class="small mb-1">Last Name:</label>
+                                            {{ customer_form.last_name }}
+                                            <label class="small mb-1">Change Avatar:</label>
+                                            {{ customer_extra_form.avatar }}
+                                            <label class="small mb-1">Customer Since:</label>
+                                            {{ customer_form.date_joined }}
                                         </div>
+                                    </div>
+                                    <div class="btn btn-info btn-lg">
+                                        <a href="#">Change Password?</a>
                                     </div>
 
                                     <br><br>

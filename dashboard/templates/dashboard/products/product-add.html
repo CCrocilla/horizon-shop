@@ -1,0 +1,50 @@
+{% extends 'dashboard/base.html' %}
+
+{% block extra_title %} - Shipping Address{% endblock %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<div class="container text-dark">
+    <h1 class="mt-4 text-center">Create the Product</h1>
+    <ol class="breadcrumb mx-auto d-flex justify-content-center mb-4">
+        <li class="active">Do you want to sell a product. This is the right place for you!</li>
+    </ol>
+
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-6">
+            <div class="card rounded-3 bg-dark">
+                <div class="card-body p-4">
+                    <div class="d-flex flex-start w-100">
+                        <div class="w-100">
+                            <form method="POST">
+                                <div class="fs-5 text-dark">
+                                    {% csrf_token %}
+                                    {{ form|crispy }}
+
+                                    <input type="reset" value="Reset"
+                                        class="btn btn-minwidth btn-secondary text-dark rounded-3" aria-label="Reset">
+                                    <button type="submit" class="m-3 btn btn-minwidth btn-yellow text-dark rounded-3"
+                                        aria-label="Submit">Create</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% else %}
+
+{% include 'dashboard/includes/auth-error.html' %}
+
+{% endif %}
+
+{% endblock %}
