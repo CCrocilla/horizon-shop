@@ -1,0 +1,102 @@
+{% extends 'dashboard/base.html' %}
+
+{% block extra_title %} - Dashboard{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+
+<!-- ======================= -->
+<!--         Messages        -->
+<!-- ======================= -->
+
+{% include 'dashboard/includes/messages.html' %}
+
+<!-- ======================= -->
+<!--       End Messages      -->
+<!-- ======================= -->
+
+<div class="container text-dark">
+    {% if user.is_superuser %}
+    <h1 class="mt-4 text-center">Product List Administrator</h1>
+    {% else %}
+    <h1 class="mt-4 text-center">Product List </h1>
+    {% endif %}
+    <ol class="breadcrumb mb-4 mx-auto d-flex justify-content-center">
+        <li class="active">Review, update or delete your Products!</li>
+    </ol>
+
+    <div class="row d-flex align-items-center">
+
+        {% for product in product_list %}
+
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="card" style="width: 18rem;">
+
+                <div class="type-lb">
+                    {% if product.product_status == 0 %}
+                    <p class="sale">New</p>
+                    {% else %}
+                    <p class="sale">Used</p>
+                    {% endif %}
+                </div>
+
+                {% if product.image %}
+
+                <a href="">
+                    <img src="{{ product.image.url }}" class="card-img-top img-fluid" alt="Image {{ product.title }}">
+                </a>
+
+                {% else %}
+
+                <a href="">
+                    <img src="{{ MEDIA_URL }}noimage.jpg" class="card-img-top img-fluid"
+                        alt="Image {{ product.title }}">
+                </a>
+
+                {% endif %}
+
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.title }}</h5>
+
+                    {% if product.product_status == 0 %}
+                    <p class="card-text">Condition: New</p>
+                    {% else %}
+                    <p class="card-text">Condition: Used</p>
+                    {% endif %}
+
+                    <p class="card-text">Brand: {{ product.brand }}</p>
+
+                    {% if product.productrating.rating_stars %}
+                    <p class="card-text">{{ product.rating }}</p>
+                    {% else %}
+                    <p class="card-text">No Rating</p>
+                    {% endif %}
+
+
+                    <p class="card-text">Price: {{ product.price }} Euro</p>
+
+                    <a class="btn btn-minwidth btn-outline-primary rounded-3 mt-4"
+                        href="{% url 'product-update' product.slug %}" aria-label="Update">Edit</a>
+                    <a class="btn btn-minwidth btn-outline-warning rounded-3 mt-4"
+                        href="{% url 'product-delete' product.slug %}" aria-label="Delete">Delete</a>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+
+    </div>
+</div>
+
+
+{% else %}
+
+{% include 'dashboard/includes/auth-error.html' %}
+
+{% endif %}
+
+{% endblock %}

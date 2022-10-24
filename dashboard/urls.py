@@ -18,6 +18,11 @@ from .views import ShippingAddressListView
 from .views import ShippingAddressUpdateView
 from .views import ShippingAddressDeleteView
 
+from .views import ProductAddView
+from .views import ProductListView
+from .views import ProductUpdateView
+from .views import ProductDeleteView
+
 
 urlpatterns = [
     path(
@@ -59,6 +64,29 @@ urlpatterns = [
         'shipping_address/<int:pk>/delete',
         ShippingAddressDeleteView.as_view(),
         name='shipping-address-delete'
+        ),
+    ##########################################
+    #             Product Paths              #
+    ##########################################
+    path(
+        'product/add',
+        ProductAddView.as_view(),
+        name='product-add'
+        ),
+    path(
+        'product/list',
+        ProductListView.as_view(),
+        name='product-list'
+        ),
+    path(
+        'product/<slug:slug>/update',
+        ProductUpdateView.as_view(),
+        name='product-update'
+        ),
+    path(
+        'product/<slug:slug>/delete',
+        ProductDeleteView.as_view(),
+        name='product-delete'
         ),
     ##########################################
     #           Testimonial Paths            #

@@ -189,8 +189,16 @@
                         <div class="collapse" id="collapsePages" aria-labelledby="mybooking"
                             data-bs-parent="#sidenavAccordionBooking">
                             <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPagesBooking">
-                                <a class="nav-link" href="">
-                                    Sells
+                                <a class="nav-link" href="{% url 'product-add' %}">
+                                    Sell Product
+                                </a>
+                            </nav>
+                        </div>
+                        <div class="collapse" id="collapsePages" aria-labelledby="mybooking"
+                            data-bs-parent="#sidenavAccordionBooking">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPagesBooking">
+                                <a class="nav-link" href="{% url 'product-list' %}">
+                                    Product List
                                 </a>
                             </nav>
                         </div>

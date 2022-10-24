@@ -40,7 +40,7 @@ class AllProductsListView(View):
     Class to display Users' Dashboard
     """
     model = Product()
-    template_name = 'products/all_products.html'
+    template_name = 'products/all-products.html'
 
     def get(self, request):
         products = Product.objects.order_by('-created_date')
@@ -57,10 +57,20 @@ class AllProductsListView(View):
         if 'q' in request.GET:
             search_term = request.GET['q']
             if not search_term:
-                messages.error(request, messages.ERROR, 'No Search createria entered!')
+                messages.error(
+                    request, messages.ERROR, 'No Search createria entered!')
                 return redirect(reverse('all_products'))
 
-            searched = Q(title__icontains=search_term) | Q(description__icontains=search_term) | Q(brand__icontains=search_term) | Q(category__name__icontains=search_term) | Q(subcategory__name__icontains=search_term)
+            searched = Q(title__icontains=search_term
+                         ) | Q(
+                             description__icontains=search_term
+                               ) | Q(
+                                   subcategory__name__icontains=search_term
+                                     ) | Q(
+                                         category__name__icontains=search_term
+                                           ) | Q(
+                                               brand__icontains=search_term
+                                               )
             products = products.filter(searched).order_by('-created_date')
 
         context = {
@@ -92,11 +102,12 @@ class NewProductsListView(View):
     Class to display Only New Products
     """
     model = Product()
-    template_name = 'products/new_products.html'
+    template_name = 'products/new-products.html'
     paginate_by = 6
 
     def get(self, request):
-        products = Product.objects.filter(product_status=0).order_by('-created_date')
+        products = Product.objects.filter(product_status=0
+                                          ).order_by('-created_date')
 
         context = {
                 'products': products,
@@ -112,7 +123,8 @@ class UsedProductsListView(View):
     template_name = 'products/used_products.html'
 
     def get(self, request):
-        products = Product.objects.filter(product_status=1).order_by('-created_date')
+        products = Product.objects.filter(product_status=1
+                                          ).order_by('-created_date')
 
         context = {
                 'products': products,
@@ -122,9 +134,9 @@ class UsedProductsListView(View):
 
 class ProductDetailsView(DetailView):
     """
-    Class to display single Product
+    Class to display single Product Details on the Shop
     """
     model = Product
     queryset = Product.objects.order_by('-created_date')
-    template_name = 'products/product_details.html'
+    template_name = 'products/product-details.html'
     fields = '__all__'
