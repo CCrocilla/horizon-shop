@@ -7,7 +7,7 @@ PRODUCT_STATUS = ((0, 'New'), (1, 'Used'))
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=254)
+    name = models.CharField(max_length=254, null=False, blank=False)
     slug = models.SlugField(max_length=254, unique=True)
 
     class Meta:
@@ -21,8 +21,10 @@ class Category(models.Model):
 
 
 class SubCategory(models.Model):
-    category = models.ForeignKey(
-        Category, null=True, blank=True, on_delete=models.SET_NULL)
+    category = models.ForeignKey(Category,
+                                 null=True, blank=False, 
+                                 on_delete=models.SET_NULL
+                                 )
     name = models.CharField(max_length=254)
     slug = models.SlugField(max_length=254, unique=True)
 
@@ -38,9 +40,9 @@ class SubCategory(models.Model):
 
 class Product(models.Model):
     category = models.ForeignKey(
-        Category, null=True, blank=True, on_delete=models.SET_NULL)
+        Category, null=True, blank=False, on_delete=models.SET_NULL)
     subcategory = models.ForeignKey(
-        SubCategory, null=True, blank=True, on_delete=models.SET_NULL)
+        SubCategory, null=True, blank=False, on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254, null=True, blank=True)
     slug = models.SlugField(unique=True, max_length=254)
     title = models.CharField(max_length=254)

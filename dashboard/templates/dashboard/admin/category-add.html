@@ -1,6 +1,6 @@
 {% extends 'dashboard/base.html' %}
 
-{% block extra_title %} - Shipping Address{% endblock %}
+{% block extra_title %} - Create Category{% endblock %}
 
 {% load static %}
 
@@ -8,12 +8,13 @@
 
 {% block content %}
 
+{% if user.is_superuser %}
 {% if user.is_authenticated %}
 
 <div class="container text-dark">
-    <h1 class="mt-4 text-center">Update the Product: {{ product.title }}</h1>
+    <h1 class="mt-4 text-center">Category</h1>
     <ol class="breadcrumb mx-auto d-flex justify-content-center mb-4">
-        <li class="active">Update the information of your product!</li>
+        <li class="active">Create a new Category</li>
     </ol>
 
     <div class="row d-flex justify-content-center">
@@ -22,13 +23,16 @@
                 <div class="card-body p-4">
                     <div class="d-flex flex-start w-100">
                         <div class="w-100">
-                            <form method="POST" enctype="multipart/form-data">
+                            <form method="POST">
                                 <div class="fs-5 text-dark">
+
                                     {% csrf_token %}
                                     {{ form|crispy }}
 
+                                    <input type="reset" value="Reset"
+                                        class="btn btn-minwidth btn-secondary text-dark rounded-3" aria-label="Reset">
                                     <button type="submit" class="m-3 btn btn-minwidth btn-yellow text-dark rounded-3"
-                                        aria-label="Submit">Update</button>
+                                        aria-label="Submit">Create</button>
                                 </div>
                             </form>
                         </div>
@@ -43,6 +47,7 @@
 
 {% include 'dashboard/includes/auth-error.html' %}
 
+{% endif %}
 {% endif %}
 
 {% endblock %}

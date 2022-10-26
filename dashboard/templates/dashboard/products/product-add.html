@@ -22,7 +22,7 @@
                 <div class="card-body p-4">
                     <div class="d-flex flex-start w-100">
                         <div class="w-100">
-                            <form method="POST">
+                            <form method="POST" enctype="multipart/form-data">
                                 <div class="fs-5 text-dark">
                                     {% csrf_token %}
                                     {{ form|crispy }}
