@@ -4,6 +4,8 @@ from . import views
 
 from django.urls import path
 from django.urls import include
+from django.conf import settings
+from django.conf.urls.static import static
 
 from .views import AllProductsListView
 from .views import NewProductsListView
@@ -13,6 +15,8 @@ from .views import SearchByView
 
 
 urlpatterns = [
+    path(
+        '', include('django.contrib.auth.urls')),
     path('all/',
          AllProductsListView.as_view(),
          name='all_products'
@@ -33,4 +37,4 @@ urlpatterns = [
          ProductDetailsView.as_view(),
          name='product_details'
          ),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

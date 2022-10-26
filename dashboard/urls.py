@@ -23,6 +23,16 @@ from .views import ProductListView
 from .views import ProductUpdateView
 from .views import ProductDeleteView
 
+from .views import CategoryAddView
+from .views import CategoryListView
+from .views import CategoryUpdateView
+from .views import CategoryDeleteView
+
+from .views import SubCategoryAddView
+from .views import SubCategoryListView
+from .views import SubCategoryUpdateView
+from .views import SubCategoryDeleteView
+
 
 urlpatterns = [
     path(
@@ -87,6 +97,52 @@ urlpatterns = [
         'product/<slug:slug>/delete',
         ProductDeleteView.as_view(),
         name='product-delete'
+        ),
+    ##########################################
+    #             Category Paths             #
+    ##########################################
+    path(
+        'category/add',
+        CategoryAddView.as_view(),
+        name='category-add'
+        ),
+    path(
+        'category/list',
+        CategoryListView.as_view(),
+        name='category-list'
+        ),
+    path(
+        'category/<int:pk>/update',
+        CategoryUpdateView.as_view(),
+        name='category-update'
+        ),
+    path(
+        'category/<int:pk>/delete',
+        CategoryDeleteView.as_view(),
+        name='category-delete'
+        ),
+    ##########################################
+    #           Sub-Category Paths           #
+    ##########################################
+    path(
+        'sub-category/add',
+        SubCategoryAddView.as_view(),
+        name='subcategory-add'
+        ),
+    path(
+        'sub-category/list',
+        SubCategoryListView.as_view(),
+        name='subcategory-list'
+        ),
+    path(
+        'sub-category/<int:pk>/update',
+        SubCategoryUpdateView.as_view(),
+        name='subcategory-update'
+        ),
+    path(
+        'sub-category/<int:pk>/delete',
+        SubCategoryDeleteView.as_view(),
+        name='subcategory-delete'
         ),
     ##########################################
     #           Testimonial Paths            #

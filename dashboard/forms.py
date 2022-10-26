@@ -3,13 +3,15 @@ from django import forms
 from django.forms import ModelForm
 from django.contrib import messages
 
-
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm
 
 from .models import Customer
 from .models import ShippingAddress
 from .models import Testimonial
+
+from products.models import Category
+from products.models import SubCategory
 
 from products.models import Product
 
@@ -127,6 +129,39 @@ class ProductForm(ModelForm):
         widgets = {
                 'image': forms.FileInput(
                     attrs={'class': 'form-control-file'}),
+        }
+
+
+class CategoryForm(ModelForm):
+    """ Form Category """
+    class Meta:
+        model = Category
+        fields = ['name']
+
+        labels = {
+            'name': 'Category Name',
+        }
+
+        widgets = {
+                'name': forms.TextInput(
+                    attrs={'class': 'form-control text-dark'}),
+        }
+
+
+class SubCategoryForm(ModelForm):
+    """ Form Category """
+    class Meta:
+        model = SubCategory
+        fields = ['category', 'name']
+
+        labels = {
+            'category': 'Select the Category',
+            'name': 'Sub-Category Name',
+        }
+
+        widgets = {
+                'name': forms.TextInput(
+                    attrs={'class': 'form-control text-dark'}),
         }
 
 

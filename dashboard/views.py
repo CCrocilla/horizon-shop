@@ -20,8 +20,11 @@ from django.views.generic import CreateView
 from django.views.generic import UpdateView
 from django.views.generic import DeleteView
 
-from .models import Testimonial
+from products.models import Category
+from products.models import SubCategory
+
 from .models import ShippingAddress
+from .models import Testimonial
 
 from products.models import Product
 
@@ -30,6 +33,8 @@ from .forms import CustomerExtraForm
 from .forms import ShippingAddressForm
 from .forms import TestimonialForm
 from .forms import ProductForm
+from .forms import CategoryForm
+from .forms import SubCategoryForm
 
 
 class DashboardView(View):
@@ -157,20 +162,6 @@ class ShippingAddressDeleteView(SuccessMessageMixin, DeleteView):
 ################################
 #        Product Views         #
 ################################
-# class ProductAddView(SuccessMessageMixin, CreateView):
-#     """
-#     Class to create Users' Product
-#     """
-#     model = Product
-#     form_class = ProductForm
-#     template_name = 'dashboard/products/product-add.html'
-#     success_url = reverse_lazy('product-list')
-#     success_message = 'Product created successfully!'
-
-#     def get_initial(self):
-#         user = self.request.user
-#         return {'created_by': user}
-
 class ProductAddView(SuccessMessageMixin, View):
     """
     Class to create Users' Product
@@ -179,7 +170,7 @@ class ProductAddView(SuccessMessageMixin, View):
     template_name = 'dashboard/products/product-add.html'
 
     def get(self, request):
-        product_form = ProductForm(request.POST)
+        product_form = ProductForm(request.POST, request.FILES)
 
         context = {
             'form': product_form,
@@ -196,16 +187,11 @@ class ProductAddView(SuccessMessageMixin, View):
             product.slug = slugify(product.title)
             if product.created_by.is_superuser:
                 product.product_status = 0
-                product.save()
-                messages.success(request, 'Product Created!')
-                url = reverse('product-list', )
-                return HttpResponseRedirect(url)
             else:
                 product.product_status = 1
-                product.save()
-                messages.success(request, 'Thanks! Your Product has been created!')
-                url = reverse('product-list', )
-                return HttpResponseRedirect(url)
+            product.save()
+            messages.success(request, 'Thanks! Your Product has been created!')
+            return HttpResponseRedirect(reverse('product-list', ))
         else:
             messages.info(request,
                           'Error: Form not filled in correctly! Try again!'
@@ -250,6 +236,139 @@ class ProductDeleteView(SuccessMessageMixin, DeleteView):
     template_name = 'dashboard/products/product-delete.html'
     success_url = reverse_lazy('product-list')
     success_message = "Product deleted successfully!"
+
+
+################################
+#       Category Views         #
+################################
+class CategoryAddView(SuccessMessageMixin, CreateView):
+    """
+    Class to create Users' Category
+    """
+    model = Category
+    template_name = 'dashboard/admin/category-add.html'
+
+    def get(self, request):
+        category_form = CategoryForm(request.POST)
+
+        context = {
+            'form': category_form,
+        }
+
+        return render(request, self.template_name, context)
+
+    def post(self, request, *args, **kwargs):
+        category_form = CategoryForm(request.POST)
+
+        if category_form.is_valid():
+            category = category_form.save(commit=False)
+            category.slug = slugify(category.name)
+            category.save()
+            messages.success(request, 'Thanks! Category created!')
+            return HttpResponseRedirect(reverse('category-list', ))
+        else:
+            messages.info(request,
+                          'Error: Form not filled in correctly! Try again!'
+                          )
+            return redirect(request.path)
+
+
+class CategoryListView(ListView):
+    """
+    Class to display the Categories
+    """
+    model = Category
+    template_name = 'dashboard/admin/category-list.html'
+    ordering = ['name']
+    fields = ['name', ]
+
+
+class CategoryUpdateView(UpdateView):
+    """
+    Class to update Category
+    """
+    model = Category
+    template_name = 'dashboard/admin/category-update.html'
+    fields = ['name', ]
+    success_url = reverse_lazy('category-list')
+    success_message = "Category updated successfully!"
+
+
+class CategoryDeleteView(SuccessMessageMixin, DeleteView):
+    """
+    Class to delete Category
+    """
+    model = Category
+    template_name = 'dashboard/admin/category-delete.html'
+    success_url = reverse_lazy('category-list')
+    success_message = "Category deleted successfully!"
+
+
+################################
+#      Sub-Category Views      #
+################################
+class SubCategoryAddView(SuccessMessageMixin, CreateView):
+    """
+    Class to create Sub-Category
+    """
+    model = SubCategory
+    template_name = 'dashboard/admin/sub-category-add.html'
+
+    def get(self, request):
+        subcategory_form = SubCategoryForm(request.POST)
+
+        context = {
+            'form': subcategory_form,
+        }
+
+        return render(request, self.template_name, context)
+
+    def post(self, request, *args, **kwargs):
+        subcategory_form = SubCategoryForm(request.POST)
+
+        if subcategory_form.is_valid():
+            subcategory = subcategory_form.save(commit=False)
+            subcategory.slug = slugify(subcategory.name)
+            subcategory.save()
+            messages.success(request, 'Thanks! Sub-Category created!')
+            return HttpResponseRedirect(reverse('subcategory-list', ))
+
+        else:
+            messages.info(request,
+                          'Error: Form not filled in correctly! Try again!'
+                          )
+            return redirect(request.path)
+
+
+class SubCategoryListView(ListView):
+    """
+    Class to display the Sub-Categories
+    """
+    model = SubCategory
+    template_name = 'dashboard/admin/sub-category-list.html'
+    ordering = ['name']
+    fields = ['category', 'name', ]
+
+
+class SubCategoryUpdateView(UpdateView):
+    """
+    Class to update Sub-Category
+    """
+    model = SubCategory
+    template_name = 'dashboard/admin/sub-category-update.html'
+    fields = ['category', 'name', ]
+    success_url = reverse_lazy('subcategory-list')
+    success_message = "Sub-Category updated successfully!"
+
+
+class SubCategoryDeleteView(SuccessMessageMixin, DeleteView):
+    """
+    Class to delete Sub-Category
+    """
+    model = SubCategory
+    template_name = 'dashboard/admin/sub-category-delete.html'
+    success_url = reverse_lazy('subcategory-list')
+    success_message = "Category deleted successfully!"
 
 
 ################################

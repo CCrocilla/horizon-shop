@@ -84,27 +84,6 @@
 </section>
 <!-- End Banner Hero-->
 
-<section>
-    <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-        <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-            <div class="my-3 py-3">
-                <h2 class="display-5">Another headline</h2>
-                <p class="lead">And an even wittier subheading.</p>
-            </div>
-            <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-            </div>
-        </div>
-        <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-            <div class="my-3 p-3">
-                <h2 class="display-5">Another headline</h2>
-                <p class="lead">And an even wittier subheading.</p>
-            </div>
-            <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- Start Product Visualization -->
 <section class="bg-light">
     <div class="products-box">
@@ -324,6 +303,75 @@
     </div>
 </section>
 <!-- End Used Products -->
+
+
+<!-- Start Products Loop -->
+<section class="bg-light">
+    <div class="container py-5">
+        <div class="row text-center py-3">
+            <div class="col-lg-12 m-auto title-all text-center text-dark">
+                <h1 class="h1">Products Loop</h1>
+                <p>
+                    Below the latest used products added to Horizon Shop!!!
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Adding For Loop -->
+            {% for product in new_products %}
+
+            <div class="col-12 col-md-4 mb-4">
+                <div class="card h-100">
+
+                    <div class="type-lb">
+                        {% if product.product_status == 0 %}
+                        <p class="sale">New</p>
+                        {% else %}
+                        <p class="sale">Used</p>
+                        {% endif %}
+                    </div>
+
+                    {% if product.image %}
+
+                    <a href="shop-single.html">
+                        <img src="{{ product.image.url }}" class="card-img-top" alt="...">
+                    </a>
+
+                    {% else %}
+
+                    <a href="">
+                        <img src="{{ MEDIA_URL }}noimage.jpg" class="card-img-top img-fluid"
+                            alt="Image {{ product.title }}">
+                    </a>
+
+                    {% endif %}
+
+                    <div class="card-body">
+                        <ul class="list-unstyled d-flex justify-content-between">
+                            <li>
+                                <i class="text-yellow fa fa-star"></i>
+                                <i class="text-yellow fa fa-star"></i>
+                                <i class="text-yellow fa fa-star"></i>
+                                <i class="text-muted fa fa-star"></i>
+                                <i class="text-muted fa fa-star"></i>
+                            </li>
+                            <li class="text-muted text-right">{{ product.price }} Euro</li>
+                        </ul>
+                        <a href="shop-single.html" class="h2 text-decoration-none text-dark">{{ product.title }}</a>
+                        <p class="card-text">
+                            {{ product.description }}
+                        </p>
+                        <p class="text-muted">Reviews (24)</p>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+<!-- End Products Loop -->
 
 
 <!-- Testimonials Start -->
