@@ -11,6 +11,18 @@
 {% if user.is_superuser %}
 {% if user.is_authenticated %}
 
+
+<!-- ======================= -->
+<!--         Messages        -->
+<!-- ======================= -->
+
+{% include 'dashboard/includes/messages.html' %}
+
+<!-- ======================= -->
+<!--       End Messages      -->
+<!-- ======================= -->
+
+
 <div class="container text-dark">
     <h1 class="mt-4 text-center">Sub-Category</h1>
     <ol class="breadcrumb mx-auto d-flex justify-content-center mb-4">

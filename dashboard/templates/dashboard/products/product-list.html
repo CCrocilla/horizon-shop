@@ -62,10 +62,17 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ product.title }}</h5>
 
+                    {% if product.is_deleted %}
+                    <p class="card-text">Product Deleted!</p>
+
+                    {% else %}
+
                     {% if product.product_status == 0 %}
                     <p class="card-text">Condition: New</p>
                     {% else %}
                     <p class="card-text">Condition: Used</p>
+                    {% endif %}
+
                     {% endif %}
 
                     <p class="card-text">Brand: {{ product.brand }}</p>
