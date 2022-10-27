@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.shortcuts import reverse
+from django.shortcuts import get_object_or_404
+
 from django.shortcuts import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.utils.text import slugify
@@ -175,7 +177,6 @@ class ProductAddView(SuccessMessageMixin, View):
         context = {
             'form': product_form,
         }
-
         return render(request, self.template_name, context)
 
     def post(self, request, *args, **kwargs):
@@ -211,6 +212,7 @@ class ProductListView(ListView):
     def get_queryset(self):
         if self.request.user.is_superuser:
             queryset = Product.objects.all()
+            # queryset = Product.objects.filter(is_deleted=False)
         else:
             queryset = Product.objects.filter(created_by=self.request.user)
 
@@ -228,14 +230,23 @@ class ProductUpdateView(SuccessMessageMixin, UpdateView):
     success_message = "Product updated successfully!"
 
 
-class ProductDeleteView(SuccessMessageMixin, DeleteView):
-    """
-    Class to delete a Product
-    """
-    model = Product
-    template_name = 'dashboard/products/product-delete.html'
-    success_url = reverse_lazy('product-list')
-    success_message = "Product deleted successfully!"
+# class ProductDeleteView(SuccessMessageMixin, DeleteView):
+#     """
+#     Class to delete a Product
+#     """
+#     model = Product
+#     template_name = 'dashboard/products/product-delete.html'
+#     success_url = reverse_lazy('product-list')
+#     success_message = "Product deleted successfully!"
+
+
+def ProductDeleteView(request, slug):
+    """ Delete a product from the store """
+
+    product = get_object_or_404(Product, slug=slug)
+    product.soft_delete()
+    messages.success(request, 'Product deleted!')
+    return redirect(reverse('product-list'))
 
 
 ################################
@@ -261,11 +272,16 @@ class CategoryAddView(SuccessMessageMixin, CreateView):
         category_form = CategoryForm(request.POST)
 
         if category_form.is_valid():
-            category = category_form.save(commit=False)
-            category.slug = slugify(category.name)
-            category.save()
-            messages.success(request, 'Thanks! Category created!')
-            return HttpResponseRedirect(reverse('category-list', ))
+            name = category_form.cleaned_data.get('name')
+            if Category.objects.filter(name=name).exists():
+                messages.error(request, 'Category already exists!')
+                return redirect(request.path)
+            else:
+                category = category_form.save(commit=False)
+                category.slug = slugify(category.name)
+                category.save()
+                messages.success(request, 'Thanks! Category created!')
+                return HttpResponseRedirect(reverse('category-list', ))
         else:
             messages.info(request,
                           'Error: Form not filled in correctly! Try again!'
@@ -325,14 +341,18 @@ class SubCategoryAddView(SuccessMessageMixin, CreateView):
 
     def post(self, request, *args, **kwargs):
         subcategory_form = SubCategoryForm(request.POST)
-
+            
         if subcategory_form.is_valid():
-            subcategory = subcategory_form.save(commit=False)
-            subcategory.slug = slugify(subcategory.name)
-            subcategory.save()
-            messages.success(request, 'Thanks! Sub-Category created!')
-            return HttpResponseRedirect(reverse('subcategory-list', ))
-
+            name = subcategory_form.cleaned_data.get('name')
+            if SubCategory.objects.filter(name=name).exists():
+                messages.error(request, 'Sub-Category already exists!')
+                return redirect(request.path)
+            else:
+                subcategory = subcategory_form.save(commit=False)
+                subcategory.slug = slugify(subcategory.name)
+                subcategory.save()
+                messages.success(request, 'Thanks! Sub-Category created!')
+                return HttpResponseRedirect(reverse('subcategory-list', ))
         else:
             messages.info(request,
                           'Error: Form not filled in correctly! Try again!'

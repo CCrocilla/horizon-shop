@@ -123,6 +123,7 @@ class ProductForm(ModelForm):
                   'description',
                   'brand',
                   'price',
+                  'discounted_price',
                   'image'
                   )
 

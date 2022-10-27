@@ -2,6 +2,8 @@ from django.db import models
 from django.shortcuts import reverse
 from django.contrib.auth.models import User
 
+from home.models import SoftDeleteModel
+
 
 PRODUCT_STATUS = ((0, 'New'), (1, 'Used'))
 
@@ -23,7 +25,7 @@ class Category(models.Model):
 class SubCategory(models.Model):
     category = models.ForeignKey(Category,
                                  null=True, blank=False, 
-                                 on_delete=models.SET_NULL
+                                 on_delete=models.CASCADE
                                  )
     name = models.CharField(max_length=254)
     slug = models.SlugField(max_length=254, unique=True)
@@ -38,7 +40,7 @@ class SubCategory(models.Model):
         return reverse('search_by', args=[self.slug])
 
 
-class Product(models.Model):
+class Product(SoftDeleteModel):
     category = models.ForeignKey(
         Category, null=True, blank=False, on_delete=models.SET_NULL)
     subcategory = models.ForeignKey(
@@ -56,6 +58,11 @@ class Product(models.Model):
         )
     created_date = models.DateTimeField(auto_now_add=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
+    discounted_price = models.DecimalField(max_digits=6,
+                                           decimal_places=2,
+                                           null=True,
+                                           blank=True
+                                           )
     product_status = models.IntegerField(choices=PRODUCT_STATUS, default=0)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(upload_to='images/', null=True, blank=True)
@@ -94,3 +101,6 @@ class ProductRating(models.Model):
         User, blank=True, null=True, on_delete=models.CASCADE)
     rating_stars = models.DecimalField(
         max_digits=6, decimal_places=2, null=True, blank=True)
+
+
+
