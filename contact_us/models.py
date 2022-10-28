@@ -3,7 +3,7 @@ from django.db import models
 
 class ContactUs(models.Model):
     """ Model for Contact Us Page """
-    created_date = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True)
     full_name = models.CharField(max_length=100)
     email = models.EmailField(max_length=254)
     comment = models.TextField(blank=False, null=False)
@@ -11,7 +11,7 @@ class ContactUs(models.Model):
 
     class Meta:
         """ Sorting by Create Date """
-        ordering = ['created_date']
+        ordering = ['created_at']
         verbose_name_plural = 'Contact Us'
 
     def __str__(self):

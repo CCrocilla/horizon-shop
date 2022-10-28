@@ -12,10 +12,10 @@ class HomeView(View):
 
     def get(self, request):
         new_products = Product.objects.filter(product_status=0
-                                              ).order_by('-created_date')[:3]
+                                              ).order_by('-created_at')[:3]
         used_products = Product.objects.filter(product_status=1
-                                               ).order_by('-created_date')[:3]
-        testimonials = Testimonial.objects.all().order_by('-created_date')[:3]
+                                               ).order_by('-created_at')[:3]
+        testimonials = Testimonial.objects.all().order_by('-created_at')[:3]
 
         context = {
                 'new_products': new_products,

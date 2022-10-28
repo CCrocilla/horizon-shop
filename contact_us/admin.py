@@ -6,5 +6,5 @@ from .models import ContactUs
 class ContactUsAdmin(admin.ModelAdmin):
     """Contact Us"""
     list_display = (
-        'full_name', 'email', 'comment', 'created_date', 'terms'
+        'full_name', 'email', 'comment', 'created_at', 'terms'
     )

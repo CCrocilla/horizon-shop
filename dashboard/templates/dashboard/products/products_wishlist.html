@@ -20,54 +20,53 @@
 <!-- ======================= -->
 
 <div class="container text-dark">
-    {% if user.is_superuser %}
-    <h1 class="mt-4 text-center">Product List Administrator</h1>
-    {% else %}
-    <h1 class="mt-4 text-center">Product List </h1>
-    {% endif %}
+
+    <h1 class="mt-4 text-center">Wishlist</h1>
+
     <ol class="breadcrumb mb-4 mx-auto d-flex justify-content-center">
-        <li class="active">Review, update or delete your Products!</li>
+        <li class="active">Your Wishlist!</li>
     </ol>
 
     <div class="row d-flex align-items-center">
 
-        {% for product in product_list %}
+        {% for wish in wishlist %}
 
         <div class="col-12 col-md-4 col-lg-3">
             <div class="card" style="width: 18rem;">
 
                 <div class="type-lb">
-                    {% if product.product_status == 0 %}
+                    {% if wish.product.product_status == 0 %}
                     <p class="sale">New</p>
                     {% else %}
                     <p class="sale">Used</p>
                     {% endif %}
                 </div>
 
-                {% if product.image %}
+                {% if wish.product.image %}
 
                 <a href="">
-                    <img src="{{ product.image.url }}" class="card-img-top img-fluid" alt="Image {{ product.title }}">
+                    <img src="{{ wish.product.image.url }}" class="card-img-top img-fluid"
+                        alt="Image {{ wish.product.title }}">
                 </a>
 
                 {% else %}
 
                 <a href="">
                     <img src="{{ MEDIA_URL }}noimage.jpg" class="card-img-top img-fluid"
-                        alt="Image {{ product.title }}">
+                        alt="Image {{ wish.product.title }}">
                 </a>
 
                 {% endif %}
 
                 <div class="card-body">
-                    <h5 class="card-title">{{ product.title }}</h5>
+                    <h5 class="card-title">{{ wish.product.title }}</h5>
 
-                    {% if product.is_deleted %}
+                    {% if wish.product.is_deleted %}
                     <p class="card-text">Product Deleted!</p>
 
                     {% else %}
 
-                    {% if product.product_status == 0 %}
+                    {% if wish.product.product_status == 0 %}
                     <p class="card-text">Condition: New</p>
                     {% else %}
                     <p class="card-text">Condition: Used</p>
@@ -75,30 +74,27 @@
 
                     {% endif %}
 
-                    <p class="card-text">Brand: {{ product.brand }}</p>
+                    <p class="card-text">Brand: {{ wish.product.brand }}</p>
 
-                    {% if product.productrating.rating_stars %}
-                    <p class="card-text">{{ product.rating }}</p>
+                    {% if wish.product.productrating.rating_stars %}
+                    <p class="card-text">{{ wish.product.rating }}</p>
                     {% else %}
                     <p class="card-text">No Rating</p>
                     {% endif %}
 
 
-                    <p class="card-text">Price: {{ product.price }} Euro</p>
+                    <p class="card-text">Price: {{ wish.product.price }} Euro</p>
 
-                    <a class="btn btn-minwidth btn-outline-primary rounded-3 mt-4"
-                        href="{% url 'product-update' product.slug %}" aria-label="Update">Edit</a>
-                    <a class="btn btn-minwidth btn-outline-warning rounded-3 mt-4"
-                        href="{% url 'product-delete' product.slug %}" aria-label="Delete">Delete</a>
+                    <a class="btn btn-minwidth btn-outline-primary rounded-3 mt-4" href="" aria-label="Update">Edit</a>
+                    <a class="btn btn-minwidth btn-outline-warning rounded-3 mt-4" href=""
+                        aria-label="Delete">Delete</a>
 
-
-                    <form action="{% url 'add-to-wishlist' product.id %}" method="POST">
+                    <form action="{% url 'remove-from-wishlist' wish.id %}" method="POST">
                         {% csrf_token %}
                         <input type="hidden" name="product_id" value="{{ product.id }}">
-                        <input type="submit" class="btn btn-lg" value="Add to Wishlist">
+                        <input type="submit" class="btn btn-lg" value="Delete">
 
                     </form>
-
                 </div>
             </div>
         </div>

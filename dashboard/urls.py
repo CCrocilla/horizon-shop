@@ -35,6 +35,10 @@ from .views import SubCategoryListView
 from .views import SubCategoryUpdateView
 from .views import SubCategoryDeleteView
 
+from products_wishlist.views import WishlistView
+from products_wishlist.views import AddToWishlistView
+from products_wishlist.views import RemoveFromWishlistView
+
 
 urlpatterns = [
     path(
@@ -99,6 +103,24 @@ urlpatterns = [
         'product/<slug:slug>/delete',
         views.ProductDeleteView,
         name='product-delete'
+        ),
+    ##########################################
+    #             Wishlist Paths             #
+    ##########################################
+    path(
+        'wishlist/',
+        WishlistView.as_view(),
+        name='products-wishlist'
+        ),
+    path(
+        '<int:pk>/add-to-wishlist',
+        AddToWishlistView,
+        name='add-to-wishlist'
+        ),
+    path(
+        '<int:pk>/remove-from-wishlist',
+        RemoveFromWishlistView,
+        name='remove-from-wishlist'
         ),
     ##########################################
     #             Category Paths             #

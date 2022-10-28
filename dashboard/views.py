@@ -87,8 +87,7 @@ class CustomerView(LoginRequiredMixin, View):
                 customer_extra_form.save()
 
                 messages.success(request, 'Profile Updated Correctly!')
-                url = reverse('customer-update', )
-                return HttpResponseRedirect(url)
+                return HttpResponseRedirect(reverse('customer-update', ))
         else:
             messages.info(
                 request,
@@ -128,7 +127,7 @@ class ShippingAddressListView(ListView):
     """
     model = ShippingAddress
     template_name = 'dashboard/customer/shipping-address-list.html'
-    ordering = ['-created_date']
+    ordering = ['-created_at']
     fields = '__all__'
 
     def get_shipping_address_auth_user(self):
@@ -206,7 +205,7 @@ class ProductListView(ListView):
     """
     model = Product
     template_name = 'dashboard/products/product-list.html'
-    ordering = ['-created_date']
+    ordering = ['-created_at']
     fields = '__all__'
 
     def get_queryset(self):
@@ -245,7 +244,8 @@ def ProductDeleteView(request, slug):
 
     product = get_object_or_404(Product, slug=slug)
     product.soft_delete()
-    messages.success(request, 'Product deleted!')
+    
+    messages.success(request, 'Product deleted successfully!')
     return redirect(reverse('product-list'))
 
 
@@ -415,7 +415,7 @@ class TestimonialListView(ListView):
     """
     model = Testimonial
     template_name = 'dashboard/testimonials/testimonials-list.html'
-    ordering = ['-created_date']
+    ordering = ['-created_at']
     fields = '__all__'
 
     def get_testimonial_auth_user(self):
@@ -432,7 +432,7 @@ class TestimonialDetailsView(DetailView):
     Class to display single User's Testimonial
     """
     model = Testimonial
-    queryset = Testimonial.objects.order_by('-created_date')
+    queryset = Testimonial.objects.order_by('-created_at')
     template_name = 'dashboard/testimonials/testimonial-details.html'
     fields = '__all__'
 

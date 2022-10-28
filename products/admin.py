@@ -29,12 +29,12 @@ class ProductAdmin(admin.ModelAdmin):
     """ Product """
     list_display = (
         'category', 'title', 'brand',
-        'created_by', 'created_date',
+        'created_by', 'created_at',
         'price', 'product_status')
     list_filter = (
         'category', 'brand', 'title')
     search_fields = (
-        'created_by', 'category', 'created_date', 'brand')
+        'created_by', 'category', 'created_at', 'brand')
     prepopulated_fields = {'slug': ('title',)}
 
 

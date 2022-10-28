@@ -26,6 +26,8 @@ TEMPLATES_DIR_HOME = os.path.join(BASE_DIR, 'home/')
 TEMPLATES_DIR_CONTACT_US = os.path.join(BASE_DIR, 'contact_us/')
 TEMPLATES_DIR_DASHBOARD = os.path.join(BASE_DIR, 'dashboard/')
 TEMPLATES_DIR_PRODUCTS = os.path.join(BASE_DIR, 'products/')
+TEMPLATES_DIR_CART = os.path.join(BASE_DIR, 'cart/')
+TEMPLATES_DIR_WISHLIST = os.path.join(BASE_DIR, 'wishlist/')
 
 
 # Quick-start development settings - unsuitable for production
@@ -65,6 +67,7 @@ INSTALLED_APPS = [
     'home',
     'products',
     'products_cart',
+    'products_wishlist',
     'contact_us',
     'dashboard',
 ]
@@ -91,6 +94,8 @@ TEMPLATES = [
             TEMPLATES_DIR_CONTACT_US,
             TEMPLATES_DIR_DASHBOARD,
             TEMPLATES_DIR_PRODUCTS,
+            TEMPLATES_DIR_CART,
+            TEMPLATES_DIR_WISHLIST,
             ],
         'APP_DIRS': True,
         'OPTIONS': {
