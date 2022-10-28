@@ -24,7 +24,7 @@ class Category(models.Model):
 
 class SubCategory(models.Model):
     category = models.ForeignKey(Category,
-                                 null=True, blank=False, 
+                                 null=True, blank=False,
                                  on_delete=models.CASCADE
                                  )
     name = models.CharField(max_length=254)
@@ -56,7 +56,7 @@ class Product(SoftDeleteModel):
         blank=True,
         on_delete=models.CASCADE
         )
-    created_date = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     discounted_price = models.DecimalField(max_digits=6,
                                            decimal_places=2,
@@ -69,7 +69,7 @@ class Product(SoftDeleteModel):
 
     class Meta:
         """ Sorting by Create Date """
-        ordering = ['-created_date']
+        ordering = ['-created_at']
 
     def get_absolute_url(self):
         return reverse('product_details', args=[self.slug])
@@ -101,6 +101,3 @@ class ProductRating(models.Model):
         User, blank=True, null=True, on_delete=models.CASCADE)
     rating_stars = models.DecimalField(
         max_digits=6, decimal_places=2, null=True, blank=True)
-
-
-

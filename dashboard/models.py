@@ -32,7 +32,7 @@ class ShippingAddress(models.Model):
         on_delete=models.CASCADE,
         default=User
         )
-    created_date = models.DateField(
+    created_at = models.DateField(
         auto_now_add=True
         )
     shipping_name = models.CharField(
@@ -66,7 +66,7 @@ class ShippingAddress(models.Model):
 
     class Meta:
         """ Sorting by Create Date """
-        ordering = ['created_date']
+        ordering = ['created_at']
         verbose_name_plural = 'Shipping Addresses'
 
     def __str__(self):
@@ -84,7 +84,7 @@ class Testimonial(models.Model):
         null=True, blank=True,
         on_delete=models.CASCADE
         )
-    created_date = models.DateField(
+    created_at = models.DateField(
         auto_now_add=True
         )
     title = models.CharField(
@@ -100,7 +100,7 @@ class Testimonial(models.Model):
 
     class Meta:
         """ Sorting by Create Date """
-        ordering = ['created_date']
+        ordering = ['created_at']
 
     def __str__(self):
         """ Return Title and Comment """

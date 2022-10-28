@@ -3,6 +3,7 @@ from django.shortcuts import redirect
 from django.shortcuts import reverse
 from django.shortcuts import get_object_or_404
 
+
 from django.contrib.auth.forms import User
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -43,7 +44,7 @@ class AllProductsListView(View):
     template_name = 'products/all-products.html'
 
     def get(self, request):
-        products = Product.objects.order_by('-created_date')
+        products = Product.objects.order_by('-created_at')
         search_term = None
 
         if 'sort' in request.GET:
@@ -71,7 +72,7 @@ class AllProductsListView(View):
                                            ) | Q(
                                                brand__icontains=search_term
                                                )
-            products = products.filter(searched).order_by('-created_date')
+            products = products.filter(searched).order_by('-created_at')
 
         context = {
 
@@ -107,7 +108,7 @@ class NewProductsListView(View):
 
     def get(self, request):
         products = Product.objects.filter(product_status=0
-                                          ).order_by('-created_date')
+                                          ).order_by('-created_at')
 
         context = {
                 'products': products,
@@ -124,7 +125,7 @@ class UsedProductsListView(View):
 
     def get(self, request):
         products = Product.objects.filter(product_status=1
-                                          ).order_by('-created_date')
+                                          ).order_by('-created_at')
 
         context = {
                 'products': products,
@@ -137,6 +138,6 @@ class ProductDetailsView(DetailView):
     Class to display single Product Details on the Shop
     """
     model = Product
-    queryset = Product.objects.order_by('-created_date')
+    queryset = Product.objects.order_by('-created_at')
     template_name = 'products/product-details.html'
     fields = '__all__'
