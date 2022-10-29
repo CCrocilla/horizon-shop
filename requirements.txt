@@ -1,12 +1,14 @@
 asgiref==3.5.2
 backports.zoneinfo==0.2.1
 crispy-bootstrap5==0.7
+dj-database-url==1.0.0
 Django==4.1.2
 django-allauth==0.51.0
 django-countries==7.4.2
 django-crispy-forms==1.14.0
 oauthlib==3.2.1
 Pillow==9.2.0
+psycopg2-binary==2.9.5
 PyJWT==2.5.0
 pylint-django==2.5.3
 pylint-plugin-utils==0.7
