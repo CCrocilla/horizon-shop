@@ -10,7 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
+import dj_database_url
+
 from pathlib import Path
+
 if os.path.isfile('env.py'):
     import env                      # NOQA
 
@@ -43,7 +46,9 @@ DEBUG = True if os.environ.get('DEBUG') == 'True' else False
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS =  [
+    'horizonshop.herokuapp.com',
+    'localhost']
 
 
 CSRF_TRUSTED_ORIGINS = [
@@ -146,12 +151,17 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if os.environ.get('DEBUG') == 'True':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
 
 
 # Password validation

@@ -1,0 +1,1 @@
+web: gunicorn horizon_shop.wsgi:application
