@@ -64,17 +64,21 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'crispy_forms',
-    'crispy_bootstrap5',
+
     'home',
     'products',
     'products_cart',
     'products_wishlist',
     'contact_us',
     'dashboard',
+
+    'crispy_forms',
+    'crispy_bootstrap5',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -208,6 +212,28 @@ STATIC_URL = '/static/'
 # Setup for Media (Images)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+
+# AWS Configuration - Code Institute
+if 'USE_AWS' in os.environ:
+    # Bucket Configuration
+    AWS_STORAGE_BUCKET_NAME = 'horizonshop-project'
+    AWS_S3_REGION_NAME = 'eu-west-1'
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+    # Static files
+    STATICFILES_STORAGE = 'storages.StaticStorage'
+    STATICFILES_LOCATION = 'static'
+    # Media files
+    DEFAULT_FILE_STORAGE = 'storages.MediaStorage'
+    MEDIAFILES_LOCATION = 'media'
+
+    # Override Static URLs for Production Environment
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+    # Override Media URLs for Production Environment
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
 
 # Default primary key field type
