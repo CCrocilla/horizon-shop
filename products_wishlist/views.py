@@ -30,9 +30,11 @@ def AddToWishlistView(request, product_id):
         product = Product.objects.get(id=product_id)
 
         try:
-            product_wished = Wishlist.objects.get(user=request.user, product=product)
+            product_wished = Wishlist.objects.get(
+                user=request.user, product=product)
             if product_wished:
-                messages.info(request, 'The Product is already in your Wishlist!')
+                messages.info(
+                    request, 'The Product is already in your Wishlist!')
 
         except Exception:
             Wishlist.objects.create(user=request.user, product=product)
@@ -46,5 +48,6 @@ def RemoveFromWishlistView(request, wished_product_id):
     if request.method == 'POST':
         product = Product.objects.get(id=wished_product_id)
         Wishlist.objects.get(user=request.user, product=product).delete()
-        messages.success(request, 'Product Removed Successfully from your Wishlist!')
+        messages.success(request,
+                         'Product Removed Successfully from your Wishlist!')
         return HttpResponseRedirect(reverse('products-wishlist', ))

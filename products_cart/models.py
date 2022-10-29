@@ -16,10 +16,7 @@ class ProductCart(models.Model):
                                 null=True,
                                 on_delete=models.CASCADE
                                 )
-    quantity = models.IntegerField(default=1,
-                                   null=True,
-                                   blank=True
-                                   )
+    quantity = models.IntegerField(default=1, null=True, blank=True)
 
     def get_product_price(self):
         final_price = 0
@@ -39,7 +36,7 @@ class OrderCart(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     shipping_address = models.ForeignKey(ShippingAddress,
                                          on_delete=models.CASCADE)
-    products_cart = models.ManyToManyField(ProductCart)
+    products_cart = models.ManyToManyField(ProductCart, null=True, blank=True,)
     billed = models.BooleanField(default=False)
     delivered = models.BooleanField(default=False)
     delivery_cost = models.DecimalField(max_digits=6, decimal_places=2,
