@@ -106,6 +106,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'products.views.categories',
                 'products.views.subcategories',
+                'products_wishlist.context_processor.counter_wishlist_products',
             ],
         },
     },
