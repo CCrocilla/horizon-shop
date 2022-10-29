@@ -113,12 +113,12 @@ urlpatterns = [
         name='products-wishlist'
         ),
     path(
-        '<int:pk>/add-to-wishlist',
+        'wishlist/<int:product_id>',
         AddToWishlistView,
         name='add-to-wishlist'
         ),
     path(
-        '<int:pk>/remove-from-wishlist',
+        'remove-from-wishlist/<int:wished_product_id>',
         RemoveFromWishlistView,
         name='remove-from-wishlist'
         ),

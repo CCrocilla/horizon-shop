@@ -94,7 +94,7 @@
 
                     <form action="{% url 'add-to-wishlist' product.id %}" method="POST">
                         {% csrf_token %}
-                        <input type="hidden" name="product_id" value="{{ product.id }}">
+
                         <input type="submit" class="btn btn-lg" value="Add to Wishlist">
 
                     </form>

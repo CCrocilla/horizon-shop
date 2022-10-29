@@ -47,3 +47,11 @@ class ProductCartItem(models.Model):
                                    null=True,
                                    blank=True
                                    )
+
+    def get_product_price(self):
+        final_price = 0
+        if self.product.discounted_price:
+            final_price = self.product.discounted_price * self.quantity
+        else:
+            final_price = self.product.price * self.quantity
+        return final_price

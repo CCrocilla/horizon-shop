@@ -85,13 +85,10 @@
 
                     <p class="card-text">Price: {{ wish.product.price }} Euro</p>
 
-                    <a class="btn btn-minwidth btn-outline-primary rounded-3 mt-4" href="" aria-label="Update">Edit</a>
-                    <a class="btn btn-minwidth btn-outline-warning rounded-3 mt-4" href=""
-                        aria-label="Delete">Delete</a>
 
-                    <form action="{% url 'remove-from-wishlist' wish.id %}" method="POST">
+                    <form action="{% url 'remove-from-wishlist' wish.product.id %}" method="POST">
                         {% csrf_token %}
-                        <input type="hidden" name="product_id" value="{{ product.id }}">
+
                         <input type="submit" class="btn btn-lg" value="Delete">
 
                     </form>

@@ -25,9 +25,9 @@ class WishlistView(View):
         return render(request, self.template_name, context)
 
 
-def AddToWishlistView(request, pk):
+def AddToWishlistView(request, product_id):
     if request.method == 'POST':
-        product = Product.objects.get(id=pk)
+        product = Product.objects.get(id=product_id)
 
         try:
             product_wished = Wishlist.objects.get(user=request.user, product=product)
@@ -42,9 +42,9 @@ def AddToWishlistView(request, pk):
             return HttpResponseRedirect(reverse('products-wishlist', ))
 
 
-def RemoveFromWishlistView(request, pk):
+def RemoveFromWishlistView(request, wished_product_id):
     if request.method == 'POST':
-        product = Product.objects.get(id=pk)
+        product = Product.objects.get(id=wished_product_id)
         Wishlist.objects.get(user=request.user, product=product).delete()
         messages.success(request, 'Product Removed Successfully from your Wishlist!')
         return HttpResponseRedirect(reverse('products-wishlist', ))
