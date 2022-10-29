@@ -46,7 +46,9 @@ DEBUG = True if os.environ.get('DEBUG') == 'True' else False
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS =  [
+    'horizonshop.herokuapp.com',
+    'localhost']
 
 
 CSRF_TRUSTED_ORIGINS = [
