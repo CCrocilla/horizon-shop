@@ -6,6 +6,16 @@
 
 {% block content %}
 
+<!-- ======================= -->
+<!--         Messages        -->
+<!-- ======================= -->
+
+{% include 'dashboard/includes/messages.html' %}
+
+<!-- ======================= -->
+<!--       End Messages      -->
+<!-- ======================= -->
+
 <section class="container">
     <div class="row">
         <div class="col">
@@ -16,24 +26,223 @@
     </div>
     <div class="row">
         <div class="col">
-            {% if cart %}
 
-            <div class="table-responsive rounded-3"></div>
+            {% if order %}
 
-            {% else %}
+            <p> Total Products: {{ total_products_cart }} </p>
 
-            <h3 class="mb-5">No Item in your Cart!</h3>
+            <p> Price Cart: {{ total_price_cart }}</p>
 
-            <a href="{% url 'all_products' %}" class="btn btn-dark rounded-3 btn-lg">
-                <span class="text-uppercase">Start Shopping</span>
-            </a>
+            <p>Delivery Cost: {{ delivery_cost }}</p>
 
-            <a href="{% url 'account_login' %}" class="btn btn-dark rounded-3 btn-lg">
-                <span class="text-uppercase">Sign In</span>
-            </a>
-
-            {% endif %}
         </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12 px-5 text-dark">
+            <p>Cart Details</p>
+            <table>
+
+                <tr>
+                    <th class="px-5">Image</th>
+                    <th class="px-5">Name</th>
+                    <th class="px-5">Condition</th>
+                    <th class="px-5">Price</th>
+                    <th class="px-5">Quantity</th>
+                    <th class="px-5">Final Price</th>
+                </tr>
+
+                {% for cart in order.cart_products.all %}
+
+                <tr>
+                    {% if cart.product.image %}
+
+                    <td class="px-5">
+                        <a href="">
+                            <img src="{{ cart.product.image.url }}" class="card-img-top img-fluid"
+                                alt="Image {{ cart.product.title }}">
+                        </a>
+                    </td>
+
+                    {% else %}
+
+                    <td class="px-5">
+                        <a href="">
+                            <img src="{{ MEDIA_URL }}noimage.jpg" class="card-img-top img-fluid"
+                                alt="Image {{ cart.product.title }}">
+                        </a>
+                    </td>
+
+                    {% endif %}
+
+                    <td class="px-5">{{ cart.product.title }}</td>
+
+                    <td class="px-5">
+                        {% if cart.product.product_status == 0 %}
+                        <p class="card-text">New</p>
+                        {% else %}
+                        <p class="card-text">Used</p>
+                        {% endif %}
+                    </td>
+
+                    <td class="px-5">
+                        {% if cart.product.discounted_price %}
+
+                        <p class="text-muted text-right">
+                            {{ cart.product.discounted_price }} Euro
+                        </p>
+
+                        {% else %}
+
+                        <p class="text-muted text-right">
+                            {{ cart.product.price }} Euro
+                        </p>
+
+                        {% endif %}
+                    </td>
+
+                    <td class="px-5">
+                        <!-- Form to remove Quantity -->
+                        <form method="POST" action="{% url 'remove-quantity' cart.product.id %}" class="">
+                            {% csrf_token %}
+                            <button type="submit"><i class="fas fa-minus"></i></button>
+                        </form>
+
+                        <p class="text-muted">{{ cart.quantity }}</p>
+
+                        <!-- Form to add Quantity -->
+                        <form method="POST" action="{% url 'add-quantity' cart.product.id %}" class="">
+                            {% csrf_token %}
+                            <button type="submit"><i class="fas fa-plus"></i></button>
+                        </form>
+                    </td>
+
+                    <td class="px-5">
+                        <p class="text-muted text-right">
+                            {{ cart.product_price }} Euro
+                        </p>
+
+                    </td>
+                </tr>
+
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+
+
+    <!-- Old Config Cart -->
+    <div class="row">
+        <div class="col">
+            <div class="table-responsive rounded-3 m-5 p-5 text-dark">
+
+                {% for cart in order.cart_products.all %}
+
+                <div class="col-12 col-md-4 col-lg-3">
+                    <div class="card" style="width: 18rem;">
+
+                        {% if cart.product.image %}
+
+                        <a href="">
+                            <img src="{{ cart.product.image.url }}" class="card-img-top img-fluid"
+                                alt="Image {{ cart.product.title }}">
+                        </a>
+
+                        {% else %}
+
+                        <a href="">
+                            <img src="{{ MEDIA_URL }}noimage.jpg" class="card-img-top img-fluid"
+                                alt="Image {{ cart.product.title }}">
+                        </a>
+
+                        {% endif %}
+
+                        <div class="card-body">
+                            <h5 class="card-title">{{ cart.product.title }}</h5>
+
+                            {% if cart.product.product_status == 0 %}
+                            <p class="card-text">Condition: New</p>
+                            {% else %}
+                            <p class="card-text">Condition: Used</p>
+                            {% endif %}
+
+                            <p class="card-text">Brand: {{ cart.product.brand }}</p>
+
+                            {% if cart.product.discounted_price %}
+
+                            <li class="text-muted text-right">
+                                Product Price: {{ cart.product.discounted_price }} Euro
+                            </li>
+
+                            {% else %}
+
+                            <li class="text-muted text-right">
+                                Product Price: {{ cart.product.price }} Euro
+                            </li>
+
+                            {% endif %}
+
+                            <li class="text-muted text-right">
+                                Total Price: {{ cart.product_price }} Euro
+                            </li>
+
+
+                            <div class="row">
+                                <p>Quantity</p>
+
+                                <!-- Form to remove Quantity -->
+                                <form method="POST" action="{% url 'remove-quantity' cart.product.id %}" class="">
+                                    {% csrf_token %}
+                                    <button type="submit"><i class="fas fa-minus"></i></button>
+                                </form>
+
+                                <p class="text-muted">{{ cart.quantity }}</p>
+
+                                <!-- Form to add Quantity -->
+                                <form method="POST" action="{% url 'add-quantity' cart.product.id %}" class="">
+                                    {% csrf_token %}
+                                    <button type="submit"><i class="fas fa-plus"></i></button>
+                                </form>
+
+                            </div>
+
+
+
+
+                            <form action="{% url 'remove-from-cart' cart.product.id %}" method="POST">
+                                {% csrf_token %}
+
+                                <input type="submit" class="btn btn-lg" value="Delete">
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+
+    {% else %}
+
+    <h3 class="mb-5">No Item in your Cart!</h3>
+
+    <a href="{% url 'all_products' %}" class="btn btn-dark rounded-3 btn-lg">
+        <span class="text-uppercase">Start Shopping</span>
+    </a>
+
+    {% if request.user.is_authenticated %}
+    <a href="{% url 'account_login' %}" class="btn btn-dark rounded-3 btn-lg">
+        <span class="text-uppercase">Sign In</span>
+    </a>
+    {% endif %}
+    {% endif %}
+    </div>
     </div>
 </section>
 

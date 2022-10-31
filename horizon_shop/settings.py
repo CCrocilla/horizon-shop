@@ -115,6 +115,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'products.views.categories',
                 'products.views.subcategories',
+                'products_cart.context_processors.cart_contents',
             ],
         },
     },
@@ -214,8 +215,14 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 
-# AWS Configuration - Code Institute
+# AWS Configuration - Boutique Ado Code Institute
 if 'USE_AWS' in os.environ:
+    # Cache control
+    AWS_S3_OBJECT_PARAMETERS = {
+        'Expires': 'Thu, 31 Dec 2099 23:59:59 GMT',
+        'CacheControl': 'max-age=94608000',
+    }
+
     # Bucket Configuration
     AWS_STORAGE_BUCKET_NAME = 'horizonshop-project'
     AWS_S3_REGION_NAME = 'eu-west-1'
@@ -234,6 +241,9 @@ if 'USE_AWS' in os.environ:
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     # Override Media URLs for Production Environment
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+else:
+    STATICFILES_LOCATION = 'static'
+    MEDIAFILES_LOCATION = 'media'
 
 
 # Default primary key field type
