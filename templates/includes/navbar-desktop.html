@@ -37,9 +37,10 @@
                         <div class="fs-6 text-center text-yellow">
                             <div>
                                 <p class="my-0">
+                                    <span class="badge badge-sm bg-red">{{total_products_cart}}</span>
                                     <i class="fas fa-shopping-cart fa-lg"></i>
-                                    {% if grand_total %}
-                                    ${{ grand_total|floatformat:2 }}
+                                    {% if total_price_cart %}
+                                    {{ total_price_cart|floatformat:2 }} Euro
                                     {% else %}
                                     0.00 Euro
                                     {% endif %}
@@ -80,7 +81,7 @@
                     <a class="dropdown-item" href="#">My Profile</a>
                     <a class="dropdown-item" href="{% url 'shipping-address-list' %}">My Addresses</a>
                     <a class="dropdown-item" href="#">My Orders</a>
-                    <a class="dropdown-item" href="#">My Products</a>
+                    <a class="dropdown-item" href="{% url 'product-list' %}">My Products</a>
                     <a class="dropdown-item" href="#">My Reviews</a>
                     <a class="dropdown-item" href="{% url 'testimonials-list' %}">My Testimonials</a>
                     <div class="dropdown-divider"></div>

@@ -56,64 +56,82 @@
             </h1>
 
             <div class="navbar-nav flex-row order-md-last">
-
                 <div class="nav-item dropdown">
-
-                    <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
-                        aria-label="Open user menu">
-
-                        {% if user.customer.avatar.url %}
-                        <span class="avatar avatar-sm">
-                            <img class="" src="{{ user.customer.avatar.url }}" alt="Client Avatar">
-                        </span>
-                        {% else %}
-                        <span class="avatar bg-azure-lt">
-                            <i class="fas fa-user text-yellow fs-4"></i>
-                        </span>
-                        {% endif%}
-
-                        {% if user.is_authenticated %}
-
-                        <div class="d-none d-md-block ps-2">
-                            <div>
-                                {% if not user.first_name %}
-
-                                Hi, {{ user }}!
-
-                                {% else %}
-
-                                Hi, {{ user.first_name }}!
-
-                                {%endif%}
+                    <div class="btn-list">
+                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link text-yellow"
+                            href="{% url 'cart' %}">
+                            <div class="fs-6 text-center text-yellow">
+                                <div>
+                                    <p class="my-0">
+                                        <i class="fas fa-shopping-cart fa-lg"></i>
+                                        <span class="badge badge-sm bg-red">{{total_products_cart}}</span>
+                                        {% if total_price_cart %}
+                                        {{ total_price_cart|floatformat:2 }} Euro
+                                        {% else %}
+                                        0.00 Euro
+                                        {% endif %}
+                                    </p>
+                                </div>
                             </div>
-                            <div class="mt-1 small text-muted"></div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
+                            aria-label="Open user menu">
+
+                            {% if user.customer.avatar.url %}
+                            <span class="avatar avatar-sm">
+                                <img class="" src="{{ user.customer.avatar.url }}" alt="Client Avatar">
+                            </span>
+                            {% else %}
+                            <span class="avatar bg-azure-lt">
+                                <i class="fas fa-user text-yellow fs-4"></i>
+                            </span>
+                            {% endif%}
+
+                            {% if user.is_authenticated %}
+
+                            <div class="d-none d-md-block ps-2">
+                                <div>
+                                    {% if not user.first_name %}
+
+                                    Hi, {{ user }}!
+
+                                    {% else %}
+
+                                    Hi, {{ user.first_name }}!
+
+                                    {%endif%}
+                                </div>
+                                <div class="mt-1 small text-muted"></div>
+                            </div>
+
+                            {% endif %}
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                            {% if user.is_authenticated %}
+                            <a class="dropdown-item" href="{% url 'dashboard' %}">My Horizon Shop</a>
+                            <a class="dropdown-item" href="{% url 'customer-update' %}">My Profile</a>
+                            <a class="dropdown-item" href="{% url 'shipping-address-list' %}">My Addresses</a>
+                            <a class="dropdown-item" href="#">My Orders</a>
+                            <a class="dropdown-item" href="{% url 'product-list' %}">My Products</a>
+                            <a class="dropdown-item" href="{% url 'products-wishlist' %}">My Wishlist</a>
+                            <a class="dropdown-item" href="{% url 'testimonials-list' %}">My Testimonials</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+
+                            {% else %}
+
+                            <a class="dropdown-item" href="{% url 'account_signup' %}">
+                                Sign Up
+                            </a>
+
+                            <a class="dropdown-item" href="{% url 'account_login' %}">
+                                Sign In
+                            </a>
+                            {% endif %}
+
                         </div>
-
-                        {% endif %}
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                        {% if user.is_authenticated %}
-                        <a class="dropdown-item" href="{% url 'dashboard' %}">My Horizon Shop</a>
-                        <a class="dropdown-item" href="{% url 'customer-update' %}">My Profile</a>
-                        <a class="dropdown-item" href="{% url 'shipping-address-list' %}">My Addresses</a>
-                        <a class="dropdown-item" href="#">My Orders</a>
-                        <a class="dropdown-item" href="#">My Products</a>
-                        <a class="dropdown-item" href="{% url 'products-wishlist' %}">My Wishlist</a>
-                        <a class="dropdown-item" href="{% url 'testimonials-list' %}">My Testimonials</a>
-                        <div class="dropdown-divider"></div>
-                        <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-
-                        {% else %}
-
-                        <a class="dropdown-item" href="{% url 'account_signup' %}">
-                            Sign Up
-                        </a>
-
-                        <a class="dropdown-item" href="{% url 'account_login' %}">
-                            Sign In
-                        </a>
-                        {% endif %}
-
                     </div>
                 </div>
             </div>
