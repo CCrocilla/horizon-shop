@@ -18,8 +18,8 @@ class ContactUsView(CreateView):
 
     def get_initial(self):
         return {'created_by': self.request.user}
-    
-    
+
+
 class TermsView(View):
     template_name = 'contact_us/terms.html'
 
