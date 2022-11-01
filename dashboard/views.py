@@ -229,22 +229,12 @@ class ProductUpdateView(SuccessMessageMixin, UpdateView):
     success_message = "Product updated successfully!"
 
 
-# class ProductDeleteView(SuccessMessageMixin, DeleteView):
-#     """
-#     Class to delete a Product
-#     """
-#     model = Product
-#     template_name = 'dashboard/products/product-delete.html'
-#     success_url = reverse_lazy('product-list')
-#     success_message = "Product deleted successfully!"
-
-
 def ProductDeleteView(request, slug):
     """ Delete a product from the store """
 
     product = get_object_or_404(Product, slug=slug)
     product.soft_delete()
-    
+
     messages.success(request, 'Product deleted successfully!')
     return redirect(reverse('product-list'))
 

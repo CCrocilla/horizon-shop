@@ -1,0 +1,265 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block extra_title %} - Checkout{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- ======================= -->
+<!--         Messages        -->
+<!-- ======================= -->
+
+{% include 'dashboard/includes/messages.html' %}
+
+<!-- ======================= -->
+<!--       End Messages      -->
+<!-- ======================= -->
+
+<section class="container">
+    <div class="row">
+        <div class="col">
+
+        </div>
+    </div>
+</section>
+
+
+<section class="py-4 mt-5 mb-4">
+    <div class="container-lg">
+        <div class="row justify-content-center hero-text">
+            <div class="col text-center text-warning">
+                <h1 class="fw-bold text-center text-dark">Checkout</h1>
+                <hr class="w-25 mx-auto text-dark" style="height:2px;" />
+            </div>
+        </div>
+    </div>
+
+    <div class="container card rounded-3">
+        <div class="row py-5 d-flex justify-content-center align-items-center">
+            <div class="col-12">
+                <form method=POST action="{% url 'checkout' %}">
+                    <div class="card-body">
+
+                        {% csrf_token%}
+                        {{ form|crispy }}
+
+
+                        <!-- ------------------ -->
+                        <!-- ------------------ -->
+                        <!--  ACCCOUNT DETAILS  -->
+                        <!-- ------------------ -->
+                        <!-- ------------------ -->
+                        {% if order.created_by.first_name and order.created_by.last_name %}
+                        <div class="col-12 col-sm-6 my-5 text-dark">
+                            <label class="h2 fw-bold form-label mt-2">First Name:</label>
+                            <span class="form-control border-2 fw-bold">
+                                {{ order.created_by.first_name }}
+                            </span>
+                        </div>
+                        <div class="col-12 col-sm-6 my-5 text-dark">
+                            <label class="h2 fw-bold form-label mt-2">Last Name:</label>
+                            <span class="form-control border-2 fw-bold">
+                                {{ order.created_by.last_name }}
+                            </span>
+                        </div>
+
+                        {% else %}
+
+                        <div class="col-12 my-5">
+                            <label class="h2 fw-bold form-label mt-2 text-dark">Account Name:</label>
+                            <span class="form-control border-2 fw-bold">
+                                {{ order.created_by.username }}
+                            </span>
+                        </div>
+
+                        {% endif %}
+                        <!-- ---------------------- -->
+                        <!-- ---------------------- -->
+                        <!--  END ACCCOUNT DETAILS  -->
+                        <!-- ---------------------- -->
+                        <!-- ---------------------- -->
+
+
+                        <!-- ---------------------- -->
+                        <!-- ---------------------- -->
+                        <!--    SHIPPING ADDRESS    -->
+                        <!-- ---------------------- -->
+                        <!-- ---------------------- -->
+
+                        <div id="div_id_shipping_address" class="my-5">
+                            <label for="id_shipping_address" class="form-label text-dark fw-bold">
+                                Shipping Address
+                                <span class="asteriskField">*</span>
+                            </label>
+                            {% if shipping_address.exists %}
+                            <select name="shipping_address" autofocus="True" class="select form-select"
+                                id="id_shipping_address">
+                                <option value="" selected="">---------</option>
+
+                                {% for address in shipping_address %}
+
+                                <option value="{{ address.id }}" class="text-black">
+                                    {{ address.shipping_name }} - {{ address.address_street_1 }},
+                                    {{ address.address_street_2 }} - {{ address.city }}
+                                </option>
+
+                                {% endfor %}
+
+                            </select>
+
+                            {% else %}
+
+                            <span class="form-control border-2 border-danger text-danger fw-bold">
+                                No Shipping Address Available! Click
+                                <a href="{% url 'shipping-address-add' %}">
+                                    Shipping Address
+                                </a>
+                                here to register your Address!
+                            </span>
+
+                            {% endif %}
+
+                        </div>
+                        <!-- ---------------------- -->
+                        <!-- ---------------------- -->
+                        <!--  END SHIPPING ADDRESS  -->
+                        <!-- ---------------------- -->
+                        <!-- ---------------------- -->
+
+
+                        <!-- ------------------ -->
+                        <!-- ------------------ -->
+                        <!--  LIST OF PRODUCTS  -->
+                        <!-- ------------------ -->
+                        <!-- ------------------ -->
+
+                        <h2>Products Summary</h2>
+
+                        <div class="row my-5">
+                            <div class="col-md-12 px-5 text-dark">
+                                <table>
+                                    <tr>
+                                        <th class="px-5">Image</th>
+                                        <th class="px-5">Name</th>
+                                        <th class="px-5">Condition</th>
+                                        <th class="px-5">Quantity</th>
+                                        <th class="px-5">Final Price</th>
+                                        <th class="px-5">Delete</th>
+                                    </tr>
+                                    {% for product in cart %}
+
+                                    <tr>
+                                        {% if product.product.image %}
+
+                                        <td class="px-5">
+                                            <a href="">
+                                                <img src="{{ product.product.image.url }}"
+                                                    class="card-img-top img-fluid"
+                                                    alt="Image {{ product.product.title }}">
+                                            </a>
+                                        </td>
+
+                                        {% else %}
+
+                                        <td class="px-5">
+                                            <a href="">
+                                                <img src="{{ MEDIA_URL }}noimage.jpg" class="card-img-top img-fluid"
+                                                    alt="Image {{ product.product.title }}">
+                                            </a>
+                                        </td>
+
+                                        {% endif %}
+
+                                        <td class="px-5">{{ product.product.title }}</td>
+
+                                        <td class="px-5">
+                                            {% if product.product.product_status == 0 %}
+                                            <p class="card-text">New</p>
+                                            {% else %}
+                                            <p class="card-text">Used</p>
+                                            {% endif %}
+                                        </td>
+
+                                        <td class="px-5">
+                                            <p class="text-muted">{{ product.quantity }}</p>
+                                        </td>
+
+                                        <td class="px-5">
+                                            <p class="text-muted text-right">
+                                                {{ product.product_price }} Euro
+                                            </p>
+
+                                        </td>
+                                    </tr>
+
+                                    {% endfor %}
+
+                                </table>
+                            </div>
+                        </div>
+                        <!-- ------------------ -->
+                        <!-- ------------------ -->
+                        <!-- END LIST PRODUCTS  -->
+                        <!-- ------------------ -->
+                        <!-- ------------------ -->
+
+
+                        <div class="row my-5">
+                            <div class="col-md-12 px-5 text-dark">
+                                <h2>Quantity: {{ total_products_cart }}</h2>
+                                <h2>Sub-Total: {{ total_price_cart }}</h2>
+                            </div>
+                        </div>
+
+
+                        <!-- Button to trigger the confirmation booking modal -->
+                        <button type="button" class="m-2 btn btn-lg btn-minwidth btn-outline-warning rounded-pill"
+                            data-bs-toggle="modal" data-bs-target="#confirmationModal" aria-label="Checkout Modal">
+                            Payment
+                        </button>
+
+                        <!-- Booking Confirmation Modal -->
+                        <div class="modal fade" id="confirmationModal" tabindex="-1"
+                            aria-labelledby="confirmationModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content p-3 my-10 rounded-3 border border-5 border-warning">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="confirmationModalLabel">Confirm Order?</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p class="text-dark">Click Next to confirm your order and pay or Cancel
+                                            to
+                                            continue shopping!</p>
+                                    </div>
+                                    <div class="modal-footer justify-content-center">
+                                        <button type="button"
+                                            class="m-2 btn btn-lg btn-minwidth btn-outline-primary rounded-pill"
+                                            data-bs-dismiss="modal" aria-label="Cancel">Cancel
+                                        </button>
+                                        <button type="submit"
+                                            class="m-2 btn btn-lg btn-minwidth btn-outline-warning rounded-pill"
+                                            aria-label="Book Parking">Next
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <a class="m-2 btn btn-lg btn-minwidth btn-outline-warning rounded-pill"
+                            href="{% url 'all_products' %}" aria-label="Continue Shopping">Continue Shopping!
+                        </a>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+{% endblock %}

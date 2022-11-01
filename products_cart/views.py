@@ -8,8 +8,10 @@ from django.contrib import messages
 from django.views import View
 
 from products.models import Product
+
+from products_checkout.models import Order
+
 from .models import CartProducts
-from .models import Order
 
 
 class CartView(View):
@@ -21,7 +23,7 @@ class CartView(View):
     def get(self, request):
 
         order = Order.objects.filter(created_by=request.user, billed=False)
-        cart = CartProducts.objects.all()
+        cart = CartProducts.objects.filter(created_by=request.user)
 
         if order.exists():
             order = order[0]

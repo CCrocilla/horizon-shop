@@ -31,6 +31,7 @@ urlpatterns = [
     path('contact_us/', include('contact_us.urls')),
     path('products/', include('products.urls')),
     path('cart/', include('products_cart.urls')),
+    path('checkout/', include('products_checkout.urls')),
     path('dashboard/', include('dashboard.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -30,6 +30,7 @@ TEMPLATES_DIR_CONTACT_US = os.path.join(BASE_DIR, 'contact_us/')
 TEMPLATES_DIR_DASHBOARD = os.path.join(BASE_DIR, 'dashboard/')
 TEMPLATES_DIR_PRODUCTS = os.path.join(BASE_DIR, 'products/')
 TEMPLATES_DIR_CART = os.path.join(BASE_DIR, 'cart/')
+TEMPLATES_DIR_CHECKOUT = os.path.join(BASE_DIR, 'checkout/')
 TEMPLATES_DIR_WISHLIST = os.path.join(BASE_DIR, 'wishlist/')
 
 
@@ -72,6 +73,7 @@ INSTALLED_APPS = [
     'home',
     'products',
     'products_cart',
+    'products_checkout',
     'products_wishlist',
     'contact_us',
     'dashboard',
@@ -105,6 +107,7 @@ TEMPLATES = [
             TEMPLATES_DIR_PRODUCTS,
             TEMPLATES_DIR_CART,
             TEMPLATES_DIR_WISHLIST,
+            TEMPLATES_DIR_CHECKOUT,
             ],
         'APP_DIRS': True,
         'OPTIONS': {

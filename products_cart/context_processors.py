@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404
 
 from .models import CartProducts
-from .models import Order
+from products_checkout.models import Order
 
 DELIVERY_COST = 8.99
 FREE_DELIVERY_THRESHOLD = 60
@@ -12,6 +12,7 @@ def cart_contents(request):
     cart = []
     total_products_cart = 0
     total_price_cart = 0
+    delivery = 0
 
     if request.user.is_authenticated:
 
@@ -25,8 +26,7 @@ def cart_contents(request):
 
         if total_price_cart < FREE_DELIVERY_THRESHOLD:
             delivery = total_products_cart * DELIVERY_COST
-        else:
-            delivery = 0
+            total_price_cart += delivery
 
     return {
         'total_products_cart': total_products_cart,
