@@ -129,6 +129,11 @@ class ShippingAddressListView(ListView):
     template_name = 'dashboard/customer/shipping-address-list.html'
     ordering = ['-created_at']
     fields = '__all__'
+    paginate_by = 6
+
+    def get_queryset(self):
+        queryset = ShippingAddress.objects.filter(created_by=self.request.user)
+        return queryset
 
     def get_shipping_address_auth_user(self):
         """
@@ -144,8 +149,8 @@ class ShippingAddressUpdateView(SuccessMessageMixin, UpdateView):
     Class to update User's Testimonial
     """
     model = ShippingAddress
+    form_class = ShippingAddressForm
     template_name = 'dashboard/customer/shipping-address-update.html'
-    fields = '__all__'
     success_url = reverse_lazy('shipping-address-list')
     success_message = "Shipping Address updated successfully!"
 

@@ -12,7 +12,6 @@ from .models import Testimonial
 
 from products.models import Category
 from products.models import SubCategory
-
 from products.models import Product
 
 
@@ -95,9 +94,9 @@ class ShippingAddressForm(ModelForm):
                     attrs={'class': 'form-control text-dark'}),
             'phone_number': forms.TextInput(
                     attrs={'class': 'form-control text-dark'}),
-            'address_street_1': forms.TextInput(
+            'address_street': forms.TextInput(
                     attrs={'class': 'form-control text-dark'}),
-            'address_street_2': forms.TextInput(
+            'apartment_number': forms.TextInput(
                     attrs={'class': 'form-control text-dark'}),
             'city': forms.TextInput(
                     attrs={'class': 'form-control text-dark'}),
@@ -128,6 +127,7 @@ class ProductForm(ModelForm):
                   )
 
         widgets = {
+                'created_by': forms.HiddenInput(),
                 'image': forms.FileInput(
                     attrs={'class': 'form-control-file'}),
         }

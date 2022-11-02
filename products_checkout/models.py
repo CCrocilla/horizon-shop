@@ -29,7 +29,8 @@ class Order(models.Model):
         ShippingAddress,
         null=True,
         blank=True,
-        on_delete=models.CASCADE
+        on_delete=models.SET_NULL,
+        related_name='shipping_address'
         )
     cart_products = models.ManyToManyField(
         CartProducts,
