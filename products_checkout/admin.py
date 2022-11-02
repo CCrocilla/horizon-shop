@@ -18,6 +18,7 @@ class OrderAdmin(admin.ModelAdmin):
         'shipping_address',
         'billed',
         'delivered',
+        'delivery_cost',
         'total_price',
         )
     list_filter = (

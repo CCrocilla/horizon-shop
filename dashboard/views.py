@@ -7,6 +7,9 @@ from django.shortcuts import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.utils.text import slugify
 
+import string
+from django.utils.crypto import get_random_string
+
 from django.contrib.auth.forms import User
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.views import PasswordChangeView
@@ -132,16 +135,12 @@ class ShippingAddressListView(ListView):
     paginate_by = 6
 
     def get_queryset(self):
-        queryset = ShippingAddress.objects.filter(created_by=self.request.user)
-        return queryset
-
-    def get_shipping_address_auth_user(self):
         """
         Return a list of all the Shipping Address
         for the authenticated user.
         """
-        user = self.request.user
-        return ShippingAddress.objects.filter(created_by=user)
+        queryset = ShippingAddress.objects.filter(created_by=self.request.user)
+        return queryset
 
 
 class ShippingAddressUpdateView(SuccessMessageMixin, UpdateView):
@@ -168,6 +167,15 @@ class ShippingAddressDeleteView(SuccessMessageMixin, DeleteView):
 ################################
 #        Product Views         #
 ################################
+
+
+def unique_slugify(instance, slug):
+    model = instance.__class__
+    unique_slug = slug
+    
+    return unique_slug
+
+
 class ProductAddView(SuccessMessageMixin, View):
     """
     Class to create Users' Product
@@ -190,6 +198,10 @@ class ProductAddView(SuccessMessageMixin, View):
             product = product_form.save(commit=False)
             product.created_by = request.user
             product.slug = slugify(product.title)
+
+            while Product.objects.filter(slug=product.slug).exists():
+                product.slug = product.slug + '-' + get_random_string(length=5)
+
             if product.created_by.is_superuser:
                 product.product_status = 0
             else:
