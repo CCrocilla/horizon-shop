@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load crispy_forms_tags %}
+
 {% block extra_title %} - Cart{% endblock %}
 
 {% load static %}
@@ -46,12 +48,13 @@
             <table>
 
                 <tr>
-                    <th class="px-5">Image</th>
-                    <th class="px-5">Name</th>
-                    <th class="px-5">Condition</th>
-                    <th class="px-5">Price</th>
-                    <th class="px-5">Quantity</th>
-                    <th class="px-5">Final Price</th>
+                    <th class="px-5 text-center">Image</th>
+                    <th class="px-5 text-center">Name</th>
+                    <th class="px-5 text-center">Condition</th>
+                    <th class="px-5 text-center">Price</th>
+                    <th class="px-5 text-center">Quantity</th>
+                    <th class="px-5 text-center">Final Price</th>
+                    <th class="px-5 text-center">Delete</th>
                 </tr>
 
                 {% for cart in order.cart_products.all %}
@@ -125,14 +128,15 @@
                         </p>
 
                     </td>
+                    <td class="px-5 text-center">
+                        <form action="{% url 'remove-from-cart' cart.product.id %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-lg text-center">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </form>
+                    </td>
                 </tr>
-
-                <form action="{% url 'remove-from-cart' cart.product.id %}" method="POST">
-                    {% csrf_token %}
-
-                    <input type="submit" class="btn btn-lg" value="Delete">
-
-                </form>
 
                 {% endfor %}
 
@@ -146,6 +150,51 @@
         {% csrf_token %}
         <div class="row">
             <div class="col-12 text-dark">
+                <!-- ---------------------- -->
+                <!-- ---------------------- -->
+                <!--    SHIPPING ADDRESS    -->
+                <!-- ---------------------- -->
+                <!-- ---------------------- -->
+
+                <div id="div_id_shipping_address" class="my-5">
+                    <label for="id_shipping_address" class="form-label text-dark fw-bold">
+                        Shipping Address
+                        <span class="asteriskField">*</span>
+                    </label>
+                    {% if shipping_address.exists %}
+                    <select name="shipping_address" autofocus="True" class="select form-select"
+                        id="id_shipping_address">
+                        <option value="" selected="">---------</option>
+
+                        {% for address in shipping_address %}
+
+                        <option value="{{ address.id }}" class="text-black">
+                            {{ address.shipping_name }} - {{ address.address_street }},
+                            {{ address.apartment_number }} - {{ address.city }}
+                        </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                    {% else %}
+
+                    <span class="form-control border-2 border-danger text-danger fw-bold">
+                        No Shipping Address Available! Click
+                        <a href="{% url 'shipping-address-add' %}">
+                            Shipping Address
+                        </a>
+                        here to register your Address!
+                    </span>
+
+                    {% endif %}
+
+                </div>
+                <!-- ---------------------- -->
+                <!-- ---------------------- -->
+                <!--  END SHIPPING ADDRESS  -->
+                <!-- ---------------------- -->
+                <!-- ---------------------- -->
 
                 <p> Total Products: {{ total_products_cart }} </p>
 

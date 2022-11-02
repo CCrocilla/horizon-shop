@@ -40,8 +40,8 @@
                 </h3>
                 <div>Country: {{ shipping.country }} </div>
                 <div>Phone: {{ shipping.phone_number }}</div>
-                <div>Address 1: {{ shipping.address_street_1 }}</div>
-                <div>Address 2: {{ shipping.address_street_2 }}</div>
+                <div>Address: {{ shipping.address_street }}</div>
+                <div>Apartment Number: {{ shipping.apartment_number }}</div>
                 <div>City: {{ shipping.city }}</div>
                 <div>Postcode: {{ shipping.postcode }}</div>
                 <br />
@@ -60,6 +60,42 @@
 
     </div>
 </div>
+
+
+{% if shippingaddress_list %}
+
+{% if is_paginated %}
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <li class="page-item disabled">
+            <span class="page-link text-dark">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+            </span>
+        </li>
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+            <a class="page-link pagination-buttons"
+                href="/dashboard/shipping-address/list?page={{ page_obj.previous_page_number }}">
+                &laquo;
+                Previous
+            </a>
+        </li>
+        {% endif %}
+        {% if page_obj.has_next %}
+        <li class="page-item">
+            <a class="page-link pagination-buttons"
+                href="/dashboard/shipping-address/list?page={{ page_obj.next_page_number }}">
+                Next
+                &raquo;
+            </a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
+
+{% endif %}
 
 {% else %}
 

@@ -62,22 +62,22 @@ urlpatterns = [
     #       Shipping Addresses Paths         #
     ##########################################
     path(
-        'shpping_address/add',
+        'shipping-address/add',
         ShippingAddressAddView.as_view(),
         name='shipping-address-add'
         ),
     path(
-        'shipping_address/list',
+        'shipping-address/list',
         ShippingAddressListView.as_view(),
         name='shipping-address-list'
         ),
     path(
-        'shipping_address/<int:pk>/update',
+        'shipping-address/<int:pk>/update',
         ShippingAddressUpdateView.as_view(),
         name='shipping-address-update'
         ),
     path(
-        'shipping_address/<int:pk>/delete',
+        'shipping-address/<int:pk>/delete',
         ShippingAddressDeleteView.as_view(),
         name='shipping-address-delete'
         ),

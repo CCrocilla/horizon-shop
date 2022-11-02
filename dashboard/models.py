@@ -47,11 +47,11 @@ class ShippingAddress(models.Model):
         max_length=20,
         blank=False, null=False
         )
-    address_street_1 = models.CharField(
+    address_street = models.CharField(
         max_length=100,
         blank=False, null=False
         )
-    address_street_2 = models.CharField(
+    apartment_number = models.CharField(
         max_length=100,
         blank=False, null=False
         )

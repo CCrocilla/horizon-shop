@@ -7,34 +7,42 @@ from django.contrib import messages
 
 from django.views import View
 
+from dashboard.models import ShippingAddress
 from products.models import Product
-
 from products_checkout.models import Order
-
 from .models import CartProducts
+
+from .forms import CheckoutForm
 
 
 class CartView(View):
     """
     Class to display the Cart
     """
+    model = Order
     template_name = 'cart/cart.html'
 
     def get(self, request):
 
         order = Order.objects.filter(created_by=request.user, billed=False)
         cart = CartProducts.objects.filter(created_by=request.user)
+        shipping_address = ShippingAddress.objects.filter(created_by=request.user)
 
+        print(shipping_address)
+        
         if order.exists():
             order = order[0]
         else:
             order = Order.objects.create(created_by=request.user)
 
         context = {
+
+            'form': CheckoutForm({
+                'shipping_address': shipping_address, }),
             'cart': cart,
             'order': order,
+            'shipping_address': shipping_address,
         }
-
         return render(request, self.template_name, context)
 
 

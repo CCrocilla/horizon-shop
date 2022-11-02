@@ -40,94 +40,106 @@
     <div class="container card rounded-3">
         <div class="row py-5 d-flex justify-content-center align-items-center">
             <div class="col-12">
-                <form method=POST action="{% url 'checkout' %}">
+                <form method="POST" action="">
                     <div class="card-body">
 
                         {% csrf_token%}
-                        {{ form|crispy }}
 
 
-                        <!-- ------------------ -->
-                        <!-- ------------------ -->
-                        <!--  ACCCOUNT DETAILS  -->
-                        <!-- ------------------ -->
-                        <!-- ------------------ -->
-                        {% if order.created_by.first_name and order.created_by.last_name %}
-                        <div class="col-12 col-sm-6 my-5 text-dark">
-                            <label class="h2 fw-bold form-label mt-2">First Name:</label>
-                            <span class="form-control border-2 fw-bold">
-                                {{ order.created_by.first_name }}
-                            </span>
+                        <!-- ----------------- -->
+                        <!--  Account Details  -->
+                        <!-- ----------------- -->
+                        <div class="row mb-5">
+                            <h2> Account Details</h2>
+                            <div>
+                                {% if order.created_by.first_name and order.created_by.last_name %}
+                                <div class="row">
+                                    <div class="col-12 col-sm-6 my-3 text-dark">
+                                        <label class="h2 fw-bold form-label mt-2 text-dark">First Name:</label>
+                                        <span class="form-control border-2 fw-bold">
+                                            {{ order.created_by.first_name }}
+                                        </span>
+                                    </div>
+                                    <div class="col-12 col-sm-6 my-3 text-dark">
+                                        <label class="h2 fw-bold form-label mt-2 text-dark">Last Name:</label>
+                                        <span class="form-control border-2 fw-bold">
+                                            {{ order.created_by.last_name }}
+                                        </span>
+                                    </div>
+
+                                    {% else %}
+
+                                    <div class="col-12 my-3">
+                                        <label class="h2 fw-bold form-label mt-2 text-dark">Account Name:</label>
+                                        <span class="form-control border-2 fw-bold">
+                                            {{ order.created_by.username }}
+                                        </span>
+                                    </div>
+                                </div>
+                                {% endif %}
+                                <div class="row">
+                                    <div class="col-12 my-3">
+                                        <label class="h2 fw-bold form-label mt-2 text-dark">Email:</label>
+                                        <span class="form-control border-2 fw-bold">
+                                            {{ order.created_by.email }}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-12 col-sm-6 my-5 text-dark">
-                            <label class="h2 fw-bold form-label mt-2">Last Name:</label>
-                            <span class="form-control border-2 fw-bold">
-                                {{ order.created_by.last_name }}
-                            </span>
+                        <!-- ----------------------- -->
+                        <!--   End Account Details   -->
+                        <!-- ----------------------- -->
+
+                        <!-- ---------------------- -->
+                        <!--    Shipping Address    -->
+                        <!-- ---------------------- -->
+                        <div class="row my-5">
+                            <h2>Shipping Address Details: {{ order.shipping_address.shipping_name }}</h2>
+                            <div class="col-10 col-sm-8 my-2 text-dark">
+                                <label class="h2 fw-bold form-label mt-2 text-dark">Street:</label>
+                                <span class="form-control border-2">
+                                    {{ order.shipping_address.address_street }}
+                                </span>
+                            </div>
+                            <div class="col-2 col-sm-4 my-2 text-dark">
+                                <label class="h2 fw-bold form-label mt-2 text-dark">Apartment:</label>
+                                <span class="form-control border-2">
+                                    {{ order.shipping_address.apartment_number }}
+                                </span>
+                            </div>
+                            <div class="col-12 col-sm-3 my-2 text-dark">
+                                <label class="h2 fw-bold form-label mt-2 text-dark">City:</label>
+                                <span class="form-control border-2">
+                                    {{ order.shipping_address.city }}
+                                </span>
+                            </div>
+                            <div class="col-12 col-sm-3 my-2 text-dark">
+                                <label class="h2 fw-bold form-label mt-2 text-dark">Country:</label>
+                                <span class="form-control border-2">
+                                    {{ order.shipping_address.country }}
+                                </span>
+                            </div>
+                            <div class="col-12 col-sm-3 my-2 text-dark">
+                                <label class="h2 fw-bold form-label mt-2 text-dark">Postcode:</label>
+                                <span class="form-control border-2">
+                                    {{ order.shipping_address.postcode }}
+                                </span>
+                            </div>
+                            <div class="col-12 col-sm-3 my-2 text-dark">
+                                <label class="h2 fw-bold form-label mt-2 text-dark">Phone:</label>
+                                <span class="form-control border-2">
+                                    {{ order.shipping_address.phone_number }}
+                                </span>
+                            </div>
                         </div>
 
-                        {% else %}
-
-                        <div class="col-12 my-5">
-                            <label class="h2 fw-bold form-label mt-2 text-dark">Account Name:</label>
-                            <span class="form-control border-2 fw-bold">
-                                {{ order.created_by.username }}
-                            </span>
-                        </div>
-
-                        {% endif %}
-                        <!-- ---------------------- -->
-                        <!-- ---------------------- -->
-                        <!--  END ACCCOUNT DETAILS  -->
-                        <!-- ---------------------- -->
-                        <!-- ---------------------- -->
 
 
                         <!-- ---------------------- -->
-                        <!-- ---------------------- -->
-                        <!--    SHIPPING ADDRESS    -->
-                        <!-- ---------------------- -->
+                        <!--  End Shipping Address  -->
                         <!-- ---------------------- -->
 
-                        <div id="div_id_shipping_address" class="my-5">
-                            <label for="id_shipping_address" class="form-label text-dark fw-bold">
-                                Shipping Address
-                                <span class="asteriskField">*</span>
-                            </label>
-                            {% if shipping_address.exists %}
-                            <select name="shipping_address" autofocus="True" class="select form-select"
-                                id="id_shipping_address">
-                                <option value="" selected="">---------</option>
-
-                                {% for address in shipping_address %}
-
-                                <option value="{{ address.id }}" class="text-black">
-                                    {{ address.shipping_name }} - {{ address.address_street_1 }},
-                                    {{ address.address_street_2 }} - {{ address.city }}
-                                </option>
-
-                                {% endfor %}
-
-                            </select>
-
-                            {% else %}
-
-                            <span class="form-control border-2 border-danger text-danger fw-bold">
-                                No Shipping Address Available! Click
-                                <a href="{% url 'shipping-address-add' %}">
-                                    Shipping Address
-                                </a>
-                                here to register your Address!
-                            </span>
-
-                            {% endif %}
-
-                        </div>
-                        <!-- ---------------------- -->
-                        <!-- ---------------------- -->
-                        <!--  END SHIPPING ADDRESS  -->
-                        <!-- ---------------------- -->
-                        <!-- ---------------------- -->
 
 
                         <!-- ------------------ -->
@@ -142,19 +154,18 @@
                             <div class="col-md-12 px-5 text-dark">
                                 <table>
                                     <tr>
-                                        <th class="px-5">Image</th>
-                                        <th class="px-5">Name</th>
-                                        <th class="px-5">Condition</th>
-                                        <th class="px-5">Quantity</th>
-                                        <th class="px-5">Final Price</th>
-                                        <th class="px-5">Delete</th>
+                                        <th class="px-5 text-center">Image</th>
+                                        <th class="px-5 text-center">Name</th>
+                                        <th class="px-5 text-center">Condition</th>
+                                        <th class="px-5 text-center">Quantity</th>
+                                        <th class="px-5 text-center">Final Price</th>
                                     </tr>
-                                    {% for product in cart %}
+                                    {% for product in order.cart_products.all %}
 
                                     <tr>
                                         {% if product.product.image %}
 
-                                        <td class="px-5">
+                                        <td class="px-5 text-center">
                                             <a href="">
                                                 <img src="{{ product.product.image.url }}"
                                                     class="card-img-top img-fluid"
@@ -164,7 +175,7 @@
 
                                         {% else %}
 
-                                        <td class="px-5">
+                                        <td class="px-5 text-center">
                                             <a href="">
                                                 <img src="{{ MEDIA_URL }}noimage.jpg" class="card-img-top img-fluid"
                                                     alt="Image {{ product.product.title }}">
@@ -173,9 +184,9 @@
 
                                         {% endif %}
 
-                                        <td class="px-5">{{ product.product.title }}</td>
+                                        <td class="px-5 text-center">{{ product.product.title }}</td>
 
-                                        <td class="px-5">
+                                        <td class="px-5 text-center">
                                             {% if product.product.product_status == 0 %}
                                             <p class="card-text">New</p>
                                             {% else %}
@@ -183,20 +194,18 @@
                                             {% endif %}
                                         </td>
 
-                                        <td class="px-5">
+                                        <td class="px-5 text-center">
                                             <p class="text-muted">{{ product.quantity }}</p>
                                         </td>
 
-                                        <td class="px-5">
+                                        <td class="px-5 text-center">
                                             <p class="text-muted text-right">
                                                 {{ product.product_price }} Euro
                                             </p>
 
                                         </td>
                                     </tr>
-
                                     {% endfor %}
-
                                 </table>
                             </div>
                         </div>
