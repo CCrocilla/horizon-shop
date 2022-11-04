@@ -24,12 +24,17 @@ class CartView(View):
 
     def get(self, request):
 
-        order = Order.objects.filter(created_by=request.user, billed=False)
-        cart = CartProducts.objects.filter(created_by=request.user)
-        shipping_address = ShippingAddress.objects.filter(created_by=request.user)
-
+        order = Order.objects.filter(
+            created_by=request.user, billed=False
+            )
+        cart = CartProducts.objects.filter(
+            created_by=request.user
+            )
+        shipping_address = ShippingAddress.objects.filter(
+            created_by=request.user
+            )
         print(shipping_address)
-        
+
         if order.exists():
             order = order[0]
         else:
@@ -82,7 +87,7 @@ def RemoveFromCart(request, product_id):
         product.delete()
 
         return HttpResponseRedirect(reverse('cart', ))
-    
+
 
 def RemoveQuantityProduct(request, product_id):
     if request.method == "POST":
@@ -93,7 +98,7 @@ def RemoveQuantityProduct(request, product_id):
         else:
             product.delete()
         return HttpResponseRedirect(reverse('cart', ))
-    
+
 
 def AddQuantityProduct(request, product_id):
     if request.method == "POST":

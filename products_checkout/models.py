@@ -41,13 +41,6 @@ class Order(models.Model):
     delivered = models.BooleanField(
         default=False
         )
-    delivery_cost = models.DecimalField(
-        max_digits=6,
-        decimal_places=2,
-        null=True,
-        blank=True, 
-        editable=False
-        )
     total_price = models.DecimalField(
         max_digits=6,
         decimal_places=2,

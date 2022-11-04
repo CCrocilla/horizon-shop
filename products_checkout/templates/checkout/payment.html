@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block extra_title %} - Checkout{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- ======================= -->
+<!--         Messages        -->
+<!-- ======================= -->
+
+{% include 'dashboard/includes/messages.html' %}
+
+<!-- ======================= -->
+<!--       End Messages      -->
+<!-- ======================= -->
+
+<section class="container">
+    <div class="row">
+        <div class="col">
+
+        </div>
+    </div>
+</section>
+
+
+<section class="py-4 mt-5 mb-4">
+    <div class="container-lg">
+        <div class="row justify-content-center hero-text">
+            <div class="col text-center text-warning">
+                <h1 class="fw-bold text-center text-dark">Payment!!!</h1>
+                <hr class="w-25 mx-auto text-dark" style="height:2px;" />
+            </div>
+        </div>
+    </div>
+    <!-- CODE Institute -->
+
+
+
+
+    <!-- Stripe Edition -->
+    <!-- STRIPE
+    <form id="payment-form">
+        {% csrf_token %}
+        <div id="payment-element"> -->
+    <!--Stripe.js injects the Payment Element-->
+    <!-- </div>
+        <button id="submit">
+            <div class="spinner hidden" id="spinner"></div>
+            <span id="button-text">Pay now</span>
+        </button>
+        <div id="payment-message" class="hidden"></div>
+    </form> -->
+
+
+    <div class="container card rounded-3">
+        <div class="row py-5 d-flex justify-content-center align-items-center">
+            <div class="col-8">
+                <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+                    {% csrf_token %}
+                    <fieldset class="px-3">
+                        <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
+                        <!-- A Stripe card element will go here -->
+                        <div class="mb-3" id="card-element"></div>
+
+                        <!-- Used to display form errors -->
+                        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                    </fieldset>
+
+                    <button id="submit" class="btn btn-lg rounded-3">
+                        <div class="spinner hidden" id="spinner"></div>
+                        <span id="button-text">Pay now</span>
+                    </button>
+                    <div id="payment-message" class="hidden"></div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+
+{% block postloadjs %}
+
+{{ block.super }}
+{{ stripe_public_key|json_script:"id_stripe_public_key" }}
+{{ client_secret|json_script:"id_client_secret" }}
+<script src="{% static 'js/stripe_elements.js' %}"></script>
+<!-- <script src="{% static 'js/stripe_checkout.js' %}"></script> -->
+
+{% endblock %}

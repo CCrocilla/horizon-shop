@@ -16,17 +16,14 @@ class CheckoutForm(ModelForm):
         fields = (
             'created_by',
             'shipping_address',
-            'cart_products',
             )
 
         labels = {
             'created_by': 'Full Name',
             'shipping_address': 'Shipping Address',
-            'cart_products': 'Products',
             }
 
         widgets = {
             'created_by': forms.HiddenInput(),
             'shipping_address': forms.HiddenInput(),
-            'cart_products': forms.HiddenInput(),
             }
