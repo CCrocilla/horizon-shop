@@ -33,7 +33,6 @@ var form = document.getElementById('payment-form');
 
 form.addEventListener('submit', function (ev) {
     ev.preventDefault();
-    setLoading(true);
     card.update({
         'disabled': true
     });
@@ -51,7 +50,7 @@ form.addEventListener('submit', function (ev) {
                 </span>
                 <span>${result.error.message}</span>`;
             $(errorDiv).html(html);
-            setLoading(false);
+
             card.update({
                 'disabled': false
             });
@@ -62,19 +61,32 @@ form.addEventListener('submit', function (ev) {
             }
         }
     });
-    setLoading(false);
 });
 
-// Show a spinner on payment submission
-function setLoading(isLoading) {
-    if (isLoading) {
-        // Disable the button and show a spinner
-        document.querySelector("#submit").disabled = true;
-        document.querySelector("#spinner").classList.remove("hidden");
-        document.querySelector("#button-text").classList.add("hidden");
+async function handleSubmit(e) {
+    e.preventDefault();
+    setLoading(true);
+
+    const {
+        error
+    } = await stripe.confirmPayment({
+        elements,
+        confirmParams: {
+            // Make sure to change this to your payment completion page
+            return_url: "{% url 'payment-success' %}",
+        },
+    });
+
+    // This point will only be reached if there is an immediate error when
+    // confirming the payment. Otherwise, your customer will be redirected to
+    // your `return_url`. For some payment methods like iDEAL, your customer will
+    // be redirected to an intermediate site first to authorize the payment, then
+    // redirected to the `return_url`.
+    if (error.type === "card_error" || error.type === "validation_error") {
+        showMessage(error.message);
     } else {
-        document.querySelector("#submit").disabled = false;
-        document.querySelector("#spinner").classList.add("hidden");
-        document.querySelector("#button-text").classList.remove("hidden");
+        showMessage("An unexpected error occurred.");
     }
+
+    setLoading(false);
 }
