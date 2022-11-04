@@ -81,15 +81,12 @@ class PaymentView(View):
         order = Order.objects.get(created_by=request.user, billed=False)
 
         total_order = order.total_price()
-        print(total_order)
         total_stripe = round(total_order * 100)
         stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(
             amount=total_stripe,
             currency=STRIPE_CURRENCY
         )
-
-        print(intent)
 
         context = {
             'order': order,
@@ -100,17 +97,30 @@ class PaymentView(View):
         return render(request, self.template_name, context)
 
 
-# class PaymentSuccess(View):
-#     template_name = 'checkout/payment-success.html'
+class PaymentSuccess(View):
+    template_name = 'checkout/payment-success.html'
 
-#     def get(self, request):
+    def get(self, request):
 
-#         context = {
-#             'payment_status': 'success',
-#         }
+        context = {
+            'payment_status': 'success',
+        }
 
-#         return render(request, self.template_name, context)
-    
+        return render(request, self.template_name, context)
+
+    def post(self, request, *args, **kwargs):
+        order = Order.objects.get(created_by=request.user, billed=False)
+        order.billed = True
+        order.save()
+
+        print("I am changing the status of the Order!!!")
+
+        context = {
+            'order': 'order',
+        }
+
+        return render(request, self.template_name, context)
+
 
 # class PaymentCancel(View):
 #     template_name = 'checkout/payment-cancel.html'

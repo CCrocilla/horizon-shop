@@ -83,7 +83,8 @@ def AddToCart(request, product_id):
 
 def RemoveFromCart(request, product_id):
     if request.method == "POST":
-        product = get_object_or_404(CartProducts, product=product_id)
+        product = CartProducts.objects.filter(
+            created_by=request.user, product=product_id)
         product.delete()
 
         return HttpResponseRedirect(reverse('cart', ))
@@ -91,7 +92,9 @@ def RemoveFromCart(request, product_id):
 
 def RemoveQuantityProduct(request, product_id):
     if request.method == "POST":
-        product = get_object_or_404(CartProducts, product=product_id)
+        product = CartProducts.objects.get(
+            created_by=request.user, product=product_id)
+
         if product.quantity > 1:
             product.quantity -= 1
             product.save()
@@ -102,7 +105,9 @@ def RemoveQuantityProduct(request, product_id):
 
 def AddQuantityProduct(request, product_id):
     if request.method == "POST":
-        product = get_object_or_404(CartProducts, product=product_id)
+        product = CartProducts.objects.get(
+            created_by=request.user, product=product_id)
+
         if product.quantity >= 1:
             product.quantity += 1
             product.save()

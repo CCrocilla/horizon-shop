@@ -41,26 +41,27 @@
 
 
 
-    <!-- Stripe Edition -->
-    <!-- STRIPE
+    Stripe Edition
+    STRIPE
     <form id="payment-form">
         {% csrf_token %}
-        <div id="payment-element"> -->
-    <!--Stripe.js injects the Payment Element-->
-    <!-- </div>
+        <div id="payment-element">
+            <!--Stripe.js injects the Payment Element-->
+        </div>
         <button id="submit">
             <div class="spinner hidden" id="spinner"></div>
             <span id="button-text">Pay now</span>
         </button>
         <div id="payment-message" class="hidden"></div>
-    </form> -->
+    </form>
 
 
     <div class="container card rounded-3">
         <div class="row py-5 d-flex justify-content-center align-items-center">
             <div class="col-8">
-                <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+                <form action="{% url 'payment-success' %}" method="POST" id="payment-form">
                     {% csrf_token %}
+
                     <fieldset class="px-3">
                         <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
                         <!-- A Stripe card element will go here -->
@@ -70,7 +71,7 @@
                         <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
                     </fieldset>
 
-                    <button id="submit" class="btn btn-lg rounded-3">
+                    <button id="submit" type="submit" class="btn btn-lg rounded-3">
                         <div class="spinner hidden" id="spinner"></div>
                         <span id="button-text">Pay now</span>
                     </button>
