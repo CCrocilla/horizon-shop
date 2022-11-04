@@ -167,12 +167,10 @@ class ShippingAddressDeleteView(SuccessMessageMixin, DeleteView):
 ################################
 #        Product Views         #
 ################################
-
-
 def unique_slugify(instance, slug):
     model = instance.__class__
     unique_slug = slug
-    
+
     return unique_slug
 
 
@@ -200,7 +198,7 @@ class ProductAddView(SuccessMessageMixin, View):
             product.slug = slugify(product.title)
 
             while Product.objects.filter(slug=product.slug).exists():
-                product.slug = product.slug + '-' + get_random_string(length=5)
+                product.slug = product.slug + '-' + get_random_string(length=5) # Add Timestamp? 
 
             if product.created_by.is_superuser:
                 product.product_status = 0
