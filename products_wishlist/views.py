@@ -33,7 +33,7 @@ def AddToWishlistView(request, product_id):
             product_wished = Wishlist.objects.get(
                 user=request.user, product=product)
             if product_wished:
-                messages.info(
+                messages.error(
                     request, 'The Product is already in your Wishlist!')
 
         except Exception:
@@ -41,7 +41,7 @@ def AddToWishlistView(request, product_id):
             messages.success(request, 'Product Added to your Wishlist!')
 
         finally:
-            return HttpResponseRedirect(reverse('products-wishlist', ))
+            return HttpResponseRedirect(reverse(request.path, ))
 
 
 def RemoveFromWishlistView(request, wished_product_id):

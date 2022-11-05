@@ -1,5 +1,6 @@
 {% load static %}
 
+{% if testimonials %}
 <section id="testimonials" class="testimonials">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path fill="#EDF4FF" fill-opacity="1"
@@ -16,134 +17,58 @@
         <!-- START THE CAROUSEL CONTENT  -->
         <div class="row align-items-center">
             <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
+                <div class="carousel-inner rounded-pill">
                     <!-- CAROUSEL ITEM 1 -->
-                    <div class="carousel-item active">
+                    {% for testimonial in testimonials %}
+                    <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}" data-bs-interval="5000">
                         <!-- testimonials card  -->
                         <div class="testimonial-card">
                             <p class="lh-lg text-dark">
                                 <i class="fas fa-quote-left text-dark "></i>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Placeat aut consequatur illo animi optio exercitationem doloribus eligendi iusto atque
-                                repudiandae. Distinctio.
+                                {{ testimonial.comment }}
                                 <i class="fas fa-quote-right text-dark"></i>
                                 <div class="ratings p-1">
+                                    {% with ''|center:testimonial.rating_stars as range %}
+                                    {% for i in range %}
                                     <i class="fas fa-star text-yellow"></i>
-                                    <i class="fas fa-star text-yellow"></i>
-                                    <i class="fas fa-star text-yellow"></i>
-                                    <i class="fas fa-star text-yellow"></i>
-                                    <i class="fas fa-star text-yellow"></i>
+                                    {% endfor %}
+                                    {% endwith %}
                                 </div>
                             </p>
                         </div>
                         <!-- Client Picture  -->
+                        {% if testimonial.created_by.customer.avatar %}
+                        <div class="testimonials-picture">
+                            <img class="img-fluid rounded-circle" src="{{ testimonial.created_by.customer.avatar.url }}"
+                                alt="Client Avatar">
+                        </div>
+                        {% else %}
                         <div class="testimonials-picture">
                             <img class="img-fluid rounded-circle" src="{% static 'images/kamala.webp' %}"
-                                alt="Client Avatar 1">
+                                alt="Client Avatar">
                         </div>
+                        {% endif %}
+
+
                         <!-- Client Name  -->
                         <div class="testimonials-client-name">
-                            <h3>Claudio</h3>
+                            {% if testimonial.created_by.first_name %}
+                            <h3>{{ testimonial.created_by.first_name }}</h3>
+                            {% else %}
+                            <h3>{{ testimonial.created_by.username }}</h3>
+                            {% endif %}
                             <p class="fw-light">CEO & founder</p>
                         </div>
                     </div>
-                    <!-- CAROUSEL ITEM 2 -->
-                    <div class="carousel-item">
-                        <!-- testimonials card  -->
-                        <div class="testimonial-card">
-                            <p class="lh-lg text-dark">
-                                <i class="fas fa-quote-left"></i>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Placeat aut consequatur illo animi optio exercitationem doloribus eligendi iusto atque
-                                repudiandae. Distinctio.
-                                <i class="fas fa-quote-right"></i>
-                                <div class="ratings p-1">
-                                    <i class="fas fa-star text-yellow"></i>
-                                    <i class="fas fa-star text-yellow"></i>
-                                    <i class="fas fa-star text-yellow"></i>
-                                    <i class="fas fa-star text-yellow"></i>
-                                    <i class="fas fa-star text-yellow"></i>
-                                </div>
-                            </p>
-                        </div>
-                        <!-- client picture  -->
-                        <div class="testimonials-picture">
-                            <img src="{% static 'images/kamala.webp' %}" alt="Client Avatar 2"
-                                class="rounded-circle img-fluid">
 
-                        </div>
-                        <!-- client name & role  -->
-                        <div class="testimonials-client-name">
-                            <h3>Rosi</h3>
-                            <p class="fw-light">Finance Manager</p>
-                        </div>
-                    </div>
-                    <!-- CAROUSEL ITEM 3 -->
-                    <div class="carousel-item">
-                        <!-- testimonials card  -->
-                        <div class="testimonial-card">
-                            <p class="lh-lg text-dark">
-                                <i class="fas fa-quote-left"></i>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Placeat aut consequatur illo animi optio exercitationem doloribus eligendi iusto atque
-                                repudiandae. Distinctio.
-                                <i class="fas fa-quote-right"></i>
-                                <div class="ratings p-1">
-                                    <i class="fas fa-star text-yellow"></i>
-                                    <i class="fas fa-star text-yellow"></i>
-                                    <i class="fas fa-star text-yellow"></i>
-                                    <i class="fas fa-star text-yellow"></i>
-                                    <i class="fas fa-star text-yellow"></i>
-                                </div>
-                            </p>
-                        </div>
-                        <!-- client picture  -->
-                        <div class="testimonials-picture">
-                            <img src="{% static 'images/kamala.webp' %}" alt="Client Avatar 3"
-                                class="rounded-circle img-fluid">
-                        </div>
-                        <!-- client name & role  -->
-                        <div class="testimonials-client-name">
-                            <h3>Luigi</h3>
-                            <p class="fw-light">Global brand manager</p>
-                        </div>
-                    </div>
-                    <!-- CAROUSEL ITEM 4 -->
-                    <div class="carousel-item">
-                        <!-- testimonials card  -->
-                        <div class="testimonial-card">
-                            <p class="lh-lg text-dark">
-                                <i class="fas fa-quote-left"></i>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Placeat aut consequatur illo animi optio exercitationem doloribus eligendi iusto atque
-                                repudiandae. Distinctio.
-                                <i class="fas fa-quote-right"></i>
-                                <div class="ratings p-1">
-                                    <i class="fas fa-star text-yellow"></i>
-                                    <i class="fas fa-star text-yellow"></i>
-                                    <i class="fas fa-star text-yellow"></i>
-                                    <i class="fas fa-star text-yellow"></i>
+                    {% endfor %}
 
-                                </div>
-                            </p>
-                        </div>
-                        <!-- client picture  -->
-                        <div class="testimonials-picture">
-                            <img src="{% static 'images/kamala.webp' %}" alt="Client Avatar 4"
-                                class="rounded-circle img-fluid">
-                        </div>
-                        <!-- client name & role  -->
-                        <div class="testimonials-client-name">
-                            <h3>Uhuru Kenyatta</h3>
-                            <p class="fw-light">C.E.O & Founder</p>
-                        </div>
-                    </div>
                 </div>
                 <div class="text-center">
-                    <button class="btn btn-outline-light fas fa-long-arrow-alt-left" type="button"
+                    <button class="btn btn-outline-light fas fa-long-arrow-alt-left rounded-pill" type="button"
                         data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                     </button>
-                    <button class="btn btn-outline-light fas fa-long-arrow-alt-right" type="button"
+                    <button class="btn btn-outline-light fas fa-long-arrow-alt-right rounded-pill" type="button"
                         data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
                     </button>
                 </div>
@@ -156,3 +81,4 @@
         </path>
     </svg>
 </section>
+{% endif %}

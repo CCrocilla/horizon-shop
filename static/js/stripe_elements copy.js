@@ -63,7 +63,6 @@ form.addEventListener('submit', function (ev) {
     });
 });
 
-// Handle Async call form submit
 async function handleSubmit(e) {
     e.preventDefault();
     setLoading(true);
@@ -73,7 +72,7 @@ async function handleSubmit(e) {
     } = await stripe.confirmPayment({
         elements,
         confirmParams: {
-            // Make sure to change this to your payment completion page
+            // Use payment completion page
             return_url: "{% url 'payment-success' %}",
         },
     });
