@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import reverse
+from django.shortcuts import redirect
 from django.shortcuts import HttpResponseRedirect
 from django.views import View
 
@@ -41,7 +42,7 @@ def AddToWishlistView(request, product_id):
             messages.success(request, 'Product Added to your Wishlist!')
 
         finally:
-            return HttpResponseRedirect(reverse(request.path, ))
+            return HttpResponseRedirect(reverse('products-wishlist', ))
 
 
 def RemoveFromWishlistView(request, wished_product_id):

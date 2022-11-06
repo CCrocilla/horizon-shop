@@ -11,10 +11,15 @@ const stripe = Stripe(stripePublicKey)
 var elements = stripe.elements();
 var card = elements.create('card');
 card.mount('#card-element');
+$('#submit-button').attr('disabled', true);
 
 // Handle realtime validation errors on the card element
 card.addEventListener('change', function (event) {
     var errorDiv = document.getElementById('card-errors');
+    if (event.complete) {
+        $('#submit-button').attr('disabled', false);
+        return;
+    }
     if (event.error) {
         var html = `
             <span class="icon" role="alert">
@@ -26,22 +31,32 @@ card.addEventListener('change', function (event) {
     } else {
         errorDiv.textContent = '';
     }
+    $('#submit-button').attr('disabled', true);
 });
 
-// Handle form submit
 var form = document.getElementById('payment-form');
 
-form.addEventListener('submit', function (ev) {
-    ev.preventDefault();
+form.addEventListener('submit', handlerSubmit);
+
+// Handle form submit
+function handlerSubmit(event) {
+    console.log('Submit Fired')
+    event.preventDefault();
     card.update({
         'disabled': true
     });
+
     $('#submit').attr('disabled', true);
+
     stripe.confirmCardPayment(clientSecret, {
         payment_method: {
             card: card,
-        }
+        },
+
     }).then(function (result) {
+        console.log('INSIDE THEN', result)
+        const urlRedirect = "https://" + window.location.hostname + "/checkout/payment/success"
+
         if (result.error) {
             var errorDiv = document.getElementById('card-errors');
             var html = `
@@ -57,37 +72,11 @@ form.addEventListener('submit', function (ev) {
             $('#submit').attr('disabled', false);
         } else {
             if (result.paymentIntent.status === 'succeeded') {
+                var form = document.getElementById('payment-form');
+                console.log('SUCCEDED')
+                form.removeEventListener('submit', handlerSubmit);
                 form.submit();
             }
         }
     });
-});
-
-// Handle Async call form submit
-async function handleSubmit(e) {
-    e.preventDefault();
-    setLoading(true);
-
-    const {
-        error
-    } = await stripe.confirmPayment({
-        elements,
-        confirmParams: {
-            // Make sure to change this to your payment completion page
-            return_url: "{% url 'payment-success' %}",
-        },
-    });
-
-    // This point will only be reached if there is an immediate error when
-    // confirming the payment. Otherwise, your customer will be redirected to
-    // your `return_url`. For some payment methods like iDEAL, your customer will
-    // be redirected to an intermediate site first to authorize the payment, then
-    // redirected to the `return_url`.
-    if (error.type === "card_error" || error.type === "validation_error") {
-        showMessage(error.message);
-    } else {
-        showMessage("An unexpected error occurred.");
-    }
-
-    setLoading(false);
 }

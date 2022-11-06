@@ -1,9 +1,14 @@
 {% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
 {% load static %}
 
 {% block extra_title %} {{ product.title }} {% endblock %}
 
 {% block content %}
+
+<!-- Product Details Section -->
 <section class="container my-5 py-5">
     <div class="row">
         <div class="col-12 col-md-5 order-md-first bg-light">
@@ -32,12 +37,49 @@
                         <span class="h3 fw-bold">Price: {{ product.price }} Euro</span>
                     </div>
                     <div class="col-12">
-                        <a href="#" class="btn btn-primary">Add to Backet</a>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
                         <a href="#" class="btn btn-primary">Add to Wishlist</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</section>
+
+<!-- Product Comments Section -->
+<section class="container my-5 py-5">
+    <div class="row">
+        <div class="col-12 col-md-5 order-md-first bg-light">
+            <h3>Comments:</h3>
+            <div class="card-body">
+                {% for c in comments %}
+                <div class="border text-dark">
+                    <p class="fw-bold">
+                        Customer: {{ c.commented_by.username }}
+                        <br>
+                        <span class="fw-bold text-muted">
+                            On Date: {{ c.commented_date }}
+                        </span>
+                    </p>
+                    Comment:
+                    {{ c.comment | linebreaks }}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-12 col-md-5 order-md-first bg-light">
+            <div class="card-body">
+                {% if user.is_authenticated %}
+
+                <h3>Leave your comment here:</h3>
+                <form method="POST">
+                    {{ comments_form | crispy }}
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                </form>
+                {% endif %}
+
+            </div>
+        </div>
 </section>
 {% endblock %}

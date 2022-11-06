@@ -20,6 +20,10 @@ from django.views.generic import DeleteView
 from .models import Product
 from .models import Category
 from .models import SubCategory
+from .models import ProductComment
+
+from .forms import ProductCommentForm
+from .forms import ProductRatingForm
 
 from django.db.models import Q
 
@@ -133,11 +137,60 @@ class UsedProductsListView(View):
         return render(request, self.template_name, context)
 
 
-class ProductDetailsView(DetailView):
+# class ProductDetailsView(DetailView):
+#     """
+#     Class to display single Product Details on the Shop
+#     """
+#     model = Product
+#     queryset = Product.objects.all()
+#     template_name = 'products/product-details.html'
+#     fields = '__all__'
+
+
+class ProductDetailsView(View):
     """
     Class to display single Product Details on the Shop
     """
-    model = Product
-    queryset = Product.objects.order_by('-created_at')
     template_name = 'products/product-details.html'
-    fields = '__all__'
+
+    def get(self, request, slug):
+        product = Product.objects.get(slug=slug)
+        comments = ProductComment.objects.filter(product=product).order_by('-commented_date')
+        comments_form = ProductCommentForm(request.POST)
+        rating_form = ProductRatingForm(request.POST)
+
+        context = {
+                'product': product,
+                'comments': comments,
+                'comments_form': comments_form,
+                'rating_form': rating_form,
+            }
+        return render(request, self.template_name, context)
+
+    def post(self, request, slug, *args, **kwargs):
+        product = Product.objects.get(slug=slug)
+        comments = ProductComment.objects.filter(product=product).order_by('-commented_date')
+        rating_stars = ProductRating.objects.filter(product=product)
+        comments_form = ProductCommentForm(request.POST)
+        rating_form = ProductRatingForm(request.POST)
+
+        if comments_form.is_valid():
+            comment = comments_form.save(commit=False)
+            comment.commented_by = request.user
+            comment.product = product
+            comment.save()
+        
+        if rating_form.is_valid():
+            rating_stars = rating_form.save(commit=False)
+            rating_stars.rated_by = request.user
+            rating_stars.product = product
+            rating_stars.save()
+
+        context = {
+                'product': product,
+                'comments': comments,
+                'comments_form': comments_form,
+                'rating_form': rating_form
+            }
+
+        return render(request, self.template_name, context)
