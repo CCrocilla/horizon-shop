@@ -26,7 +26,7 @@
     </div>
 </section>
 
-{% if payment_status == success %}
+
 <section class="py-4 mt-5 mb-4">
     <div class="container-lg">
         <div class="row justify-content-center hero-text">
@@ -36,7 +36,9 @@
             </div>
         </div>
     </div>
-
+    <h1>{{ order.id }}</h1>
+    <h1> {{ order.billed }} </h1>
+    <h1> {{order.order_number }} </h1>
     <div class="container card rounded-3">
         <div class="row py-5 d-flex justify-content-center align-items-center">
             <div class="col-12">
@@ -46,11 +48,6 @@
         </div>
     </div>
 </section>
-{% endif %}
 
-{% endblock %}
-
-
-{% block postloadjs %}
 
 {% endblock %}

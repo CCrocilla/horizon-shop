@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import reverse
+from django.shortcuts import redirect
 from django.shortcuts import HttpResponseRedirect
 from django.views import View
 
@@ -33,7 +34,7 @@ def AddToWishlistView(request, product_id):
             product_wished = Wishlist.objects.get(
                 user=request.user, product=product)
             if product_wished:
-                messages.info(
+                messages.error(
                     request, 'The Product is already in your Wishlist!')
 
         except Exception:

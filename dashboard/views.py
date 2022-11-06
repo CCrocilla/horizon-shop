@@ -198,7 +198,8 @@ class ProductAddView(SuccessMessageMixin, View):
             product.slug = slugify(product.title)
 
             while Product.objects.filter(slug=product.slug).exists():
-                product.slug = product.slug + '-' + get_random_string(length=5) # Add Timestamp? 
+                product.slug = product.slug + '-' + get_random_string(length=5)
+                # Add Timestamp?
 
             if product.created_by.is_superuser:
                 product.product_status = 0
@@ -228,7 +229,9 @@ class ProductListView(ListView):
             queryset = Product.objects.all()
             # queryset = Product.objects.filter(is_deleted=False)
         else:
-            queryset = Product.objects.filter(created_by=self.request.user)
+            queryset = Product.objects.filter(
+                created_by=self.request.user,
+                is_deleted=False)
 
         return queryset
 
@@ -346,7 +349,7 @@ class SubCategoryAddView(SuccessMessageMixin, CreateView):
 
     def post(self, request, *args, **kwargs):
         subcategory_form = SubCategoryForm(request.POST)
-            
+
         if subcategory_form.is_valid():
             name = subcategory_form.cleaned_data.get('name')
             if SubCategory.objects.filter(name=name).exists():
@@ -449,7 +452,7 @@ class TestimonialUpdateView(UpdateView):
     model = Testimonial
     template_name = 'dashboard/testimonials/testimonial-update.html'
     fields = ['title', 'comment']
-    success_url = reverse_lazy('shipping-address-list')
+    success_url = reverse_lazy('testimonials-list')
     success_message = "Testimonial updated successfully!"
 
 

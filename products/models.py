@@ -80,7 +80,7 @@ class Product(SoftDeleteModel):
 
 class ProductComment(models.Model):
     product = models.ForeignKey(
-        Product, blank=True, null=True, on_delete=models.CASCADE)
+        Product, blank=True, null=True, on_delete=models.SET_NULL)
     commented_by = models.ForeignKey(
         User, blank=True, null=True, on_delete=models.CASCADE)
     commented_date = models.DateTimeField(auto_now_add=True)
@@ -88,7 +88,7 @@ class ProductComment(models.Model):
 
     class Meta:
         """ Sorting by Create Date """
-        ordering = ['commented_date']
+        ordering = ['-commented_date']
 
     def __str__(self):
         return self.comment

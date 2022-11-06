@@ -2,6 +2,8 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
 
+from django_resized import ResizedImageField
+
 from django_countries.fields import CountryField
 
 
@@ -15,10 +17,13 @@ class Customer(models.Model):
         default=True,
         blank=True, null=True
         )
-    avatar = models.ImageField(
+    avatar = ResizedImageField(
         default='default.jpg',
+        size=[300, 300],
+        crop=['middle', 'center'],
         upload_to='customer_avatar/',
-        null=True, blank=True
+        null=True,
+        blank=True
         )
 
     def __str__(self):
