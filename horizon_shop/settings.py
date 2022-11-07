@@ -119,6 +119,7 @@ TEMPLATES = [
                 'products.views.categories',
                 'products.views.subcategories',
                 'products_cart.context_processors.cart_contents',
+                'products_wishlist.context_processors.wishlist_contents',
             ],
         },
     },

@@ -9,7 +9,6 @@ FREE_DELIVERY_THRESHOLD = 60
 
 def cart_contents(request):
 
-    cart = []
     total_products_cart = 0
     total_price_cart = 0
     delivery = 0

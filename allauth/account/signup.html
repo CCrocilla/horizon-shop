@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "account/base.html" %}
 
 {% load static %}
 
@@ -15,13 +15,51 @@
 
 <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
 
-<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-  {% csrf_token %}
-  {{ form|crispy }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
-</form>
+<section class="border-top-wide border-primary d-flex flex-column theme-light">
+    <div class="page page-center my-4">
+        <div class="container container-tight py-4">
+            <div class="text-center mb-4">
+                <a href="{% url 'homepage' %}" class="navbar-brand navbar-brand-autodark">Horizon Shop</a>
+            </div>
+            <div class="card card-md">
+                <div class="card-body">
+                    <h2 class="h2 text-center mb-4">Login to your account</h2>
+
+                    <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        {% if redirect_field_value %}
+                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                        {% endif %}
+                        <div class="form-footer">
+                            <button class="btn btn-primary w-100 primaryAction" type="submit">
+                                {% trans "Sign Up" %} &raquo;
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="hr-text">or</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <a href="{% url 'account_reset_password' %}" class="btn w-100 button secondaryAction">
+                                {% trans "Forgot Password?" %}
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a href="#" class="btn w-100">
+                                Second Link Here
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center text-muted mt-3">
+            Already have an account? Then please <a href="{{ login_url }}">Sign In</a> Here!
+        </div>
+    </div>
+</section>
 
 {% endblock %}

@@ -29,6 +29,7 @@ class WishlistView(View):
 def AddToWishlistView(request, product_id):
     if request.method == 'POST':
         product = Product.objects.get(id=product_id)
+        redirect_url = request.POST.get('redirect_url')
 
         try:
             product_wished = Wishlist.objects.get(
@@ -42,7 +43,7 @@ def AddToWishlistView(request, product_id):
             messages.success(request, 'Product Added to your Wishlist!')
 
         finally:
-            return HttpResponseRedirect(reverse('products-wishlist', ))
+            return HttpResponseRedirect(redirect_url)
 
 
 def RemoveFromWishlistView(request, wished_product_id):
