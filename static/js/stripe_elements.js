@@ -10,7 +10,10 @@ const stripe = Stripe(stripePublicKey)
 
 var elements = stripe.elements();
 var card = elements.create('card');
+var form = document.getElementById('payment-form');
+
 card.mount('#card-element');
+
 $('#submit-button').attr('disabled', true);
 
 // Handle realtime validation errors on the card element
@@ -34,18 +37,16 @@ card.addEventListener('change', function (event) {
     $('#submit-button').attr('disabled', true);
 });
 
-var form = document.getElementById('payment-form');
-
 form.addEventListener('submit', handlerSubmit);
 
 // Handle form submit
 function handlerSubmit(event) {
-    console.log('Submit Fired')
+    console.log('Submit Fired!!!')
     event.preventDefault();
     card.update({
         'disabled': true
     });
-
+    setLoading(true);
     $('#submit').attr('disabled', true);
 
     stripe.confirmCardPayment(clientSecret, {
@@ -54,7 +55,7 @@ function handlerSubmit(event) {
         },
 
     }).then(function (result) {
-        console.log('INSIDE THEN', result)
+        console.log('Inside Then Function: ', result)
         const urlRedirect = "https://" + window.location.hostname + "/checkout/payment/success"
 
         if (result.error) {
@@ -70,6 +71,7 @@ function handlerSubmit(event) {
                 'disabled': false
             });
             $('#submit').attr('disabled', false);
+            setLoading(false);
         } else {
             if (result.paymentIntent.status === 'succeeded') {
                 var form = document.getElementById('payment-form');
@@ -79,4 +81,16 @@ function handlerSubmit(event) {
             }
         }
     });
+}
+
+// Show a spinner on payment submission
+function setLoading(isLoading) {
+    if (isLoading) {
+        // Disable the button and show a spinner
+        document.getElementById("spinner").classList.remove("hidden");
+        document.getElementById("button-text").classList.add("hidden");
+    } else {
+        document.getElementById("spinner").classList.add("hidden");
+        document.getElementById("button-text").classList.remove("hidden");
+    }
 }

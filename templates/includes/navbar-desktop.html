@@ -11,7 +11,7 @@
             </a>
         </h1>
 
-        <div class="navbar-nav flex-row order-lg-last">
+        <div class="navbar-nav flex-row order-lg-last me-3">
             <div class="nav-item d-none d-md-flex me-3">
                 <div class="btn-list">
                     <a class="btn btn-dark nav-link active text-yellow" aria-current="page" href="{% url 'homepage' %}">
@@ -30,29 +30,34 @@
                         </div>
                     </a>
 
-
+                    <a href="{% url 'products-wishlist' %}" class="btn btn-dark nav-link text-yellow"
+                        data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Wishlist">
+                        <div class="fs-6 text-center text-yellow">
+                            <span class="badge badge-sm bg-red">{{ counter_wish_products }}</span>
+                            <i class="fas fa-heart fa-lg"></i>
+                        </div>
+                    </a>
 
                     <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link text-yellow"
-                        href="{% url 'cart' %}">
+                        href="{% url 'cart' %}" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                        data-bs-title="Cart">
                         <div class="fs-6 text-center text-yellow">
-                            <div>
-                                <p class="my-0">
-                                    <span class="badge badge-sm bg-red">{{total_products_cart}}</span>
-                                    <i class="fas fa-shopping-cart fa-lg"></i>
-                                    {% if total_price_cart %}
-                                    {{ total_price_cart|floatformat:2 }} Euro
-                                    {% else %}
-                                    0.00 Euro
-                                    {% endif %}
-                                </p>
-                            </div>
+                            <p class="my-0">
+                                <span class="badge badge-sm bg-red">{{ total_products_cart }}</span>
+                                <i class="fas fa-shopping-cart fa-lg"></i>
+                                {% if total_price_cart %}
+                                {{ total_price_cart|floatformat:2 }} Euro
+                                {% else %}
+                                0.00 Euro
+                                {% endif %}
+                            </p>
                         </div>
                     </a>
 
                 </div>
             </div>
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
+                <a href="#" class="nav-link d-flex lh-1 text-reset" data-bs-toggle="dropdown"
                     aria-label="Open user menu">
                     <span class="avatar bg-azure-lt"><i class="fas fa-user text-yellow fs-4"></i></span>
 
@@ -107,7 +112,7 @@
     <div class="collapse navbar-collapse" id="navbar-menu">
         <div class="navbar navbar-dark">
             <div class="container-fluid">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav d-flex align-items-center">
                     <li class="nav-item d-md-none">
                         <a class="nav-link active text-yellow" aria-current="page" href="{% url 'homepage' %}">
                             <span class="nav-link-title">
@@ -116,10 +121,20 @@
                         </a>
                     </li>
                     <li class="nav-item d-md-none">
-                        <a class="nav-link" href="{% url 'contact_us' %}">
+                        <a class="nav-link text-yellow" href="{% url 'contact_us' %}">
                             <span class="nav-link-title">
                                 <i class="fas fa-headset fa-lg"></i> Contact Us
                             </span>
+                        </a>
+                    </li>
+                    <li class="nav-item d-md-none">
+                        <a href="{% url 'products-wishlist' %}" class="btn btn-dark nav-link text-yellow"
+                            data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Wishlist">
+                            <div class="fs-6 text-center text-yellow">
+                                <span class="d-none badge badge-sm bg-red">{{ counter_wish_products }}</span>
+                                <i class="fas fa-heart fa-lg"></i>
+                                Wishlist
+                            </div>
                         </a>
                     </li>
                     <li class="nav-item active d-md-none">

@@ -49,7 +49,7 @@
             <a class="fs-2 btn btn-link btn-sm order-0 order-lg-0 mx-3 text-light text-decoration-none d-inline-block text-yellow"
                 id="sidebarToggle" href="#!" aria-label="Open Sidebar"><i class="fas fa-bars"></i></a>
 
-            <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
+            <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal d-none pe-0 pe-md-3">
                 <a class="text-decoration-none" href="{% url 'homepage' %}">
                     <h1 class="fs-1 text-decoration-none text-yellow">Horizon Shop</h1>
                 </a>
@@ -58,25 +58,31 @@
             <div class="navbar-nav flex-row order-md-last">
                 <div class="nav-item dropdown">
                     <div class="btn-list">
-                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link text-yellow"
-                            href="{% url 'cart' %}">
+                        <a href="{% url 'products-wishlist' %}" class="btn btn-dark nav-link text-yellow mx-3"
+                            data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Wishlist">
                             <div class="fs-6 text-center text-yellow">
-                                <div>
-                                    <p class="my-0">
-                                        <i class="fas fa-shopping-cart fa-lg"></i>
-                                        <span class="badge badge-sm bg-red">{{total_products_cart}}</span>
-                                        {% if total_price_cart %}
-                                        {{ total_price_cart|floatformat:2 }} Euro
-                                        {% else %}
-                                        0.00 Euro
-                                        {% endif %}
-                                    </p>
-                                </div>
+                                <span class="badge badge-sm bg-red">{{ counter_wish_products }}</span>
+                                <i class="fas fa-heart fa-lg"></i>
                             </div>
                         </a>
-                    </div>
-                    <div>
-                        <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
+
+                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link text-yellow mx-3"
+                            href="{% url 'cart' %}" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                            data-bs-title="Cart">
+                            <div class="fs-6 text-center text-yellow">
+                                <p class="my-0">
+                                    <span class="badge badge-sm bg-red">{{ total_products_cart }}</span>
+                                    <i class="fas fa-shopping-cart fa-lg"></i>
+                                    {% if total_price_cart %}
+                                    {{ total_price_cart|floatformat:2 }} Euro
+                                    {% else %}
+                                    0.00 Euro
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </a>
+
+                        <a href="#" class="nav-link d-flex lh-1 text-reset mx-3" data-bs-toggle="dropdown"
                             aria-label="Open user menu">
 
                             {% if user.customer.avatar.url %}

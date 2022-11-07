@@ -57,7 +57,10 @@
                     </fieldset>
 
                     <button id="submit-button" type="submit" class="btn btn-lg rounded-3">
-                        <div class="spinner hidden" id="spinner"></div>
+                        <div id="spinner" class="spinner-border hidden" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <!-- <div class="spinner hidden" id="spinner"></div> -->
                         <span id="button-text">Pay now</span>
                     </button>
                     <div id="payment-message" class="hidden"></div>
