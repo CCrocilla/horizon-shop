@@ -14,21 +14,18 @@
 
 {% block content %}
 
-{% comment %} <h1>{% trans "Sign In" %}</h1>
-
-<p>{% blocktrans %}If you have not created an account yet, then please
-    <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p> {% endcomment %}
-
-<section class="border-top-wide border-primary d-flex flex-column theme-light">
+<section class="border-top-wide d-flex flex-column theme-light">
     <div class="page page-center my-4">
         <div class="container container-tight py-4">
-            <div class="text-center mb-4">
-                <a href="{% url 'homepage' %}" class="navbar-brand navbar-brand-autodark">Horizon Shop</a>
+            <div class="text-center text-dark mb-4">
+                <a href="{% url 'homepage' %}" class="navbar-brand navbar-brand-autodark">
+                    <h1>Horizon Shop</h1>
+                </a>
             </div>
-            <div class="card card-md">
+            <div class="card card-md bg-dark rounded-3">
                 <div class="card-body">
-                    <h2 class="h2 text-center mb-4">Login to your account</h2>
-                    <form class="login text-dark" method="POST" action="{% url 'account_login' %}" method="get"
+                    <h2 class="text-center text-yellow mb-4">Sign In to your account</h2>
+                    <form class="signup text-yellow" method="POST" action="{% url 'account_login' %}" method="get"
                         autocomplete="off" novalidate="">
 
                         {% csrf_token %}
@@ -42,7 +39,7 @@
 
 
                         <div class="form-footer">
-                            <button class="btn btn-primary w-100 primaryAction"
+                            <button class="btn btn-yellow text-dark w-100 primaryAction"
                                 type="submit">{% trans "Sign In" %}</button>
                         </div>
                     </form>
@@ -51,13 +48,14 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
-                            <a href="{% url 'account_reset_password' %}" class="btn w-100 button secondaryAction">
-                                {% trans "Forgot Password?" %}
+                            <a href="{% url 'homepage' %}" class="btn w-100 button button btn-primary secondaryAction">
+                                {% trans "Homepage" %}
                             </a>
                         </div>
                         <div class="col">
-                            <a href="#" class="btn w-100">
-                                Second Link Here
+                            <a href="{% url 'account_reset_password' %}"
+                                class="btn w-100 button button btn-primary secondaryAction">
+                                {% trans "Forgot Password?" %}
                             </a>
                         </div>
                     </div>

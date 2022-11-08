@@ -114,12 +114,14 @@ class PaymentSuccess(View):
         order.save()
 
         print("I am changing the status of the Order!!!")
+        print(order.order_number)
 
-        context = {
-            'order': 'order',
-        }
-
-        return render(request, self.template_name, context)
+        # context = {
+        #     'order': 'order',
+        # }
+        
+        return redirect(reverse('checkout_success', args=[order.order_number]))
+        # return render(request, self.template_name, context)
 
 
 # class PaymentCancel(View):

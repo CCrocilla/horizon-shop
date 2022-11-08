@@ -1,4 +1,6 @@
-{% extends "base.html" %}
+<!-- Done -->
+
+{% extends "account/base.html" %}
 
 {% load static %}
 
@@ -12,23 +14,25 @@
 
 {% block content %}
 
-
-<section class="border-top-wide border-primary d-flex flex-column theme-light my-5 py-5">
+<section class="border-top-wide d-flex flex-column theme-light">
     <div class="page page-center my-4">
         <div class="container container-tight py-4">
-            <div class="card card-md">
+            <div class="text-center text-dark mb-4">
+                <a href="{% url 'homepage' %}" class="navbar-brand navbar-brand-autodark">
+                    <h1>Horizon Shop</h1>
+                </a>
+            </div>
+            <div class="card card-md bg-dark rounded-3">
                 <div class="card-body">
-                    <div class="text-center mb-4">
-                        <h1>{% trans "Sign Out" %}</h1>
-                        <p>{% trans 'Are you sure you want to sign out?' %}</p>
-                    </div>
+                    <h2 class="text-center text-yellow mb-4">{% trans "Sign Out" %}</h2>
+                    <p class="text-center text-light">{% trans 'Are you sure you want to sign out?' %}</p>
 
                     <form method="post" action="{% url 'account_logout' %}">
                         {% csrf_token %}
                         {% if redirect_field_value %}
                         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                         {% endif %}
-                        <button type="submit" class="btn btn-primary w-100 primaryAction">
+                        <button type="submit" class="btn btn-yellow text-dark w-100 primaryAction">
                             {% trans 'Sign Out' %}
                         </button>
                     </form>
@@ -37,6 +41,5 @@
         </div>
     </div>
 </section>
-
 
 {% endblock %}

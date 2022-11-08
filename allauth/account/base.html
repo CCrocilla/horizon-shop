@@ -55,14 +55,23 @@
     {% block body %}
 
     {% if messages %}
-    <div>
-        <strong>Messages:</strong>
-        <ul>
-            {% for message in messages %}
-            <li>{{message}}</li>
-            {% endfor %}
-        </ul>
+
+    {% for message in messages %}
+
+    <div class="container">
+        <div class="row">
+            <dov class="col">
+                <div id="msg" class="alert alert-{{ message.tags }} alert-dismissible mt-5 rounded-3 fade show"
+                    role="alert">
+                    <strong>Message:</strong> {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </dov>
+        </div>
     </div>
+
+    {% endfor %}
+
     {% endif %}
 
     {% block content %}

@@ -46,7 +46,7 @@ function handlerSubmit(event) {
     card.update({
         'disabled': true
     });
-    setLoading(true);
+    activateLoading(true);
     $('#submit').attr('disabled', true);
 
     stripe.confirmCardPayment(clientSecret, {
@@ -71,7 +71,7 @@ function handlerSubmit(event) {
                 'disabled': false
             });
             $('#submit').attr('disabled', false);
-            setLoading(false);
+            activateLoading(false);
         } else {
             if (result.paymentIntent.status === 'succeeded') {
                 var form = document.getElementById('payment-form');
@@ -84,9 +84,9 @@ function handlerSubmit(event) {
 }
 
 // Show a spinner on payment submission
-function setLoading(isLoading) {
+function activateLoading(isLoading) {
     if (isLoading) {
-        // Disable the button and show a spinner
+        // Hide the button and show a spinner
         document.getElementById("spinner").classList.remove("hidden");
         document.getElementById("button-text").classList.add("hidden");
     } else {
