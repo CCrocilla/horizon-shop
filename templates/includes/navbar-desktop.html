@@ -30,10 +30,13 @@
                         </div>
                     </a>
 
+
                     <a href="{% url 'products-wishlist' %}" class="btn btn-dark nav-link text-yellow"
                         data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Wishlist">
                         <div class="fs-6 text-center text-yellow">
+                            {% if user.is_authenticated %}
                             <span class="badge badge-sm bg-red">{{ counter_wish_products }}</span>
+                            {% endif %}
                             <i class="fas fa-heart fa-lg"></i>
                         </div>
                     </a>
@@ -131,7 +134,9 @@
                         <a href="{% url 'products-wishlist' %}" class="btn btn-dark nav-link text-yellow"
                             data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Wishlist">
                             <div class="fs-6 text-center text-yellow">
+                                {% if user.is_authenticated %}
                                 <span class="d-none badge badge-sm bg-red">{{ counter_wish_products }}</span>
+                                {% endif %}
                                 <i class="fas fa-heart fa-lg"></i>
                                 Wishlist
                             </div>

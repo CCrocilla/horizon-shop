@@ -1,3 +1,5 @@
+<!--DONE-->
+
 {% extends "account/base.html" %}
 
 {% load static %}
@@ -11,28 +13,29 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-<h1>{% trans "Sign Up" %}</h1>
 
-<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
-
-<section class="border-top-wide border-primary d-flex flex-column theme-light">
+<section class="border-top-wide d-flex flex-column theme-light">
     <div class="page page-center my-4">
         <div class="container container-tight py-4">
-            <div class="text-center mb-4">
-                <a href="{% url 'homepage' %}" class="navbar-brand navbar-brand-autodark">Horizon Shop</a>
+            <div class="text-center text-dark mb-4">
+                <a href="{% url 'homepage' %}" class="navbar-brand navbar-brand-autodark">
+                    <h1>Horizon Shop</h1>
+                </a>
             </div>
-            <div class="card card-md">
+            <div class="card card-md bg-dark rounded-3">
                 <div class="card-body">
-                    <h2 class="h2 text-center mb-4">Login to your account</h2>
+                    <h2 class="text-center text-yellow mb-4">Sign Up for Free!</h2>
 
-                    <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+                    <form class="signup text-dark" id="signup_form" method="POST" action="{% url 'account_signup' %}">
                         {% csrf_token %}
+
                         {{ form|crispy }}
+
                         {% if redirect_field_value %}
                         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                         {% endif %}
                         <div class="form-footer">
-                            <button class="btn btn-primary w-100 primaryAction" type="submit">
+                            <button class="btn btn-yellow text-dark w-100 primaryAction" type="submit">
                                 {% trans "Sign Up" %} &raquo;
                             </button>
                         </div>
@@ -43,23 +46,26 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
-                            <a href="{% url 'account_reset_password' %}" class="btn w-100 button secondaryAction">
-                                {% trans "Forgot Password?" %}
+                            <a href="{% url 'homepage' %}" class="btn w-100 button btn-primary secondaryAction">
+                                {% trans "Homepage" %}
                             </a>
                         </div>
                         <div class="col">
-                            <a href="#" class="btn w-100">
-                                Second Link Here
+                            <a href="{% url 'account_reset_password' %}"
+                                class="btn w-100 button btn-primary secondaryAction">
+                                {% trans "Forgot Password?" %}
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="text-center text-muted mt-3">
             Already have an account? Then please <a href="{{ login_url }}">Sign In</a> Here!
         </div>
     </div>
+
 </section>
 
 {% endblock %}
