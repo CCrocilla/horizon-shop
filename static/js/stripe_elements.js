@@ -47,7 +47,7 @@ function handlerSubmit(event) {
         'disabled': true
     });
     activateLoading(true);
-    $('#submit').attr('disabled', true);
+    $('#submit-button').attr('disabled', true);
 
     stripe.confirmCardPayment(clientSecret, {
         payment_method: {
@@ -70,7 +70,7 @@ function handlerSubmit(event) {
             card.update({
                 'disabled': false
             });
-            $('#submit').attr('disabled', false);
+            $('#submit-button').attr('disabled', false);
             activateLoading(false);
         } else {
             if (result.paymentIntent.status === 'succeeded') {

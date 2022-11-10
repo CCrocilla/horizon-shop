@@ -307,7 +307,7 @@ class CategoryListView(ListView):
     fields = ['name', ]
 
 
-class CategoryUpdateView(UpdateView):
+class CategoryUpdateView(SuccessMessageMixin, UpdateView):
     """
     Class to update Category
     """
@@ -378,7 +378,7 @@ class SubCategoryListView(ListView):
     fields = ['category', 'name', ]
 
 
-class SubCategoryUpdateView(UpdateView):
+class SubCategoryUpdateView(SuccessMessageMixin, UpdateView):
     """
     Class to update Sub-Category
     """
@@ -445,7 +445,7 @@ class TestimonialDetailsView(DetailView):
     fields = '__all__'
 
 
-class TestimonialUpdateView(UpdateView):
+class TestimonialUpdateView(SuccessMessageMixin, UpdateView):
     """
     Class to update User's Testimonial
     """

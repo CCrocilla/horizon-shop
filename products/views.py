@@ -3,6 +3,7 @@ from django.shortcuts import redirect
 from django.shortcuts import reverse
 from django.shortcuts import get_object_or_404
 
+from django.core.paginator import Paginator
 
 from django.contrib.auth.forms import User
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -21,6 +22,7 @@ from .models import Product
 from .models import Category
 from .models import SubCategory
 from .models import ProductComment
+from .models import ProductRating
 
 from .forms import ProductCommentForm
 from .forms import ProductRatingForm
@@ -137,16 +139,6 @@ class UsedProductsListView(View):
         return render(request, self.template_name, context)
 
 
-# class ProductDetailsView(DetailView):
-#     """
-#     Class to display single Product Details on the Shop
-#     """
-#     model = Product
-#     queryset = Product.objects.all()
-#     template_name = 'products/product-details.html'
-#     fields = '__all__'
-
-
 class ProductDetailsView(View):
     """
     Class to display single Product Details on the Shop
@@ -156,14 +148,19 @@ class ProductDetailsView(View):
     def get(self, request, slug):
         product = Product.objects.get(slug=slug)
         comments = ProductComment.objects.filter(product=product).order_by('-commented_date')
-        comments_form = ProductCommentForm(request.POST)
-        rating_form = ProductRatingForm(request.POST)
+        comments_form = ProductCommentForm(self.request.GET or None)
+        rating_form = ProductRatingForm(self.request.GET or None)
+
+        user_rated = None
+        if request.user.is_authenticated:
+            user_rated = ProductRating.objects.filter(rated_by=request.user)
 
         context = {
                 'product': product,
                 'comments': comments,
                 'comments_form': comments_form,
                 'rating_form': rating_form,
+                'user_rated': user_rated,
             }
         return render(request, self.template_name, context)
 
@@ -179,18 +176,11 @@ class ProductDetailsView(View):
             comment.commented_by = request.user
             comment.product = product
             comment.save()
-        
+
         if rating_form.is_valid():
             rating_stars = rating_form.save(commit=False)
             rating_stars.rated_by = request.user
             rating_stars.product = product
             rating_stars.save()
 
-        context = {
-                'product': product,
-                'comments': comments,
-                'comments_form': comments_form,
-                'rating_form': rating_form
-            }
-
-        return render(request, self.template_name, context)
+        return redirect(request.path)

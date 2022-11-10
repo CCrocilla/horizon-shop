@@ -316,6 +316,108 @@
 </section>
 <!-- End Used Products -->
 
+
+<!-- ------------------------- -->
+<!-- ------------------------- -->
+<!--  Start New Products Loop  -->
+<!-- ------------------------- -->
+<!-- ------------------------- -->
+<section class="bg-light">
+    <div class="container py-5">
+        <div class="row text-center py-3">
+            <div class="col-lg-12 m-auto title-all text-center text-dark">
+                <h1 class="h1">Latest New Products</h1>
+                <p>
+                    Below the latest used products added to Horizon Shop!!!
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Check if New Products are present -->
+            {% if new_products %}
+            <!-- Adding For Loop New Products -->
+            {% for product in new_products %}
+
+            <div class="col-12 col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="" style="text-align: center; height: 300px; ">
+                        <div class="type-lb">
+                            {% if product.product_status == 0 %}
+                            <p class="sale">New</p>
+                            {% else %}
+                            <p class="sale">Used</p>
+                            {% endif %}
+                        </div>
+
+                        {% if product.image %}
+
+                        <a href="{% url 'product_details' product.slug %}">
+                            <img src="{{ product.image.url }}" class="card-img-top img-fluid"
+                                alt="Image {{ product.title }}">
+                        </a>
+
+                        {% else %}
+
+                        <a href="{% url 'product_details' product.slug %}">
+                            <img src="{{ MEDIA_URL }}noimage.jpg" class="card-img-top img-fluid"
+                                alt="Image {{ product.title }}">
+                        </a>
+
+                        {% endif %}
+                    </div>
+                    <div class="card-body" style="background-color: blanchedalmond;">
+                        <ul class="list-unstyled d-flex justify-content-between">
+                            <li>
+                                <i class="text-yellow fa fa-star"></i>
+                                <i class="text-yellow fa fa-star"></i>
+                                <i class="text-yellow fa fa-star"></i>
+                                <i class="text-muted fa fa-star"></i>
+                                <i class="text-muted fa fa-star"></i>
+                            </li>
+
+                            {% if product.discounted_price %}
+
+                            <li class="text-muted text-right">
+                                <span>
+                                    <del>{{ product.price }} Euro</del>
+                                </span>
+                            </li>
+
+                            <li class="text-muted text-right">
+                                {{ product.discounted_price }} Euro
+                            </li>
+
+                            {% else %}
+
+                            <li class="text-muted text-right">{{ product.price }} Euro</li>
+
+                            {% endif %}
+
+                        </ul>
+                        <a href="{% url 'product_details' product.slug %}"
+                            class="h2 text-decoration-none text-dark">{{ product.title }}</a>
+                        <p class="card-text">
+                            {{ product.description }}
+                        </p>
+                        <p class="text-muted">Reviews (24)</p>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+
+            {% else %}
+            No Products to Display!
+            {% endif %}
+        </div>
+    </div>
+</section>
+<!-- End Products Loop -->
+
+
+
+
 <!-- ------------------------- -->
 <!-- ------------------------- -->
 <!--  Start New Products Loop  -->
@@ -352,14 +454,13 @@
                     {% if product.image %}
 
                     <a href="{% url 'product_details' product.slug %}">
-                        <img src="{{ product.image.url }}" class="card-img-top" alt="...">
+                        <img src="{{ product.image.url }}" class="card-img-top" alt="Image {{ product.title }}">
                     </a>
 
                     {% else %}
 
                     <a href="{% url 'product_details' product.slug %}">
-                        <img src="{{ MEDIA_URL }}noimage.jpg" class="card-img-top img-fluid"
-                            alt="Image {{ product.title }}">
+                        <img src="{{ MEDIA_URL }}noimage.jpg" class="card-img-top" alt="Image {{ product.title }}">
                     </a>
 
                     {% endif %}
@@ -449,14 +550,13 @@
                     {% if product.image %}
 
                     <a href="{% url 'product_details' product.slug %}">
-                        <img src="{{ product.image.url }}" class="card-img-top" alt="...">
+                        <img src="{{ product.image.url }}" class="card-img-top" alt="Image {{ product.title }}">
                     </a>
 
                     {% else %}
 
                     <a href="{% url 'product_details' product.slug %}">
-                        <img src="{{ MEDIA_URL }}noimage.jpg" class="card-img-top img-fluid"
-                            alt="Image {{ product.title }}">
+                        <img src="{{ MEDIA_URL }}noimage.jpg" class="card-img-top" alt="Image {{ product.title }}">
                     </a>
 
                     {% endif %}

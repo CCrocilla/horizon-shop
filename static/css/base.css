@@ -11,12 +11,12 @@ body {
     font-family: 'Ubuntu', sans-serif;
     /* background-color: #708599; */
     /* color: #C84B31; */
-    font-weight: 500;
+    font-weight: 400;
 }
 
 
 :root {
-    --primary: #1e4ca1;
+    --primary: #1E4CA1;
     --light: #F6F7F8;
     --dark: #1D273B;
     --warning: #F59F00;
@@ -192,6 +192,11 @@ Carousel Hero & Testimonials
 }
 
 
+#mc-embedded-subscribe-form {
+    margin: 0 !important;
+}
+
+
 /*--------------------------------------------------------------
 Products Section 
 --------------------------------------------------------------*/
@@ -224,6 +229,13 @@ Products Section
     margin-bottom: 30px;
 }
 
+.img-card-products {
+    width: 100%;
+    min-height: 400px;
+}
+
+style="max-width: 300px; max-height: 250px; width: 100%; min-height: 250px;"
+
 .products-single .box-img-hover {
     overflow: hidden;
     position: relative;
@@ -245,17 +257,23 @@ Products Section
 .type-lb .sale {
     background: #1D273B;
     color: #F59F00;
-    padding: 2px 10px;
+    padding: 5px 15px;
+    top: -10;
+    right: -10;
     font-weight: 700;
     text-transform: uppercase;
+    border-radius: 10px;
 }
 
 .type-lb .new {
     background: #000000;
-    color: #F59F00;
-    padding: 2px 10px;
+    color: #00f50c;
+    padding: 5px 15px;
+    top: 10;
+    right: 10;
     font-weight: 700;
     text-transform: uppercase;
+    border-radius: 10px;
 }
 
 .why-text {
@@ -529,6 +547,11 @@ small ul li {
     font-size: 1.1rem;
 }
 
+.contact-us .form-label {
+    color: #1D273B;
+    font-size: 1.1rem;
+}
+
 
 .login .form-label {
     color: #1D273B;
@@ -692,7 +715,7 @@ Dashboard
 
 .sb-topnav {
     padding-left: 0;
-    height: 56px;
+    height: 80px;
     z-index: 1039;
 }
 

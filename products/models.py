@@ -9,8 +9,15 @@ PRODUCT_STATUS = ((0, 'New'), (1, 'Used'))
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=254, null=False, blank=False)
-    slug = models.SlugField(max_length=254, unique=True)
+    name = models.CharField(
+        max_length=254,
+        null=False,
+        blank=False
+        )
+    slug = models.SlugField(
+        max_length=254,
+        unique=True
+        )
 
     class Meta:
         verbose_name_plural = 'Categories'
@@ -23,12 +30,19 @@ class Category(models.Model):
 
 
 class SubCategory(models.Model):
-    category = models.ForeignKey(Category,
-                                 null=True, blank=False,
-                                 on_delete=models.CASCADE
-                                 )
-    name = models.CharField(max_length=254)
-    slug = models.SlugField(max_length=254, unique=True)
+    category = models.ForeignKey(
+        Category,
+        null=True,
+        blank=False,
+        on_delete=models.CASCADE
+        )
+    name = models.CharField(
+        max_length=254
+        )
+    slug = models.SlugField(
+        max_length=254,
+        unique=True
+        )
 
     class Meta:
         verbose_name_plural = 'Sub-Categories'
@@ -42,14 +56,35 @@ class SubCategory(models.Model):
 
 class Product(SoftDeleteModel):
     category = models.ForeignKey(
-        Category, null=True, blank=False, on_delete=models.SET_NULL)
+        Category,
+        null=True,
+        blank=False,
+        on_delete=models.SET_NULL
+        )
     subcategory = models.ForeignKey(
-        SubCategory, null=True, blank=False, on_delete=models.SET_NULL)
-    sku = models.CharField(max_length=254, null=True, blank=True)
-    slug = models.SlugField(unique=True, max_length=254)
-    title = models.CharField(max_length=254)
+        SubCategory,
+        null=True,
+        blank=False,
+        on_delete=models.SET_NULL
+        )
+    sku = models.CharField(
+        max_length=254,
+        null=True,
+        blank=True
+        )
+    slug = models.SlugField(
+        unique=True,
+        max_length=254
+        )
+    title = models.CharField(
+        max_length=254
+        )
     description = models.TextField()
-    brand = models.CharField(max_length=254, null=True, blank=True)
+    brand = models.CharField(
+        max_length=254,
+        null=True,
+        blank=True
+        )
     created_by = models.ForeignKey(
         User,
         null=True,
@@ -58,14 +93,26 @@ class Product(SoftDeleteModel):
         )
     created_at = models.DateTimeField(auto_now_add=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    discounted_price = models.DecimalField(max_digits=6,
-                                           decimal_places=2,
-                                           null=True,
-                                           blank=True
-                                           )
-    product_status = models.IntegerField(choices=PRODUCT_STATUS, default=0)
-    image_url = models.URLField(max_length=1024, null=True, blank=True)
-    image = models.ImageField(upload_to='images/', null=True, blank=True)
+    discounted_price = models.DecimalField(
+        max_digits=6,
+        decimal_places=2,
+        null=True,
+        blank=True
+        )
+    product_status = models.IntegerField(
+        choices=PRODUCT_STATUS,
+        default=0
+        )
+    image_url = models.URLField(
+        max_length=1024,
+        null=True,
+        blank=True
+        )
+    image = models.ImageField(
+        upload_to='images/',
+        null=True,
+        blank=True
+        )
 
     class Meta:
         """ Sorting by Create Date """
@@ -80,11 +127,24 @@ class Product(SoftDeleteModel):
 
 class ProductComment(models.Model):
     product = models.ForeignKey(
-        Product, blank=True, null=True, on_delete=models.SET_NULL)
+        Product,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL
+        )
     commented_by = models.ForeignKey(
-        User, blank=True, null=True, on_delete=models.CASCADE)
-    commented_date = models.DateTimeField(auto_now_add=True)
-    comment = models.TextField()
+        User,
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE
+        )
+    commented_date = models.DateTimeField(
+        auto_now_add=True
+        )
+    comment = models.TextField(
+        null=False,
+        blank=False
+        )
 
     class Meta:
         """ Sorting by Create Date """
@@ -96,8 +156,18 @@ class ProductComment(models.Model):
 
 class ProductRating(models.Model):
     product = models.ForeignKey(
-        'Product', blank=True, null=True, on_delete=models.SET_NULL)
+        Product,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL
+        )
     rated_by = models.ForeignKey(
-        User, blank=True, null=True, on_delete=models.CASCADE)
-    rating_stars = models.DecimalField(
-        max_digits=6, decimal_places=2, null=True, blank=True)
+        User,
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE
+        )
+    rating_stars = models.IntegerField(
+        null=True,
+        blank=False,
+        )

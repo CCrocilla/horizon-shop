@@ -27,40 +27,71 @@
     </ol>
 
     <div class="row d-flex justify-content-center">
+
         <div class="col-md-10 col-lg-8 col-xl-6">
+
             <div class="card rounded-3">
+
                 <div class="card-body p-4">
                     <div class="d-flex flex-start w-100">
+
                         <div class="w-100">
                             <div class="form-content">
+
                                 <form method="post" enctype="multipart/form-data">
                                     {% csrf_token %}
                                     <div class="fs-5 text-dark">
                                         <div class="form-group">
-                                            <label class="small mb-1">Username:</label>
-                                            {{ customer_form.username }}
-                                            <label class="small mb-1">Email:</label>
-                                            {{ customer_form.email }}
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-12 my-5">
+                                                        <label class="small mb-1">Username:</label>
+                                                        {{ customer_form.username }}
+                                                        <label class="small mb-1">Email:</label>
+                                                        {{ customer_form.email }}
+                                                    </div>
+                                                </div>
 
+                                                <div class="row mb-4">
+                                                    <div class="col-12 col-md-5">
+                                                        <label class="small mb-1">First Name:</label>
+                                                        {{ customer_form.first_name }}
+                                                    </div>
+                                                    <div class="col-12 col-md-5 offset-2">
+                                                        <label class="small mb-1">Last Name:</label>
+                                                        {{ customer_form.last_name }}
+                                                    </div>
+                                                </div>
 
-                                            <label class="small mb-1">First Name:</label>
-                                            {{ customer_form.first_name }}
-                                            <label class="small mb-1">Last Name:</label>
-                                            {{ customer_form.last_name }}
-                                            <label class="small mb-1">Change Avatar:</label>
-                                            {{ customer_extra_form.avatar }}
-                                            <label class="small mb-1">Customer Since:</label>
-                                            {{ customer_form.date_joined }}
+                                                <div class="row mb-4">
+                                                    <div class="col">
+                                                        <label class="small mb-1">Customer Since:</label>
+                                                        {{ customer_form.date_joined }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mb-4">
+                                                    <div class="col-12">
+                                                        <label class="small mb-1">Change Avatar:</label>
+                                                        {{ customer_extra_form.avatar }}
+                                                        <div class="avatar-picture">
+                                                            <img class="" src="{{ user.customer.avatar.url }}"
+                                                                alt="Client Avatar">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button type="reset" class="btn btn-dark btn-lg">Reset</button>
+                                                <button type="submit"
+                                                    class="btn btn-yellow btn-lg text-dark">Update</button>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="btn btn-info btn-lg">
-                                        <a href="#">Change Password?</a>
-                                    </div>
 
-                                    <br><br>
-                                    <button type="submit" class="btn btn-dark btn-lg">Save Changes</button>
-                                    <button type="reset" class="btn btn-dark btn-lg">Reset</button>
                                 </form>
+                            </div>
+                            <div class="text-center text-muted mt-3">
+                                Forgot your password? Reset your <a href="{% url 'account_reset_password' %}"
+                                    tabindex="-1">Password</a> Here!
                             </div>
                         </div>
                     </div>

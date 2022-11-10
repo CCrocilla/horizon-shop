@@ -36,14 +36,19 @@
             </div>
         </div>
     </div>
-    <h1>{{ order.id }}</h1>
-    <h1> {{ order.billed }} </h1>
-    <h1> {{order.order_number }} </h1>
+
+
+
+
     <div class="container card rounded-3">
         <div class="row py-5 d-flex justify-content-center align-items-center">
             <div class="col-12">
+                <div class="text-center text-dark">
+                    <h1> Thanks for your purchase! </h1>
+                    <h1> Your Order Number is: {{ order }}</h1>
 
-                {{ order.billed }}
+                    {{ order.billed }}
+                </div>
             </div>
         </div>
     </div>

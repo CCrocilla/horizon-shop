@@ -10,12 +10,14 @@ from django_countries.fields import CountryField
 class Customer(models.Model):
     customer = models.OneToOneField(
         User,
-        null=True, blank=True,
+        null=True,
+        blank=True,
         on_delete=models.CASCADE
         )
     customer_status = models.BooleanField(
         default=True,
-        blank=True, null=True
+        blank=True,
+        null=True
         )
     avatar = ResizedImageField(
         default='default.jpg',
@@ -42,31 +44,38 @@ class ShippingAddress(models.Model):
         )
     shipping_name = models.CharField(
         max_length=100,
-        blank=False, null=False
+        blank=False,
+        null=False
         )
     country = CountryField(
         blank_label='Country',
-        null=True, blank=True
+        null=True,
+        blank=True
         )
     phone_number = models.CharField(
         max_length=20,
-        blank=False, null=False
+        blank=False,
+        null=False
         )
     address_street = models.CharField(
         max_length=100,
-        blank=False, null=False
+        blank=False,
+        null=False
         )
     apartment_number = models.CharField(
         max_length=100,
-        blank=False, null=False
+        blank=False,
+        null=False
         )
     city = models.CharField(
         max_length=100,
-        blank=False, null=False
+        blank=False,
+        null=False
         )
     postcode = models.CharField(
         max_length=20,
-        blank=False, null=False
+        blank=False,
+        null=False
         )
 
     class Meta:
@@ -86,7 +95,8 @@ class Testimonial(models.Model):
     """ Model Testimonial """
     created_by = models.ForeignKey(
         User,
-        null=True, blank=True,
+        null=True,
+        blank=True,
         on_delete=models.CASCADE
         )
     created_at = models.DateField(
@@ -97,10 +107,12 @@ class Testimonial(models.Model):
         )
     comment = models.TextField(
         max_length=650,
-        blank=False, null=False
+        blank=False,
+        null=False
         )
     rating_stars = models.IntegerField(
-        null=True, blank=False
+        null=True,
+        blank=False
         )
 
     class Meta:

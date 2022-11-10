@@ -12,7 +12,7 @@ from .webhooks import webhook
 urlpatterns = [
     path('', CheckoutView.as_view(), name='checkout'),
     path('payment/', PaymentView.as_view(), name='payment'),
-    path('payment/success', PaymentSuccess.as_view(), name='payment-success'),
+    path('payment/success/<int:order>', PaymentSuccess.as_view(), name='payment-success'),
     path('payment/wh/', webhook, name='webhook')
     # path('payment/cancel', CheckoutView.as_view(), name='payment-cancel'),
     # path('', CheckoutView, name='checkout'),
