@@ -46,10 +46,70 @@
     </div>
 </section>
 
+<!-- Product Rating -->
+{% if user.is_authenticated %}
+{% if user_rated %}
+
+<h1> Thanks for having rated this product!</h1>
+
+{% else %}
+<section class="container my-2 py-2">
+    <div class="row">
+        <div class="col-12">
+            <div class="card rounded-3">
+                <div class="card-body p-4">
+                    <div class="d-flex flex-start w-100">
+                        <form method="POST">
+                            <div class="form-radio-hidden fs-5 text-yellow">
+                                {% csrf_token%}
+                                {{ rating_form|crispy }}
+                            </div>
+                            <h5 class=" fs-5 text-dark">How much do you rate this product?</h5>
+                            <p class="text-muted">Only one rating per product/customer is allowed!</p>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="rating">
+                                        <input type="submit" id="id_rating_stars_4" name="rating_stars" value="5"
+                                            required><label for="id_rating_stars_4" title="Excellent">5
+                                            stars</label>
+                                        <input type="submit" id="id_rating_stars_3" name="rating_stars" value="4"
+                                            required><label for="id_rating_stars_3" title="Good">4 stars</label>
+                                        <input type="submit" id="id_rating_stars_2" name="rating_stars" value="3"
+                                            required><label for="id_rating_stars_2" title="OK">3 stars</label>
+                                        <input type="submit" id="id_rating_stars_1" name="rating_stars" value="2"
+                                            required><label for="id_rating_stars_1" title="Poor">2 stars</label>
+                                        <input type="submit" id="id_rating_stars_0" name="rating_stars" value="1"
+                                            required><label for="id_rating_stars_0" title="Bad">1 star</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% else %}
+No Form
+{% endif %}
+
+
+
 <!-- Product Comments Section -->
 <section class="container my-5 py-5">
     <div class="row">
-        <div class="col-12 col-md-5 order-md-first bg-light">
+        <div class="col-12 bg-light">
+
+            {% if user.is_authenticated %}
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Leave a Comment!
+            </button>
+            {% endif %}
+
             <h3>Comments:</h3>
             <div class="card-body">
                 {% for c in comments %}
@@ -67,19 +127,44 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="col-12 col-md-5 order-md-first bg-light">
-            <div class="card-body">
-                {% if user.is_authenticated %}
+</section>
 
-                <h3>Leave your comment here:</h3>
-                <form method="POST">
+
+
+<!-- Comment Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Leave a comment or a review!!!</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="POST">
+                {% if user.is_authenticated %}
+                <div class="modal-body">
+                    <h3>Leave your comment/review here:</h3>
+
                     {{ comments_form | crispy }}
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-signup btn-lg">Submit</button>
-                </form>
-                {% endif %}
 
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                </div>
+
+                {% else %}
+
+                <h3 class="text-center text-dark">
+                    Sorry! You don't have the authorization to leave a comment!
+                    Please Sign In to leave a comment!!!
+                </h3>
+
+                {% endif %}
+            </form>
         </div>
-</section>
+    </div>
+</div>
+
+
 {% endblock %}

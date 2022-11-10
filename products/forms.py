@@ -7,9 +7,6 @@ from .models import ProductRating
 
 class ProductCommentForm(ModelForm):
     """ Form Contact Us Page """
-    def __init__(self, *args, **kwargs):
-        super(ProductCommentForm, self).__init__(*args, **kwargs)
-        self.fields['comment'].required = False
 
     class Meta:
         model = ProductComment
@@ -18,7 +15,7 @@ class ProductCommentForm(ModelForm):
             )
 
         labels = {
-            'comment': 'Comment',
+            'comment': '',
             }
 
         widgets = {
@@ -32,22 +29,25 @@ class ProductCommentForm(ModelForm):
 
 
 class ProductRatingForm(ModelForm):
-    """ Form for Testimonials """
+    """ Form for Product Rating """
     def __init__(self, *args, **kwargs):
-        super(ProductRatingForm, self).__init__(*args, **kwargs)
-        self.fields['comment'].required = False
+        super().__init__(*args, **kwargs)
+        self.fields['rated_by'].disabled = True
 
     class Meta:
         model = ProductRating
 
         fields = (
+            'rated_by',
             'rating_stars',
             )
 
         labels = {
+            'rated_by': '',
             'rating_stars': '',
             }
 
         widgets = {
+            'rated_by': forms.HiddenInput(),
             'rating_stars': forms.HiddenInput(),
             }

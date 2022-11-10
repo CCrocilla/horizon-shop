@@ -70,10 +70,7 @@ class CustomerExtraForm(ModelForm):
             'avatar': 'Avatar',
         }
 
-        widgets = {
-                'avatar': forms.FileInput(
-                    attrs={'class': 'form-control-file'}),
-        }
+        widgets = {'avatar': forms.FileInput(attrs={'class': 'form-control-file'}), }
 
 
 class ShippingAddressForm(ModelForm):
@@ -91,17 +88,17 @@ class ShippingAddressForm(ModelForm):
         widgets = {
             'created_by': forms.HiddenInput(),
             'shipping_name': forms.TextInput(
-                    attrs={'class': 'form-control text-dark'}),
+                    attrs={'class': 'form-control'}),
             'phone_number': forms.TextInput(
-                    attrs={'class': 'form-control text-dark'}),
+                    attrs={'class': 'form-control'}),
             'address_street': forms.TextInput(
-                    attrs={'class': 'form-control text-dark'}),
+                    attrs={'class': 'form-control'}),
             'apartment_number': forms.TextInput(
-                    attrs={'class': 'form-control text-dark'}),
+                    attrs={'class': 'form-control'}),
             'city': forms.TextInput(
-                    attrs={'class': 'form-control text-dark'}),
+                    attrs={'class': 'form-control'}),
             'postcode': forms.TextInput(
-                    attrs={'class': 'form-control text-dark'}),
+                    attrs={'class': 'form-control'}),
         }
 
 
@@ -145,7 +142,7 @@ class CategoryForm(ModelForm):
 
         widgets = {
                 'name': forms.TextInput(
-                    attrs={'class': 'form-control text-dark'}),
+                    attrs={'class': 'form-control'}),
         }
 
 

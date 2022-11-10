@@ -34,14 +34,14 @@
                             {% if product.image %}
 
                             <a href="{% url 'product_details' product.slug %}">
-                                <img src="{{ product.image.url }}" class="card-img-top img-fluid"
+                                <img src="{{ product.image.url }}" class="card-img-top img-fluid img-card-products"
                                     alt="Image {{ product.title }}">
                             </a>
 
                             {% else %}
 
                             <a href="{% url 'product_details' product.slug %}">
-                                <img src="{{ MEDIA_URL }}noimage.jpg" class="card-img-top img-fluid"
+                                <img src="{{ MEDIA_URL }}noimage.jpg" class="card-img-top img-fluid img-card-products"
                                     alt="Image {{ product.title }}">
                             </a>
 

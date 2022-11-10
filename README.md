@@ -334,7 +334,7 @@ Sources:
 
 <details>
     <summary>Click here for the Database Schema </summary>  
-<img src="static/images/readme/database-schema/database-schema.webp" alt="Database Schema" width="800px"/>
+<img src="static/images/readme/database-schema/database-schema.webp" alt="Database Schema" width="1920px"/>
 </details>
 
 
