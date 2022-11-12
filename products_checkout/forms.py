@@ -11,6 +11,7 @@ class CheckoutForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['created_by'].disabled = True
+        self.fields['shipping_address'].required = True
 
     class Meta:
         model = Order

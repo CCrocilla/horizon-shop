@@ -149,8 +149,8 @@
                         <span class="asteriskField">*</span>
                     </label>
                     {% if shipping_address.exists %}
-                    <select name="shipping_address" autofocus="True" class="select form-select"
-                        id="id_shipping_address">
+                    <select name="shipping_address" autofocus="True" class="select form-select" id="id_shipping_address"
+                        required>
                         <option value="" selected="">---------</option>
 
                         {% for address in shipping_address %}
