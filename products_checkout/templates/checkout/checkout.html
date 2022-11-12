@@ -27,12 +27,12 @@
 </section>
 
 
-<section class="py-4 mt-5 mb-4">
+<section class="py-4 mt-5 mb-3">
     <div class="container-lg">
         <div class="row justify-content-center hero-text">
             <div class="col text-center text-warning">
                 <h1 class="fw-bold text-center text-dark">Checkout</h1>
-                <hr class="w-25 mx-auto text-dark" style="height:2px;" />
+                <hr class="w-25 mx-auto text-dark" style="height:3px; background-color: black;" />
             </div>
         </div>
     </div>
@@ -40,45 +40,46 @@
     <div class="container card rounded-3">
         <div class="row py-5 d-flex justify-content-center align-items-center">
             <div class="col-12">
-                <form method="POST" action="">
-                    <div class="card-body">
-                        {% csrf_token%}
+                <form action="{% url 'payment-success' order.id  %}" method="POST" id="payment-form">
 
+                    {% csrf_token %}
+
+                    <div class="card-body">
                         <!-- ----------------- -->
                         <!--  Account Details  -->
                         <!-- ----------------- -->
                         <div class="row mb-5">
-                            <h2> Account Details</h2>
+                            <legend class="fieldset-label text-dark px-2 w-auto"> Account Details</legend>
                             <div>
                                 {% if order.created_by.first_name and order.created_by.last_name %}
                                 <div class="row">
-                                    <div class="col-12 col-sm-6 my-3 text-dark">
+                                    <div class="col-12 col-sm-4 my-2 text-dark">
                                         <label class="h2 fw-bold form-label mt-2 text-dark">First Name:</label>
-                                        <span class="form-control border-2 fw-bold">
+                                        <span class="form-control border-1">
                                             {{ order.created_by.first_name }}
                                         </span>
                                     </div>
-                                    <div class="col-12 col-sm-6 my-3 text-dark">
+                                    <div class="col-12 col-sm-4 my-2 text-dark">
                                         <label class="h2 fw-bold form-label mt-2 text-dark">Last Name:</label>
-                                        <span class="form-control border-2 fw-bold">
+                                        <span class="form-control border-1">
                                             {{ order.created_by.last_name }}
                                         </span>
                                     </div>
 
                                     {% else %}
 
-                                    <div class="col-12 my-3">
+                                    <div class="col-12 my-2">
                                         <label class="h2 fw-bold form-label mt-2 text-dark">Account Name:</label>
-                                        <span class="form-control border-2 fw-bold">
+                                        <span class="form-control border-1">
                                             {{ order.created_by.username }}
                                         </span>
                                     </div>
-                                </div>
-                                {% endif %}
-                                <div class="row">
-                                    <div class="col-12 my-3">
+
+                                    {% endif %}
+
+                                    <div class="col-12 col-sm-4 my-2 text-dark">
                                         <label class="h2 fw-bold form-label mt-2 text-dark">Email:</label>
-                                        <span class="form-control border-2 fw-bold">
+                                        <span class="form-control border-1">
                                             {{ order.created_by.email }}
                                         </span>
                                     </div>
@@ -92,45 +93,53 @@
                         <!-- ---------------------- -->
                         <!--    Shipping Address    -->
                         <!-- ---------------------- -->
-                        <div class="row my-5">
-                            <h2>Shipping Address Details: {{ order.shipping_address.shipping_name }}</h2>
-                            <div class="col-10 col-sm-8 my-2 text-dark">
-                                <label class="h2 fw-bold form-label mt-2 text-dark">Street:</label>
-                                <span class="form-control border-2">
-                                    {{ order.shipping_address.address_street }}
-                                </span>
+
+                        <div>
+                            <legend class="fieldset-label text-dark px-2 w-auto">Shipping Address Details:
+                                {{ order.shipping_address.shipping_name }}</legend>
+                            <div class="row my-5">
+
+                                <div class="col-12 col-sm-8 my-2 text-dark">
+                                    <label class="h2 fw-bold form-label mt-2 text-dark">Street:</label>
+                                    <span class="form-control border-1">
+                                        {{ order.shipping_address.address_street }}
+                                    </span>
+                                </div>
+                                <div class="col-12 col-sm-4 my-2 text-dark">
+                                    <label class="h2 fw-bold form-label mt-2 text-dark">Apartment:</label>
+                                    <span class="form-control border-1">
+                                        {{ order.shipping_address.apartment_number }}
+                                    </span>
+                                </div>
+
+                                <div class="col-12 col-sm-2 my-2 text-dark">
+                                    <label class="h2 fw-bold form-label mt-2 text-dark">Country:</label>
+                                    <span class="form-control border-1">
+                                        {{ order.shipping_address.country }}
+                                    </span>
+                                </div>
+                                <div class="col-12 col-sm-3 my-2 text-dark">
+                                    <label class="h2 fw-bold form-label mt-2 text-dark">City:</label>
+                                    <span class="form-control border-1">
+                                        {{ order.shipping_address.city }}
+                                    </span>
+                                </div>
+
+                                <div class="col-12 col-sm-3 my-2 text-dark">
+                                    <label class="h2 fw-bold form-label mt-2 text-dark">Postcode:</label>
+                                    <span class="form-control border-1">
+                                        {{ order.shipping_address.postcode }}
+                                    </span>
+                                </div>
+                                <div class="col-12 col-sm-4 my-2 text-dark">
+                                    <label class="h2 fw-bold form-label mt-2 text-dark">Phone:</label>
+                                    <span class="form-control border-1">
+                                        {{ order.shipping_address.phone_number }}
+                                    </span>
+                                </div>
+                                <input type="hidden" name="shipping_address_id" value="{{ order.shipping_address.id }}">
+
                             </div>
-                            <div class="col-2 col-sm-4 my-2 text-dark">
-                                <label class="h2 fw-bold form-label mt-2 text-dark">Apartment:</label>
-                                <span class="form-control border-2">
-                                    {{ order.shipping_address.apartment_number }}
-                                </span>
-                            </div>
-                            <div class="col-12 col-sm-3 my-2 text-dark">
-                                <label class="h2 fw-bold form-label mt-2 text-dark">City:</label>
-                                <span class="form-control border-2">
-                                    {{ order.shipping_address.city }}
-                                </span>
-                            </div>
-                            <div class="col-12 col-sm-3 my-2 text-dark">
-                                <label class="h2 fw-bold form-label mt-2 text-dark">Country:</label>
-                                <span class="form-control border-2">
-                                    {{ order.shipping_address.country }}
-                                </span>
-                            </div>
-                            <div class="col-12 col-sm-3 my-2 text-dark">
-                                <label class="h2 fw-bold form-label mt-2 text-dark">Postcode:</label>
-                                <span class="form-control border-2">
-                                    {{ order.shipping_address.postcode }}
-                                </span>
-                            </div>
-                            <div class="col-12 col-sm-3 my-2 text-dark">
-                                <label class="h2 fw-bold form-label mt-2 text-dark">Phone:</label>
-                                <span class="form-control border-2">
-                                    {{ order.shipping_address.phone_number }}
-                                </span>
-                            </div>
-                            <input type="hidden" name="shipping_address_id" value="{{ order.shipping_address.id }}">
                         </div>
                         <!-- ---------------------- -->
                         <!--  End Shipping Address  -->
@@ -138,153 +147,143 @@
 
 
                         <!-- ------------------ -->
-                        <!--   Product's List   -->
+                        <!-- Product's Summary  -->
                         <!-- ------------------ -->
-                        <h2>Products Summary</h2>
+                        <legend class="fieldset-label text-dark px-2 w-auto">Products Summary</legend>
                         <div class="row my-5">
-                            <div class="col-md-12 px-5 text-dark">
-                                <table>
-                                    <tr>
-                                        <th class="px-5 text-center">Image</th>
-                                        <th class="px-5 text-center">Name</th>
-                                        <th class="px-5 text-center">Condition</th>
-                                        <th class="px-5 text-center">Quantity</th>
-                                        <th class="px-5 text-center">Final Price</th>
-                                    </tr>
-                                    {% for product in order.cart_products.all %}
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="table-responsive">
+                                        <table class="table table-vcenter table-mobile-md card-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Image</th>
+                                                    <th>Name</th>
+                                                    <th>Condition</th>
+                                                    <th>Quantity</th>
+                                                    <th>Final Price</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
 
-                                    <tr>
-                                        {% if product.product.image %}
+                                                {% for product in order.cart_products.all %}
+                                                <tr>
 
-                                        <td class="px-5 text-center">
-                                            <a href="">
-                                                <img src="{{ product.product.image.url }}"
-                                                    class="card-img-top img-fluid"
-                                                    alt="Image {{ product.product.title }}">
-                                            </a>
-                                        </td>
+                                                    {% if product.product.image %}
+                                                    <td data-label="Image">
+                                                        <div class="d-flex align-items-center">
+                                                            <a href="">
+                                                                <img src="{{ product.product.image.url }}"
+                                                                    class="card-img-top img-fluid avatar "
+                                                                    alt="Image {{ product.product.title }}">
+                                                            </a>
+                                                        </div>
+                                                    </td>
 
-                                        {% else %}
+                                                    {% else %}
+                                                    <td data-label="Image">
+                                                        <div class="d-flex align-items-center">
+                                                            <a href="">
+                                                                <img src="{{ MEDIA_URL }}noimage.jpg"
+                                                                    class="card-img-top img-fluid avatar "
+                                                                    alt="Image {{ product.product.title }}">
+                                                            </a>
+                                                        </div>
+                                                    </td>
 
-                                        <td class="px-5 text-center">
-                                            <a href="">
-                                                <img src="{{ MEDIA_URL }}noimage.jpg" class="card-img-top img-fluid"
-                                                    alt="Image {{ product.product.title }}">
-                                            </a>
-                                        </td>
+                                                    {% endif %}
 
-                                        {% endif %}
+                                                    <td data-label="Name">
+                                                        <div class="d-flex py-1 align-items-center">
+                                                            <div class="flex-fill">
+                                                                <div class="font-weight-medium">
+                                                                    {{ product.product.title }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
 
-                                        <td class="px-5 text-center">{{ product.product.title }}</td>
+                                                    <td data-label="Condition">
+                                                        {% if product.product.product_status == 0 %}
+                                                        <div class="card-text">New</div>
+                                                        {% else %}
+                                                        <div class="card-text">Used</div>
+                                                        {% endif %}
+                                                    </td>
 
-                                        <td class="px-5 text-center">
-                                            {% if product.product.product_status == 0 %}
-                                            <p class="card-text">New</p>
-                                            {% else %}
-                                            <p class="card-text">Used</p>
-                                            {% endif %}
-                                        </td>
-
-                                        <td class="px-5 text-center">
-                                            <p class="text-muted">{{ product.quantity }}</p>
-                                        </td>
-
-                                        <td class="px-5 text-center">
-                                            <p class="text-muted text-right">
-                                                {{ product.product_price }} Euro
-                                            </p>
-
-                                        </td>
-                                    </tr>
-                                    {% endfor %}
-                                </table>
+                                                    <td data-label="Quantity">
+                                                        <div class="card-text">{{ product.quantity }}</div>
+                                                    </td>
+                                                    <td data-label="Price">
+                                                        <div class="btn-list flex-nowrap">
+                                                            <p class="text-right">
+                                                                {{ product.product_price }} Euro
+                                                            </p>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <!-- ------------------ -->
-                        <!-- End Product's List -->
-                        <!-- ------------------ -->
+                        <!-- ---------------------- -->
+                        <!-- End Product's Summary  -->
+                        <!-- ---------------------- -->
+
 
                         <div class="row my-5">
-                            <div class="col-md-12 px-5 text-dark">
-                                <h2>Quantity: {{ total_products_cart }}</h2>
-                                <h2>Sub-Total: {{ total_price_cart }}</h2>
+                            <div class="col-12 text-dark">
+                                <legend class="">Quantity: {{ total_products_cart }}</legend>
+                                <legend class="">Delivery Cost: {{ delivery_cost }} Euro</legend>
+                                <legend class="">Sub-Total: {{ total_price_cart }} Euro</legend>
                             </div>
                         </div>
 
                         <!-- Confirmation Order Modal -->
-                        {% include 'includes/order-modal.html' %}
+                        <!-- {% include 'includes/order-modal.html' %} -->
 
+                        <fieldset>
+                            <legend class="fieldset-label text-dark px-2 w-auto">Payment Details</legend>
+                            <div class="mb-3">
+                                <!-- A Stripe card element will go here -->
+                                <div class="mb-3" id="card-element">
 
-                        <a class="m-2 btn btn-lg btn-minwidth btn-outline-warning rounded-pill"
-                            href="{% url 'all_products' %}" aria-label="Continue Shopping">Continue Shopping!
-                        </a>
-                </form>
+                                </div>
 
-                <div class="container card rounded-3">
-                    <div class="row py-5 d-flex justify-content-center align-items-center">
-                        <div class="col-8">
-                            <form action="{% url 'payment-success' order.id  %}" method="POST" id="payment-form">
+                                <!-- Used to display form errors -->
+                                <div class="mb-3 text-danger" id="card-errors" role="alert">
 
-                                {% csrf_token %}
+                                </div>
+                            </div>
+                        </fieldset>
 
-                                <fieldset class="px-3">
-
-                                    <legend class="fieldset-label text-dark px-2 w-auto">Account Details</legend>
-                                    <div class="mb-5">
-                                        <div class="row">
-                                            {% if request.user.first_name and request.user.last_name %}
-                                            <div class="col-12 col-sm-6 mb-3">
-                                                <label class="form-label mt-2 text-dark">Full Name:</label>
-                                                <span class="form-control border-1 fw-bold">
-                                                    {{ request.user.first_name }} {{ request.user.last_name }}
-                                                </span>
-                                            </div>
-
-                                            {% else %}
-                                            <div class="col-12 col-sm-6 mb-3">
-                                                <label class="form-label mt-2 text-dark">Username:</label>
-                                                <span class="form-control border-1 fw-bold">
-                                                    {{ request.user.username }}
-                                                </span>
-                                            </div>
-
-                                            {% endif%}
-
-                                            <div class="col-12 col-sm-6 mb-3">
-                                                <label class="form-label mt-2 text-dark">Email:</label>
-                                                <span class="form-control border-1 fw-bold">
-                                                    {{ request.user.email }}
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <legend class="fieldset-label text-dark px-2 w-auto">Payment Details</legend>
-                                    <div class="mb-3">
-                                        <!-- A Stripe card element will go here -->
-                                        <div class="mb-3" id="card-element">
-
-                                        </div>
-
-                                        <!-- Used to display form errors -->
-                                        <div class="mb-3 text-danger" id="card-errors" role="alert">
-
-                                        </div>
-                                    </div>
-                                </fieldset>
-
-                                <button id="submit-button" type="submit" class="btn btn-lg rounded-3">
+                        <div class="row">
+                            <div class="col-12">
+                                <button id="submit-button" type="submit"
+                                    class="my-2 btn btn-lg btn-minwidth btn-outline-warning rounded-3">
                                     <div id="spinner" class="spinner-border hidden" role="status">
                                         <span class="visually-hidden">Loading...</span>
                                     </div>
-                                    <!-- <div class="spinner hidden" id="spinner"></div> -->
                                     <span id="button-text">Pay now</span>
                                 </button>
-                                <div id="payment-message" class="hidden"></div>
-                            </form>
+                                <div id="payment-message" class="hidden">
+                                    <!-- Error Message Payment Invalid Card -->
+                                </div>
+
+                                <a class="my-2 btn btn-lg btn-minwidth btn-outline-info rounded-3"
+                                    href="{% url 'all_products' %}" aria-label="Continue Shopping">Continue
+                                    Shopping!
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </section>
 
 {% endblock %}
@@ -296,6 +295,5 @@
 {{ stripe_public_key|json_script:"id_stripe_public_key" }}
 {{ client_secret|json_script:"id_client_secret" }}
 <script src="{% static 'js/stripe_elements.js' %}"></script>
-<!-- <script src="{% static 'js/stripe_checkout.js' %}"></script> -->
 
 {% endblock %}

@@ -12,6 +12,9 @@ from django.shortcuts import reverse
 from django.shortcuts import redirect
 from django.shortcuts import get_object_or_404
 from django.shortcuts import HttpResponseRedirect
+from django.shortcuts import HttpResponse
+
+from django.views.decorators.csrf import csrf_exempt
 
 from django.contrib import messages
 
@@ -35,10 +38,23 @@ class CheckoutView(View):
     template_name = 'checkout/checkout.html'
 
     def get(self, request):
+        stripe_public_key = STRIPE_PUBLIC_KEY
+        stripe_secret_key = STRIPE_SECRET_KEY
+
         order = Order.objects.get(created_by=request.user, billed=False)
+        
+        total_order = order.total_price()
+        total_stripe = round(total_order * 100)
+        stripe.api_key = stripe_secret_key
+        intent = stripe.PaymentIntent.create(
+            amount=total_stripe,
+            currency=STRIPE_CURRENCY
+        )
 
         context = {
             'order': order,
+            'stripe_public_key': stripe_public_key,
+            'client_secret': intent.client_secret,
         }
 
         return render(request, self.template_name, context)
@@ -67,34 +83,15 @@ class CheckoutView(View):
             return redirect('cart')
 
 
-class PaymentView(View):
-    """
-    Class to display Only Used Products
-    """
-    model = Order
-    template_name = 'checkout/payment.html'
+@csrf_exempt
+def stripe_webhook(request):
+    payload = request.body
 
-    def get(self, request):
-        stripe_public_key = STRIPE_PUBLIC_KEY
-        stripe_secret_key = STRIPE_SECRET_KEY
+    # For now, you only need to print out the webhook payload so you can see
+    # the structure.
+    print(payload)
 
-        order = Order.objects.get(created_by=request.user, billed=False)
-
-        total_order = order.total_price()
-        total_stripe = round(total_order * 100)
-        stripe.api_key = stripe_secret_key
-        intent = stripe.PaymentIntent.create(
-            amount=total_stripe,
-            currency=STRIPE_CURRENCY
-        )
-
-        context = {
-            'order': order,
-            'stripe_public_key': stripe_public_key,
-            'client_secret': intent.client_secret,
-        }
-
-        return render(request, self.template_name, context)
+    return HttpResponse(status=200)
 
 
 class PaymentSuccess(View):
@@ -123,13 +120,4 @@ class PaymentSuccess(View):
         return render(request, self.template_name, context)
 
 
-# class PaymentCancel(View):
-#     template_name = 'checkout/payment-cancel.html'
 
-#     def get(self, request):
-
-#         context = {
-#             'payment_status': 'cancel',
-#         }
-
-#         return render(request, self.template_name, context)

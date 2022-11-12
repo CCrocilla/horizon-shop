@@ -234,8 +234,6 @@ Products Section
     min-height: 400px;
 }
 
-style="max-width: 300px; max-height: 250px; width: 100%; min-height: 250px;"
-
 .products-single .box-img-hover {
     overflow: hidden;
     position: relative;
@@ -511,6 +509,10 @@ Contact Us Background Images
     border-radius: 20px;
 }
 
+hr {
+    opacity: 0.5;
+}
+
 
 /*--------------------------------------------------------------
 Dashboard
@@ -538,7 +540,7 @@ small ul li {
 
 
 .btn-minwidth {
-    min-width: 150px;
+    min-width: 250px;
 }
 
 
