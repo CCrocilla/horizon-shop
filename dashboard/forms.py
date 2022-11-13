@@ -70,7 +70,8 @@ class CustomerExtraForm(ModelForm):
             'avatar': 'Avatar',
         }
 
-        widgets = {'avatar': forms.FileInput(attrs={'class': 'form-control-file'}), }
+        widgets = {'avatar': forms.FileInput(
+            attrs={'class': 'form-control-file'}), }
 
 
 class ShippingAddressForm(ModelForm):

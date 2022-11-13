@@ -78,7 +78,7 @@ class AllProductsListView(View):
                                            ) | Q(
                                                brand__icontains=search_term
                                                )
-            products = products.filter(searched).order_by('-created_at')
+            products = products.filter(searched, is_deleted=False).order_by('-created_at')
 
         context = {
 
@@ -94,7 +94,7 @@ class SearchByView(View):
 
     def get(self, request, search_slug):
         category = get_object_or_404(Category, slug=search_slug)
-        products = Product.objects.filter(category=category)
+        products = Product.objects.filter(category=category, is_deleted=False)
 
         context = {
                 'products': products,
@@ -113,7 +113,7 @@ class NewProductsListView(View):
     paginate_by = 6
 
     def get(self, request):
-        products = Product.objects.filter(product_status=0
+        products = Product.objects.filter(product_status=0, is_deleted=False
                                           ).order_by('-created_at')
 
         context = {
@@ -130,7 +130,7 @@ class UsedProductsListView(View):
     template_name = 'products/used_products.html'
 
     def get(self, request):
-        products = Product.objects.filter(product_status=1
+        products = Product.objects.filter(product_status=1, is_deleted=False
                                           ).order_by('-created_at')
 
         context = {

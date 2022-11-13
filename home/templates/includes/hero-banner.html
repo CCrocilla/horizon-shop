@@ -1,4 +1,6 @@
-<section class="bg-dark my-5 py-5">
+{% load static %}
+
+<section class="bg-hero my-5">
     <div id="homepage-hero-carousel" class="carousel slide" data-bs-ride="carousel">
         <ol class="carousel-indicators">
             <li data-bs-target="#homepage-hero-carousel" data-bs-slide-to="0" class=""></li>
@@ -6,54 +8,55 @@
             <li data-bs-target="#homepage-hero-carousel" data-bs-slide-to="2" class="active"></li>
         </ol>
         <div class="carousel-inner">
-            <div class="carousel-item">
+            <div class="carousel-item hero-image"
+                style="background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3)), url('{% static "images/products-vintage-2.jpg" %}'); height: 600px;">
                 <div class="container">
                     <div class="row p-5">
-                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="./assets/img/banner_img_01.jpg" alt="">
-                        </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                        <div class="col-lg-8 mb-0 d-flex align-items-center">
                             <div class="text-align-left align-self-center">
-                                <h1 class="h1 text-success"><b>Horizon Shop</b> eCommerce</h1>
-                                <h3 class="h2">The Perfect eCommerce for shopping everything!</h3>
-                                <p>
-                                    Click on the Button to start shopping!!!
+                                <h1 class="fs-2 text-yellow"><b>Horizon Shop</b> eCommerce</h1>
+                                <h2 class="fs-3 text-green">The Perfect eCommerce for shopping used products!</h2>
+                                <p class="fs-5 text-light">
+                                    An <strong>"Horizon"</strong> of used Products just for you with the warranty of
+                                    Horizon Shop!!! Buy or Sell used product and we will take care of it!
+                                    Start Shopping for used products here!
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item hero-image"
+                style="background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3)), url('{% static "images/delivery.jpg" %}'); height: 600px;">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="col-lg-8 mb-0 d-flex align-items-center">
+                            <div class="text-yellow text-align-left">
+                                <h1 class="fs-2 text-yellow"><b> Free Delivery!!! </b></h1>
+                                <h3 class="fs-3 text-green">Shop Today!</h3>
+                                <p class="fs-5 text-light">
+                                    Join <strong>Horizon Shop</strong> for <strong>free delivery</strong> in all orders
+                                    over 50.00 Euro!!!
+                                    What's are you waiting for?! Sign Up Today!!!
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item active hero-image"
+                style="background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3)), url('{% static "images/products-1.jpg" %}'); height: 600px;">
                 <div class="container">
                     <div class="row p-5">
-                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="./assets/img/banner_img_02.jpg" alt="">
-                        </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                        <div class="col-lg-8 mb-0 d-flex align-items-center">
                             <div class="text-align-left">
-                                <h1 class="h1">Delivery Free for just 50 Euro!!! </h1>
-                                <h3 class="h2">Shop Today!</h3>
-                                <p>
-                                    Join<strong>Horizon Shop</strong> today and buy/sell everything that you want!
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item active">
-                <div class="container">
-                    <div class="row p-5">
-                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="./assets/img/banner_img_03.jpg" alt="">
-                        </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left">
-                                <h1 class="h1">Shop Today New Product</h1>
-                                <h3 class="h2">New Product! </h3>
-                                <p>
-                                    Best Ecommerce!
+                                <h1 class="fs-2 text-yellow">Shop Today New Product!!</h1>
+                                <h3 class="fs-3 text-green">New Product! </h3>
+                                <p class="fs-5 text-light">
+                                    If you are looking for a Smartphone, or a new Console a small appliance for your
+                                    kitchen, Horizon Shop is the place that you were looking for! Milions of new
+                                    Products everyday!
                                 </p>
                             </div>
                         </div>

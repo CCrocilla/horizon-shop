@@ -80,7 +80,9 @@ function handlerSubmit(event) {
                 form.submit();
             }
         }
-    });
+    }).fail(function () {
+        location.reload();
+    })
 }
 
 // Show a spinner on payment submission
