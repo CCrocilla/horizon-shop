@@ -18,14 +18,14 @@
                 <hr class="w-10 text-dark" style="height:2px;" />
                 <div class="row">
                     <div class="col-12">
-                        <label class="form-label mt-2">Author:</label>
+                        <label class="form-label text-dark mt-2">Author:</label>
                         <span class="form-control border-2 fw-bold">
                             {{ testimonial.created_by }}
                         </span>
                     </div>
                 </div>
                 <div>
-                    <label class="form-label mt-2">Title:</label>
+                    <label class="form-label text-dark mt-2">Title:</label>
                     <span class="form-control border-2 fw-bold">
                         {{ testimonial.title }}
                     </span>
@@ -33,25 +33,25 @@
 
                 <div class="row">
                     <div class="col-12">
-                        <label class="form-label mt-2">Date:</label>
+                        <label class="form-label text-dark mt-2">Date:</label>
                         <span class="form-control border-2 fw-bold">
                             {{ testimonial.created_at }}
                         </span>
                     </div>
                     <div class="col-12">
-                        <label class="form-label mt-2">Rating:</label>
+                        <label class="form-label text-dark mt-2">Rating:</label>
                         <span class="form-control border-2 fw-bold">
                             {{ testimonial.rating_stars }}
                         </span>
                     </div>
                     <div class="mb-5 col-12">
-                        <label class="form-label mt-2">Comment: </label>
+                        <label class="form-label text-dark mt-2">Comment: </label>
                         <span class="form-control border-2 fw-bold ">
                             {{ testimonial.comment }}
                         </span>
                     </div>
                 </div>
-                <a class="btn btn-minwidth btn-outline-yellow mb-4 rounded-3" href="{% url 'testimonials-list' %}"
+                <a class="btn btn-minwidth btn-outline-dark mb-4 rounded-3" href="{% url 'testimonials-list' %}"
                     aria-label="Testimonial List">Back to List</a>
             </div>
         </div>

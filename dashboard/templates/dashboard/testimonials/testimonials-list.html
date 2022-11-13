@@ -38,11 +38,18 @@
                         <strong>{{testimonial.title}}</strong>
                     </a>
                 </h3>
-                <div>Author: {{ testimonial.created_by.username }}</div>
-                <div>Rating: {{ testimonial.rating_stars }}/5 </div>
-                <div>Date: {{ testimonial.created_at }}</div>
+                <div><strong>Author:</strong> {{ testimonial.created_by.username }}</div>
+                <div class="ratings p-0">
+                    <strong>Rating:</strong>
+                    {% with ''|center:testimonial.rating_stars as range %}
+                    {% for i in range %}
+                    <i class="fas fa-star text-yellow"></i>
+                    {% endfor %}
+                    {% endwith %}
+                </div>
+                <div><strong>Date:</strong> {{ testimonial.created_at }}</div>
                 <br />
-                <div>Comment: {{ testimonial.comment|slice:":300" }}... <br /></div>
+                <div><strong>Comment:</strong> {{ testimonial.comment|slice:":300" }}... <br /></div>
 
 
                 <a class="btn btn-minwidth btn-outline-primary rounded-3 mt-4"

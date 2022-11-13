@@ -1,8 +1,13 @@
-<h1 class="mt-4">Authentication Error!</h1>
-<ol class="breadcrumb mb-4">
-    <li class="active">Access reserved only to authenticated user!</li>
-</ol>
-<ol class="breadcrumb mb-4">
-    <li class="active">Click on the Link below to be redirected to the Login Page!</li>
-</ol>
-<a class="btn btn-lg btn-minwidth btn-yellow rounded-3" href="{% url 'account_login' %}" aria-label="Login">Login</a>
+<section class="my-5 py-5">
+    <div class="text-dark mb-5">
+        <h1 class="mt-4">Authentication Error!</h1>
+        <ol class="breadcrumb mb-4 text-center">
+            <li class="active">Access reserved only to authenticated user!</li>
+        </ol>
+        <ol class="breadcrumb mb-4 text-center">
+            <li class="active">Click on the Link below to be redirected to the Login Page!</li>
+        </ol>
+        <a class="btn btn-lg btn-minwidth btn-yellow text-dark rounded-3" href="{% url 'account_login' %}"
+            aria-label="Login">Login</a>
+    </div>
+</section>

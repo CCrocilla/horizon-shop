@@ -25,20 +25,25 @@ class CartView(View):
     template_name = 'cart/cart.html'
 
     def get(self, request):
-        order = Order.objects.filter(
-            created_by=request.user, billed=False
-            )
-        cart = CartProducts.objects.filter(
-            created_by=request.user
-            )
-        shipping_address = ShippingAddress.objects.filter(
-            created_by=request.user
-            )
+        order = None
+        cart = None
+        shipping_address = None
 
-        if order.exists():
-            order = order[0]
-        else:
-            order = Order.objects.create(created_by=request.user)
+        if request.user.is_authenticated:
+            order = Order.objects.filter(
+                created_by=request.user, billed=False
+                )
+            cart = CartProducts.objects.filter(
+                created_by=request.user
+                )
+            shipping_address = ShippingAddress.objects.filter(
+                created_by=request.user
+                )
+
+            if order.exists():
+                order = order[0]
+            else:
+                order = Order.objects.create(created_by=request.user)
 
         context = {
 

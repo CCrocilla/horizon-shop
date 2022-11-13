@@ -26,6 +26,7 @@
             </div>
         </div>
     </div>
+    {% if user.is_authenticated %}
 
     {% if order.cart_products.exists %}
 
@@ -137,11 +138,10 @@
         {% csrf_token %}
         <div class="row">
             <div class="col-12 text-dark">
-                <!-- ---------------------- -->
-                <!-- ---------------------- -->
-                <!--    SHIPPING ADDRESS    -->
-                <!-- ---------------------- -->
-                <!-- ---------------------- -->
+
+                <!-- ====================== -->
+                <!--    Shipping Address    -->
+                <!-- ====================== -->
 
                 <div id="div_id_shipping_address" class="my-5">
                     <label for="id_shipping_address" class="form-label text-dark fw-bold">
@@ -175,13 +175,12 @@
                     </span>
 
                     {% endif %}
-
                 </div>
-                <!-- ---------------------- -->
-                <!-- ---------------------- -->
-                <!--  END SHIPPING ADDRESS  -->
-                <!-- ---------------------- -->
-                <!-- ---------------------- -->
+
+                <!-- ====================== -->
+                <!--  End Shipping Address  -->
+                <!-- ====================== -->
+
 
                 <p> Total Products: {{ total_products_cart }} </p>
 
@@ -209,6 +208,12 @@
             </div>
         </div>
     </div>
+
+    {% endif %}
+
+    {% else %}
+
+    {% include 'dashboard/includes/auth-error.html' %}
 
     {% endif %}
 
