@@ -12,13 +12,12 @@ from .views import stripe_webhook
 urlpatterns = [
     path('', CheckoutView.as_view(), name='checkout'),
     path('webhooks/stripe/', stripe_webhook, name='stripe-webhook'),
-    # path('payment/', PaymentView.as_view(), name='payment'),
     path(
         'payment/success/<int:order>',
         PaymentSuccess.as_view(),
         name='payment-success'
         ),
-    
+    # path('payment/', PaymentView.as_view(), name='payment'),
     # path('payment/wh/', webhook, name='webhook')
     # path('payment/cancel', CheckoutView.as_view(), name='payment-cancel'),
     # path('', CheckoutView, name='checkout'),

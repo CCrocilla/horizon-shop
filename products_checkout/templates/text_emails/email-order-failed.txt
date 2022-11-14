@@ -1,0 +1,15 @@
+Hello {{ order.created_by.first_name }}, 
+
+we are sorry to inform you that something went wrong during the payment process and it has not been possible to process correctly your order. 
+
+Please contact us via the Contact Us Page or send us an email to: {{ contact_email }}.
+
+We will help you solve the issue and proceed with the order! 
+
+
+
+Please note: This e-mail was sent from a notification-only address that can't accept incoming e-mail. Please do not reply to this message
+
+Sincerely,
+
+Horizon Shop

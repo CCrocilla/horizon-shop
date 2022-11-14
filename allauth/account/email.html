@@ -94,14 +94,14 @@
                             {% csrf_token %}
                             {{ form|crispy }}
                             <button name="action_add" type="submit"
-                                class="btn btn-yellow text-dark w-100 primaryAction">
+                                class="btn btn-yellow text-dark w-100 primaryAction m-2">
                                 {% trans "Add E-mail" %}
                             </button>
                         </form>
                     </div>
                     {% endif %}
 
-                    <a href="{% url 'homepage' %}" class="btn w-100 button button btn-primary secondaryAction">
+                    <a href="{% url 'homepage' %}" class="btn w-100 button button btn-primary secondaryAction m-2">
                         {% trans "Homepage" %}
                     </a>
                 </div>

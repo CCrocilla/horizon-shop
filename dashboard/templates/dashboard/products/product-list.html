@@ -8,7 +8,6 @@
 
 {% if user.is_authenticated %}
 
-
 <!-- ======================= -->
 <!--         Messages        -->
 <!-- ======================= -->
@@ -23,47 +22,50 @@
     {% if user.is_superuser %}
     <h1 class="mt-4 text-center">Product List Administrator</h1>
     {% else %}
-    <h1 class="mt-4 text-center">Product List </h1>
+    <h1 class="mt-4 text-center">Product List</h1>
     {% endif %}
     <ol class="breadcrumb mb-4 mx-auto d-flex justify-content-center">
-        <li class="active">Review, update or delete your Products!</li>
+        <li class="active">Review, Update or Delete the Products you are selling!</li>
     </ol>
 
-    <div class="row d-flex align-items-center">
+    <div class="row d-flex align-items-center mt-5">
 
         {% for product in product_list %}
 
-        <div class="col-12 col-md-4 col-lg-3">
-            <div class="card" style="width: 18rem;">
+        <div class="col-12 offset-sm-2 col-sm-8 offset-md-0 col-md-6 col-lg-6 col-xl-4 mb-4">
+            <div class="card h-100 rounded-3 shadow-lg">
 
                 <div class="type-lb">
                     {% if product.product_status == 0 %}
-                    <p class="sale">New</p>
+                    <p class="new">New</p>
                     {% else %}
                     <p class="sale">Used</p>
                     {% endif %}
                 </div>
 
                 {% if product.image %}
-                <div style="height: 220px; padding: 0px;">
-                    <a href="">
-                        <img src="{{ product.image.url }}" class="card-img-top img-fluid"
-                            alt="Image {{ product.title }}">
-                    </a>
-                </div>
+
+                <a href="{% url 'product_details' product.slug %}">
+                    <img src="{{ product.image.url }}" class="card-img-top pt-3 px-3 rounded-3"
+                        alt="Image {{ product.title }}" width="300" height="300">
+                </a>
 
                 {% else %}
-                <div style="height: 220px; padding: 0px;">
-                    <a href="">
-                        <img src="{{ MEDIA_URL }}noimage.jpg" class="card-img-top img-fluid"
-                            alt="Image {{ product.title }}">
-                    </a>
-                </div>
+
+                <a href="{% url 'product_details' product.slug %}">
+                    <img src="{{ MEDIA_URL }}no-image-placeholder.webp" class="card-img-top pt-3 px-3 rounded-3"
+                        alt="Image {{ product.title }}" width="300" height="300">
+                </a>
 
                 {% endif %}
 
                 <div class="card-body">
-                    <h5 class="card-title">{{ product.title }}</h5>
+                    <h1>
+                        <a href="{% url 'product_details' product.slug %}"
+                            class="h2 text-decoration-none text-dark mb-3">
+                            {{ product.title }}
+                        </a>
+                    </h1>
 
                     {% if product.is_deleted %}
                     <p class="card-text">Product Deleted!</p>
@@ -78,36 +80,66 @@
 
                     {% endif %}
 
-                    <p class="card-text">Brand: {{ product.brand }}</p>
+                    <div class="mb-2">
+                        <span class="badge bg-secondary">{{ product.category }}</span>
+                    </div>
+                    <div class="mb-2">
+                        <p class="card-text">Brand: {{ product.brand }}</p>
+                    </div>
 
-                    {% if product.productrating.rating_stars %}
-                    <p class="card-text">{{ product.rating }}</p>
+                    <ul class="list-unstyled d-flex justify-content-between">
+                        {% if product.product_rating.rating_stars %}
+                        <li>
+                            <i class="text-yellow fa fa-star"></i>
+                            <i class="text-yellow fa fa-star"></i>
+                            <i class="text-yellow fa fa-star"></i>
+                            <i class="text-muted fa fa-star"></i>
+                            <i class="text-muted fa fa-star"></i>
+                        </li>
+                        <p class="card-text">{{ product.rating }}</p>
+                        {% else %}
+                        <li class="card-text">No Rating</li>
+                        {% endif %}
+
+                        <div>
+                            {% if product.discounted_price %}
+                            <li class="text-dark text-right">
+                                {{ product.discounted_price }} Euro
+                            </li>
+
+                            <li class="text-muted text-right">
+                                <span>
+                                    <del>{{ product.price }} Euro</del>
+                                </span>
+                            </li>
+
+                            {% else %}
+
+                            <li class="text-dark text-right mb-3">{{ product.price }} Euro</li>
+
+                            {% endif %}
+                        </div>
+                    </ul>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="text-muted">Reviews (24)</p>
+                        </div>
+                    </div>
+
+                    {% if user.is_superuser or product.created_by.id == user.id %}
+
+
+
+                    <a class="my-2 btn btn-outline-primary rounded-3" href="{% url 'product-update' product.slug %}"
+                        aria-label="Update">Edit</a>
+                    <a class="my-2 btn btn-outline-warning rounded-3" href="{% url 'product-delete' product.slug %}"
+                        aria-label="Delete">Delete</a>
+
+
+
                     {% else %}
-                    <p class="card-text">No Rating</p>
+
                     {% endif %}
-
-                    <p class="card-text">Price: {{ product.price }} Euro</p>
-
-
-                    <a class="btn btn-minwidth btn-outline-primary rounded-3 mt-4"
-                        href="{% url 'product-update' product.slug %}" aria-label="Update">Edit</a>
-                    <a class="btn btn-minwidth btn-outline-warning rounded-3 mt-4"
-                        href="{% url 'product-delete' product.slug %}" aria-label="Delete">Delete</a>
-
-
-                    <form action="{% url 'add-to-wishlist' product.id %}" method="POST">
-                        {% csrf_token %}
-                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                        <input type="submit" class="btn btn-lg" value="Add to Wishlist">
-
-                    </form>
-
-                    <form action="{% url 'add-to-cart' product.id %}" method="POST">
-                        {% csrf_token %}
-
-                        <input type="submit" class="btn btn-lg" value="Add to Cart">
-                    </form>
-
                 </div>
             </div>
         </div>
@@ -116,7 +148,6 @@
 
     </div>
 </div>
-
 
 {% else %}
 

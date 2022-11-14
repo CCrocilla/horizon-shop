@@ -50,6 +50,7 @@ function handlerSubmit(event) {
     $('#submit-button').attr('disabled', true);
 
     stripe.confirmCardPayment(clientSecret, {
+        receipt_email: document.getElementById('created_by_email_id').value,
         payment_method: {
             card: card,
         },
@@ -80,9 +81,7 @@ function handlerSubmit(event) {
                 form.submit();
             }
         }
-    }).fail(function () {
-        location.reload();
-    })
+    });
 }
 
 // Show a spinner on payment submission
