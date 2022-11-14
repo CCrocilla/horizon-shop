@@ -1,0 +1,1 @@
+Your Horizon Shop Order {{ order.order_number }}!

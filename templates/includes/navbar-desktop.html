@@ -64,7 +64,7 @@
                 <a href="#" class="nav-link d-flex lh-1 text-reset" data-bs-toggle="dropdown"
                     aria-label="Open user menu">
 
-                    {% if user.customer.avatar.url %}
+                    {% if user.customer.avatar %}
                     <span class="avatar avatar-sm">
                         <img class="" src="{{ user.customer.avatar.url }}" alt="Client Avatar">
                     </span>
@@ -76,7 +76,7 @@
 
                     {% if user.is_authenticated %}
 
-                    <div class="d-none d-md-block ps-2">
+                    <div class="d-none d-md-block text-light ps-2">
                         <div>
                             {% if not user.first_name %}
 

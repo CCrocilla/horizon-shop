@@ -22,7 +22,7 @@
                     <h1>Horizon Shop</h1>
                 </a>
             </div>
-            <div class="card card-md bg-dark rounded-3">
+            <div class="card bg-dark rounded-3 p-1 py-3">
                 <div class="card-body">
                     <h2 class="h2 text-center text-yellow mb-4">{% trans "Confirm E-mail Address" %}</h2>
 
@@ -32,7 +32,7 @@
 
                     <p class="text-light">
                         {% blocktrans with confirmation.email_address.email as email %}Please confirm that <a
-                            href="mailto:{{ email }}" class="text-dark">{{ email }}</a> is an e-mail address for user
+                            href="mailto:{{ email }}" class="text-yellow">{{ email }}</a> is an e-mail address for user
                         {{ user_display }}.{% endblocktrans %}</p>
 
                     <form method="POST" action="{% url 'account_confirm_email' confirmation.key %}"
@@ -48,7 +48,7 @@
 
                     <p class="text-light">{% blocktrans %}
                         This e-mail confirmation link expired or is invalid. Please
-                        <a href="{{ email_url }}" class="text-dark">
+                        <a href="{{ email_url }}" class="text-yellow">
                             issue a new e-mail confirmation request
                         </a>.
                         {% endblocktrans %}

@@ -236,6 +236,21 @@ class ProductListView(ListView):
         return queryset
 
 
+class DeletedProductListView(ListView):
+    """
+    Class to display the User's Product
+    """
+    model = Product
+    template_name = 'dashboard/products/product-list.html'
+    ordering = ['-created_at']
+    fields = '__all__'
+
+    def get_queryset(self):
+        queryset = Product.objects.filter(is_deleted=True)
+        
+        return queryset
+
+
 class ProductUpdateView(SuccessMessageMixin, UpdateView):
     """
     Class to update User's Product
@@ -268,7 +283,7 @@ class CategoryAddView(SuccessMessageMixin, CreateView):
     template_name = 'dashboard/admin/category-add.html'
 
     def get(self, request):
-        category_form = CategoryForm(request.POST)
+        category_form = CategoryForm(request.POST or None)
 
         context = {
             'form': category_form,
@@ -339,7 +354,7 @@ class SubCategoryAddView(SuccessMessageMixin, CreateView):
     template_name = 'dashboard/admin/sub-category-add.html'
 
     def get(self, request):
-        subcategory_form = SubCategoryForm(request.POST)
+        subcategory_form = SubCategoryForm(request.POST or None)
 
         context = {
             'form': subcategory_form,
@@ -362,9 +377,10 @@ class SubCategoryAddView(SuccessMessageMixin, CreateView):
                 messages.success(request, 'Thanks! Sub-Category created!')
                 return HttpResponseRedirect(reverse('subcategory-list', ))
         else:
-            messages.info(request,
-                          'Error: Form not filled in correctly! Try again!'
-                          )
+            messages.error(
+                request,
+                'Error: Form not filled in correctly! Try again!'
+                )
             return redirect(request.path)
 
 
@@ -409,7 +425,7 @@ class TestimonialAddView(SuccessMessageMixin, CreateView):
     model = Testimonial
     form_class = TestimonialForm
     template_name = 'dashboard/testimonials/testimonial-add.html'
-    success_url = reverse_lazy('shipping-address-list')
+    success_url = reverse_lazy('testimonials-list')
     success_message = "Testimonial was created successfully!"
 
     def get_initial(self):

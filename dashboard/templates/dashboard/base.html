@@ -69,11 +69,10 @@
 
                         <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link text-light {% if 'cart' in request.path %} border border-bottom border-yellow active text-yellow {% endif %} mx-3"
                             href="{% url 'cart' %}" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                            data-bs-title="Cart">
+                            data-bs-title="Cart"><span class="badge badge-sm bg-red">{{ total_products_cart }}</span>
+                            <i class="fas fa-shopping-cart fa-lg me-2"></i>
                             <div class="fs-6 text-center">
-                                <p class="my-0">
-                                    <span class="badge badge-sm bg-red">{{ total_products_cart }}</span>
-                                    <i class="fas fa-shopping-cart fa-lg"></i>
+                                <p class="m-auto d-none d-sm-block">
                                     {% if total_price_cart %}
                                     {{ total_price_cart|floatformat:2 }} Euro
                                     {% else %}
@@ -98,7 +97,7 @@
 
                             {% if user.is_authenticated %}
 
-                            <div class="d-none d-md-block text-light fw-bold ps-2">
+                            <div class="d-none d-sm-block text-light fw-bold ps-2">
                                 <div>
                                     {% if not user.first_name %}
 
@@ -326,7 +325,6 @@
     <script src="{% static 'js/navbar-script.js' %}"></script>
     <!-- Stripe -->
     <script src="https://js.stripe.com/v3/"></script>
-    <script src="{% static 'js/stripe_checkout.js' %}"></script>
 </body>
 
 </html>
