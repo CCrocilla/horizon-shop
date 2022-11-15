@@ -37,8 +37,15 @@ def categories(request):
 
 
 def subcategories(request):
+    categories = Category.objects.all()
+    print(categories)
+    for category in categories:
+        # subcategories = SubCategory.objects.filter(category=category)
+        subcategories = SubCategory.objects.all()
+        print(subcategories)
+
     return {
-        'subcategories': SubCategory.objects.all()
+        'subcategories': subcategories
     }
 
 

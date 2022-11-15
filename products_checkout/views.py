@@ -1,4 +1,5 @@
 import stripe
+import datetime
 import json
 
 from django.conf import settings
@@ -29,10 +30,10 @@ from django.views import View
 from django.views.generic import DeleteView
 from django.views.generic import DetailView
 
+from .models import Order
+
 from dashboard.models import ShippingAddress
 from products_cart.models import CartProducts
-
-from .models import Order
 
 from products_cart.forms import CheckoutForm
 
@@ -124,7 +125,6 @@ def stripe_webhook(request):
         customer_email = intent["receipt_email"]
 
         order_id = intent["metadata"]["order_id"]
-
         order = Order.objects.get(id=order_id)
 
         send_mail(
@@ -140,42 +140,57 @@ def stripe_webhook(request):
             from_email=[DEFAULT_FROM_EMAIL],
             )
 
-        order.billed = True
-        order.save()
+        PaymentSuccess(request, order_id)
 
-    # Handle the event
-    if event.type == 'payment_intent.succeeded':
-        payment_intent = event.data.object  # contains a stripe.PaymentIntent
-        print(payment_intent['receipt_email'])
-        print('PaymentIntent was successful!')
-    elif event.type == 'payment_method.attached':
-        payment_method = event.data.object  # contains a stripe.PaymentMethod
-        print('PaymentMethod was attached to a Customer!')
+    elif event['type'] == 'charge.failed':
+        intent = event['data']['object']
+        order_id = intent["metadata"]["order_id"]
+
+        PaymentFailed(request, order_id)
+
     else:
         print('Unhandled event type {}'.format(event.type))
 
     # Passed signature verification
-    return HttpResponse(status=200)
+    return HttpResponse(status=200, )
 
 
-class PaymentSuccess(View):
+def PaymentSuccess(request, order_id):
+    """
+    Payment Success
+    """
+    order = get_object_or_404(Order, id=order_id)
+    order.created_at = datetime.datetime.now()
+    order.billed = True
+    order.save()
+
+    messages.success(request, f'Order successfully processed! \
+        Your order number is {order.order_number}. A confirmation \
+        email will be sent to { order.created_by.email }.')
+
     template_name = 'checkout/payment-success.html'
+    context = {
+        'order': order,
+    }
 
-    def get(self, request):
+    return render(request, template_name, context)
 
-        context = {
-            'payment_status': 'success',
-        }
 
-        return render(request, self.template_name, context)
+def PaymentFailed(request, order_id):
+    """
+    Payment Success
+    """
+    order = get_object_or_404(Order, id=order_id)
+    order.billed = False
+    order.save()
 
-    def post(self, request, order, *args, **kwargs):
-        order = Order.objects.get(created_by=request.user, id=order)
+    messages.error(request, f'There has been an issue with the \
+        order number: {order.order_number}. Please contact the \
+        support for further details.')
 
-        print("I am changing the status of the Order!!!")
+    template_name = 'checkout/payment-failed.html'
+    context = {
+        'order': order,
+    }
 
-        print(order)
-        context = {
-            'order': order,
-        }
-        return render(request, self.template_name, context)
+    return render(request, template_name, context)

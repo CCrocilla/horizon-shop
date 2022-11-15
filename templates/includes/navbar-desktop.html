@@ -14,18 +14,18 @@
         <div class="navbar-nav flex-row order-lg-last">
             <div class="nav-item d-none d-md-flex">
                 <div class="btn-list">
-                    <a class="btn btn-dark nav-link text-light {% if request.path == home %} border border-bottom border-yellow active text-yellow {% endif %}"
+                    <a class="btn btn-dark nav-link text-light {% if request.path == home %} border border-bottom border-yellow active text-yellow rounded-3{% endif %}"
                         aria-current="page" href="{% url 'homepage' %}">
-                        <div class="fs-6 text-center">
+                        <div class="fs-6 text-center mx-1 px-1">
                             <div>
                                 <i class="fas fa-home fa-lg"></i> Home
                             </div>
                         </div>
                     </a>
 
-                    <a class="nav-link text-light {% if 'contact_us' in request.path %} border border-bottom border-yellow active text-yellow {% endif %}"
+                    <a class="nav-link text-light {% if 'contact_us' in request.path %} border border-bottom border-yellow active text-yellow rounded-3{% endif %}"
                         href="{% url 'contact_us' %}">
-                        <div class="fs-6 text-center">
+                        <div class="fs-6 text-center mx-1 px-1">
                             <div>
                                 <i class="fas fa-headset fa-lg"></i> Contact
                             </div>
@@ -33,22 +33,21 @@
                     </a>
 
                     <a href="{% url 'products-wishlist' %}"
-                        class="nav-link text-light {% if 'wishlist' in request.path %} border border-bottom border-yellow active text-yellow {% endif %}"
+                        class="nav-link text-light {% if 'wishlist' in request.path %} border border-bottom border-yellow active text-yellow rounded-3{% endif %}"
                         data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Wishlist">
-                        <div class="fs-6 text-center text-light">
+                        <div class="fs-6 text-center text-light mx-1 px-1">
                             <span class="badge badge-sm bg-red">{{ counter_wish_products }}</span>
                             <i class="fas fa-heart fa-lg"></i>
                         </div>
                     </a>
 
-                    <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link text-light {% if 'cart' in request.path %} border border-bottom border-yellow active text-yellow {% endif %}"
+                    <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link text-light {% if 'cart' in request.path %} border border-bottom border-yellow active text-yellow rounded-3{% endif %}"
                         href="{% url 'cart' %}" data-bs-toggle="tooltip" data-bs-placement="bottom"
                         data-bs-title="Cart">
+                        <span class="badge badge-sm bg-red">{{ total_products_cart }}</span>
+                        <i class="fas fa-shopping-cart fa-lg me-2"></i>
                         <div class="fs-6 text-center">
-                            <p class="my-0">
-                                <!-- Inspired from Boutique Ado Project -->
-                                <span class="badge badge-sm bg-red">{{ total_products_cart }}</span>
-                                <i class="fas fa-shopping-cart fa-lg"></i>
+                            <p class="m-auto d-none d-lg-block">
                                 {% if total_price_cart %}
                                 {{ total_price_cart|floatformat:2 }} Euro
                                 {% else %}
@@ -60,8 +59,8 @@
 
                 </div>
             </div>
-            <div class="nav-item dropdown ms-2">
-                <a href="#" class="nav-link d-flex lh-1 text-reset" data-bs-toggle="dropdown"
+            <div class="nav-item dropdown mx-2">
+                <a href="#" class="nav-link d-flex lh-1 text-reset mx-1" data-bs-toggle="dropdown"
                     aria-label="Open user menu">
 
                     {% if user.customer.avatar %}
@@ -76,7 +75,7 @@
 
                     {% if user.is_authenticated %}
 
-                    <div class="d-none d-md-block text-light ps-2">
+                    <div class="d-none d-lg-block text-light ps-2">
                         <div>
                             {% if not user.first_name %}
 
@@ -165,28 +164,29 @@
                             </span>
                         </a>
                     </li>
-                    <a class="nav-link" href="{% url 'all_products' %}">
-                        <span class="nav-link-title">
-                            All Products
-                        </span>
-                    </a>
+                    <li class="nav-item text-light">
+                        <a class="nav-link text-light" href="{% url 'all_products' %}">
+                            <span class="nav-link-title">
+                                All Products
+                            </span>
+                        </a>
                     </li>
+                    <li class="nav-item text-light">
+                        <a class="nav-link text-light" href="{% url 'new_products' %}">
+                            <span class="nav-link-title">
+                                New Products
+                            </span>
+                        </a>
                     </li>
-                    <a class="nav-link" href="{% url 'new_products' %}">
-                        <span class="nav-link-title">
-                            New Products
-                        </span>
-                    </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'used_products' %}">
+                    <li class="nav-item text-light">
+                        <a class="nav-link text-light" href="{% url 'used_products' %}">
                             <span class="nav-link-title">
                                 Used Products
                             </span>
                         </a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#navbar-third" data-bs-toggle="dropdown"
+                    <li class="nav-item dropdown text-light">
+                        <a class="nav-link dropdown-toggle text-light" href="#navbar-third" data-bs-toggle="dropdown"
                             data-bs-auto-close="outside" role="button" aria-expanded="false">
                             <span class="nav-link-title">
                                 Categories
@@ -204,32 +204,64 @@
 
                         </div>
                     </li>
+
+                    <!-- <li class="nav-item dropdown text-light">
+                        <a class="nav-link dropdown-toggle text-light" href="#navbar-fifth" data-bs-toggle="dropdown"
+                            data-bs-auto-close="outside" role="button" aria-expanded="false">
+                            <span class="nav-link-title">
+                                Sub-Categories
+                            </span>
+                        </a>
+                        <div class="dropdown-menu">
+                            {% for category in categories %}
+                            <a class="nav-link dropdown-toggle text-dark" href="#navbar-sixth" data-bs-toggle="dropdown"
+                                data-bs-auto-close="outside" role="button" aria-expanded="false">
+                                <span class="nav-link-title">
+                                    {{ category.name }}
+                                </span>
+                            </a>
+
+                            {% for subcategory in subcategories.category_set.all %}
+
+                            <a class="dropdown-item" href="{{ subcategory.get_absolute_url }}">
+                                {{ subcategory.name }}
+                            </a>
+
+                            {% endfor %}
+                            {% endfor %}
+
+                        </div>
+                    </li> -->
+
                     <!-- ------------------------------------------ -->
                     <!-- New Drop-Down Sub-Categories in Categories -->
                     <!-- ------------------------------------------ -->
-                    {% for c in categories  %}
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-dark" href="#navbar-fouth"
+                    <li class="nav-item dropdown text-light">
+                        <a class="nav-link dropdown-toggle text-light" href="#navbar-fouth"
                             id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            <strong>{{ c.name }}</strong>
+                            <span class="nav-link-title">
+                                Sub-Categories
+                            </span>
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-                            {% for subcategory in c.category.all %}
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    {{ subcategory.name }}
-                                </a>
-                                {% endfor %}
-                            </li>
-                        </ul>
+                        <div class="dropdown-menu">
+
+                            {% for subcategory in subcategories  %}
+
+                            <a class="dropdown-item" href="{{ subcategory.get_absolute_url }}">
+                                {{ subcategory.name }}
+                            </a>
+
+                            {% endfor %}
+
+                        </div>
                     </li>
-                    {% endfor %}
+
                     <!-- End Drop-Down Sub-Categories in Categories -->
                 </ul>
                 <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
                     <form action="{% url 'all_products' %}" method="GET" autocomplete="off" novalidate="">
-                        <div class="input-icon border border-white">
+                        <div class="input-icon text-light border border-light rounded-3">
                             <span class="input-icon-addon">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"

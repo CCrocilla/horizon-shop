@@ -79,7 +79,7 @@
             {% for product in new_products %}
 
             <div class="col-12 offset-sm-2 col-sm-8 offset-md-0 col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 rounded-3 shadow-lg">
+                <div class="card h-100 py-3 px-2 rounded-3 shadow-lg">
 
                     <div class="type-lb">
                         {% if product.product_status == 0 %}
@@ -92,15 +92,15 @@
                     {% if product.image %}
 
                     <a href="{% url 'product_details' product.slug %}">
-                        <img src="{{ product.image.url }}" class="card-img-top pt-3 px-3 rounded-3"
-                            alt="Image {{ product.title }}" width="300" height="300">
+                        <img src="{{ product.image.url }}" class="img-fluid img-card-products rounded-3"
+                            alt="Image {{ product.title }}">
                     </a>
 
                     {% else %}
 
                     <a href="{% url 'product_details' product.slug %}">
-                        <img src="{{ MEDIA_URL }}no-image-placeholder.webp" class="card-img-top pt-3 px-3 rounded-3"
-                            alt="Image {{ product.title }}" width="300" height="300">
+                        <img src="{{ MEDIA_URL }}no-image-placeholder.webp"
+                            class="img-fluid img-card-products rounded-3" alt="Image {{ product.title }}">
                     </a>
 
                     {% endif %}
@@ -108,8 +108,9 @@
                     <div class="card-body">
                         <h1>
                             <a href="{% url 'product_details' product.slug %}"
-                                class="h2 text-decoration-none text-dark mb-3">
-                                {{ product.title }}
+                                class="h2 text-decoration-none text-dark mb-3" data-bs-toggle="tooltip"
+                                data-bs-placement="top" data-bs-title="{{ product.title }}">
+                                {{ product.title|truncatechars:18 }}
                             </a>
                         </h1>
                         <div class="mb-2">
@@ -159,21 +160,22 @@
                                     {% csrf_token %}
                                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
 
-                                    <button type="submit" class="wish btn btn-lg btn-outline-red "
+                                    <button type="submit" class="wish btn btn-lg btn-outline-red rounded-3"
                                         data-bs-toggle="tooltip" data-bs-placement="bottom"
                                         data-bs-title="Add to Wishlist">
+                                        <i class="fas fa-plus me-1"></i>
                                         <i class="fas fa-heart fa-lg"></i>
                                     </button>
                                 </form>
 
                                 <form action="{% url 'add-to-cart' product.id %}" method="POST">
                                     {% csrf_token %}
-                                    <button type="submit" class="cart btn btn-lg btn-outline-primary"
+                                    <button type="submit" class="cart btn btn-lg btn-outline-yellow rounded-3"
                                         data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Add to Cart">
+                                        <i class="fas fa-plus me-1"></i>
                                         <i class="fas fa-shopping-cart fa-lg"></i>
                                     </button>
                                 </form>
-
                             </div>
                         </div>
 
@@ -187,10 +189,16 @@
             {% endfor %}
 
             {% else %}
-            No Products to Display!
+
+            <div class="card-body">
+                <h1>
+                    No Products to Display!
+                </h1>
+            </div>
+
             {% endif %}
+
         </div>
-    </div>
 </section>
 <!-- ========================= -->
 <!--   End New Products Loop   -->

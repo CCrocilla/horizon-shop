@@ -2,6 +2,8 @@ from django.db import models
 from django.shortcuts import reverse
 from django.contrib.auth.models import User
 
+from django_resized import ResizedImageField
+
 from home.models import SoftDeleteModel
 
 
@@ -113,7 +115,9 @@ class Product(SoftDeleteModel):
         null=True,
         blank=True
         )
-    image = models.ImageField(
+    image = ResizedImageField(
+        size=[500, 500],
+        crop=['middle', 'center'],
         upload_to='images/',
         null=True,
         blank=True

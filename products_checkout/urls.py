@@ -3,8 +3,8 @@ from django.urls import path
 from . import views
 
 from .views import CheckoutView
-# from .views import PaymentView
 from .views import PaymentSuccess
+from .views import PaymentFailed
 # from .webhooks import webhook
 from .views import stripe_webhook
 
@@ -13,12 +13,13 @@ urlpatterns = [
     path('', CheckoutView.as_view(), name='checkout'),
     path('webhooks/stripe/', stripe_webhook, name='stripe-webhook'),
     path(
-        'payment/success/<int:order>',
-        PaymentSuccess.as_view(),
+        'payment/success/<int:order_id>',
+        PaymentSuccess,
         name='payment-success'
         ),
-    # path('payment/', PaymentView.as_view(), name='payment'),
-    # path('payment/wh/', webhook, name='webhook')
-    # path('payment/cancel', CheckoutView.as_view(), name='payment-cancel'),
-    # path('', CheckoutView, name='checkout'),
+    path(
+        'payment/failed/<int:order_id>',
+        PaymentFailed,
+        name='payment-failed'
+        ),
 ]

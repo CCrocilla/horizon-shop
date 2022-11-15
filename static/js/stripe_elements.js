@@ -41,8 +41,8 @@ form.addEventListener('submit', handlerSubmit);
 
 // Handle form submit
 function handlerSubmit(event) {
-    console.log('Submit Fired!!!')
     event.preventDefault();
+    console.log('Submit Fired!!!', event)
     card.update({
         'disabled': true
     });
@@ -57,8 +57,6 @@ function handlerSubmit(event) {
 
     }).then(function (result) {
         console.log('Inside Then Function: ', result)
-        const urlRedirect = "https://" + window.location.hostname + "/checkout/payment/success"
-
         if (result.error) {
             var errorDiv = document.getElementById('card-errors');
             var html = `
@@ -74,11 +72,16 @@ function handlerSubmit(event) {
             $('#submit-button').attr('disabled', false);
             activateLoading(false);
         } else {
+            console.log('SUCA', result)
             if (result.paymentIntent.status === 'succeeded') {
                 var form = document.getElementById('payment-form');
                 console.log('SUCCEDED')
                 form.removeEventListener('submit', handlerSubmit);
-                form.submit();
+                setTimeout(() => {
+                    console.log("Redirect")
+                    var form = document.getElementById('payment-form');
+                    form.submit()
+                }, 3000);
             }
         }
     });

@@ -341,7 +341,8 @@ Products Section
 
 .img-card-products {
     width: 100%;
-    min-height: 400px;
+    min-height: 300px;
+    object-fit: contain;
 }
 
 .products-single .box-img-hover {
@@ -375,8 +376,8 @@ Products Section
 }
 
 .type-lb .new {
-    background: #00f500;
-    color: #860202;
+    background: #016116;
+    color: #F59F00;
     padding: 22px 15px;
     top: 20px;
     right: 20px;
@@ -655,6 +656,9 @@ small ul li {
     min-width: 250px;
 }
 
+.btn-sm-minwidth {
+    min-width: 150px;
+}
 
 .form-label {
     color: #F59F00;
@@ -1044,4 +1048,11 @@ Dashboard
     width: 100%;
     height: 80px;
     text-align: center;
+}
+
+/*-------------------------------
+Tabler
+-------------------------------*/
+.bg-azure-lt {
+    color: var(--tblr-dark) !important;
 }

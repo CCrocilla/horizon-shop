@@ -199,19 +199,22 @@ class ProductAddView(SuccessMessageMixin, View):
 
             while Product.objects.filter(slug=product.slug).exists():
                 product.slug = product.slug + '-' + get_random_string(length=5)
-                # Add Timestamp?
 
             if product.created_by.is_superuser:
                 product.product_status = 0
             else:
                 product.product_status = 1
             product.save()
-            messages.success(request, 'Thanks! Your Product has been created!')
+            messages.success(
+                request,
+                'Thanks! Your Product has been created!'
+                )
             return HttpResponseRedirect(reverse('product-list', ))
         else:
-            messages.info(request,
-                          'Error: Form not filled in correctly! Try again!'
-                          )
+            messages.error(
+                request,
+                'Error: Form not filled in correctly! Try again!'
+                )
             return redirect(request.path)
 
 
@@ -226,8 +229,8 @@ class ProductListView(ListView):
 
     def get_queryset(self):
         if self.request.user.is_superuser:
-            queryset = Product.objects.all()
-            # queryset = Product.objects.filter(is_deleted=False)
+            # queryset = Product.objects.all()
+            queryset = Product.objects.filter(is_deleted=False)
         else:
             queryset = Product.objects.filter(
                 created_by=self.request.user,
@@ -247,7 +250,7 @@ class DeletedProductListView(ListView):
 
     def get_queryset(self):
         queryset = Product.objects.filter(is_deleted=True)
-        
+
         return queryset
 
 

@@ -46,15 +46,15 @@
                 {% if product.image %}
 
                 <a href="{% url 'product_details' product.slug %}">
-                    <img src="{{ product.image.url }}" class="card-img-top pt-3 px-3 rounded-3"
-                        alt="Image {{ product.title }}" width="300" height="300">
+                    <img src="{{ product.image.url }}" class="img-fluid img-card-products rounded-3"
+                        alt="Image {{ product.title }}">
                 </a>
 
                 {% else %}
 
                 <a href="{% url 'product_details' product.slug %}">
-                    <img src="{{ MEDIA_URL }}no-image-placeholder.webp" class="card-img-top pt-3 px-3 rounded-3"
-                        alt="Image {{ product.title }}" width="300" height="300">
+                    <img src="{{ MEDIA_URL }}no-image-placeholder.webp" class="img-fluid img-card-products rounded-3"
+                        alt="Image {{ product.title }}">
                 </a>
 
                 {% endif %}
@@ -62,8 +62,9 @@
                 <div class="card-body">
                     <h1>
                         <a href="{% url 'product_details' product.slug %}"
-                            class="h2 text-decoration-none text-dark mb-3">
-                            {{ product.title }}
+                            class="h2 text-decoration-none text-dark mb-3" data-bs-toggle="tooltip"
+                            data-bs-placement="top" data-bs-title="{{ product.title }}">
+                            {{ product.title|truncatechars:15 }}
                         </a>
                     </h1>
 
