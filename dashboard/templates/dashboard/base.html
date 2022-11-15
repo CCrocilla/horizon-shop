@@ -59,7 +59,7 @@
                 <div class="nav-item dropdown">
                     <div class="btn-list">
                         <a href="{% url 'products-wishlist' %}"
-                            class="nav-link text-light {% if 'wishlist' in request.path %} border border-bottom border-yellow active text-yellow {% endif %} mx-3"
+                            class="nav-link text-light {% if 'wishlist' in request.path %} border border-bottom border-yellow active text-yellow rounded-3{% endif %}"
                             data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Wishlist">
                             <div class="fs-6 text-center">
                                 <span class="badge badge-sm bg-red">{{ counter_wish_products }}</span>
@@ -67,9 +67,10 @@
                             </div>
                         </a>
 
-                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link text-light {% if 'cart' in request.path %} border border-bottom border-yellow active text-yellow {% endif %} mx-3"
+                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link text-light {% if 'cart' in request.path %} border border-bottom border-yellow active text-yellow rounded-3{% endif %}"
                             href="{% url 'cart' %}" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                            data-bs-title="Cart"><span class="badge badge-sm bg-red">{{ total_products_cart }}</span>
+                            data-bs-title="Cart">
+                            <span class="badge badge-sm bg-red">{{ total_products_cart }}</span>
                             <i class="fas fa-shopping-cart fa-lg me-2"></i>
                             <div class="fs-6 text-center">
                                 <p class="m-auto d-none d-sm-block">

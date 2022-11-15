@@ -8,7 +8,6 @@
 
 {% if user.is_authenticated %}
 
-
 <!-- ======================= -->
 <!--         Messages        -->
 <!-- ======================= -->
@@ -32,11 +31,11 @@
         {% for wish in wishlist %}
 
         <div class="col-12 col-md-4 col-lg-3">
-            <div class="card" style="width: 18rem;">
+            <div class="card h-100 py-3 px-2 rounded-3 shadow-lg">
 
                 <div class="type-lb">
                     {% if wish.product.product_status == 0 %}
-                    <p class="sale">New</p>
+                    <p class="new">New</p>
                     {% else %}
                     <p class="sale">Used</p>
                     {% endif %}
@@ -44,25 +43,33 @@
 
                 {% if wish.product.image %}
 
-                <a href="">
-                    <img src="{{ wish.product.image.url }}" class="card-img-top img-fluid"
+                <a href="{% url 'product_details' wish.product.slug %}">
+                    <img src="{{ wish.product.image.url }}" class="img-fluid img-card-products rounded-3"
                         alt="Image {{ wish.product.title }}">
                 </a>
 
                 {% else %}
 
-                <a href="">
-                    <img src="{{ MEDIA_URL }}no-image-placeholder.webp" class="card-img-top img-fluid"
+                <a href="{% url 'product_details' wish.product.slug %}">
+                    <img src="{{ MEDIA_URL }}no-image-placeholder.webp" class="img-fluid img-card-products rounded-3"
                         alt="Image {{ wish.product.title }}">
                 </a>
 
                 {% endif %}
 
                 <div class="card-body">
-                    <h5 class="card-title">{{ wish.product.title }}</h5>
+                    <h1 class="card-title">
+                        <a href="{% url 'product_details' wish.product.slug %}"
+                            class="h2 text-decoration-none text-dark mb-3" data-bs-toggle="tooltip"
+                            data-bs-placement="top" data-bs-title="{{ wish.product.title }}">
+                            {{ wish.product.title|truncatechars:18 }}
+                        </a>
+                    </h1>
 
                     {% if wish.product.is_deleted %}
-                    <p class="card-text">Product Deleted!</p>
+                    <div class="mb-2">
+                        <span class="badge bg-danger">Out Of Stock</span>
+                    </div>
 
                     {% else %}
 
@@ -72,25 +79,45 @@
                     <p class="card-text">Condition: Used</p>
                     {% endif %}
 
-                    {% endif %}
-
                     <p class="card-text">Brand: {{ wish.product.brand }}</p>
 
-                    {% if wish.product.productrating.rating_stars %}
-                    <p class="card-text">{{ wish.product.rating }}</p>
-                    {% else %}
-                    <p class="card-text">No Rating</p>
+                    <div class="row">
+                        <div class="col-12">
+                            <ul class="list-unstyled d-flex justify-content-between">
+                                {% if wish.product.productrating.rating_stars %}
+                                <li class="card-text">{{ wish.product.rating }}</li>
+                                {% else %}
+                                <li class="card-text">No Rating</li>
+                                {% endif %}
+
+                                <div>
+                                    {% if wish.product.discounted_price %}
+                                    <li class="text-dark text-right">
+                                        {{ wish.product.discounted_price }} Euro
+                                    </li>
+
+                                    <li class="text-muted text-right">
+                                        <span>
+                                            <del>{{ wish.product.price }} Euro</del>
+                                        </span>
+                                    </li>
+                                    {% else %}
+                                    <p class="card-text">Price: {{ wish.product.price }} Euro</p>
+                                    {% endif %}
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+
                     {% endif %}
-
-
-                    <p class="card-text">Price: {{ wish.product.price }} Euro</p>
-
 
                     <form action="{% url 'remove-from-wishlist' wish.product.id %}" method="POST">
                         {% csrf_token %}
 
-                        <input type="submit" class="btn btn-lg" value="Delete">
-
+                        <button type="submit" class="my-2 btn btn-yellow btn-lg text-dark rounded-3" value="Remove"
+                            data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Remove from Wishlist">
+                            Remove
+                        </button>
                     </form>
                 </div>
             </div>

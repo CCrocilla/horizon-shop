@@ -9,19 +9,23 @@ Below the summary of your order:
 - Order Details
 Order Number: {{ order.order_number }}
 Order Date: {{ order.created_at }}
-
 Order Total: {{ order.total_price }} Euro
 
 
 - Delivery Details 
 Your order will be sent to the selected shipping address: {{ order.shipping_address.shipping_name }}
 
-Full Name: {{ order.created_by.first_name }} {{ order.created_by.last_name }}
+{% if order.created_by.first_name and order.created_by.last_name %}
+First Name: {{ order.created_by.first_name }}
+Last Name: {{ order.created_by.last_name }}
+{% else %}
+Username: {{ order.created_by.username }}
+{% endif %}
 Street: {{ order.shipping_address.address_street }}
 Apartment Number: {{ order.shipping_address.apartment_number }}
 
 
-If you have any questions, feel free to contact us via the Contact Us Page or to the email: .
+If you have any questions, feel free to contact us via the Contact Us Page or to the email: {{ contact_email }}.
 
 
 Please note: This e-mail was sent from a notification-only address that can't accept incoming e-mail. Please do not reply to this message
