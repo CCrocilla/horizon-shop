@@ -53,18 +53,18 @@
                                                 </div>
 
                                                 <div class="row mb-4">
-                                                    <div class="col-12 col-md-5">
+                                                    <div class="col-12 col-md-6">
                                                         <label class="small mb-1">First Name:</label>
                                                         {{ customer_form.first_name }}
                                                     </div>
-                                                    <div class="col-12 col-md-5 offset-2">
+                                                    <div class="col-12 col-md-6">
                                                         <label class="small mb-1">Last Name:</label>
                                                         {{ customer_form.last_name }}
                                                     </div>
                                                 </div>
 
                                                 <div class="row mb-4">
-                                                    <div class="col">
+                                                    <div class="col-12">
                                                         <label class="small mb-1">Customer Since:</label>
                                                         {{ customer_form.date_joined }}
                                                     </div>
@@ -80,9 +80,10 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <button type="reset" class="my-2 btn btn-dark btn-lg">Reset</button>
+                                                <button type="reset"
+                                                    class="my-2 btn btn-dark btn-sm-minwidth rounded-3">Reset</button>
                                                 <button type="submit"
-                                                    class="my-2 btn btn-yellow btn-lg text-dark">Update</button>
+                                                    class="my-2 btn btn-yellow btn-sm-minwidth text-dark rounded-3">Update</button>
                                             </div>
                                         </div>
                                     </div>

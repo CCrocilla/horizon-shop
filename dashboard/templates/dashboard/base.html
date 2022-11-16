@@ -34,6 +34,7 @@
 
     {% block corejs %}
 
+
     {% endblock %}
 </head>
 
@@ -121,7 +122,7 @@
                             <a class="dropdown-item" href="{% url 'customer-update' %}">My Profile</a>
                             <a class="dropdown-item" href="{% url 'shipping-address-list' %}">My Addresses</a>
                             <a class="dropdown-item" href="#">My Orders</a>
-                            <a class="dropdown-item" href="{% url 'product-list' %}">My Products</a>
+                            <a class="dropdown-item" href="{% url 'products-list' %}">My Products</a>
                             <a class="dropdown-item" href="{% url 'products-wishlist' %}">My Wishlist</a>
                             <a class="dropdown-item" href="{% url 'testimonials-list' %}">My Testimonials</a>
                             <div class="dropdown-divider"></div>
@@ -183,6 +184,9 @@
                                 <a class="nav-link" href="{% url 'category-list' %}">List Categories</a>
                                 <a class="nav-link" href="{% url 'subcategory-add' %}">Add Sub-Category</a>
                                 <a class="nav-link" href="{% url 'subcategory-list' %}">List Sub-Categories</a>
+                                <a class="nav-link" href="{% url 'subcategory-list' %}">Add Products</a>
+                                <a class="nav-link" href="{% url 'products-list' %}">Product List</a>
+                                <a class="nav-link" href="{% url 'products-deleted-list' %}">Deleted Products</a>
                             </nav>
                         </div>
 
@@ -233,7 +237,7 @@
                                 <a class="nav-link" href="{% url 'product-add' %}">
                                     Sell Product
                                 </a>
-                                <a class="nav-link" href="{% url 'product-list' %}">
+                                <a class="nav-link" href="{% url 'products-list' %}">
                                     Product List
                                 </a>
                                 <a class="nav-link" href="{% url 'products-wishlist' %}">
@@ -312,10 +316,14 @@
             </div>
         </div>
     </div>
+
+    {% block postloadjs %}
     <!-- ===============================================-->
     <!--                  JavaScripts                   -->
     <!-- ===============================================-->
-
+    <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta12/dist/js/tabler.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
     </script>
@@ -326,6 +334,8 @@
     <script src="{% static 'js/navbar-script.js' %}"></script>
     <!-- Stripe -->
     <script src="https://js.stripe.com/v3/"></script>
+    {% endblock %}
+
 </body>
 
 </html>

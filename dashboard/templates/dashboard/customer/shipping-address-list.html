@@ -30,7 +30,7 @@
         {% for shipping in shippingaddress_list %}
 
         {% if shipping.created_by.id == user.id %}
-        <div class="col-4">
+        <div class="col-12 col-lg-4">
 
             <div class="p-3 mb-2 mt-2 alert alert-dark rounded-3">
                 <h3> Name:
@@ -41,15 +41,15 @@
                 <div>Country: {{ shipping.country }} </div>
                 <div>Phone: {{ shipping.phone_number }}</div>
                 <div>Address: {{ shipping.address_street }}</div>
-                <div>Apartment Number: {{ shipping.apartment_number }}</div>
+                <div>Apartment: {{ shipping.apartment_number }}</div>
                 <div>City: {{ shipping.city }}</div>
                 <div>Postcode: {{ shipping.postcode }}</div>
                 <br />
 
 
-                <a class="btn btn-minwidth btn-outline-primary rounded-3 mt-4"
+                <a class="my-2 btn btn-sm-minwidth btn-outline-primary rounded-3"
                     href="{% url 'shipping-address-update' shipping.pk %}" aria-label="Update">Edit</a>
-                <a class="btn btn-minwidth btn-outline-warning rounded-3 mt-4"
+                <a class="my-2 btn btn-sm-minwidth btn-outline-warning rounded-3"
                     href="{% url 'shipping-address-delete' shipping.pk %}" aria-label="Delete">Delete</a>
             </div>
         </div>

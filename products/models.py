@@ -1,4 +1,6 @@
 from django.db import models
+from django.db.models import Avg
+
 from django.shortcuts import reverse
 from django.contrib.auth.models import User
 
@@ -132,6 +134,10 @@ class Product(SoftDeleteModel):
 
     def __str__(self):
         return self.title
+
+    def get_avg_rating(self):
+        rating = ProductRating.objects.filter(product=self).aggregate(rating_avg=Avg('rating_stars'))
+        return (rating['rating_avg'])
 
 
 class ProductComment(models.Model):

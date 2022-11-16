@@ -1,0 +1,93 @@
+{% load static %}
+
+<div class="col-12 offset-sm-2 col-sm-8 offset-md-0 col-md-6 col-lg-6 col-xl-3 mb-4">
+    <div class="card h-100 py-2 px-2 rounded-3 shadow-lg">
+
+        {% if product.image %}
+
+        <a href="{% url 'product_details' product.slug %}">
+            <img src="{{ product.image.url }}" class="img-fluid img-card-products rounded-3"
+                alt="Image {{ product.title }}">
+        </a>
+
+        {% else %}
+
+        <a href="{% url 'product_details' product.slug %}">
+            <img src="{{ MEDIA_URL }}no-image-placeholder.webp" class="img-fluid img-card-products rounded-3"
+                alt="Image {{ product.title }}">
+        </a>
+
+        {% endif %}
+
+        <div class="card-body">
+            <h3>
+                <a href="{% url 'product_details' product.slug %}" class="text-decoration-none text-dark mb-3"
+                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ product.title }}">
+                    {{ product.title|truncatechars:15 }}
+                </a>
+            </h3>
+            <div class="mb-2">
+                <span class="badge bg-secondary">{{ product.category }}</span>
+            </div>
+            <p class="card-text">Brand: {{ product.brand }}</p>
+
+            <ul class="list-unstyled d-flex justify-content-between">
+                {% if product.get_avg_rating %}
+                <li>
+                    {% with ''|center:product.get_avg_rating as range %}
+                    {% for i in range %}
+                    <i class="fas fa-star text-yellow"></i>
+                    {% endfor %}
+                    {% endwith %}
+                </li>
+                {% else %}
+                <li> No Rating </li>
+                {% endif %}
+
+                <div>
+
+                    {% if product.discounted_price %}
+
+                    <li class="text-dark text-right">
+                        {{ product.discounted_price }} Euro
+                    </li>
+
+                    <li class="text-muted text-right">
+                        <span>
+                            <del>{{ product.price }} Euro</del>
+                        </span>
+                    </li>
+
+                    {% else %}
+
+                    <li class="text-dark text-right mb-3">{{ product.price }} Euro</li>
+
+                    {% endif %}
+                </div>
+            </ul>
+            <div class="row">
+                <div class="col-12">
+                    <p class="text-muted">Comments ({{ product.productcomment_set.count }})</p>
+                </div>
+            </div>
+
+            {% if user.is_superuser or product.created_by.id == user.id %}
+
+            {% if product.is_deleted %}
+            <a class="my-2 btn btn-outline-warning btn-sm-minwidth rounded-3"
+                href="{% url 'product-restore' product.slug %}" aria-label="Restore">Restore</a>
+
+            {% else %}
+
+            <a class="my-2 btn btn-outline-primary btn-sm-minwidth rounded-3"
+                href="{% url 'product-update' product.slug %}" aria-label="Update">Edit</a>
+            <a class="my-2 btn btn-outline-warning btn-sm-minwidth rounded-3"
+                href="{% url 'product-delete' product.slug %}" aria-label="Delete">Delete</a>
+            {% endif %}
+
+            {% else %}
+
+            {% endif %}
+        </div>
+    </div>
+</div>

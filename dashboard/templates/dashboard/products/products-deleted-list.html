@@ -1,0 +1,48 @@
+{% extends 'dashboard/base.html' %}
+
+{% block extra_title %} - List Deleted Products{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+{% if user.is_superuser%}
+
+<!-- ======================= -->
+<!--         Messages        -->
+<!-- ======================= -->
+{% include 'dashboard/includes/messages.html' %}
+
+
+<div class="container text-dark">
+
+    <h1 class="mt-4 text-center">List Deleted Products</h1>
+
+    <ol class="breadcrumb mb-4 mx-auto d-flex justify-content-center">
+        <li class="active">Review, Update or Delete the Products you are selling!</li>
+    </ol>
+
+    <div class="row d-flex align-items-center mt-5">
+
+        {% for product in product_list %}
+
+        <!-- ======================= -->
+        <!--         Products        -->
+        <!-- ======================= -->
+        {% include 'dashboard/includes/product.html' %}
+
+        {% endfor %}
+
+    </div>
+</div>
+{% endif %}
+
+{% else %}
+
+{% include 'dashboard/includes/auth-error.html' %}
+
+{% endif %}
+
+{% endblock %}

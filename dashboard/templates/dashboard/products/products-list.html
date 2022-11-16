@@ -1,0 +1,47 @@
+{% extends 'dashboard/base.html' %}
+
+{% block extra_title %} - Dashboard{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<!-- ======================= -->
+<!--         Messages        -->
+<!-- ======================= -->
+{% include 'dashboard/includes/messages.html' %}
+
+
+<div class="container text-dark">
+    {% if user.is_superuser %}
+    <h1 class="mt-4 text-center">Product List Administrator</h1>
+    {% else %}
+    <h1 class="mt-4 text-center">Product List</h1>
+    {% endif %}
+    <ol class="breadcrumb mb-4 mx-auto d-flex justify-content-center">
+        <li class="active">Review, Update or Delete the Products you are selling!</li>
+    </ol>
+
+    <div class="row d-flex align-items-center mt-5">
+
+        {% for product in product_list %}
+
+        <!-- ======================= -->
+        <!--         Products        -->
+        <!-- ======================= -->
+        {% include 'dashboard/includes/product.html' %}
+
+        {% endfor %}
+
+    </div>
+</div>
+
+{% else %}
+
+{% include 'dashboard/includes/auth-error.html' %}
+
+{% endif %}
+
+{% endblock %}

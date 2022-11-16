@@ -5,7 +5,7 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
+        <h1 class="ms-2 navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
             <a class="text-decoration-none" href="{% url 'homepage' %}">
                 <h1 class="fs-1 text-decoration-none text-yellow">Horizon Shop</h1>
             </a>
@@ -98,7 +98,7 @@
                     <a class="dropdown-item" href="{% url 'customer-update' %}">My Profile</a>
                     <a class="dropdown-item" href="{% url 'shipping-address-list' %}">My Addresses</a>
                     <a class="dropdown-item" href="#">My Orders</a>
-                    <a class="dropdown-item" href="{% url 'product-list' %}">My Products</a>
+                    <a class="dropdown-item" href="{% url 'products-list' %}">My Products</a>
                     <a class="dropdown-item" href="{% url 'products-wishlist' %}">My Wishlist</a>
                     <a class="dropdown-item" href="{% url 'testimonials-list' %}">My Testimonials</a>
                     <div class="dropdown-divider"></div>
@@ -186,9 +186,10 @@
                         </a>
                     </li>
                     <li class="nav-item dropdown text-light">
-                        <a class="nav-link dropdown-toggle text-light" href="#navbar-third" data-bs-toggle="dropdown"
-                            data-bs-auto-close="outside" role="button" aria-expanded="false">
-                            <span class="nav-link-title">
+                        <a class="nav-link dropdown-toggle text-light" href="#navbar-fouth"
+                            id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <span class="nav-link-title pe-2">
                                 Categories
                             </span>
                         </a>
@@ -209,7 +210,7 @@
                         <a class="nav-link dropdown-toggle text-light" href="#navbar-fifth" data-bs-toggle="dropdown"
                             data-bs-auto-close="outside" role="button" aria-expanded="false">
                             <span class="nav-link-title">
-                                Sub-Categories
+                                Categories
                             </span>
                         </a>
                         <div class="dropdown-menu">
@@ -240,7 +241,7 @@
                         <a class="nav-link dropdown-toggle text-light" href="#navbar-fouth"
                             id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            <span class="nav-link-title">
+                            <span class="nav-link-title pe-2">
                                 Sub-Categories
                             </span>
                         </a>
@@ -259,7 +260,7 @@
 
                     <!-- End Drop-Down Sub-Categories in Categories -->
                 </ul>
-                <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
+                <div class="mx-3 my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-lg-last">
                     <form action="{% url 'all_products' %}" method="GET" autocomplete="off" novalidate="">
                         <div class="input-icon text-light border border-light rounded-3">
                             <span class="input-icon-addon">
@@ -271,7 +272,7 @@
                                     <line x1="21" y1="21" x2="15" y2="15"></line>
                                 </svg>
                             </span>
-                            <input type="text" name="q" class="form-control" placeholder="Search..."
+                            <input type="text" name="q" class="form-control rounded-3" placeholder="Search..."
                                 aria-label="Search in website">
                         </div>
                     </form>

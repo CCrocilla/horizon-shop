@@ -182,7 +182,7 @@ class ProductAddView(SuccessMessageMixin, View):
     template_name = 'dashboard/products/product-add.html'
 
     def get(self, request):
-        product_form = ProductForm(request.POST, request.FILES)
+        product_form = ProductForm(request.POST or None, request.FILES or None)
 
         context = {
             'form': product_form,
@@ -190,7 +190,7 @@ class ProductAddView(SuccessMessageMixin, View):
         return render(request, self.template_name, context)
 
     def post(self, request, *args, **kwargs):
-        product_form = ProductForm(request.POST, request.FILES)
+        product_form = ProductForm(request.POST or None, request.FILES or None)
 
         if product_form.is_valid():
             product = product_form.save(commit=False)
@@ -209,7 +209,7 @@ class ProductAddView(SuccessMessageMixin, View):
                 request,
                 'Thanks! Your Product has been created!'
                 )
-            return HttpResponseRedirect(reverse('product-list', ))
+            return HttpResponseRedirect(reverse('products-list', ))
         else:
             messages.error(
                 request,
@@ -223,7 +223,7 @@ class ProductListView(ListView):
     Class to display the User's Product
     """
     model = Product
-    template_name = 'dashboard/products/product-list.html'
+    template_name = 'dashboard/products/products-list.html'
     ordering = ['-created_at']
     fields = '__all__'
 
@@ -239,12 +239,12 @@ class ProductListView(ListView):
         return queryset
 
 
-class DeletedProductListView(ListView):
+class ProductsDeletedListView(ListView):
     """
     Class to display the User's Product
     """
     model = Product
-    template_name = 'dashboard/products/product-list.html'
+    template_name = 'dashboard/products/products-deleted-list.html'
     ordering = ['-created_at']
     fields = '__all__'
 
@@ -261,7 +261,7 @@ class ProductUpdateView(SuccessMessageMixin, UpdateView):
     model = Product
     form_class = ProductForm
     template_name = 'dashboard/products/product-update.html'
-    success_url = reverse_lazy('product-list')
+    success_url = reverse_lazy('products-list')
     success_message = "Product updated successfully!"
 
 
@@ -271,8 +271,24 @@ def ProductDeleteView(request, slug):
     product = get_object_or_404(Product, slug=slug)
     product.soft_delete()
 
-    messages.success(request, 'Product deleted successfully!')
-    return redirect(reverse('product-list'))
+    messages.success(
+        request,
+        f'Product {product.title} deleted successfully!'
+        )
+    return redirect(reverse('products-list'))
+
+
+def ProductRestoreView(request, slug):
+    """ Delete a product from the store """
+
+    product = get_object_or_404(Product, slug=slug)
+    product.restore()
+
+    messages.success(
+        request,
+        f'Product { product.title } restored successfully!'
+        )
+    return redirect(reverse('products-list'))
 
 
 ################################
@@ -306,7 +322,7 @@ class CategoryAddView(SuccessMessageMixin, CreateView):
                 category = category_form.save(commit=False)
                 category.slug = slugify(category.name)
                 category.save()
-                messages.success(request, 'Thanks! Category created!')
+                messages.success(request, f'Thanks! Category { category.name } created!')
                 return HttpResponseRedirect(reverse('category-list', ))
         else:
             messages.info(request,
@@ -377,7 +393,10 @@ class SubCategoryAddView(SuccessMessageMixin, CreateView):
                 subcategory = subcategory_form.save(commit=False)
                 subcategory.slug = slugify(subcategory.name)
                 subcategory.save()
-                messages.success(request, 'Thanks! Sub-Category created!')
+                messages.success(
+                    request,
+                    f'Thanks! Sub-Category { subcategory.name } created!'
+                    )
                 return HttpResponseRedirect(reverse('subcategory-list', ))
         else:
             messages.error(
