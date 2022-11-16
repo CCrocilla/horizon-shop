@@ -15,7 +15,7 @@ class WishlistView(View):
     Class to display Only Used Products
     """
     model = Wishlist
-    template_name = 'dashboard/products/products_wishlist.html'
+    template_name = 'dashboard/products/products-wishlist.html'
 
     def get(self, request):
         products_wishlist = Wishlist.objects.filter(user=request.user)

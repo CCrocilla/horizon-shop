@@ -18,6 +18,8 @@
 <!--       End Messages      -->
 <!-- ======================= -->
 
+{% if user.is_authenticated %}
+
 <section class="container">
     <div class="row">
         <div class="col">
@@ -26,7 +28,6 @@
             </div>
         </div>
     </div>
-    {% if user.is_authenticated %}
 
     {% if order.cart_products.exists %}
 
@@ -211,13 +212,19 @@
 
     {% endif %}
 
-    {% else %}
-
-    {% include 'dashboard/includes/auth-error.html' %}
-
-    {% endif %}
-
-
 </section>
+
+{% else %}
+<section class="container mb-5">
+    <div class="row">
+        <div class="col">
+            <div class="my-5 py-5">
+                {% include 'dashboard/includes/auth-error.html' %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endif %}
 
 {% endblock %}

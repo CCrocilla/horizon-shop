@@ -1,0 +1,57 @@
+{% extends 'dashboard/base.html' %}
+
+{% block extra_title %} - Dashboard{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<!-- ======================= -->
+<!--         Messages        -->
+<!-- ======================= -->
+{% include 'dashboard/includes/messages.html' %}
+
+
+<div class="container text-dark">
+    {% if user.is_superuser %}
+    <h1 class="mt-4 text-center">Order Administrator</h1>
+    {% else %}
+    <h1 class="mt-4 text-center">Order List</h1>
+    {% endif %}
+    <ol class="breadcrumb mb-4 mx-auto d-flex justify-content-center">
+        <li class="active">Review your Orders!</li>
+    </ol>
+
+    <div class="row d-flex align-items-center mt-5">
+        <div class="list-group">
+
+            {% for order in order_list %}
+            <div class="col-12">
+                <div
+                    class="p-3 my-3 alert alert-dark list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h3>
+                            <strong>Order: {{ order.order_number }}</strong>
+                        </h3>
+                        <small>{{ order.created_at}}</small>
+                    </div>
+                    <p class="mb-1">Total Price: {{ order.total_price }}</p>
+                    <small>{{ order.cart_products_set.count }}</small>
+                    </a>
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+
+    {% else %}
+
+    {% include 'dashboard/includes/auth-error.html' %}
+
+    {% endif %}
+
+    {% endblock %}

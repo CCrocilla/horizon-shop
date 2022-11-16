@@ -9,11 +9,8 @@
 
 body {
     font-family: 'Ubuntu', sans-serif;
-    /* background-color: #708599; */
-    /* color: #C84B31; */
     font-weight: 400;
 }
-
 
 :root {
     --primary: #1E4CA1;
@@ -22,7 +19,6 @@ body {
     --warning: #F59F00;
     --bs-dark-rgb: 29, 39, 59;
 }
-
 
 /*--------------------------------------------------------------
 Buttons
@@ -33,11 +29,11 @@ Buttons
 }
 
 .btn-minwidth {
-    min-width: 225px;
+    min-width: 220px;
 }
 
 .btn-sm-minwidth {
-    min-width: 120px;
+    min-width: 100px;
 }
 
 .btn-square {
@@ -1063,10 +1059,19 @@ Tabler
 .form-select,
 .textinput {
     color: #181D31 !important;
+    border-radius: 35px;
 }
 
 .dropdown-toggle::after {
     border-top: 0rem !important;
     border-right: 0rem !important;
     padding: 4px;
+}
+
+.product-card {
+    padding: 0.5rem;
+}
+
+.shadow-lg {
+    box-shadow: 0 0.5rem 1rem 0rem rgba(0, 0, 0, .5) !important;
 }

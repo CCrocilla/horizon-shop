@@ -39,7 +39,6 @@
 </head>
 
 <body>
-
     <!-- ============================================-->
     <!--                    Navbar                   -->
     <!-- ============================================-->
@@ -59,6 +58,8 @@
             <div class="navbar-nav flex-row order-md-last">
                 <div class="nav-item dropdown">
                     <div class="btn-list">
+
+                        {% if user.is_authenticated %}
                         <a href="{% url 'products-wishlist' %}"
                             class="nav-link text-light {% if 'wishlist' in request.path %} border border-bottom border-yellow active text-yellow rounded-3{% endif %}"
                             data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Wishlist">
@@ -67,6 +68,7 @@
                                 <i class="fas fa-heart fa-lg"></i>
                             </div>
                         </a>
+                        {% endif %}
 
                         <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link text-light {% if 'cart' in request.path %} border border-bottom border-yellow active text-yellow rounded-3{% endif %}"
                             href="{% url 'cart' %}" data-bs-toggle="tooltip" data-bs-placement="bottom"
@@ -84,60 +86,65 @@
                             </div>
                         </a>
 
-                        <a href="#" class="nav-link d-flex lh-1 text-reset mx-3" data-bs-toggle="dropdown"
-                            aria-label="Open user menu">
+                        <div class="nav-item dropdown mx-2">
+                            <div class="btn-list">
 
-                            {% if user.customer.avatar.url %}
-                            <span class="avatar avatar-sm">
-                                <img class="" src="{{ user.customer.avatar.url }}" alt="Client Avatar">
-                            </span>
-                            {% else %}
-                            <span class="avatar bg-azure-lt">
-                                <i class="fas fa-user text-yellow fa-lg"></i>
-                            </span>
-                            {% endif%}
+                                <a href="#" class="nav-link d-flex lh-1 text-reset mx-1" data-bs-toggle="dropdown"
+                                    aria-label="Open user menu">
 
-                            {% if user.is_authenticated %}
+                                    {% if user.customer.avatar.url %}
+                                    <span class="avatar avatar-sm">
+                                        <img class="" src="{{ user.customer.avatar.url }}" alt="Client Avatar">
+                                    </span>
+                                    {% else %}
+                                    <span class="avatar bg-azure-lt">
+                                        <i class="fas fa-user text-yellow fa-lg"></i>
+                                    </span>
+                                    {% endif%}
 
-                            <div class="d-none d-sm-block text-light fw-bold ps-2">
-                                <div>
-                                    {% if not user.first_name %}
+                                    {% if user.is_authenticated %}
 
-                                    Hi, {{ user }}!
+                                    <div class="d-none d-sm-block text-light fw-bold ps-2">
+                                        <div>
+                                            {% if not user.first_name %}
+
+                                            Hi, {{ user }}!
+
+                                            {% else %}
+
+                                            Hi, {{ user.first_name }}!
+
+                                            {%endif%}
+                                        </div>
+                                        <div class="mt-1 small text-muted">></div>
+                                    </div>
+
+                                    {% endif %}
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                    {% if user.is_authenticated %}
+                                    <a class="dropdown-item" href="{% url 'dashboard' %}">My Horizon Shop</a>
+                                    <a class="dropdown-item" href="{% url 'customer-update' %}">My Profile</a>
+                                    <a class="dropdown-item" href="{% url 'shipping-address-list' %}">My Addresses</a>
+                                    <a class="dropdown-item" href="{% url 'order-list' %}">My Orders</a>
+                                    <a class="dropdown-item" href="{% url 'products-list' %}">My Products</a>
+                                    <a class="dropdown-item" href="{% url 'products-wishlist' %}">My Wishlist</a>
+                                    <a class="dropdown-item" href="{% url 'testimonials-list' %}">My Testimonials</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
 
                                     {% else %}
 
-                                    Hi, {{ user.first_name }}!
+                                    <a class="dropdown-item" href="{% url 'account_signup' %}">
+                                        Sign Up
+                                    </a>
 
-                                    {%endif%}
+                                    <a class="dropdown-item" href="{% url 'account_login' %}">
+                                        Sign In
+                                    </a>
+                                    {% endif %}
                                 </div>
-                                <div class="mt-1 small text-muted">></div>
                             </div>
-
-                            {% endif %}
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                            {% if user.is_authenticated %}
-                            <a class="dropdown-item" href="{% url 'dashboard' %}">My Horizon Shop</a>
-                            <a class="dropdown-item" href="{% url 'customer-update' %}">My Profile</a>
-                            <a class="dropdown-item" href="{% url 'shipping-address-list' %}">My Addresses</a>
-                            <a class="dropdown-item" href="#">My Orders</a>
-                            <a class="dropdown-item" href="{% url 'products-list' %}">My Products</a>
-                            <a class="dropdown-item" href="{% url 'products-wishlist' %}">My Wishlist</a>
-                            <a class="dropdown-item" href="{% url 'testimonials-list' %}">My Testimonials</a>
-                            <div class="dropdown-divider"></div>
-                            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-
-                            {% else %}
-
-                            <a class="dropdown-item" href="{% url 'account_signup' %}">
-                                Sign Up
-                            </a>
-
-                            <a class="dropdown-item" href="{% url 'account_login' %}">
-                                Sign In
-                            </a>
-                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -157,7 +164,7 @@
                         <!-- ============================== -->
                         <!--         Webiste Links          -->
                         <!-- ============================== -->
-                        <div class="sb-sidenav-menu-heading">Website</div>
+                        <div class="sb-sidenav-menu-heading text-yellow">Website</div>
                         <a class="nav-link" href="{% url 'homepage' %}">
                             <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                             Homepage
@@ -170,7 +177,9 @@
                         <!-- ============================== -->
                         <!--         Administrator          -->
                         <!-- ============================== -->
-                        <div class="sb-sidenav-menu-heading">Management</div>
+
+                        {% if user.is_authenticated and user.is_superuser %}
+                        <div class="sb-sidenav-menu-heading text-yellow">Management</div>
                         <a id="mymanagement" class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                             data-bs-target="#collapseManagement" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
@@ -189,12 +198,14 @@
                                 <a class="nav-link" href="{% url 'products-deleted-list' %}">Deleted Products</a>
                             </nav>
                         </div>
-
+                        {% endif %}
 
                         <!-- ============================== -->
                         <!--            Dashboard           -->
                         <!-- ============================== -->
-                        <div class="sb-sidenav-menu-heading">Dashboard</div>
+                        {% if user.is_authenticated %}
+
+                        <div class="sb-sidenav-menu-heading text-yellow">Dashboard</div>
                         <a class="nav-link" href="{% url 'dashboard' %}">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             My Horizon Shop
@@ -231,8 +242,8 @@
                         <div class="collapse" id="collapseOrders" aria-labelledby="myorders"
                             data-bs-parent="#sidenavAccordionOrders">
                             <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPagesOrders">
-                                <a class="nav-link" href="">
-                                    Orders
+                                <a class="nav-link" href="{% url 'order-list' %}">
+                                    My Orders
                                 </a>
                                 <a class="nav-link" href="{% url 'product-add' %}">
                                     Sell Product
@@ -241,7 +252,7 @@
                                     Product List
                                 </a>
                                 <a class="nav-link" href="{% url 'products-wishlist' %}">
-                                    Wishlist
+                                    My Wishlist
                                 </a>
                             </nav>
                         </div>
@@ -267,6 +278,8 @@
                                 </a>
                             </nav>
                         </div>
+
+                        {% endif %}
 
                     </div>
                 </div>
@@ -318,10 +331,10 @@
     </div>
 
     {% block postloadjs %}
+    {{ block.super }}
     <!-- ===============================================-->
     <!--                  JavaScripts                   -->
     <!-- ===============================================-->
-    <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta12/dist/js/tabler.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
@@ -334,6 +347,12 @@
     <script src="{% static 'js/navbar-script.js' %}"></script>
     <!-- Stripe -->
     <script src="https://js.stripe.com/v3/"></script>
+
+    <script type="text/javascript">
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
+
     {% endblock %}
 
 </body>

@@ -105,7 +105,8 @@ No Form
 
             {% if user.is_authenticated %}
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button" class="btn btn-sm-minwidth btn-yellow text-dark rounded-3" data-bs-toggle="modal"
+                data-bs-target="#commentModal">
                 Leave a Comment!
             </button>
             {% endif %}
@@ -132,20 +133,22 @@ No Form
 
 
 <!-- Comment Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+<div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Leave a comment or a review!!!</h1>
+                <h1 class="modal-title fs-5" id="commentModalLabel">Leave a comment or a review!!!</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form method="POST">
+                {% csrf_token %}
+
                 {% if user.is_authenticated %}
                 <div class="modal-body">
                     <h3>Leave your comment/review here:</h3>
 
                     {{ comments_form | crispy }}
-                    {% csrf_token %}
+
 
                 </div>
                 <div class="modal-footer">
