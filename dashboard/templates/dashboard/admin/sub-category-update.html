@@ -8,8 +8,7 @@
 
 {% block content %}
 
-{% if user.is_superuser %}
-{% if user.is_authenticated %}
+{% if user.is_authenticated and user.is_superuser %}
 
 <div class="container text-dark">
     <h1 class="mt-4 text-center">Sub-Category</h1>
@@ -47,7 +46,6 @@
 
 {% include 'dashboard/includes/auth-error.html' %}
 
-{% endif %}
 {% endif %}
 
 {% endblock %}

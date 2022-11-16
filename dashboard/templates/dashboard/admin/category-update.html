@@ -8,8 +8,7 @@
 
 {% block content %}
 
-{% if user.is_superuser %}
-{% if user.is_authenticated %}
+{% if user.is_authenticated and user.is_superuser %}
 
 <div class="container text-dark">
     <h1 class="mt-4 text-center">Category</h1>
@@ -29,9 +28,10 @@
                                     {{ form|crispy }}
 
                                     <input type="reset" value="Reset"
-                                        class="my-2 btn btn-minwidth btn-secondary text-dark rounded-3"
+                                        class="my-2 btn btn-sm-minwidth btn-secondary text-light rounded-3"
                                         aria-label="Reset">
-                                    <button type="submit" class="my-2 btn btn-minwidth btn-yellow text-dark rounded-3"
+                                    <button type="submit"
+                                        class="my-2 btn btn-sm-minwidth btn-yellow text-dark rounded-3"
                                         aria-label="Submit">Update</button>
                                 </div>
                             </form>
@@ -47,7 +47,6 @@
 
 {% include 'dashboard/includes/auth-error.html' %}
 
-{% endif %}
 {% endif %}
 
 {% endblock %}

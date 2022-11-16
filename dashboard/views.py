@@ -25,13 +25,14 @@ from django.views.generic import CreateView
 from django.views.generic import UpdateView
 from django.views.generic import DeleteView
 
+from products.models import Product
 from products.models import Category
 from products.models import SubCategory
 
+from products_checkout.models import Order
+
 from .models import ShippingAddress
 from .models import Testimonial
-
-from products.models import Product
 
 from .forms import CustomerForm
 from .forms import CustomerExtraForm
@@ -289,6 +290,40 @@ def ProductRestoreView(request, slug):
         f'Product { product.title } restored successfully!'
         )
     return redirect(reverse('products-list'))
+
+
+################################
+#         Order Views          #
+################################
+class OrderListView(ListView):
+    """
+    Class to display the User's Order
+    """
+    model = Order
+    template_name = 'dashboard/products/order-list.html'
+    ordering = ['-created_at']
+    fields = '__all__'
+
+    def get_queryset(self):
+        if self.request.user.is_superuser:
+            queryset = Order.objects.filter(
+                billed=True).order_by('-created_at')
+        else:
+            queryset = Order.objects.filter(
+                created_by=self.request.user,
+                billed=True).order_by('-created_at')
+
+        return queryset
+
+
+class OrderDetailsView(DetailView):
+    """
+    Class to display single User's Testimonial
+    """
+    model = Order
+    queryset = Order.objects.order_by('-created_at')
+    template_name = 'dashboard/testimonials/order-details.html'
+    fields = '__all__'
 
 
 ################################

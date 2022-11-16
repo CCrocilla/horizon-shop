@@ -27,6 +27,9 @@ from .views import ProductsDeletedListView
 from .views import ProductDeleteView
 from .views import ProductRestoreView
 
+from .views import OrderListView
+from .views import OrderDetailsView
+
 from .views import CategoryAddView
 from .views import CategoryListView
 from .views import CategoryUpdateView
@@ -115,6 +118,19 @@ urlpatterns = [
         'product/<slug:slug>/restore',
         views.ProductRestoreView,
         name='product-restore'
+        ),
+    ##########################################
+    #              Orders Paths              #
+    ##########################################
+    path(
+        'order/list',
+        OrderListView.as_view(),
+        name='order-list'
+        ),
+    path(
+        'order/<int:order_id>/',
+        OrderDetailsView.as_view(),
+        name='order-details'
         ),
     ##########################################
     #             Wishlist Paths             #
