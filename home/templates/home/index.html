@@ -4,6 +4,9 @@
 
 {% block content %}
 
+<!-- ========================== -->
+<!--           Services         -->
+<!-- ========================== -->
 <section class="features-area text-dark mt-4 mt-md-4 pt-md-4 mt-lg-5 pt-lg-5 ">
     <div class="container">
         <div class="row services-inner bg-yellow rounded-3">
@@ -51,16 +54,15 @@
     </div>
 </section>
 
-<!-- Hero Banner Start -->
-
+<!-- ========================== -->
+<!--         Hero Banner        -->
+<!-- ========================== -->
 {% include 'includes/hero-banner.html' %}
 
-<!-- Hero Banner End -->
 
-
-<!-- ========================= -->
-<!--  Start New Products Loop  -->
-<!-- ========================= -->
+<!-- ========================== -->
+<!--         New Product        -->
+<!-- ========================== -->
 <section>
     <div class="container py-5">
         <div class="row text-center py-3">
@@ -78,113 +80,7 @@
             <!-- Adding For Loop New Products -->
             {% for product in new_products %}
 
-            <div class="col-12 offset-sm-2 col-sm-8 offset-md-0 col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 py-3 px-2 rounded-3 shadow-lg">
-
-                    <div class="type-lb">
-                        {% if product.product_status == 0 %}
-                        <p class="new">New</p>
-                        {% else %}
-                        <p class="sale">Used</p>
-                        {% endif %}
-                    </div>
-
-                    {% if product.image %}
-
-                    <a href="{% url 'product_details' product.slug %}">
-                        <img src="{{ product.image.url }}" class="img-fluid img-card-products rounded-3"
-                            alt="Image {{ product.title }}">
-                    </a>
-
-                    {% else %}
-
-                    <a href="{% url 'product_details' product.slug %}">
-                        <img src="{{ MEDIA_URL }}no-image-placeholder.webp"
-                            class="img-fluid img-card-products rounded-3" alt="Image {{ product.title }}">
-                    </a>
-
-                    {% endif %}
-
-                    <div class="card-body">
-                        <h1>
-                            <a href="{% url 'product_details' product.slug %}"
-                                class="h2 text-decoration-none text-dark mb-3" data-bs-toggle="tooltip"
-                                data-bs-placement="top" data-bs-title="{{ product.title }}">
-                                {{ product.title|truncatechars:18 }}
-                            </a>
-                        </h1>
-                        <div class="mb-2">
-                            <span class="badge bg-secondary">{{ product.category }}</span>
-                        </div>
-
-                        <ul class="list-unstyled d-flex justify-content-between">
-                            <li>
-                                <i class="text-yellow fa fa-star"></i>
-                                <i class="text-yellow fa fa-star"></i>
-                                <i class="text-yellow fa fa-star"></i>
-                                <i class="text-muted fa fa-star"></i>
-                                <i class="text-muted fa fa-star"></i>
-                            </li>
-
-
-                            <div>
-                                {% if product.discounted_price %}
-                                <li class="text-dark text-right">
-                                    {{ product.discounted_price }} Euro
-                                </li>
-
-                                <li class="text-muted text-right">
-                                    <span>
-                                        <del>{{ product.price }} Euro</del>
-                                    </span>
-                                </li>
-
-                                {% else %}
-
-                                <li class="text-dark text-right mb-3">{{ product.price }} Euro</li>
-
-                                {% endif %}
-                            </div>
-                        </ul>
-                        <div class="row">
-                            <div class="col-12">
-                                <p class="text-muted">Reviews (24)</p>
-                            </div>
-                        </div>
-
-                        {% if user.is_authenticated %}
-
-                        <div class="row">
-                            <div class="col-12 d-flex justify-content-between">
-                                <form action="{% url 'add-to-wishlist' product.id %}" method="POST">
-                                    {% csrf_token %}
-                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
-
-                                    <button type="submit" class="wish btn btn-lg btn-outline-red rounded-3"
-                                        data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                        data-bs-title="Add to Wishlist">
-                                        <i class="fas fa-plus me-1"></i>
-                                        <i class="fas fa-heart fa-lg"></i>
-                                    </button>
-                                </form>
-
-                                <form action="{% url 'add-to-cart' product.id %}" method="POST">
-                                    {% csrf_token %}
-                                    <button type="submit" class="cart btn btn-lg btn-outline-yellow rounded-3"
-                                        data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Add to Cart">
-                                        <i class="fas fa-plus me-1"></i>
-                                        <i class="fas fa-shopping-cart fa-lg"></i>
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-
-                        {% else %}
-
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
+            {% include 'includes/products.html' %}
 
             {% endfor %}
 
@@ -192,7 +88,7 @@
 
             <div class="card-body">
                 <h1>
-                    No Products to Display!
+                    No Products Available!
                 </h1>
             </div>
 
@@ -200,13 +96,10 @@
 
         </div>
 </section>
-<!-- ========================= -->
-<!--   End New Products Loop   -->
-<!-- ========================= -->
 
 
 <!-- ========================== -->
-<!--  Start Used Products Loop  -->
+<!--        Used Product        -->
 <!-- ========================== -->
 <section>
     <div class="container py-5">
@@ -224,132 +117,27 @@
             <!-- Adding For Loop Used Products -->
             {% for product in used_products %}
 
-            <div class="col-12 offset-sm-2 col-sm-8 offset-md-0 col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 rounded-3 shadow-lg">
-
-                    <div class="type-lb">
-                        {% if product.product_status == 0 %}
-                        <p class="new">New</p>
-                        {% else %}
-                        <p class="sale">Used</p>
-                        {% endif %}
-                    </div>
-
-                    {% if product.image %}
-
-                    <a href="{% url 'product_details' product.slug %}">
-                        <img src="{{ product.image.url }}" class="card-img-top pt-3 px-3 rounded-3"
-                            alt="Image {{ product.title }}" width="300" height="300">
-                    </a>
-
-                    {% else %}
-
-                    <a href="{% url 'product_details' product.slug %}">
-                        <img src="{{ MEDIA_URL }}no-image-placeholder.webp" class="card-img-top pt-3 px-3 rounded-3"
-                            alt="Image {{ product.title }}" width="300" height="300">
-                    </a>
-
-                    {% endif %}
-
-                    <div class="card-body">
-                        <h1>
-                            <a href="{% url 'product_details' product.slug %}"
-                                class="h2 text-decoration-none text-dark mb-3">
-                                {{ product.title }}
-                            </a>
-                        </h1>
-                        <div class="mb-2">
-                            <span class="badge bg-secondary">{{ product.category }}</span>
-                        </div>
-
-                        <ul class="list-unstyled d-flex justify-content-between">
-                            <li>
-                                <i class="text-yellow fa fa-star"></i>
-                                <i class="text-yellow fa fa-star"></i>
-                                <i class="text-yellow fa fa-star"></i>
-                                <i class="text-muted fa fa-star"></i>
-                                <i class="text-muted fa fa-star"></i>
-                            </li>
-
-
-                            <div>
-                                {% if product.discounted_price %}
-                                <li class="text-dark text-right">
-                                    {{ product.discounted_price }} Euro
-                                </li>
-
-                                <li class="text-muted text-right">
-                                    <span>
-                                        <del>{{ product.price }} Euro</del>
-                                    </span>
-                                </li>
-
-                                {% else %}
-
-                                <li class="text-dark text-right mb-3">{{ product.price }} Euro</li>
-
-                                {% endif %}
-                            </div>
-                        </ul>
-                        <div class="row">
-                            <div class="col-12">
-                                <p class="text-muted">Reviews (24)</p>
-                            </div>
-                        </div>
-
-                        {% if user.is_authenticated %}
-                        <div class="row">
-                            <div class="col-12 d-flex justify-content-between">
-                                <form action="{% url 'add-to-wishlist' product.id %}" method="POST">
-                                    {% csrf_token %}
-                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
-
-                                    <button type="submit" class="wish btn btn-lg btn-outline-red "
-                                        data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                        data-bs-title="Add to Wishlist">
-                                        <i class="fas fa-heart fa-lg"></i>
-                                    </button>
-                                </form>
-
-                                <form action="{% url 'add-to-cart' product.id %}" method="POST">
-                                    {% csrf_token %}
-                                    <button type="submit" class="cart btn btn-lg btn-outline-primary"
-                                        data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Add to Cart">
-                                        <i class="fas fa-shopping-cart fa-lg"></i>
-                                    </button>
-                                </form>
-
-                            </div>
-                        </div>
-                        {% else %}
-
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
+            {% include 'includes/products.html' %}
 
             {% endfor %}
 
             {% else %}
-            No Products to Display!
+            <div class="card-body">
+                <h1>
+                    No Products Available!
+                </h1>
+            </div>
             {% endif %}
         </div>
     </div>
 </section>
+
+
 <!-- ========================== -->
-<!--   End Used Products Loop   -->
+<!--        Testimonials        -->
 <!-- ========================== -->
-
-
-<!-- ====================== -->
-<!--   Testimonials Start   -->
-<!-- ====================== -->
-
 {% include 'includes/testimonials.html' %}
 
-<!-- ====================== -->
-<!--    Testimonials End    -->
-<!-- ====================== -->
 
 
 {% endblock %}

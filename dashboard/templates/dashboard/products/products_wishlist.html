@@ -30,8 +30,8 @@
 
         {% for wish in wishlist %}
 
-        <div class="col-12 col-md-4 col-lg-3">
-            <div class="card h-100 py-3 px-2 rounded-3 shadow-lg">
+        <div class="col-12 offset-sm-2 col-sm-8 offset-md-0 col-md-6 col-lg-6 col-xl-3 mb-4">
+            <div class="card h-100 py-2 px-2 rounded-3 shadow-lg">
 
                 <div class="type-lb">
                     {% if wish.product.product_status == 0 %}
@@ -58,13 +58,13 @@
                 {% endif %}
 
                 <div class="card-body">
-                    <h1 class="card-title">
+                    <h3 class="card-title">
                         <a href="{% url 'product_details' wish.product.slug %}"
-                            class="h2 text-decoration-none text-dark mb-3" data-bs-toggle="tooltip"
-                            data-bs-placement="top" data-bs-title="{{ wish.product.title }}">
-                            {{ wish.product.title|truncatechars:18 }}
+                            class="text-decoration-none text-dark mb-3" data-bs-toggle="tooltip" data-bs-placement="top"
+                            data-bs-title="{{ wish.product.title }}">
+                            {{ wish.product.title|truncatechars:15 }}
                         </a>
-                    </h1>
+                    </h3>
 
                     {% if wish.product.is_deleted %}
                     <div class="mb-2">
@@ -81,41 +81,49 @@
 
                     <p class="card-text">Brand: {{ wish.product.brand }}</p>
 
-                    <div class="row">
-                        <div class="col-12">
-                            <ul class="list-unstyled d-flex justify-content-between">
-                                {% if wish.product.productrating.rating_stars %}
-                                <li class="card-text">{{ wish.product.rating }}</li>
-                                {% else %}
-                                <li class="card-text">No Rating</li>
-                                {% endif %}
+                    <ul class="list-unstyled d-flex justify-content-between">
+                        {% if wish.product.get_avg_rating %}
+                        <li>
+                            {% with ''|center:wish.product.get_avg_rating as range %}
+                            {% for i in range %}
+                            <i class="fas fa-star text-yellow"></i>
+                            {% endfor %}
+                            {% endwith %}
+                        </li>
+                        {% else %}
+                        <li> No Rating </li>
+                        {% endif %}
 
-                                <div>
-                                    {% if wish.product.discounted_price %}
-                                    <li class="text-dark text-right">
-                                        {{ wish.product.discounted_price }} Euro
-                                    </li>
+                        <div>
 
-                                    <li class="text-muted text-right">
-                                        <span>
-                                            <del>{{ wish.product.price }} Euro</del>
-                                        </span>
-                                    </li>
-                                    {% else %}
-                                    <p class="card-text">Price: {{ wish.product.price }} Euro</p>
-                                    {% endif %}
-                                </div>
-                            </ul>
+                            {% if wish.product.discounted_price %}
+
+                            <li class="text-dark text-right">
+                                {{ wish.product.discounted_price }} Euro
+                            </li>
+
+                            <li class="text-muted text-right">
+                                <span>
+                                    <del>{{ wish.product.price }} Euro</del>
+                                </span>
+                            </li>
+
+                            {% else %}
+
+                            <li class="text-dark text-right mb-3">{{ wish.product.price }} Euro</li>
+
+                            {% endif %}
                         </div>
-                    </div>
+                    </ul>
 
                     {% endif %}
 
                     <form action="{% url 'remove-from-wishlist' wish.product.id %}" method="POST">
                         {% csrf_token %}
 
-                        <button type="submit" class="my-2 btn btn-yellow btn-lg text-dark rounded-3" value="Remove"
-                            data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Remove from Wishlist">
+                        <button type="submit" class="my-2 btn btn-yellow btn-sm-minwidth text-dark rounded-3"
+                            value="Remove" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                            data-bs-title="Remove from Wishlist">
                             Remove
                         </button>
                     </form>

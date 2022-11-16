@@ -23,7 +23,9 @@ from .views import ShippingAddressDeleteView
 from .views import ProductAddView
 from .views import ProductListView
 from .views import ProductUpdateView
+from .views import ProductsDeletedListView
 from .views import ProductDeleteView
+from .views import ProductRestoreView
 
 from .views import CategoryAddView
 from .views import CategoryListView
@@ -90,9 +92,9 @@ urlpatterns = [
         name='product-add'
         ),
     path(
-        'product/list',
+        'products/list',
         ProductListView.as_view(),
-        name='product-list'
+        name='products-list'
         ),
     path(
         'product/<slug:slug>/update',
@@ -100,9 +102,19 @@ urlpatterns = [
         name='product-update'
         ),
     path(
+        'products/deleted/list',
+        ProductsDeletedListView.as_view(),
+        name='products-deleted-list'
+        ),
+    path(
         'product/<slug:slug>/delete',
         views.ProductDeleteView,
         name='product-delete'
+        ),
+    path(
+        'product/<slug:slug>/restore',
+        views.ProductRestoreView,
+        name='product-restore'
         ),
     ##########################################
     #             Wishlist Paths             #

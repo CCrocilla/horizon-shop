@@ -38,11 +38,10 @@ def categories(request):
 
 def subcategories(request):
     categories = Category.objects.all()
-    print(categories)
+
     for category in categories:
         # subcategories = SubCategory.objects.filter(category=category)
         subcategories = SubCategory.objects.all()
-        print(subcategories)
 
     return {
         'subcategories': subcategories
@@ -85,7 +84,8 @@ class AllProductsListView(View):
                                            ) | Q(
                                                brand__icontains=search_term
                                                )
-            products = products.filter(searched, is_deleted=False).order_by('-created_at')
+            products = products.filter(
+                searched, is_deleted=False).order_by('-created_at')
 
         context = {
 
@@ -154,13 +154,15 @@ class ProductDetailsView(View):
 
     def get(self, request, slug):
         product = Product.objects.get(slug=slug)
-        comments = ProductComment.objects.filter(product=product).order_by('-commented_date')
+        comments = ProductComment.objects.filter(
+            product=product).order_by('-commented_date')
         comments_form = ProductCommentForm(self.request.GET or None)
         rating_form = ProductRatingForm(self.request.GET or None)
 
         user_rated = None
         if request.user.is_authenticated:
-            user_rated = ProductRating.objects.filter(rated_by=request.user)
+            user_rated = ProductRating.objects.filter(
+                rated_by=request.user, product=product)
 
         context = {
                 'product': product,

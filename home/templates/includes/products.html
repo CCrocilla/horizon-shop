@@ -1,0 +1,110 @@
+{% load static %}
+
+<div class="col-12 offset-sm-2 col-sm-8 offset-md-0 col-md-6 col-lg-6 col-xl-3 mb-4">
+    <div class="card h-100 py-2 px-2 rounded-3 shadow-lg">
+
+        <div class="type-lb">
+            {% if product.product_status == 0 %}
+            <p class="new">New</p>
+            {% else %}
+            <p class="sale">Used</p>
+            {% endif %}
+        </div>
+
+        {% if product.image %}
+
+        <a href="{% url 'product_details' product.slug %}">
+            <img src="{{ product.image.url }}" class="img-fluid img-card-products rounded-3"
+                alt="Image {{ product.title }}">
+        </a>
+
+        {% else %}
+
+        <a href="{% url 'product_details' product.slug %}">
+            <img src="{{ MEDIA_URL }}no-image-placeholder.webp" class="img-fluid img-card-products rounded-3"
+                alt="Image {{ product.title }}">
+        </a>
+
+        {% endif %}
+
+        <div class="card-body">
+            <h3>
+                <a href="{% url 'product_details' product.slug %}" class="text-decoration-none text-dark mb-3"
+                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ product.title }}">
+                    {{ product.title|truncatechars:20 }}
+                </a>
+            </h3>
+            <div class="mb-2">
+                <span class="badge bg-secondary">{{ product.category }}</span>
+            </div>
+
+            <ul class="list-unstyled d-flex justify-content-between">
+                {% if product.get_avg_rating %}
+                <li>
+                    {% with ''|center:product.get_avg_rating as range %}
+                    {% for i in range %}
+                    <i class="fas fa-star text-yellow"></i>
+                    {% endfor %}
+                    {% endwith %}
+                </li>
+                {% else %}
+                <li> No Rating </li>
+                {% endif %}
+
+                <div>
+                    {% if product.discounted_price %}
+                    <li class="text-dark text-right">
+                        {{ product.discounted_price }} Euro
+                    </li>
+
+                    <li class="text-muted text-right">
+                        <span>
+                            <del>{{ product.price }} Euro</del>
+                        </span>
+                    </li>
+
+                    {% else %}
+
+                    <li class="text-dark text-right mb-3">{{ product.price }} Euro</li>
+
+                    {% endif %}
+                </div>
+            </ul>
+            <div class="row">
+                <div class="col-12">
+                    <p class="text-muted">Comments ({{ product.productcomment_set.count }})</p>
+                </div>
+            </div>
+
+            {% if user.is_authenticated %}
+
+            <div class="row">
+                <div class="col-12 d-flex justify-content-between">
+                    <form action="{% url 'add-to-wishlist' product.id %}" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+
+                        <button type="submit" class="wish btn btn-lg btn-outline-red rounded-3" data-bs-toggle="tooltip"
+                            data-bs-placement="bottom" data-bs-title="Add to Wishlist">
+                            <i class="fas fa-plus me-1"></i>
+                            <i class="fas fa-heart fa-lg"></i>
+                        </button>
+                    </form>
+
+                    <form action="{% url 'add-to-cart' product.id %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="cart btn btn-lg btn-outline-yellow rounded-3"
+                            data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Add to Cart">
+                            <i class="fas fa-plus me-1"></i>
+                            <i class="fas fa-shopping-cart fa-lg"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            {% else %}
+
+            {% endif %}
+        </div>
+    </div>
+</div>

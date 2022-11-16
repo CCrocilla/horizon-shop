@@ -156,7 +156,7 @@ def AddQuantityProduct(request, product_id):
             order = order[0]
             product_found = None
             try:
-                print("SUCCESS")
+                print("SUCCESS0")
                 product_found = order.cart_products.get(
                     created_by=request.user, product=product)
                 print("SUCCESS1")

@@ -32,6 +32,14 @@ Buttons
     transition: .5s;
 }
 
+.btn-minwidth {
+    min-width: 225px;
+}
+
+.btn-sm-minwidth {
+    min-width: 120px;
+}
+
 .btn-square {
     width: 38px;
     height: 38px;
@@ -61,7 +69,7 @@ Buttons
 Tools
 ---------------------------------------------------------------*/
 .rounded-3 {
-    border-radius: 40px !important;
+    border-radius: 35px !important;
 }
 
 
@@ -118,6 +126,9 @@ Footer
     color: var(--primary);
 }
 
+.footer {
+    border-top: var(--tblr-border-width) solid var(--dark);
+}
 
 /*--------------------------------------------------------------
 Carousel Hero & Testimonials
@@ -376,8 +387,8 @@ Products Section
 }
 
 .type-lb .new {
-    background: #016116;
-    color: #F59F00;
+    background: #23BF44;
+    color: #181D31;
     padding: 22px 15px;
     top: 20px;
     right: 20px;
@@ -651,14 +662,6 @@ small ul li {
     border-radius: 20px;
 }
 
-
-.btn-minwidth {
-    min-width: 250px;
-}
-
-.btn-sm-minwidth {
-    min-width: 150px;
-}
 
 .form-label {
     color: #F59F00;
@@ -1055,4 +1058,15 @@ Tabler
 -------------------------------*/
 .bg-azure-lt {
     color: var(--tblr-dark) !important;
+}
+
+.form-select,
+.textinput {
+    color: #181D31 !important;
+}
+
+.dropdown-toggle::after {
+    border-top: 0rem !important;
+    border-right: 0rem !important;
+    padding: 4px;
 }

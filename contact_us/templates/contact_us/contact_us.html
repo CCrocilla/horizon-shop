@@ -46,7 +46,7 @@
     </div>
     <div class="container-fluid py-5 bg-yellow text-dark">
         <div class="row d-flex justify-content-center">
-            <div class="col-10 col-md-4 offset-md-1 order-2 order-md-1">
+            <div class="col-10 col-md-4 offset-lg-1 order-2 order-md-1">
                 <div class="form-group">
                     <form method="POST" class="contact-us">
                         {% csrf_token %}
@@ -84,13 +84,33 @@
         </div>
     </div>
 </section>
+
+
+<!-- ============================================-->
+<!--                    Maps                     -->
+<!-- ============================================-->
+<section>
+    <div class="col-lg-12">
+        <!-- <div class="card">
+            <div class="ratio ratio-21x9">
+
+                <div id="map-card" class="w-100 h-100 rounded mapboxgl-map"> -->
+        <div class="embed-responsive embed-responsive-21by9">
+            <iframe class="embed-responsive-item"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2914.504526502384!2d-6.267662735269484!3d53.36067155120633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670e7ea7d9410f%3A0x8c59d98efe17a7c5!2sKillarney%20Parade%2C%20Dublin!5e0!3m2!1sen!2sie!4v1665958362700!5m2!1sen!2sie"
+                width="5000" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</section>
+
 <!-- ============================================-->
 <!--               About Us Info                 -->
 <!-- ============================================-->
 <section>
     <div class="container-fluid py-5">
         <div class="row d-flex justify-content-center">
-            <div class="col-10 col-md-4 order-1 order-md-1 offset-md-1 text-dark">
+            <div class="col-10 col-md-4 order-1 order-md-1 offset-lg-1 text-dark">
                 <div class="col-12 col-md-10 col-lg-8 justify-content-center text-align-center">
                     <div class="row text-left mb-3">
                         <div class="col-12">
@@ -110,8 +130,8 @@
                         <div class="col-12 mt-md-5 ">
                             <h5 class="fs-3">Get In Touch</h5>
                             <div class="d-flex align-items-center mb-3">
-                                <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-dark"
-                                    style="width: 60px; height: 60px;">
+                                <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-dark rounded-3"
+                                    style="width: 50px; height: 50px;">
                                     <i class="fa fa-map-marker-alt text-yellow fs-3"></i>
                                 </div>
                                 <div class="ms-3">
@@ -152,23 +172,10 @@
 </section>
 
 
-<!-- ============================================-->
-<!--                    Maps                     -->
-<!-- ============================================-->
-<section>
-    <div class="col-lg-12">
-        <!-- <div class="card">
-            <div class="ratio ratio-21x9">
-
-                <div id="map-card" class="w-100 h-100 rounded mapboxgl-map"> -->
-        <div class="embed-responsive embed-responsive-21by9">
-            <iframe class="embed-responsive-item"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2914.504526502384!2d-6.267662735269484!3d53.36067155120633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670e7ea7d9410f%3A0x8c59d98efe17a7c5!2sKillarney%20Parade%2C%20Dublin!5e0!3m2!1sen!2sie!4v1665958362700!5m2!1sen!2sie"
-                width="5000" height="400" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-    </div>
-</section>
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <path fill="#1D273B" fill-opacity="1"
+        d="M0,96L48,128C96,160,192,224,288,213.3C384,203,480,117,576,117.3C672,117,768,203,864,202.7C960,203,1056,117,1152,117.3C1248,117,1344,203,1392,245.3L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+    </path>
+</svg>
 
 {% endblock %}
