@@ -36,9 +36,26 @@
                     <div class="col-12">
                         <span class="h3 fw-bold">Price: {{ product.price }} Euro</span>
                     </div>
-                    <div class="col-12">
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
-                        <a href="#" class="btn btn-primary">Add to Wishlist</a>
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-between">
+                            <form action="{% url 'add-to-wishlist' product.id %}" method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+
+                                <button type="submit" class="wish btn btn-minwidth btn-red rounded-3 text-dark"
+                                    data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Add to Wishlist">
+                                    Add to Wishlist
+                                </button>
+                            </form>
+
+                            <form action="{% url 'add-to-cart' product.id %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" class="cart btn btn-minwidth btn-success rounded-3 text-dark"
+                                    data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Add to Cart">
+                                    Add to Cart
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -47,13 +64,19 @@
 </section>
 
 <!-- Product Rating -->
-{% if user.is_authenticated %}
-{% if user_rated %}
+<section class="container">
 
-<h1> Thanks for having rated this product!</h1>
+    {% if user.is_authenticated %}
+    {% if user_rated %}
 
-{% else %}
-<section class="container my-2 py-2">
+    <div class="row">
+        <div class="col-12">
+            <h1> Thanks for having rated this product!</h1>
+        </div>
+    </div>
+
+    {% else %}
+
     <div class="row">
         <div class="col-12">
             <div class="card rounded-3">
@@ -89,41 +112,47 @@
             </div>
         </div>
     </div>
+
+    {% endif %}
+
+    {% else %}
+    <div class="row">
+        <div class="col-12">
+            <h1> Sign In to <strong>Horizon Shop</strong> and Rate the Product!</h1>
+        </div>
+    </div>
+    {% endif %}
 </section>
-{% endif %}
-
-{% else %}
-No Form
-{% endif %}
-
 
 
 <!-- Product Comments Section -->
-<section class="container my-5 py-5">
+<section class="container my-3">
     <div class="row">
-        <div class="col-12 bg-light">
+        <div class="col-12 rounded-3 bg-light">
 
             {% if user.is_authenticated %}
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-sm-minwidth btn-yellow text-dark rounded-3" data-bs-toggle="modal"
+            <button type="button" class="btn btn-sm-minwidth btn-yellow text-dark rounded-3 my-3" data-bs-toggle="modal"
                 data-bs-target="#commentModal">
                 Leave a Comment!
             </button>
             {% endif %}
 
             <h3>Comments:</h3>
-            <div class="card-body">
+            <div class="card-body ">
                 {% for c in comments %}
-                <div class="border text-dark">
+                <div class="text-dark border border-3 border-dark rounded-3 p-3 m-2">
                     <p class="fw-bold">
                         Customer: {{ c.commented_by.username }}
                         <br>
-                        <span class="fw-bold text-muted">
+                        <span class="text-dark">
                             On Date: {{ c.commented_date }}
                         </span>
                     </p>
-                    Comment:
-                    {{ c.comment | linebreaks }}
+                    <p>
+                        Comment: {{ c.comment  }}
+                    </p>
+
                 </div>
                 {% endfor %}
             </div>
@@ -134,11 +163,12 @@ No Form
 
 <!-- Comment Modal -->
 <div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="commentModalLabel">Leave a comment or a review!!!</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal-dialog modal-dialog-centered rounded-3">
+        <div class="modal-content rounded-3 ">
+            <div class="modal-header bg-yellow">
+                <h1 class="modal-title fs-5" id="commentModalLabel">Leave a comment or a review!!!
+                </h1>
+                <button type="button" class="btn-close rounded-3" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form method="POST">
                 {% csrf_token %}
@@ -152,8 +182,9 @@ No Form
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                    <button type="button" class="btn btn-secondary btn-sm-minwidth rounded-3"
+                        data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-yellow btn-sm-minwidth text-dark rounded-3">Submit</button>
                 </div>
 
                 {% else %}

@@ -16,19 +16,255 @@
 
 <div class="container text-dark">
     {% if user.is_superuser %}
-    <h1 class="mt-4 text-center">Order Administrator</h1>
+    <h1 class="mt-4 text-center">Order Details Administrator</h1>
     {% else %}
-    <h1 class="mt-4 text-center">Order List</h1>
+    <h1 class="mt-4 text-center">Order Details </h1>
     {% endif %}
     <ol class="breadcrumb mb-4 mx-auto d-flex justify-content-center">
         <li class="active">Review your Orders!</li>
     </ol>
+    <div class="container bg-dark rounded-3">
+        <div class="rowmt-5">
+            <div class="col-12 position-relative ">
+                <div class="mt-3 me-3 position-absolute end-0">
+                    {% if order.billed %}
+                    <span class="badge bg-success rounded-3 text-dark p-2">Order
+                        Completed</span>
+                    {% else %}
+                    <span class="badge bg-danger rounded-3 text-dark p-2">Order Not
+                        Completed</span>
+                    {% endif %}
+                </div>
+                <div class="row mb-5">
+                    <h3 class="mt-3"><a class="btn btn-dark rounded-3 fs-4 fw-bold text-yellow"
+                            data-bs-toggle="collapse" href="#collapseAccount" role="button" aria-expanded="false"
+                            aria-controls="collapseAccount"> Account Details </a></h3>
 
-    <div class="row d-flex align-items-center mt-5">
+                    <hr class="w-10 text-yellow" style="height:2px;" />
+                    <div class="collapse" id="collapseAccount">
+                        <div class="row">
+                            <div class="col-12 col-sm-6">
+                                <label class="form-label mt-2">Created By:</label>
+                                <span class="form-control rounded-3 border-2 fw-bold">
+                                    {{ order.created_by }}
+                                </span>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <label class="form-label mt-2">Email:</label>
+                                <span class="form-control rounded-3 border-2 fw-bold">
+                                    {{ order.created_by.email }}
+                                </span>
+                            </div>
+                            {% if order.created_by.first_name and order.created_by.last_name %}
+                            <div class="col-12 col-sm-6">
+                                <label class="form-label mt-2">First Name:</label>
+                                <span class="form-control rounded-3 border-2 fw-bold">
+                                    {{ order.created_by.first_name }}
+                                </span>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <label class="form-label mt-2">Last Name:</label>
+                                <span class="form-control rounded-3 border-2 fw-bold">
+                                    {{ order.created_by.last_name }}
+                                </span>
+                            </div>
+                            {% endif%}
+                        </div>
+                    </div>
 
 
+                    <h3 class="mt-5 fs-4 fw-bold text-yellow">
+                        <a class="btn btn-dark rounded-3 fs-4 fw-bold text-yellow" data-bs-toggle="collapse"
+                            href="#collapseShipping" role="button" aria-expanded="false"
+                            aria-controls="collapseShipping">
+                            Shipping Details:
+                        </a>
 
+                    </h3>
+                    <hr class="w-10 text-yellow" style="height:2px;" />
+                    <div class="collapse" id="collapseShipping">
+                        <div class="row">
+                            <div class="col-12 col-sm-8">
+                                <label class="form-label mt-2">Street:</label>
+                                <span class="form-control rounded-3 border-2 fw-bold">
+                                    {{ order.shipping_address.address_street }}
+
+                                </span>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <label class="form-label mt-2">Apartment:</label>
+                                <span class="form-control rounded-3 border-2 fw-bold">
+                                    {{ order.shipping_address.apartment_number }}
+                                </span>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <label class="form-label mt-2">Country:</label>
+                                <span class="form-control rounded-3 border-2 fw-bold">
+                                    {{ order.shipping_address.country }}
+                                </span>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <label class="form-label mt-2">City:</label>
+                                <span class="form-control rounded-3 border-2 fw-bold">
+                                    {{ order.shipping_address.city }}
+                                </span>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <label class="form-label mt-2">Postcode:</label>
+                                <span class="form-control rounded-3 border-2 fw-bold">
+                                    {{ order.shipping_address.postcode }}
+                                </span>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label mt-2">Phone:</label>
+                                <span class="form-control rounded-3 border-2 fw-bold">
+                                    {{ order.shipping_address.phone_number }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <h3 class="mt-5 fs-4 fw-bold text-yellow">
+                        <a class="btn btn-dark rounded-3 fs-4 fw-bold text-yellow" data-bs-toggle="collapse"
+                            href="#collapseOrder" role="button" aria-expanded="false" aria-controls="collapseOrder">
+                            Order Details
+                        </a>
+                    </h3>
+                    <hr class="w-10 text-yellow" style="height:2px;" />
+                    <div class="collapse" id="collapseOrder">
+                        <div class="row">
+                            <div class="col-12 col-md-8">
+                                <label class="form-label mt-2">Order Number:</label>
+                                <span class="form-control rounded-3 border-2 fw-bold">
+                                    {{ order.order_number }}
+                                </span>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <label class="form-label mt-2">Order Date:</label>
+                                <span class="form-control rounded-3 border-2 fw-bold">
+                                    {{ order.created_at }}
+                                </span>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label class="form-label mt-2">Quantity Products: </label>
+                                <span class="form-control rounded-3 border-2 fw-bold ">
+                                    {{ order.quantity_products }}
+                                </span>
+                            </div>
+                            <div class="mb-5 col-12 col-md-6">
+                                <label class="form-label mt-2">Price: </label>
+                                <span class="form-control rounded-3 border-2 fw-bold ">
+                                    {{ order.total_price }} Euro
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="mt-5 fs-4 fw-bold text-yellow">
+                        <a class="btn btn-dark rounded-3 fs-4 fw-bold text-yellow" data-bs-toggle="collapse"
+                            href="#collapseProducts" role="button" aria-expanded="false" aria-controls="collapseOrder">
+                            Products Details
+                        </a>
+                    </h3>
+                    <hr class="w-10 text-yellow" style="height:2px;" />
+                    <div class="collapse" id="collapseProducts">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card-body">
+                                    <div class="row mb-5">
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="table-responsive">
+                                                    <table class="table table-vcenter table-mobile-md card-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Image</th>
+                                                                <th>Name</th>
+                                                                <th>Condition</th>
+                                                                <th>Quantity</th>
+                                                                <th>Final Price</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+
+                                                            {% for product in order.cart_products.all %}
+                                                            <tr>
+
+                                                                {% if product.product.image %}
+                                                                <td data-label="Image">
+                                                                    <div class="d-flex align-items-center">
+                                                                        <a
+                                                                            href="{% url 'product_details' product.product.slug %}">
+                                                                            <img src="{{ product.product.image.url }}"
+                                                                                class="card-img-top img-fluid avatar "
+                                                                                alt="Image {{ product.product.title }}">
+                                                                        </a>
+                                                                    </div>
+                                                                </td>
+
+                                                                {% else %}
+                                                                <td data-label="Image">
+                                                                    <div class="d-flex align-items-center">
+                                                                        <a
+                                                                            href="{% url 'product_details' product.product.slug %}">
+                                                                            <img src="{{ MEDIA_URL }}no-image-placeholder.webp"
+                                                                                class="card-img-top img-fluid avatar "
+                                                                                alt="Image {{ product.product.title }}">
+                                                                        </a>
+                                                                    </div>
+                                                                </td>
+
+                                                                {% endif %}
+
+                                                                <td data-label="Name">
+                                                                    <div class="d-flex py-1 align-items-center">
+                                                                        <div class="flex-fill">
+                                                                            <div class="font-weight-medium">
+                                                                                {{ product.product.title }}
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+
+                                                                <td data-label="Condition">
+                                                                    {% if product.product.product_status == 0 %}
+                                                                    <div class="card-text">New</div>
+                                                                    {% else %}
+                                                                    <div class="card-text">Used</div>
+                                                                    {% endif %}
+                                                                </td>
+
+                                                                <td data-label="Quantity">
+                                                                    <div class="card-text">{{ product.quantity }}</div>
+                                                                </td>
+                                                                <td data-label="Price">
+                                                                    <div class="btn-list flex-nowrap">
+                                                                        <p class="text-right">
+                                                                            {{ product.product_price }} Euro
+                                                                        </p>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            {% endfor %}
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <a class="mt-5 btn btn-lg btn-sm-minwidth bg-dark text-yellow rounded-3" href="{% url 'order-list' %}"
+        aria-label="Back">Back</a>
+
 </div>
 
 {% else %}

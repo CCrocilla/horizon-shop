@@ -52,7 +52,7 @@
                         {% csrf_token %}
                         {{ form|crispy }}
                         <div>
-                            <a href="" class="">Terms & Condition</a>
+                            <a href="{% url 'terms' %}" class="">Terms & Condition</a>
                         </div>
 
                         <div class="mt-4">

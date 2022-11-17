@@ -128,7 +128,7 @@ urlpatterns = [
         name='order-list'
         ),
     path(
-        'order/<int:order_id>/',
+        'order/<int:pk>/',
         OrderDetailsView.as_view(),
         name='order-details'
         ),
