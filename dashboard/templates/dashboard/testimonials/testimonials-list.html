@@ -32,7 +32,7 @@
         {% if testimonial.created_by.id == user.id %}
         <div class="col-12">
 
-            <div class="p-3 mb-2 mt-2 alert alert-dark rounded-3">
+            <div class="p-3 mb-2 mt-2 alert alert-dark rounded-3 shadow-lg">
                 <h3> Title:
                     <a href="{% url 'testimonial-details' testimonial.pk %}">
                         <strong>{{testimonial.title}}</strong>
@@ -49,12 +49,12 @@
                 </div>
                 <div><strong>Date:</strong> {{ testimonial.created_at }}</div>
                 <br />
-                <div><strong>Comment:</strong> {{ testimonial.comment|slice:":300" }}... <br /></div>
+                <div><strong>Comment:</strong> {{ testimonial.comment|truncatechars:300 }} <br /></div>
 
 
-                <a class="btn btn-minwidth btn-outline-primary rounded-3 mt-4"
+                <a class="btn btn-sm-minwidth btn-outline-primary rounded-3 mt-4"
                     href="{% url 'testimonial-update' testimonial.pk %}" aria-label="Update">Edit</a>
-                <a class="btn btn-minwidth btn-outline-danger rounded-3 mt-4"
+                <a class="btn btn-sm-minwidth btn-outline-danger rounded-3 mt-4"
                     href="{% url 'testimonial-delete' testimonial.pk %}" aria-label="Delete">Delete</a>
 
             </div>

@@ -322,7 +322,7 @@ class OrderDetailsView(DetailView):
     """
     model = Order
     queryset = Order.objects.order_by('-created_at')
-    template_name = 'dashboard/testimonials/order-details.html'
+    template_name = 'dashboard/products/order-details.html'
     fields = '__all__'
 
 
@@ -357,7 +357,10 @@ class CategoryAddView(SuccessMessageMixin, CreateView):
                 category = category_form.save(commit=False)
                 category.slug = slugify(category.name)
                 category.save()
-                messages.success(request, f'Thanks! Category { category.name } created!')
+                messages.success(
+                    request,
+                    f'Thanks! Category { category.name } created!'
+                    )
                 return HttpResponseRedirect(reverse('category-list', ))
         else:
             messages.info(request,
