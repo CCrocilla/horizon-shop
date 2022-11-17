@@ -49,10 +49,11 @@
 
 ## **Overview**
 
-#### The website offers to the user the possibility to buy product and not just that, they can also sell and more!
-#### Internet users all around the world love to buy and sell products every day and using website to shop online is part of our life available just at a fingertips. 
+#### Internet users all around the world love to buy and sell products online. Since the Covid-19 pandemic hit, our ways to shop have drastically changed. 
+#### E-commerce business has grown exponentially making online shopping not only a habit but also a pleasure! Online shopping is in fact part of our life with products available just at a (mouse) click.
+#### Horizon Shop is not like any other e-commerce website. All the products that you have ever wanted are there for you. You can browse, buy or sell. Just surf and choose. Hey...We are waiting for you fill your cart and enjoy your journey with us.
 
-#### The website is intuitive and user-friendly! The users can register to the website with a few easy steps by entering Username and Email and have access to all Horizon Shop great services! The users can also subscribe to a newsletter and receive regular updates as well as provide/review feedback, report issues or request support!
+#### The Horizon shop website is intuitive and user-friendly! The users can register to the website with a few easy steps by entering Username and Email and have access to all Horizon Shop great services! The users can also subscribe to a newsletter and receive regular updates as well as provide/review a testimonial, comment on the Products, Report issues or Request support!
 
 
 

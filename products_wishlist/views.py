@@ -4,18 +4,23 @@ from django.shortcuts import redirect
 from django.shortcuts import HttpResponseRedirect
 from django.views import View
 
+from home.views import LoginRequired
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 
 from .models import Wishlist
 from products.models import Product
 
 
-class WishlistView(View):
+class WishlistView(LoginRequired, View):
     """
     Class to display Only Used Products
     """
     model = Wishlist
     template_name = 'dashboard/products/products-wishlist.html'
+    permission_denied_message = 'Restricted Access!'
 
     def get(self, request):
         products_wishlist = Wishlist.objects.filter(user=request.user)
@@ -36,11 +41,16 @@ def AddToWishlistView(request, product_id):
                 user=request.user, product=product)
             if product_wished:
                 messages.error(
-                    request, 'The Product is already in your Wishlist!')
+                    request,
+                    f'The Product {product.title} is already in your Wishlist!'
+                    )
 
         except Exception:
             Wishlist.objects.create(user=request.user, product=product)
-            messages.success(request, 'Product Added to your Wishlist!')
+            messages.success(
+                request,
+                f'Product {product.title} Added to your Wishlist!'
+                )
 
         finally:
             return HttpResponseRedirect(redirect_url)

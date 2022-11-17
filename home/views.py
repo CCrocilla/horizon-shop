@@ -2,6 +2,9 @@
 from django.shortcuts import render
 from django.views import View
 
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib import messages
+
 from products.models import Product
 from dashboard.models import Testimonial
 
@@ -26,3 +29,21 @@ class HomeView(View):
             }
 
         return render(request, self.template_name, context)
+
+
+class LoginRequired(LoginRequiredMixin):
+    """
+    Extended the LoginRequiredMixin adding a Warning message
+    framework to ``permission_denied_message`` attribute. 
+    """
+
+    permission_denied_message = 'You have to be logged in to access that page'
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            messages.add_message(request, messages.ERROR,
+                                 self.permission_denied_message)
+            return self.handle_no_permission()
+        return super(LoginRequired, self).dispatch(
+            request, *args, **kwargs
+        )

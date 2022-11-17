@@ -15,6 +15,8 @@ from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from home.views import LoginRequired
+
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 
@@ -43,9 +45,11 @@ from .forms import CategoryForm
 from .forms import SubCategoryForm
 
 
-class DashboardView(View):
+class DashboardView(LoginRequired, View):
     """ Dashboard User """
     template_name = 'dashboard/dashboard.html'
+    permission_denied_message = 'Authentication Error! Access reserved \
+                                 only to Authenticated Customers!'
 
     def get(self, request):
         return render(request, self.template_name, {})
@@ -54,7 +58,7 @@ class DashboardView(View):
 ################################
 #        Customer Views        #
 ################################
-class CustomerView(LoginRequiredMixin, View):
+class CustomerView(LoginRequired, View):
     """
     Class to Edit Customer Information
     """

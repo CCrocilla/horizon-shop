@@ -58,17 +58,24 @@
 
     {% for message in messages %}
 
+    {% if "signed" in message|safe %}
+
+    {% else %}
+
     <div class="container">
         <div class="row">
-            <dov class="col">
-                <div id="msg" class="alert alert-{{ message.tags }} alert-dismissible mt-5 rounded-3 fade show"
+            <div class="col">
+                <div id="msg" class="messages alert alert-{{ message.tags }} alert-dismissible mt-5 rounded-3 fade show"
                     role="alert">
                     <strong>Message:</strong> {{ message }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <button type="button" class="btn-close rounded-3" data-bs-dismiss="alert"
+                        aria-label="Close"></button>
                 </div>
-            </dov>
+            </div>
         </div>
     </div>
+
+    {% endif %}
 
     {% endfor %}
 
@@ -83,6 +90,14 @@
     {% block extra_body %}
 
     {% endblock %}
+
+
+    {% block postloadjs %}
+
+    <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta12/dist/js/tabler.min.js"></script>
+
+    {% endblock %}
+
 </body>
 
 </html>
