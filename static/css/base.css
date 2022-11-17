@@ -124,6 +124,7 @@ Footer
 
 .footer {
     border-top: var(--tblr-border-width) solid var(--dark);
+    margin-top: -2px;
 }
 
 /*--------------------------------------------------------------
@@ -148,6 +149,7 @@ Carousel Hero & Testimonials
     position: relative;
     padding: 0;
     background: #1D273B;
+    margin: -5px;
 }
 
 .testimonial-card {
@@ -1072,4 +1074,39 @@ Tabler
 
 .shadow-lg {
     box-shadow: 0 0.5rem 1rem 0rem rgba(0, 0, 0, .5) !important;
+}
+
+
+/*-------------------------------
+Messages
+-------------------------------*/
+
+.messages {
+    border-left: .25rem solid var(--tblr-alert-color);
+    position: fixed;
+    min-width: 300px;
+    bottom: 100px;
+    right: 28px;
+    z-index: 9999;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overflow: visible;
+}
+
+.alert-error {
+    --tblr-alert-color: #9c0d0d;
+    background: rgb(233, 179, 179);
+    border: 1px solid var(--tblr-border-color-translucent);
+}
+
+.alert-success {
+    --tblr-alert-color: #0d9c0d;
+    background: rgb(181, 233, 179);
+    border: 1px solid var(--tblr-border-color-translucent);
+}
+
+.alert-info {
+    --tblr-alert-color: #1d618f;
+    background: rgb(147, 196, 211);
+    border: 1px solid var(--tblr-border-color-translucent);
 }

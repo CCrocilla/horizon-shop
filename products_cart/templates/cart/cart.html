@@ -23,8 +23,9 @@
 <section class="container">
     <div class="row">
         <div class="col">
-            <div class="my-5 py-5">
+            <div class="my-5 pt-3 pt-lg-5">
                 <h1 class="text-center text-dark">Shopping Cart</h1>
+                <hr class="w-25 mx-auto my-0 text-dark" style="height:2px;" />
             </div>
         </div>
     </div>
@@ -197,15 +198,25 @@
 
     {% else %}
 
-    <div class="container">
-        <div class="row">
-            <div class="col-12 my-5">
-                <h3 class="text-dark mb-5">No Item in your Cart!</h3>
-
-                <a href="{% url 'all_products' %}" class="btn btn-dark rounded-3 btn-lg">
-                    <span class="text-uppercase text-yellow">Go Shopping</span>
-                </a>
-
+    <div class="hero-image rounded-3 mb-5"
+        style="background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.1)), url('{% static "images/cart.webp" %}'); height: 600px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 my-5 p-3">
+                    <div class="text-align-left">
+                        <h1 class="fs-2 text-yellow">Your Cart is Empty!</h1>
+                        <p class="fs-5 text-light">
+                            Milions of New and Used Products are available for you in our shop!
+                            If you are looking for a new <strong class="text-yellow">Smartphone</strong>,
+                            a new <strong class="text-yellow">Appliance</strong> or an used
+                            <strong class="text-yellow">TV</strong> we have them all!
+                            What's are you waiting for!
+                        </p>
+                        <a href="{% url 'all_products' %}" class="btn btn-dark rounded-3 btn-lg">
+                            <span class="text-uppercase text-yellow">Go Shopping</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col">
             <div class="my-5 py-5">
-                <h1 class="text-center text-yellow">New Products List</h1>
+                <h1 class="text-center text-dark">New Products List</h1>
 
                 <ol class="breadcrumb mb-4">
                     <li class="active">All new Products: </li>
@@ -17,59 +17,7 @@
 
                     {% for product in products %}
 
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-
-                        <div class="card" style="width: 18rem;">
-
-                            <div class="type-lb">
-                                {% if product.product_status == 0 %}
-                                <p class="sale">New</p>
-                                {% else %}
-                                <p class="sale">Used</p>
-                                {% endif %}
-                            </div>
-
-                            {% if product.image %}
-
-                            <a href="{% url 'product_details' product.slug %}">
-                                <img src="{{ product.image.url }}" class="card-img-top img-fluid"
-                                    alt="Image {{ product.title }}">
-                            </a>
-
-                            {% else %}
-
-                            <a href="{% url 'product_details' product.slug %}">
-                                <img src="{{ MEDIA_URL }}no-image-placeholder.webp" class="card-img-top img-fluid"
-                                    alt="Image {{ product.title }}">
-                            </a>
-
-                            {% endif %}
-
-                            <div class="card-body">
-                                <h5 class="card-title">{{ product.title }}</h5>
-
-                                {% if product.product_status == 0 %}
-                                <p class="card-text">Condition: New</p>
-                                {% else %}
-                                <p class="card-text">Condition: Used</p>
-                                {% endif %}
-
-                                <p class="card-text">Brand: {{ product.brand }}</p>
-
-                                {% if product.productrating.rating_stars %}
-                                <p class="card-text">{{ product.rating }}</p>
-                                {% else %}
-                                <p class="card-text">No Rating</p>
-                                {% endif %}
-
-                                <p class="card-text">Description: {{ product.description }}</p>
-                                <p class="card-text">Price: {{ product.price }} Euro</p>
-
-                                <a href="#" class="btn btn-primary">Add to Cart</a>
-                                <a href="#" class="btn btn-primary">Add to Wishlist</a>
-                            </div>
-                        </div>
-                    </div>
+                    {% include 'products/includes/products.html' %}
 
                     {% endfor %}
 
