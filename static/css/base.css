@@ -1058,8 +1058,11 @@ Tabler
     color: var(--tblr-dark) !important;
 }
 
+.textarea,
 .form-select,
-.textinput {
+.textinput,
+.numberinput,
+.form-control-file {
     color: #181D31 !important;
     border-radius: 35px;
 }
