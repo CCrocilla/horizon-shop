@@ -11,23 +11,9 @@
 <!-- ======================= -->
 <!--         Messages        -->
 <!-- ======================= -->
-{% if messages %}
 
-{% for message in messages %}
+{% include 'dashboard/includes/messages.html' %}
 
-{% if "signed" in message|safe %}
-
-{% else %}
-
-<div id="msg" class="alert alert-{{ message.tags }} alert-dismissible mt-3 rounded-3 fade show" role="alert">
-    {{ message }}
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-{% endif %}
-
-{% endfor %}
-
-{% endif %}
 <!-- ======================= -->
 <!--       End Messages      -->
 <!-- ======================= -->
@@ -40,7 +26,7 @@
     <div class="wave-navbar">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
             <path fill="#F59F00" fill-opacity="1"
-                d="M0,96L48,128C96,160,192,224,288,213.3C384,203,480,117,576,117.3C672,117,768,203,864,202.7C960,203,1056,117,1152,117.3C1248,117,1344,203,1392,245.3L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                d="M0,96L48,128C96,160,192,224,288,213.3C384,203,480,117,576,117.3C672,117,768,203,864,202.7C960,203,1056,117,1152,117.3C1248,117,1344,203,1392,245.3L1440,288L1440,340L1392,340C1344,340,1248,340,1152,320C1056,340,960,340,864,340C768,340,672,340,576,340C480,340,384,340,288,340C192,340,96,340,48,340L0,340Z">
             </path>
         </svg>
     </div>
@@ -57,9 +43,9 @@
 
                         <div class="mt-4">
                             <input type="reset" value="Reset"
-                                class="my-2 btn btn-lg btn-minwidth btn-outline-secondary rounded-3" aria-label="Reset">
+                                class="my-2 btn btn-sm-minwidth btn-outline-secondary rounded-3" aria-label="Reset">
                             <button type="submit"
-                                class="my-2 btn btn-lg btn-minwidth btn-outline-light bg-dark text-yellow rounded-3"
+                                class="my-2 btn btn-sm-minwidth btn-outline-dark bg-dark text-yellow rounded-3"
                                 aria-label="Submit">Submit
                             </button>
                         </div>
@@ -142,8 +128,8 @@
                                 </div>
                             </div>
                             <div class="d-flex align-items-center mb-3">
-                                <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-dark"
-                                    style="width: 60px; height: 60px;">
+                                <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-dark rounded-3"
+                                    style="width: 50px; height: 50px;">
                                     <i class="fa fa-phone-alt text-yellow fs-3"></i>
                                 </div>
                                 <div class="ms-3">
@@ -152,13 +138,13 @@
                                 </div>
                             </div>
                             <div class="d-flex align-items-center">
-                                <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-dark"
-                                    style="width: 60px; height: 60px;">
+                                <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-dark rounded-3"
+                                    style="width: 50px; height: 50px;">
                                     <i class="fa fa-envelope-open text-yellow fs-3"></i>
                                 </div>
                                 <div class="ms-3">
                                     <h5 class="text-dark fs-5">Email</h5>
-                                    <p class="mb-0 fs-6">horizonshop.djangoproject@gmail.com</p>
+                                    <p class="mb-0 fs-6">horizonshop@gmail.com</p>
                                 </div>
                             </div>
 

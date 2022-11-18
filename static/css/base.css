@@ -207,6 +207,7 @@ Carousel Hero & Testimonials
     #homepage-testimonial-carousel .carousel-item {
         min-height: 30rem !important;
     }
+
 }
 
 
@@ -998,6 +999,7 @@ Dashboard
     box-shadow: 0 1px 3px 0 #e6ebf1;
     -webkit-transition: box-shadow 150ms ease;
     transition: box-shadow 150ms ease;
+    border-radius: 35px;
 }
 
 .StripeElement--focus,
@@ -1085,8 +1087,8 @@ Messages
     border-left: .25rem solid var(--tblr-alert-color);
     position: fixed;
     min-width: 300px;
-    bottom: 100px;
-    right: 28px;
+    top: 15px;
+    right: 26px;
     z-index: 9999;
     overflow-x: hidden;
     overflow-y: auto;
@@ -1109,4 +1111,13 @@ Messages
     --tblr-alert-color: #1d618f;
     background: rgb(147, 196, 211);
     border: 1px solid var(--tblr-border-color-translucent);
+}
+
+/* Small devices */
+@media (max-width: 992px) {
+
+    .messages {
+        left: 10px;
+        right: 10px;
+    }
 }

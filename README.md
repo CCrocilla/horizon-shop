@@ -57,9 +57,9 @@
 
 
 
-<a href="https://horizonshop.herokuapp.com/" target="_blank" rel="noopener noreferrer"><img src="static/images/readme/amiresponsive/" alt="Home Page" width="800px"/></a>
+<a href="https://horizonshop.herokuapp.com/" target="_blank" rel="noopener noreferrer"><img src="static/images/readme/amiresponsive/amiresponsive.webp" alt="Home Page" width="800px"/></a>
 <br/>
-Click in the image above to access the Live Website or [click here!](https://parkland.herokuapp.com/ "Parkland")
+Click in the image above to access the Live Website or [click here!](https://horizonshop.herokuapp.com/ "Horizon Shop")
 
 ## **Project** 
 
@@ -81,10 +81,12 @@ Click in the image above to access the Live Website or [click here!](https://par
 
 ### **User Stories**
 - #### First Time Visitor Goals
-    1. As a First Time visitor of a website dedicated to selling products online, I want to have a visual impact on the Landing Page that will attract my attention.  
+    1. As a First Time visitor of a website dedicated to buying/selling products online, I want to have a visual impact on the Landing Page that will attract my attention.
     2. As a First Time Visitor, I want to be able to easily navigate through the website.
-    3. As a First Time Visitor, I want to be able to see the services offered by Horizon Shop website.
-    4. As a First Time Visitor, I want to find the website pleasant to the eye, visually intuitive, with catchy colours and images.
+    3. As a First Time Visitor, I want to be able to easily browse/buy/sell the offered products.
+    4. As a First Time Visitor, I want to be able to see the services offered by Horizon Shop website.
+    5. As a First Time Visitor, I want to find the website pleasant to the eye, visually intuitive, with catchy colours and images.
+
 
 - #### Returning Visitor Goals
     1. As a Returning Visitor, I want to be able to register to the website.
@@ -94,14 +96,17 @@ Click in the image above to access the Live Website or [click here!](https://par
     5. As a Returning Visitor, I want to be able to request assistance.
     6. As a Returning Visitor, I want to access the website through my social media accounts.
 
+
 - #### Frequent User Goals
     1. As a Frequent User, I want to see new products/offers.
     2. As a Frequent User, I want to see new services.
     3. As a Frequent User, I want to be able to change my personal registered information (if necessary).
-    4. As frequent User I want to be able to access my personal information via a Dashboard Page.
-    5. As a Frequent User, I want to sign up to the Newsletter to receive updates about new offer on Horizon Shop.
+    4. As a frequent User, I want to be able to access my personal information via a Dashboard Page.
+    5. As a Frequent User, I want to sign up to the Newsletter to receive updates about new offers on Horizon Shop.
     6. As a Frequent User, I want to report issues.
-    7. As a Frequent User, I want to share a feedback on the website.
+    7. As a Frequent User, I want to share my personal review or leave a comment on the products.
+    8. As a Frequent User, I want to share my personal rate on the products in the website.
+
 
 For the User Stories and the Epics please refer to the following links:
 - [User Stories](https://github.com/users/CCrocilla/projects/3)
@@ -120,8 +125,7 @@ For the User Stories and the Epics please refer to the following links:
 - Users should be able to see the latest products added to the website.
 - Users should be able to see the offers available.
 - Users should be able to see other customers feedback.
-- The home page also provides information about the history and rational of the website.
-
+- The home page also provides information about the history and rational 
 
 </details>
 
@@ -136,18 +140,21 @@ For the User Stories and the Epics please refer to the following links:
 <details>
     <summary>Pre-Conditions</summary>
 
+Users should register into the website to be able to buy products.
 Users should register into the website to be able to sell products.
-Users should register into the website to leave a feedback.
+Users should register into the website to leave a testimonial.
+Users should register into the website to leave a review/comment on a product.
+Users should register into the website to rate a product.
 
 </details>
 
 <details>
     <summary>Basic Flow</summary>
 
-- The user browses for buy and/or sell products online and discovers the website. The user navigates to the Home Page, and is attracted by the visual impact of the website.
+- The user browses to buy and/or sell products online and discovers the website. The user navigates to the Home Page, and is attracted by the visual impact of the website.
 - The user sees the available products.
 - The user sees the available services.
-- The user sees the feedback left by the comunity.
+- The user sees the feedback left by the community.
 - The user can register to the newsletter.
 
 </details>
@@ -156,7 +163,7 @@ Users should register into the website to leave a feedback.
     <summary>Alternative/Exception Flow</summary>
 
 - When the user selects a non-existent page, a 404 Error Page will be prompted guiding the user back to Home Page.
-- If the user is not logged in, it is not to leave feedbacks/reviews.
+- If the user is not logged in, he/she will not able to leave testimonial, reviews/comment and rate products.
 
 </details>
 <br/>
@@ -168,7 +175,9 @@ Users should register into the website to leave a feedback.
     <summary>Description</summary>
 
 - Users can subscribe to the newsletter, report issues or request assistance.
+- Users can accept/visualise the terms and conditions.
 - Users can use this page to see the general info of Horizon Shop Company (including Address, Email address, phone, and a map showing Horizon Shop HQ).
+
 </details>
 
 <details>
@@ -176,21 +185,20 @@ Users should register into the website to leave a feedback.
 
 **System:** E-commerce Website.
 
-**Actors:** Users who want to report issues, subscribe to a newsletter or request assistance.
+**Actors:** Users who want to report issues or request assistance.
 </details>
 
 <details>
     <summary>Pre-Conditions</summary>
-Users should accept the Terms and Conditions to be able to ask for support/ report issues or for subscribing to the Newsletter.
+Users should accept the Terms and Conditions to be able to ask for support/report issues.
 </details>
 
 <details>
     <summary>Basic Flow</summary>
 
 - The user browses for buy and/or sell products online and discovers the website. The user navigates to the Home Page and then goes into the Contact Us Page.
-- The user fills the mandatory fields.
+- The user fills the forms mandatory fields.
 - The user must accept the Terms and Conditions to subscribe to the newsletter and/or report issues/ request support.
-- The user can select the available checkboxes to subscribe for the newsletter.
 - The user submits the form.
 - The user receives a notification indicating that the form has been submitted successfully.
 
@@ -201,20 +209,20 @@ Users should accept the Terms and Conditions to be able to ask for support/ repo
 
 - The user can reset the form.
 - When the user selects a non-existent page, a 404 Error Page will be prompted guiding the user back to Home Page.
+
 </details>
 <br/>
 
 
-### *_Dashboard_*
+### *_Products_*
 <details>
     <summary>Description</summary>
 
-- Users can access the Dashboard page only when they are signed in.
-- Users can access a number of services divided into separate subpages listed as follow:
-
-1. My Orders: to review all the shopped products.
-2. My Profile: to create or edit their personal profile, change their passwords, register a new car and/or list/delete previously registered cars.
-3. My Feedback: to visualise past or add new feedback. Once signed-in the user is presented with the possibility to delete/edit past feedback.
+- Users see the list of Products.
+- Users can see the list of Products filtered for All, New, Used, Category or Sub-Category.
+- Users can search product using the Search Field.
+- Users can add the Product to the Cart or to a Wishlist.
+- Users can access the details of a Product.
 
 </details>
 
@@ -223,19 +231,138 @@ Users should accept the Terms and Conditions to be able to ask for support/ repo
 
 **System:** E-commerce Website.
 
-**Actors:** Users that want to access past/present orders, rewards, edit or create their profile and/or provide feedback.
+**Actors:** User looking to buy products online.
 </details>
 
 <details>
     <summary>Pre-Conditions</summary>
-User should register into the website to access the page.
+Users should register into the website to be able to add products to the cart.
+Users should register into the website to be able to add products to the wishlist.
+
 </details>
 
 <details>
     <summary>Basic Flow</summary>
 
-- The user browses for buy and/or sell products online and discovers the website. The user sign into the website and navigates to the Dashboard Page. The user is presented with a list of possible options to access the orders, the feedback or their profile page.
-- The user clicks into the desired subpage.
+- The user browses for buy products online and discovers the website.
+- The user sign into the website and navigates to the Home Page.
+- The user goes into one of the Products Page (All Products, New Products, Used Products, Products By Category, Products By Sub-Category). 
+- The user see the list of Products recognizing which one is a new one and used one thanks to an Icon placed on each Product to better identify them.  
+- The user find the product that he/she likes and can click on the Quick Add to Cart or Add to Wishlist Icon. 
+- Alternatively the user can click on the Image or the Title of the Product to open the Product Details Page and then add the product to the Cart or Wishlist using the dedicated buttons. 
+- The user receives a notification indicating that the product has been added successfully to the Cart or Wishlist.
+
+</details>
+
+<details>
+    <summary>Alternative/Exception Flow</summary>
+
+- The user can search product using the Search Field.
+- When the user selects a non-existent product, a 404 Error Page will be prompted guiding the user back to Home Page.
+
+</details>
+<br/>
+
+
+### *_Wishlist_*
+<details>
+    <summary>Description</summary>
+
+- Users can access the Wishlist page only when they are signed in.
+- Users can add products to their private wishlist.
+- Users can see all the information of the Product.
+- Users can access the product details by clicking on the Image or the Title of the Product.
+
+</details>
+
+<details>
+    <summary>System & Actors</summary>
+
+**System:** E-commerce Website.
+
+**Actors:** User looking to buy products online.
+</details>
+
+<details>
+    <summary>Pre-Conditions</summary>
+Users should register into the website to be able to add products to the wishlist.
+
+</details>
+
+<details>
+    <summary>Basic Flow</summary>
+
+- The user browses for buy products online and discovers the website.
+- The user sign into the website and navigates to the Home Page to see the list of the latest Products added to Horizon Shop (or goes into one of the Products Page). 
+- The user see the list of Products.  
+- The user find the product that he/she likes and can click on the Quick Add to Wishlist Icon. 
+- Alternatively the user can click on the Image or the Title of the Product to open the Product Details Page and then add the product to the Wishlist using the dedicated buttons. 
+- The user receives a notification indicating that the product has been added successfully to the Cart or Wishlist.
+
+</details>
+
+<details>
+    <summary>Alternative/Exception Flow</summary>
+
+- Users not logged in that try to access the Wishlist Page are redirected to the Sign In Page and a notification is displayed.
+- When the user selects a non-existent page, a 404 Error Page will be prompted guiding the user back to Home Page.
+
+</details>
+<br/>
+
+
+### *_My Horizon Shop (Dashboard)_*
+<details>
+    <summary>Description</summary>
+
+<details>
+    <summary>Admin Description</summary>
+- Admin Users can access My Horizon Shop page only when they are signed in.
+- Admin Users can access a number of services divided into separate sub-section listed as follow:
+
+1. My Admin: to add, edit and/or delete Categories and Sub-Categories or to add, edit, delete and/or restore Products and Review the Orders or the Customers.  
+2. My Profile: to add or edit their personal profile information, change their passwords, register a new address and/or list/delete previously registered shipping addresses.
+3. My Products: to see the orders, to post the products they want to sell and visualise the list of items they want to buy using a wishlist sub-section page.
+4. My Testimonials: to visualise past or add new testimonials. Once signed-in the user is presented with the possibility to delete/edit past testimonials.
+
+</details>
+
+<details>
+    <summary>Customer Description </summary>
+- Users can access My Horizon Shop page only when they are signed in.
+- Users can access a number of services divided into separate sub-section listed as follow:
+
+1. My Profile: to add or edit their personal profile information, change their passwords, add an avatar, register a new address and/or list/delete previously registered shipping addresses.
+2. My Products: to see their orders, to post the products they want to sell and visualise the list of items they want to buy using a wishlist sub-section page.
+3. My Testimonials: to visualise past or add new testimonials. Once signed-in the user is presented with the possibility to delete/edit past testimonials.
+
+</details>
+
+
+</details>
+
+<details>
+    <summary>System & Actors</summary>
+
+**System:** E-commerce Website.
+
+**Actors:**
+Admin that want to manage their own E-Commerce.
+Customer that want to access past/present orders, rewards, edit or create their profile and/or provide testimonials.
+</details>
+
+<details>
+    <summary>Pre-Conditions</summary>
+Admin/Customers should register into the website to access the page.
+</details>
+
+<details>
+    <summary>Basic Flow</summary>
+
+- The user browses for buy and/or sell products online and discovers the website. 
+- The user sign into the website and navigates to the Dashboard Page. 
+- The user is presented with a list of possible options to access their profile page, thier products, the wishlist, their orders or the testimonials.
+- The user clicks into the desired sub-section.
 - The user is able to perform a list of desired actions of choice.
 
 </details>
@@ -243,6 +370,8 @@ User should register into the website to access the page.
 <details>
     <summary>Alternative/Exception Flow</summary>
 
+- Users not logged in that try to access the Dashboard Page are redirected to the Sign In Page and a notification is displayed.
+- Users not logged in that try to access are presented with an Authentication Error message in any other page of the Dashboard Page.
 - When the user selects a non-existent page, a 404 Error Page will be prompted guiding the user back to Home Page.
 </details>
 <br/>
@@ -252,7 +381,7 @@ User should register into the website to access the page.
 <details>
     <summary>Description</summary>
 
-- Users can subscribe to the website.
+- Users can sign-up to the website.
 - Users can sign-in to the website.
 
 </details>
@@ -307,8 +436,8 @@ Users should be willing to register to the website.
 Colour Source: 
   - #### [Adobe Color](https://color.adobe.com/create/color-wheel)
   - #### [Color Hunt](https://colorhunt.co/) 
-#### The main colors are Navy (), White (#FFFFFF) and Black (#1F1534) for text and background, Cyan () with Text White () for the feedback, Orange (FF9900) and Navy (#181D31) for the cards.
-#### Navy (#181D31) it has also been used for the background in the Navbar and Footer. These colors are chosen to highlight different components and to make a good contrast providing a better view of those components.
+#### The main colors are Dark Navy (#1D273B), Yellow (#F59F00) and Light (#F6F7F8) for text and background, while in the Hero Images has also been used a Green Variant (#2FB344) to highlight better some important content of Horizon Shop!
+#### Dark Navy (#1D273B) it has also been used for the background in the Navbar and Footer. These colors are chosen to highlight different components and to make a good contrast providing a better view of those components.
  
 
 - ### **Typography**
@@ -331,7 +460,7 @@ Sources:
 ## **Features**
 
 - ### *__Database Schema__*:
-#### The database schema, representing the structure and organization of Parkland database, has been realized using the Software Wondershare EdrawMax defining the primary and foreign key between tables for optimal definition of parents and child tables. A representation of the used schema can be visualised below. 
+#### The database schema, representing the structure and organization of Horizon Shop database, has been realized using the Software Wondershare EdrawMax defining the primary and foreign key between tables for optimal definition of parents and child tables. A representation of the used schema can be visualised below. 
 
 <details>
     <summary>Click here for the Database Schema </summary>  
@@ -340,49 +469,136 @@ Sources:
 
 
 - ### *__Structure__*:
-#### The website has been structured in an easy and user-friendly way with 6 main pages. Non-authenticated and authenticated customers are provided with two different page views. The Non-authenticated can visualise and access only the Home Page, Contact Us, Sign-In and Sign-Up pages, while the authenticated customers are also able to access the Booking and the Dashboard pages.
+#### The website has been structured in an easy and user-friendly way with 7 main pages. Non-authenticated and authenticated customers are provided with two different page views.
+#### The Non-authenticated can visualise and access:
+- *Home Page*
+- *Contact Us*
+- *Sign-In* and *Sign-Up*
+- *Products* (The Non-authenticated user can only see the Product's Information but he/she is not allowed to add the Product to the Cart nor to the Wishlist)
 
-#### The project has been realize creating a single app for each Page:
-- Home is the main app that stores the landing page of Horizon Shop.
-- Contact App contains the views, urls and forms file for the Contact Us Page
-- Dashboard App includes the views, urls and forms for all the Dashboard Sections 
+#### While authenticated customers are also able to access *Wishlist*, *Cart*, *Chekcout* and the *My Horizon Shop Dashboard* pages for a full experience of the Ecommerce.
+
+#### The project has been realize creating a single app for each main section:
+- Home App is the main app that stores the landing page of Horizon Shop. Here are displayed the Products (New and Used) and the Testimonials of the customers.
+- Contact Us App contains the views, models, urls and forms files for the Contact Us Page. The user can send a request via the Contact Us page and the information are stored in the Database.
+- Product App contains the views, models, urls files for the Products present in Horizon Shop.
+- Products Cart App contains the views, models, urls and templates for the management of the Cart.
+- Products Checkout App contains the views, models, forms, urls and templates of the Checkout Process for the Orders of the Customer. It also includes the Webhook for the Stripe Payment Process!
+- Products Wishlist App contains the views, models, urls that manages the Wishlist of the Customers. The user can add product to his/her own wishlist. 
+- Dashboard App includes the views, models, forms, urls and template for all the My Horizon Shop Dashboard Sections. 
+
 
 #### The Structure of the website and the components used are listed below:
 
 
 - ### *__Home Page__*:
-#### The Home Page shows the logo of the website on the top left, a navigation bar on the top center and a search on the top right of the page.
-#### A small underline animation activates when the user mouse hovers on of the elements in the nav bar, highlighting the content.
-#### The active page is in Bold in the navigation bar when selected.
+#### The Home Page shows the clickable logo of the website on the top left and a navigation bar on the top right of the page that includes the Home, Contact Us, Wishlist (Only Authenticated Users), Cart and My Horizon Shop Dashboard Buttons.
+#### The Nav Bar has been extended including the Products Buttons (All Product, New Products, Used Products, Products By Categories) that contains preset filters in order to display to the user the Products that they choose.
+#### Additionally the user can also use the Search Field on the right that allow to search for Title, Description, Brand, Categories and Sub-Categories and will display both New and Used Product that matches the query entered by the user. 
+
+#### The active page is in bold and highlighted in yellow with rounded borders when selected and a small underline animation activates when the user mouse hovers on of the elements in the nav bar, highlighting the content.
+
+#### A Tooltip showing the page name is displayed hovering the mouse over the Home, Contact, Wishlist and Cart.
+#### For the Wishlist and Cart Button a Badge has been included displaying the amount of products present in each page. This has been achived by using the count() function in the backend and displaying it the value using Django Template Tags.  
+
+#### By clicking on each one of the Page, the Browser name changes displaying to the User the Current Page visualized and this has been achived using the Django Template Tag and applying extra title to the original one. 
+
+#### Following the Logo and the Navbars the user can see the services offered by Horizon Shop in a dedicated yellow card.
+
+#### Below the Services Section an hero carousel that displays images of Products is available and included are the link to redirect the user for the specific offers.
+
+#### Two Section dedicated to the latest products added to Horizon Shop are also present. The Section are Latest New and Used Products and display the latest 4 Products for each type added to Horizon Shop.
+
+#### This has been achived by implementing a function in the backend that set the Product posted in Status Used if the creator of the Product is a Customer.
+#### Then interrogating the Product Database filtering for the status of the Product in the Views they have been returned in the context and displayed in the Homepage using a Django Template Tag with an for loop to differentiate the content depending on the type of status (New or Used).
+#### The Testimonials Section shows the latest 3 testimonials provided by other users. The Signed in user can leave a testimonial in his/her own My Horison Shop Dashboard using the Add Testimonial Sub-Section. The Testimonial is then stored in the Database and it is displayed in the Home Page (including the Avatar and Name of the Customer, the Comment and the Rating) by filtering in the database for the latest 3 testimonial. 
+#### The Latest Update Section shows new info about the company or new added services.
+#### The Footer section concludes the Home Page, allowing the users to review the Company information of Horison Shop, providing the possibility to select the different sections of the website via dedicated links, displaying a Subscribe to the Newsletter Area (built using Mailchimp) and visualizing the Horizon Shop social media link that will open the social media page in a new page.
+
 #### Depending on the device used (if laptop, desktop, tablet or smartphone) the position of the nav bar changes, creating a hamburger menu that will be displayed on the top right part of the page to adapt the view for a highly responsive rendering.
 #### Those behaviour are consistent in all pages.
-#### Following from Logo and the nav bar the user will see an hero carousel that displays all the offers available with images.
-
-#### This is obtained by using a Django Tag with an if else statement to differentiate the content depending on the type of user (non-authenticated vs authenticated).
-#### The Feedback Section shows the latest 3 feedbacks provided by other users.
-#### The Latest Update Section shows new info about the company or new added services.
-#### The Footer section concludes the Home Page, allowing the users to select the different sections of the website or to access Horizon Shop social media with one click.
 
 
 - ### *__Contact Us Page__*:
 #### This page has Header and Footer consistent with the Home Page.
-#### The page is characterized by an image extended as background on top of which there is a form that the user can fill with the following information: First, Last Name, Email Address and a Checkbox that will allow the user to subscribe to a newsletter.
-#### The user needs to accept the Terms & Conditions Check box to being able to move forward.
+#### The page is characterized by 3 different sections: 
+- Contact Form
+- Maps
+- Company Details
+
+#### The First Section is characterized by a form that the user can fill with the following information: Full Name, Email Address, Message and a mandatory checkbox for the Terms and Conditions so that the user can to submit the his/her own Assistance Request or Report an Issue.
+#### The user needs to accept the Terms & Conditions Checkbox to being able to move forward.
 #### A Reset and a Submit buttons are included.
 #### The Reset Button resets the form.
-#### The user will be redirected to the same page and a notification is displayed informing the user that the request has been submitted successfully.
-#### Following the form, the page shows a map with Hirozon Shop HQ’s location and details (Company Name, Address, Email, Phone Number and Opening Hours). Hoovering the mouse over the company information boxes a small animation highlights the hoovered icon for an effective visual impact.
+#### After clicking on the Submit Button, if the form is correctly filled in, the user is redirected to the same page and a notification is displayed informing the user that the request has been submitted successfully.
+#### Following the form, the page shows a map where the Horizon Shop HQ's Location is displayed.
+#### Below the Map the Hirozon Shop HQ’s Company Contact Details and Location are displayed (Address Office, Email, Phone Number).
+
+#### Depending on the device used (if laptop, desktop, tablet or smartphone) the position of the nav bar changes, creating a hamburger menu that will be displayed on the top right part of the page to adapt the view for a highly responsive rendering.
+#### Those behaviour are consistent in all pages.
+
+
+- ### *__Products__*:
+#### All Products Pages have Header and Footer consistent with the Home Page.
+#### The user can select which list of products want to display based on pre-filtered pages using the Buttons available in the Home Page (All Products, New, Used, By Categories, By Sub-Categories)
+
+#### The Products are displayed in a Card with a clickable Image that will redirect the user to the Product Details Page. 
+#### Following the Image, the card shows the main information of the Product with a clickble Title of the Product (as per the Image the user is redirect to the Product Details Page), the Category associated to the product in a Badge, the Rating (if present otherwise "No Rating" is displayed), the Price and the Discounted Price if present, the Comments/Reviews.
+#### An *Add to Cart* button is displayed at the bottom right of the card allowing the user to quickly add the Product to his/her own shopping cart.
+#### An *Add to Wishlist* button is displayed at the bottom left of the card allowing the user to quickly add the Product to his/her own wishlist.
+
+#### The Products can be posted to Horizon Shop by the Signed In Admin and/or by the Signed In Customers (only Used Products) filling in the Add Product or Sell Product Forms in the Products Sub-Section of My Horizon Shop Dashboard.
+#### Once posted the Product are automatically displayed in the Products Pages and can be reviewed by all users. 
+
+#### The visualization of the Products have been realized using a Django Template Tag For Loop that iterate on the Products Table in the Database based on the pre-set filters and display to the user the list of Products.
+
+#### By clicking on the Image or the Title of the Product the user can access the Product Details Information and this has been achive adding the slug in the url.
+
+
+- ### *__Cart__*:
+#### The Cart Page has Header and Footer consistent with the Home Page. Only Authenticated Users can add products in the Cart and display them.
+#### If the user is not logged in Horizon Shop a message is displayed in a modal with a button that redirect the user to the Sign In Page. The visualization of the modal instead of the Cart has been achived using Django Template Tags with an If Statement that check if the user is logged in. 
+#### The user can access the Cart from every page in the website by clicking on the dedicated Cart icon on the Navbar. 
+#### By using Context Processor (context_processors is a list of dotted Python paths to callables that are used to populate the context when a template is rendered with a request) it has been possible to also calculate in a function the cost of the Order for the user and display it in the Navbar on the Cart Button to provide to the user for a better experience. 
+#### Once the user enter for the first time in the Cart Page or Add a Product to the Cart a new order is created in the database with a status *Billed* set to False, and this allow the user to add multiple products to a single order number. A new order is created only after the previous order has changed status from Billed=False to Billed=True and this is achiveble only processing the current order and after the payment process is completed successfully.
+#### A "+" and "-" buttons are displayed for each product to allow the user to adjust the quantity.
+#### A delete button is displayed for each product to allow the user to remove it from the cart.  
+#### A Shipping Addresses Drop-Down is displayed thanks to the form dedicated that queries the Shippping_Address Table in the Database and return the list of Address of the signed in user. To proceed to the Checkout Page, the user needs to select a Shipping Address.
+
+#### If no Shipping Address is present for the user a message is display with a link that redirect the user to the Add Shipping Address Form.  
+
+#### Those behaviour are consistent in all pages.
+  
+
+- ### *__Checkout__*:
+#### The Checkout Page has Header and Footer consistent with the Home Page. Only Authenticated Users can access the Checkout Page via the Cart Page.
+#### If the user is not logged in Horizon Shop the user is redirected to the Sign In Page. The redirect the user to the Sign In Page has been realized by creating a Custom Class (LoginRequired) that is an extension of the LoginRequiredMixin Django Class. In this way it was possible to add a permission denied message to display to the user when they are redirected.  
+ 
+#### A summary of all the important information of the order are displayed to the user: 
+- Account Details
+- Shipping Address Information
+- Product Summary
+- Costs
+
+#### A *Continue Shopping* Button is displayed at the bottom of the page that can bring the user back to the list of all products. 
+#### Stripe is a complete payments platform for e-commerce and not just that. It provides all the tools needed to accept payments online and in-person from customers around the world and has been used for the Payment Process in Horizon Shop. 
+#### A Payment Form where the user can enter the Credit Card Info and a *Pay Now* Button are present. The *Pay Now* Button is disable unless the Credit Card entered by the user is valid. This has been achived integrating a function that disable and enable the buttons in the javascript file (stripe-elements.js) present in the js sub-folder of the static folder. 
+#### Entering a valid credit card the Button is clickable. 
+#### By Clicking on the Pay Now a Wheel Spin is displayed instead of the Button providing a clear feedback to the user that the process for the payment is in progress disabling the button in order to avoid any double click from the user. This has been achived by implementing a custom function called isLoading that is lunched when the user clicks on the Pay Now Button. 
+
+#### When the Pay Now button is clicked a Webhook Function (an HTTP-based callback function) is lunched. Stripe will send back to Horizon Shop an event that if succeded will display to the user a Payment Succeded Page with the Order Number.   
+
 
 
 - ### *__Sign Up/Sign In Page and Authentication Process__*:
-#### This page has Header and Footer consistent with the Home Page.
-#### The authentication module used for Horizon Shop is Allauth (a set of Django applications dealing with account authentication, registration, management, and third-party (social) account authentication) add link.
+#### The Sign In and Sign Up pages are haracterized by a light background color where in the middle center of the page is displayed the Form.
+#### The authentication module used for Horizon Shop is Allauth (a set of Django applications dealing with account authentication, registration, management, and third-party (social) account authentication) [Allauth](https://django-allauth.readthedocs.io/en/latest/overview.html).
 #### The pages have been directly imported from Allauth and customized for the needs of Horizon Shop.   
 
 #### In the Sign Up Page, there is a form that the user can fill with the following information: Email Address (with confirmation), Username and Password (with confirmation).
 #### A Reset and a Sign Up buttons are included.
 #### The Reset Button resets the form.
-#### By clicking on the Sign Up Button (if all mandatory fields have been filled-in correctly) the user will be redirected to the verification email page and a real email is sent to the user requesting validation. The user is not allowed to sign-in in parkland until the verification is completed.
+#### By clicking on the Sign Up Button (if all mandatory fields have been filled-in correctly) the user will be redirected to the verification email page and a real email is sent to the user requesting validation. The user is not allowed to sign-in in Horizon Shop until the verification is completed.
 #### If the form is not filled-in correctly, a message appears to the user to request to fill-in the information correctly.
 
 #### In the Sign In Page, there is a form that the user can fill with the following information: Email Address (or Username) and Password.
@@ -392,12 +608,17 @@ Sources:
 #### If the form is not filled in correctly, the user is not able to access the web pages.
 
 
-- ### *__Dashboard__*:
-#### The Dashboard has been structured in an easy and user-friendly way with 
-#### The Dashboard shows the logo of the website on the top left and a Hamburger Menu that toggles the opening and closing of a side nav bar.
-#### All the forms have been realized with Crispy Forms of Django and Crispy bootstrapp (Details can be found in the following link: https://pypi.org/project/crispy-bootstrap5/)
-#### The Dashboard shows also the Logout Button on the top right allowing the user to easily exit the website.
- 
+- ### *__My Horizon Shop (Dashboard)__*:
+#### The Dashboard has been divided in 2 main areas (Management and Dashboard) structured in an easy and user-friendly way with 17 Sub-Sections divided in 5 Main Sections:
+- My Admin (Available to Admin User Only)
+- My Horizon Shop
+- My Profile
+- My Bookings
+- My Feedback
+#### The Dashboard shows an Hamburger Menu that toggles the opening and closing of a side Navbar.
+#### All the forms have been realized with Crispy Forms of Django and Crispy Bootstrap (Details can be found in the following link: https://pypi.org/project/crispy-bootstrap5/)
+#### The Dashboard shows the user's avatar (if present, otherwise an icon is diplayed) on the top right of the Navbar that allow the user quickly access the different lists of the Dashboard and the Logout Button allowing the user to easily exit the website.
+#### The Dashboard's Navbar also includes the Wishlist and the Cart Buttons to easily access them.  
 #### Depending on the device used (laptop, desktop, tablet or smartphone) the sidebar opens and closes automatically allowing the user to select different options from the hamburger menu and/or have a full visual of the page for a highly responsive rendering.
 #### Those behaviours are consistent in all sections of Dashboard.
 #### The Logo and the Sidebar are consistent in all sections.
@@ -405,12 +626,21 @@ Sources:
 #### All Dashboard's Sections listed below (Open the accordion for more information): 
 
 <details>
+    <summary>My Admin</summary>
+
+#### My
+
+#### The 
+
+</details>
+
+
+<details>
     <summary>My Horizon Shop</summary>
 
-#### My Horizon Shop summarises in just one page-view and with different cards all user’s information allowing to access Orders, Feedback and more. A link “View Details” is present in each card and will redirect the users to the selected list.
+#### My Horizon Shop summarises in just one page-view and with different cards all user’s information allowing to access Orders, Testimonials and more. A link “View Details” is present in each card and will redirect the users to the selected list.
 
-#### The Function .count() has been used in this section to retrieve the total number of the selected items.
-#### A Reward Card displays the Customer Points earned depending on the quantity of Orders (100 points per booking).
+#### The Function .count() has been used in this section to display the total number of the selected items.
 
 </details>
 
@@ -418,34 +648,78 @@ Sources:
 <details>
     <summary>My Profile</summary>
 
-#### “My Profile” is composed of XXX main sub-section (Edit Profile, Change Password) realized using class base views. In Edit Profile (realized using a UpdateView), the users can edit their own profile changing Username, First and Last Name, Email Address and Deactivate the Account (by unchecking the “Account Active” Checkbox).
+#### “My Profile” is composed of 4 main sub-section (Edit Profile, Change Password, Add Address, List Addresses) realized using class base views. 
 
+
+- Edit Profile
+#### In Edit Profile, realized using a UpdateView, the users can edit their own profile changing Username, Email, First and Last Name and Avatar. The User can also see the Date when he/she has sign up in Horizon Shop and the Last Login. 
+
+
+- Change Password
 #### The user can change the password using the “Change Password” Page. This has been realized using the PasswordChangeView and PasswordChangeForm provided by Django auth views/forms. The pages have been customized to match the color schema and layout of Horizon Shop.
+
+
+- Add Address 
+#### Add Address has been realized using a CreateView and this sub-section allows the user to add his/her own Address to Horizon Shop.
+#### A Reset and a Create buttons are displayed.
+#### The Reset Button resets the form.
+#### After clicking on the Create Button, if the form is correctly filled in, the user is redirected to the Shipping Addresses List and a notification message is displayed informing the user that the address has been created successfully.
+
+
+- List Addresses
+#### In the List Addresses for a consistent display setting through the website, the Addresses are shown in cards.
+#### The Addresses List has been realized using a ListView. The user can review all information as well as Edit or Delete using dedicated buttons.
+#### Consistently with all other pages deleting an Address triggers a pop-up message requesting user’s confirmation.
 
 </details>
 
+<details>
+    <summary>My Products</summary>
+
+#### *My Products* is composed of 4 main sub-section (My Orders, Sell Product, Product List, My Wishlist) realized using class base views. 
+
+- My Orders
+#### In My Order, realized using a ListView, the users can review all information of the completed orders and check the details of the order using a *Details* dedicated buttons.
+
+- Sell Product
+#### Sell Product has been realized using a CreateView and this sub-section allows the user to sell their own products that will be exposed for free on the Home page and on the Used Product List.
+#### A Reset and a Create buttons are displayed.
+#### The Reset Button resets the form.
+#### After clicking on the Create Button, if the form is correctly filled in, the user is redirected to the his/her own Product List and a notification message is displayed informing the user that the Product has been created successfully.
+
+- Product List 
+#### In Product List for a consistent display setting through the website, the Products are shown in cards.
+#### The Product List has been realized using a ListView. The user can review all information as well as Edit or Delete using dedicated buttons.
+#### Consistently with all other pages deleting an Product triggers a pop-up message requesting user’s confirmation.
+
+- My Wishlist
+#### In My Wishlist for a consistent display setting through the website, the Products are shown in cards.
+#### My Wishlist has been realized using a ListView. The user can review all the product added to the wishlist.
+#### The user can remove the product from the wishlish using a Remove Button. 
+
+</details>
 
 <details>
-   <summary>My Feedback</summary>
+   <summary>My Testimonials</summary>
 
-#### “My Feedback” includes 2 sub-section (Add Feedback and Feedback List).
+#### “My Testimonials” includes 2 sub-section (Add Testimonials and Testimonials List).
 #### The subsections are consistent in colors and layout with the Sections described above.
 
-#### Add Feedback (realized using a CreateView) allows the user to leave a Feedback to Horizon Shop.
-#### The latest 3 feedback added are displayed in the Homepage.
+#### Add Testimonials (realized using a CreateView) allows the user to leave a Testimonials to Horizon Shop.
+#### The latest 3 Testimonials added are displayed in the Homepage.
 
-#### In order to realize a better visual impact feedback page a combination between the forms provided by Django and a custom form has been used where each feedback can be rated with a star system (from 1 to 5) for easy-to-use and effective view.
-#### In the Feedback List for a consistent display setting through the website, the logged-in user feedback are shown in cards.
+#### In order to realize a better visual impact Testimonials page a combination between the forms provided by Django and a custom form has been used where each Testimonials can be rated with a star system (from 1 to 5) for easy-to-use and effective view.
+#### In the Testimonials List for a consistent display setting through the website, the logged-in user Testimonials are shown in cards.
 
-#### The Feedback List has been realized using a ListView. The user can review all information as well as Edit or Delete using dedicated buttons.
-#### Consistently with all other pages deleting a feedback triggers a pop-up message requesting user’s confirmation.
+#### The Testimonials List has been realized using a ListView. The user can review all information as well as Edit or Delete using dedicated buttons.
+#### Consistently with all other pages deleting a Testimonials triggers a pop-up message requesting user’s confirmation.
 
 </details>
 
 
 - ### *__404 Error Page__*:
 #### For any broken or incorrect links, the 404 Error page will be triggered. Here the user will have an image displayed in the background and above text box that will inform the users that the page is not correct.
-#### A button is present in the text displayed and highlighted in cyan in order to allow the user to navigate back to the Home Page.  
+#### A button is present in the text displayed in order to allow the user to navigate back to the Home Page.  
 
 ---
 
@@ -547,7 +821,7 @@ Sources:
 </details>
 
 
-- ### My Feedback
+- ### My Testimonials
 <details>
     <summary>My Feedback Section Wireframes</summary>
 

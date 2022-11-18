@@ -72,10 +72,9 @@ function handlerSubmit(event) {
             $('#submit-button').attr('disabled', false);
             activateLoading(false);
         } else {
-            console.log('SUCA', result)
             if (result.paymentIntent.status === 'succeeded') {
                 var form = document.getElementById('payment-form');
-                console.log('SUCCEDED')
+                console.log('Succeeded')
                 form.removeEventListener('submit', handlerSubmit);
                 setTimeout(() => {
                     console.log("Redirect")

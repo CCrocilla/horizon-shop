@@ -134,7 +134,7 @@ class UsedProductsListView(View):
     Class to display Only Used Products
     """
     model = Product()
-    template_name = 'products/used_products.html'
+    template_name = 'products/used-products.html'
 
     def get(self, request):
         products = Product.objects.filter(product_status=1, is_deleted=False

@@ -38,7 +38,7 @@
     </div>
 
     <div class="container card rounded-3">
-        <div class="row py-5 d-flex justify-content-center align-items-center">
+        <div class="row pt-2 pb-5 d-flex justify-content-center align-items-center">
             <div class="col-12">
                 <form action="{% url 'payment-success' order.id  %}" method="POST" id="payment-form">
 
@@ -48,20 +48,21 @@
                         <!-- ----------------- -->
                         <!--  Account Details  -->
                         <!-- ----------------- -->
-                        <div class="row mb-5">
+                        <div class="card-body">
                             <legend class="fieldset-label text-dark px-2 w-auto"> Account Details</legend>
                             <div>
-                                {% if order.created_by.first_name and order.created_by.last_name %}
                                 <div class="row">
+                                    {% if order.created_by.first_name and order.created_by.last_name %}
                                     <div class="col-12 col-sm-6 my-2 text-dark">
-                                        <label class="h2 fw-bold form-label mt-2 text-dark">First Name:</label>
-                                        <span class="form-control border-1">
+                                        <label class="h2 fw-bold form-label mt-2 text-dark ">First
+                                            Name:</label>
+                                        <span class="form-control border-1 rounded-3">
                                             {{ order.created_by.first_name }}
                                         </span>
                                     </div>
                                     <div class="col-12 col-sm-6 my-2 text-dark">
                                         <label class="h2 fw-bold form-label mt-2 text-dark">Last Name:</label>
-                                        <span class="form-control border-1">
+                                        <span class="form-control border-1 rounded-3">
                                             {{ order.created_by.last_name }}
                                         </span>
                                     </div>
@@ -69,8 +70,9 @@
                                     {% else %}
 
                                     <div class="col-12 col-md-6 my-2">
-                                        <label class="h2 fw-bold form-label mt-2 text-dark">Account Name:</label>
-                                        <span class="form-control border-1">
+                                        <label class="h2 fw-bold form-label mt-2 text-dark">Account
+                                            Name:</label>
+                                        <span class="form-control border-1 rounded-3">
                                             {{ order.created_by.username }}
                                         </span>
                                     </div>
@@ -79,7 +81,7 @@
 
                                     <div class="col-12 col-md-6 my-2 text-dark">
                                         <label class="h2 fw-bold form-label mt-2 text-dark">Email:</label>
-                                        <span class="form-control border-1">
+                                        <span class="form-control border-1 rounded-3">
                                             {{ order.created_by.email }}
                                         </span>
                                     </div>
@@ -98,46 +100,46 @@
                         <!--    Shipping Address    -->
                         <!-- ---------------------- -->
 
-                        <div class="card-body">
+                        <div class="card-body my-4">
                             <legend class="fieldset-label text-dark px-2 w-auto">Shipping Address Details:
                                 {{ order.shipping_address.shipping_name }}</legend>
-                            <div class="row my-5">
+                            <div class="row">
 
                                 <div class="col-12 col-sm-8 my-2 text-dark">
                                     <label class="h2 fw-bold form-label mt-2 text-dark">Street:</label>
-                                    <span class="form-control border-1">
+                                    <span class="form-control border-1 rounded-3">
                                         {{ order.shipping_address.address_street }}
                                     </span>
                                 </div>
                                 <div class="col-12 col-sm-4 my-2 text-dark">
                                     <label class="h2 fw-bold form-label mt-2 text-dark">Apartment:</label>
-                                    <span class="form-control border-1">
+                                    <span class="form-control border-1 rounded-3">
                                         {{ order.shipping_address.apartment_number }}
                                     </span>
                                 </div>
 
                                 <div class="col-12 col-md-2 my-2 text-dark">
                                     <label class="h2 fw-bold form-label mt-2 text-dark">Country:</label>
-                                    <span class="form-control border-1">
+                                    <span class="form-control border-1 rounded-3">
                                         {{ order.shipping_address.country }}
                                     </span>
                                 </div>
                                 <div class="col-12 col-md-3 my-2 text-dark">
                                     <label class="h2 fw-bold form-label mt-2 text-dark">City:</label>
-                                    <span class="form-control border-1">
+                                    <span class="form-control border-1 rounded-3">
                                         {{ order.shipping_address.city }}
                                     </span>
                                 </div>
 
                                 <div class="col-12 col-md-3 my-2 text-dark">
                                     <label class="h2 fw-bold form-label mt-2 text-dark">Postcode:</label>
-                                    <span class="form-control border-1">
+                                    <span class="form-control border-1 rounded-3">
                                         {{ order.shipping_address.postcode }}
                                     </span>
                                 </div>
                                 <div class="col-12 col-md-4 my-2 text-dark">
                                     <label class="h2 fw-bold form-label mt-2 text-dark">Phone:</label>
-                                    <span class="form-control border-1">
+                                    <span class="form-control border-1 rounded-3">
                                         {{ order.shipping_address.phone_number }}
                                     </span>
                                 </div>
@@ -162,11 +164,11 @@
                                             <table class="table table-vcenter table-mobile-md card-table">
                                                 <thead>
                                                     <tr>
-                                                        <th>Image</th>
-                                                        <th>Name</th>
-                                                        <th>Condition</th>
-                                                        <th>Quantity</th>
-                                                        <th>Final Price</th>
+                                                        <th class="bg-dark text-yellow">Image</th>
+                                                        <th class="bg-dark text-yellow">Name</th>
+                                                        <th class="bg-dark text-yellow">Condition</th>
+                                                        <th class="bg-dark text-yellow">Quantity</th>
+                                                        <th class="bg-dark text-yellow">Final Price</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -240,11 +242,17 @@
                         <!-- ---------------------- -->
 
                         <div class="card-body">
-                            <div class="row my-5">
+                            <div class="row my-3">
                                 <div class="col-12 text-dark">
-                                    <legend class="">Quantity: {{ total_products_cart }}</legend>
-                                    <legend class="">Delivery Cost: {{ delivery_cost }} Euro</legend>
-                                    <legend class="">Sub-Total: {{ total_price_cart }} Euro</legend>
+                                    <legend class=""><i>Quantity:</i> {{ total_products_cart }}</legend>
+                                    <legend class=""><i>Delivery Cost:</i>
+                                        {% if delivery_cost == 0 %}
+                                        FREE
+                                        {% else %}
+                                        {{ delivery_cost }} Euro
+                                        {% endif %}
+                                    </legend>
+                                    <legend class=""><strong><i>Total:</i></strong> {{ total_price_cart }} Euro</legend>
                                 </div>
                             </div>
                         </div>
