@@ -24,6 +24,8 @@ from django.shortcuts import HttpResponse
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
 
+from home.views import LoginRequired
+
 from django.contrib import messages
 
 from django.views import View
@@ -38,38 +40,48 @@ from products_cart.models import CartProducts
 from products_cart.forms import CheckoutForm
 
 
-class CheckoutView(View):
+class CheckoutView(LoginRequired, View):
     """
     Class to display Only Used Products
     """
     model = Order
     template_name = 'checkout/checkout.html'
+    permission_denied_message = 'Authentication Error! Access reserved \
+                                 only to Authenticated Customers!'
 
     def get(self, request):
         stripe_public_key = STRIPE_PUBLIC_KEY
         stripe_secret_key = STRIPE_SECRET_KEY
 
         order = Order.objects.get(created_by=request.user, billed=False)
+        
+        if order.shipping_address:
+            total_order = order.total_price()
+            total_stripe = round(total_order * 100)
+            stripe.api_key = stripe_secret_key
+            intent = stripe.PaymentIntent.create(
+                amount=total_stripe,
+                currency=STRIPE_CURRENCY,
+                customer=stripe.Customer.create(customer=request.user),
+                metadata={
+                        "order_id": order.id
+                    }
+            )
 
-        total_order = order.total_price()
-        total_stripe = round(total_order * 100)
-        stripe.api_key = stripe_secret_key
-        intent = stripe.PaymentIntent.create(
-            amount=total_stripe,
-            currency=STRIPE_CURRENCY,
-            customer=stripe.Customer.create(customer=request.user),
-            metadata={
-                    "order_id": order.id
-                }
-        )
+            context = {
+                'order': order,
+                'stripe_public_key': stripe_public_key,
+                'client_secret': intent.client_secret,
+            }
 
-        context = {
-            'order': order,
-            'stripe_public_key': stripe_public_key,
-            'client_secret': intent.client_secret,
-        }
-
-        return render(request, self.template_name, context)
+            return render(request, self.template_name, context)
+        else:
+            messages.add_message(
+                request,
+                messages.ERROR,
+                'No Shipping Address detected! Please select an address!'
+                )
+            return redirect(reverse('cart'))
 
     def post(self, request, *args, **kwargs):
         order = Order.objects.get(created_by=request.user, billed=False)

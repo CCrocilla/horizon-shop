@@ -188,7 +188,13 @@
 
                 <p> Price Cart: {{ total_price_cart }}</p>
 
-                <p> Delivery Cost: {{ delivery_cost }}</p>
+                <p> Delivery Cost:
+                    {% if delivery_cost == 0 %}
+                    FREE
+                    {% else %}
+                    {{ delivery_cost }} Euro
+                    {% endif %}
+                </p>
 
             </div>
         </div>

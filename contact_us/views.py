@@ -13,8 +13,8 @@ class ContactUsView(CreateView):
     template_name = 'contact_us/contact_us.html'
     model = ContactUs
     form_class = ContactUsForm
-    success_url = reverse_lazy('contact_us')
     success_message = "Thanks! Your request have been sent successfully!"
+    success_url = reverse_lazy('contact_us')
 
     def get_initial(self):
         return {'created_by': self.request.user}

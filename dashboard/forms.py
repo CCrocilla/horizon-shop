@@ -38,23 +38,23 @@ class CustomerForm(ModelForm):
 
         widgets = {
             'username': forms.TextInput(
-                attrs={'class': 'form-control'}),
+                attrs={'class': 'form-control border border-dark rounded-3'}),
             'email': forms.EmailInput(
-                attrs={'class': 'form-control'}),
+                attrs={'class': 'form-control border border-dark rounded-3'}),
             'first_name': forms.TextInput(
-                attrs={'class': 'form-control'}),
+                attrs={'class': 'form-control border border-dark rounded-3'}),
             'last_name': forms.TextInput(
-                attrs={'class': 'form-control'}),
+                attrs={'class': 'form-control border border-dark rounded-3'}),
             'date_joined': forms.DateTimeInput(
                 attrs={
                     'readonly': 'readonly',
-                    'class': 'form-control',
+                    'class': 'form-control border border-dark rounded-3',
                     'required': 'false'
                     }),
             'last_login': forms.DateTimeInput(
                 attrs={
                     'readonly': 'readonly',
-                    'class': 'form-control',
+                    'class': 'form-control border border-dark rounded-3',
                     'required': 'false'
                     }),
         }
@@ -71,7 +71,7 @@ class CustomerExtraForm(ModelForm):
         }
 
         widgets = {'avatar': forms.FileInput(
-            attrs={'class': 'form-control-file'}), }
+            attrs={'class': 'form-control form-control-file border border-dark rounded-3'}), }
 
 
 class ShippingAddressForm(ModelForm):
