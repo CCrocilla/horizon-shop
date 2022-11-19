@@ -37,15 +37,19 @@ def categories(request):
 
 
 def subcategories(request):
-    categories = Category.objects.all()
-
-    for category in categories:
-        # subcategories = SubCategory.objects.filter(category=category)
-        subcategories = SubCategory.objects.all()
-
     return {
-        'subcategories': subcategories
+        'subcategories': SubCategory.objects.all()
     }
+
+
+# def subcategories(request):
+#     categories = Category.objects.all()
+#     for category in categories:
+#         subcategories = SubCategory.objects.filter(category=category)
+#         print(subcategories)
+#     return {
+#         'subcategories': subcategories
+#     }
 
 
 class AllProductsListView(View):

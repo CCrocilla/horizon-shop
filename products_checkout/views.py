@@ -190,7 +190,7 @@ def PaymentSuccess(request, order_id):
 
 def PaymentFailed(request, order_id):
     """
-    Payment Success
+    Payment Failed
     """
     order = get_object_or_404(Order, id=order_id)
     order.billed = False

@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Templates Directory
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
-TEMPLATES_DIR_ALLAUTH = os.path.join(BASE_DIR, 'allauth/')
+TEMPLATES_DIR_ALLAUTH = os.path.join(BASE_DIR, 'templates/allauth/')
 TEMPLATES_DIR_HOME = os.path.join(BASE_DIR, 'home/')
 TEMPLATES_DIR_CONTACT_US = os.path.join(BASE_DIR, 'contact_us/')
 TEMPLATES_DIR_DASHBOARD = os.path.join(BASE_DIR, 'dashboard/')
