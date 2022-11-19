@@ -10,7 +10,7 @@ from .forms import ContactUsForm
 
 class ContactUsView(CreateView):
     """ Contact Page """
-    template_name = 'contact_us/contact_us.html'
+    template_name = 'contact_us/contact-us.html'
     model = ContactUs
     form_class = ContactUsForm
     success_message = "Thanks! Your request have been sent successfully!"
