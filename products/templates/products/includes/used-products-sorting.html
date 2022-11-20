@@ -1,0 +1,38 @@
+<!-- Sorting Products -->
+<div class="dropdown">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        Sort By
+    </a>
+
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <li>
+            <a class="dropdown-item" href="{% url 'used_products' %}?sort=price&direction=desc">
+                Price [High to Low]
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="{% url 'used_products' %}?sort=price&direction=asc">
+                Price [Low to High]
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="{% url 'used_products' %}?sort=brand&direction=asc">
+                Brand [A to Z]
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="{% url 'used_products' %}?sort=brand&direction=desc">
+                Brand [Z to A]
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="{% url 'used_products' %}?sort=title&direction=asc">
+                Product Name [A to Z]</a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="{% url 'used_products' %}?sort=title&direction=desc">
+                Product Name [Z to A]</a>
+        </li>
+    </ul>
+</div>

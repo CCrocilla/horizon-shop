@@ -34,7 +34,10 @@
                     <div class="d-flex w-100 justify-content-between">
                         <h3>
                             <strong>Order:</strong>
-                            <a href="{% url 'order-details' order.id %}">{{ order.order_number }}</a>
+                            <a href="{% url 'order-details' order.id %}" data-bs-toggle="tooltip"
+                                data-bs-placement="bottom" data-bs-title="{{ order.order_number }}">
+                                {{ order.order_number|truncatechars:12 }}
+                            </a>
                         </h3>
                         <small>{{ order.created_at}}</small>
                     </div>

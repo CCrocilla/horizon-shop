@@ -8,87 +8,173 @@
 
 {% block content %}
 
+<!-- ======================== -->
 <!-- Product Details Section -->
-<section class="container my-5 py-5">
+<!-- ======================== -->
+<section class="container">
     <div class="row">
-        <div class="col-12 col-md-5 order-md-first bg-light">
+        <div class="col m-4 m-lg-5">
+
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="fs-4">{{ product.title }}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10 offset-1 offset-md-0 col-md-6 col-lg-4 order-md-first border border-dark rounded-3 mb-2">
             {% if product.image %}
 
-            <a href="">
-                <img src="{{ product.image.url }}" class="card-img-top img-fluid mx-auto d-block"
+            <a href="{% url 'product_details' product.slug %}">
+                <img src="{{ product.image.url }}" class="img-fluid img-card-products rounded-3"
                     alt="Image {{ product.title }}">
             </a>
 
             {% else %}
 
-            <a href="">
-                <img src="{{ MEDIA_URL }}no-image-placeholder.webp" class="card-img-top img-fluid"
+            <a href="{% url 'product_details' product.slug %}">
+                <img src="{{ MEDIA_URL }}no-image-placeholder.webp" class="img-fluid img-card-products rounded-3"
                     alt="Image {{ product.title }}">
             </a>
 
             {% endif %}
         </div>
-        <div class="col-12 col-md-7 ps-md-3 ps-lg-5">
-            <h1 class="mb-0 h3">Title: {{ product.title }}</h1>
-            <p><span class="lead">Created by: {{ product.created_by }}</span></p>
-            <p>{{ product.description|slice:":500" }}...</p>
-            <div class="container">
-                <div class="row d-flex flex-column py-3">
-                    <div class="col-12">
-                        <span class="h3 fw-bold">Price: {{ product.price }} Euro</span>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 d-flex justify-content-between">
-                            <form action="{% url 'add-to-wishlist' product.id %}" method="POST">
-                                {% csrf_token %}
-                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+        <div class="col-12 col-md-6 col-lg-8 ps-md-3 ps-lg-5">
+            {% if product.product_status == 0 %}
+            <p>
+                <span class="lead"><strong>Sold by:</strong> <i>Horizon Shop</i></span>
+            </p>
+            <p>
+                <span class="lead"><strong>Delivered by:</strong> <i>Horizon Shop</i></span>
+            </p>
+            {% else %}
+            <p>
+                <span class="lead"><strong>Sold by:</strong> <i>{{ product.created_by }}</i></span>
+            </p>
+            <p>
+                <span class="lead"><strong>Delivered by:</strong> <i>Horizon Shop</i></span>
+            </p>
+            {% endif%}
 
-                                <button type="submit" class="wish btn btn-minwidth btn-red rounded-3 text-dark"
-                                    data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Add to Wishlist">
-                                    Add to Wishlist
-                                </button>
-                            </form>
+            <div class="mb-3">
+                <strong>Category:</strong> <span class="badge bg-secondary">{{ product.category }}</span>
+            </div>
 
-                            <form action="{% url 'add-to-cart' product.id %}" method="POST">
-                                {% csrf_token %}
-                                <button type="submit" class="cart btn btn-minwidth btn-success rounded-3 text-dark"
-                                    data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Add to Cart">
-                                    Add to Cart
-                                </button>
-                            </form>
-                        </div>
+
+            <p><strong>About This Products:</strong></p>
+            <p>{{ product.description|truncatechars:800 }}</p>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="pt-3">
+                <ul class="list-unstyled">
+                    {% if product.get_avg_rating %}
+
+                    <li>
+                        <strong>Rating Product:</strong>
+                        {% with ''|center:product.get_avg_rating as range %}
+                        {% for i in range %}
+                        <i class="fas fa-star text-yellow"></i>
+                        {% endfor %}
+                        {% endwith %}
+                    </li>
+                    {% else %}
+                    <li> No Rating </li>
+                    {% endif %}
+
+                </ul>
+            </div>
+            <div class="col-12 pb-3">
+                <ul class="list-unstyled">
+                    <div>
+                        {% if product.discounted_price %}
+                        <li class="fs-5 text-dark text-right">
+                            <strong>Sale Price:</strong>
+                            {{ product.discounted_price }} Euro
+                        </li>
+
+                        <li class="fs-5 text-muted text-right">
+                            <span>
+                                <strong>Price:</strong>
+                                <del>{{ product.price }} Euro</del>
+                            </span>
+                        </li>
+
+                        {% else %}
+
+                        <li class="fs-4 text-dark text-right mb-3">
+                            <strong>Price:</strong>{{ product.price }} Euro</li>
+                        {% endif %}
                     </div>
-                </div>
+                </ul>
             </div>
         </div>
     </div>
+    {% if user.is_authenticated %}
+    <div class="row">
+        <div class="col-12 d-flex justify-content-between">
+            <form action="{% url 'add-to-wishlist' product.id %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+
+                <button type="submit" class="wish btn btn-sm-minwidth btn-primary rounded-3 text-dark"
+                    data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Add to Wishlist">
+                    Add to Wishlist
+                </button>
+            </form>
+
+            <form action="{% url 'add-to-cart' product.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="cart btn btn-sm-minwidth btn-yellow rounded-3 text-dark"
+                    data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Add to Cart">
+                    Add to Cart
+                </button>
+            </form>
+        </div>
+    </div>
+    {% endif %}
+
 </section>
 
-<!-- Product Rating -->
+<!-- ======================== -->
+<!--      Product Rating      -->
+<!-- ======================== -->
 <section class="container">
 
     {% if user.is_authenticated %}
     {% if user_rated %}
 
     <div class="row">
-        <div class="col-12">
-            <h1> Thanks for having rated this product!</h1>
+        <div class="col-12 my-2">
+            <div class="card bg-dark">
+                <div class="card-body p-3">
+                    <div class="text-yellow">
+                        <h2> Thanks for having rated this product!</h2>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     {% else %}
 
     <div class="row">
-        <div class="col-12">
-            <div class="card rounded-3">
-                <div class="card-body p-4">
+        <div class="col-12 my-2">
+            <div class="card bg-dark">
+                <div class="card-body p-3">
                     <div class="d-flex flex-start w-100">
                         <form method="POST">
                             <div class="form-radio-hidden fs-5 text-yellow">
                                 {% csrf_token%}
                                 {{ rating_form|crispy }}
                             </div>
-                            <h5 class=" fs-5 text-dark">How much do you rate this product?</h5>
+                            <h2 class=" fs-5 text-dark">How much do you rate this product?</h2>
                             <p class="text-muted">Only one rating per product/customer is allowed!</p>
                             <div class="row">
                                 <div class="col">
@@ -118,18 +204,41 @@
 
     {% else %}
     <div class="row">
-        <div class="col-12">
-            <h1> Sign In to <strong>Horizon Shop</strong> and Rate the Product!</h1>
+        <div class="col-12 my-2">
+            <div class="card bg-dark">
+                <div class="card-body p-3">
+                    <div class="d-flex flex-start w-100">
+                        <h2 class="text-yellow"> Do you want to rate this products?
+                            <strong class="text-green">
+                                <i>Sign Up TODAY</i>
+                            </strong>
+                            for <strong class="text-green">
+                                <i>FREE</i>
+                            </strong>
+                            and join milions of happy
+                            <strong class="text-green">
+                                <i>Horizon Shop</i>
+                            </strong>
+                            customers and have the possibility to Buy, Rate and Commment/Review
+                            <strong class="text-green">
+                                <i>Products</i>
+                            </strong>!
+                        </h2>
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     {% endif %}
 </section>
 
-
+<!-- ======================== -->
 <!-- Product Comments Section -->
-<section class="container my-3">
+<!-- ======================== -->
+<section class="container mt-3 mb-5">
     <div class="row">
-        <div class="col-12 rounded-3 bg-light">
+        <div class="col-12 rounded-3">
 
             {% if user.is_authenticated %}
             <!-- Button trigger modal -->
@@ -138,29 +247,34 @@
                 Leave a Comment!
             </button>
             {% endif %}
-
-            <h3>Comments:</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            <h2>Comments Section:</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
             <div class="card-body ">
                 {% for c in comments %}
                 <div class="text-dark border border-3 border-dark rounded-3 p-3 m-2">
-                    <p class="fw-bold">
-                        Customer: {{ c.commented_by.username }}
+                    <p>
+                        <strong>Customer:</strong> {{ c.commented_by.username }}
                         <br>
                         <span class="text-dark">
-                            On Date: {{ c.commented_date }}
+                            <strong>On Date:</strong> {{ c.commented_date }}
                         </span>
                     </p>
                     <p>
                         Comment: {{ c.comment  }}
                     </p>
-
                 </div>
                 {% endfor %}
             </div>
         </div>
+    </div>
 </section>
-
-
 
 <!-- Comment Modal -->
 <div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
@@ -179,7 +293,6 @@
                     <h3>Leave your comment/review here:</h3>
 
                     {{ comments_form | crispy }}
-
 
                 </div>
                 <div class="modal-footer">

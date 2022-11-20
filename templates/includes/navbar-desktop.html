@@ -15,7 +15,8 @@
             <div class="nav-item d-none d-md-flex">
                 <div class="btn-list">
                     <a class="btn btn-dark nav-link text-light {% if request.path == home %} border border-bottom border-yellow active text-yellow rounded-3{% endif %}"
-                        aria-current="page" href="{% url 'homepage' %}">
+                        aria-current="page" href="{% url 'homepage' %}" data-bs-toggle="tooltip"
+                        data-bs-placement="bottom" data-bs-title="Homepage">
                         <div class="fs-6 text-center mx-1 px-1">
                             <div>
                                 <i class="fas fa-home fa-lg"></i> Home
@@ -23,11 +24,12 @@
                         </div>
                     </a>
 
-                    <a class="nav-link text-light {% if 'contact_us' in request.path %} border border-bottom border-yellow active text-yellow rounded-3{% endif %}"
-                        href="{% url 'contact_us' %}">
+                    <a class="nav-link text-light {% if 'contact-us' in request.path %} border border-bottom border-yellow active text-yellow rounded-3{% endif %}"
+                        href="{% url 'contact_us' %}" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                        data-bs-title="Contact Us">
                         <div class="fs-6 text-center mx-1 px-1">
                             <div>
-                                <i class="fas fa-headset fa-lg"></i> Contact
+                                <i class="fas fa-headset fa-lg"></i> Contact Us
                             </div>
                         </div>
                     </a>
@@ -101,7 +103,7 @@
                         <a class="dropdown-item" href="{% url 'dashboard' %}">My Horizon Shop</a>
                         <a class="dropdown-item" href="{% url 'customer-update' %}">My Profile</a>
                         <a class="dropdown-item" href="{% url 'shipping-address-list' %}">My Addresses</a>
-                        <a class="dropdown-item" href="#">My Orders</a>
+                        <a class="dropdown-item" href="{% url 'order-list' %}">My Orders</a>
                         <a class="dropdown-item" href="{% url 'products-list' %}">My Products</a>
                         <a class="dropdown-item" href="{% url 'products-wishlist' %}">My Wishlist</a>
                         <a class="dropdown-item" href="{% url 'testimonials-list' %}">My Testimonials</a>
@@ -130,6 +132,8 @@
         <div class="navbar navbar-dark">
             <div class="container-fluid">
                 <ul class="navbar-nav d-flex align-items-center">
+                    <div class="sb-sidenav-menu-heading d-md-none fs-5 text-yellow">Website</div>
+                    <hr class="w-25 mx-auto my-0 d-md-none text-yellow" style="height:2px;" />
                     <li class="nav-item d-md-none">
                         <a class="nav-link active text-light" aria-current="page" href="{% url 'homepage' %}">
                             <span class="nav-link-title">
@@ -144,6 +148,8 @@
                             </span>
                         </a>
                     </li>
+
+                    {% if user.is_authenticated %}
                     <li class="nav-item d-md-none">
                         <a href="{% url 'products-wishlist' %}" class="btn btn-dark nav-link text-light"
                             data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Wishlist">
@@ -156,6 +162,8 @@
                             </div>
                         </a>
                     </li>
+                    {% endif %}
+
                     <li class="nav-item active d-md-none">
                         <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link text-light"
                             href="{% url 'cart' %}">
@@ -169,6 +177,9 @@
                             </span>
                         </a>
                     </li>
+
+                    <div class="sb-sidenav-menu-heading d-md-none fs-5 text-yellow mt-3">Search By</div>
+                    <hr class="w-25 mx-auto my-0 d-md-none text-yellow" style="height:2px;" />
                     <li class="nav-item text-light">
                         <a class="nav-link text-light" href="{% url 'all_products' %}">
                             <span class="nav-link-title">
@@ -191,9 +202,8 @@
                         </a>
                     </li>
                     <li class="nav-item dropdown text-light">
-                        <a class="nav-link dropdown-toggle text-light" href="#navbar-fouth"
-                            id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
+                        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDarkDropdownMenuLink"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="nav-link-title pe-2">
                                 Categories
                             </span>

@@ -25,6 +25,8 @@ class Category(models.Model):
 
     class Meta:
         verbose_name_plural = 'Categories'
+        """ Ordering by Name """
+        ordering = ['name']
 
     def __str__(self):
         return self.name
@@ -50,12 +52,14 @@ class SubCategory(models.Model):
 
     class Meta:
         verbose_name_plural = 'Sub-Categories'
+        """ Ordering by Name """
+        ordering = ['name']
 
     def __str__(self):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('search_by', args=[self.slug])
+        return reverse('search_by_sub_cat', args=[self.slug])
 
 
 class Product(SoftDeleteModel):

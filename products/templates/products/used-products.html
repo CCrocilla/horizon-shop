@@ -2,17 +2,28 @@
 {% load static %}
 
 {% block content %}
+
+<section class="container">
+    <div class="row">
+        <div class="col m-4 m-lg-5">
+
+        </div>
+    </div>
+</section>
+
 <section class="container">
     <div class="row">
         <div class="col">
-            <div class="my-5 py-5">
+            <div class="mb-5">
                 <h1 class="text-center text-dark">Used Products List</h1>
+                <hr class="w-25 mx-auto my-0 text-dark" style="height:2px;" />
 
-                <ol class="breadcrumb mb-4">
-                    <li class="active">All used Products: </li>
-                </ol>
+                <!-- ===================== -->
+                <!--    Product Sorting    -->
+                <!-- ===================== -->
+                {% include 'products/includes/used-products-sorting.html' %}
 
-                <div class="row d-flex align-items-center">
+                <div class="row d-flex align-items-center mt-5">
 
                     {% for product in products %}
 

@@ -2,6 +2,8 @@ import stripe
 import datetime
 import json
 
+from django.utils import timezone
+
 from django.conf import settings
 
 from django.core.mail import send_mail
@@ -54,7 +56,7 @@ class CheckoutView(LoginRequired, View):
         stripe_secret_key = STRIPE_SECRET_KEY
 
         order = Order.objects.get(created_by=request.user, billed=False)
-        
+
         if order.shipping_address:
             total_order = order.total_price()
             total_stripe = round(total_order * 100)
@@ -139,6 +141,7 @@ def stripe_webhook(request):
         order_id = intent["metadata"]["order_id"]
         order = Order.objects.get(id=order_id)
 
+        print("I AM HERE BEFORE THE SEND")
         send_mail(
             subject=render_to_string(
                 'text_emails/email-order-subject.txt',
@@ -151,6 +154,7 @@ def stripe_webhook(request):
             recipient_list=[customer_email],
             from_email=[DEFAULT_FROM_EMAIL],
             )
+        print("I AM HERE AFTER THE SEND")
 
         PaymentSuccess(request, order_id)
 
@@ -172,7 +176,7 @@ def PaymentSuccess(request, order_id):
     Payment Success
     """
     order = get_object_or_404(Order, id=order_id)
-    order.created_at = datetime.datetime.now()
+    order.created_at = datetime.datetime.now(tz=timezone.utc)
     order.billed = True
     order.save()
 
