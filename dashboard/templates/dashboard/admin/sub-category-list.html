@@ -41,8 +41,44 @@
                 </p>
                 <a class="btn btn-sm-minwidth btn-outline-primary rounded-3 mt-4"
                     href="{% url 'subcategory-update' subcategory.pk %}" aria-label="Update">Edit</a>
-                <a class="btn btn-sm-minwidth btn-outline-warning rounded-3 mt-4"
-                    href="{% url 'subcategory-delete' subcategory.pk %}" aria-label="Delete">Delete</a>
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-sm-minwidth btn-danger rounded-3 mt-4" data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop">
+                    Delete
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content bg-dark rounded-3">
+                            <form method="POST">
+                                {% csrf_token%}
+                                <div class="modal-header d-flex justify-content-center bg-yellow">
+                                    <h1 class="fs-4 modal-title d-flex justify-content-center text-center text-dark"
+                                        id="staticBackdropLabel">Are you sure?</h1>
+                                </div>
+                                <div class="fs-6 modal-body d-flex justify-content-center m-3 text-yellow text-center">
+                                    <p>
+                                        By Clicking <strong>Delete</strong> the Sub-Category will be deleted!
+
+                                        Reminder: You can always access the <strong><i>Deleted Sub-Category</i></strong>
+                                        Sub-Section to recover it!
+                                    </p>
+                                </div>
+                                <div class="modal-footer m-3">
+                                    <a href="{% url 'category-list' %}"
+                                        class="m-1 btn btn-sm-minwidth btn-primary rounded-3" aria-label="Back">Back
+                                    </a>
+                                    <a class="btn btn-sm-minwidth btn-danger rounded-3"
+                                        href="{% url 'subcategory-delete' subcategory.pk %}"
+                                        aria-label="Delete">Delete</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 

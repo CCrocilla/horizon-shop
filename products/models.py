@@ -12,7 +12,7 @@ from home.models import SoftDeleteModel
 PRODUCT_STATUS = ((0, 'New'), (1, 'Used'))
 
 
-class Category(models.Model):
+class Category(SoftDeleteModel):
     name = models.CharField(
         max_length=254,
         null=False,
@@ -35,7 +35,7 @@ class Category(models.Model):
         return reverse('search_by', args=[self.slug])
 
 
-class SubCategory(models.Model):
+class SubCategory(SoftDeleteModel):
     category = models.ForeignKey(
         Category,
         null=True,

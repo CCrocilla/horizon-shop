@@ -32,13 +32,13 @@ from django.db.models import Q
 
 def categories(request):
     return {
-        'categories': Category.objects.all()
+        'categories': Category.objects.all().filter(is_deleted=False)
     }
 
 
 def subcategories(request):
     return {
-        'subcategories': SubCategory.objects.all()
+        'subcategories': SubCategory.objects.all().filter(is_deleted=False)
     }
 
 
@@ -60,7 +60,8 @@ class AllProductsListView(View):
     template_name = 'products/all-products.html'
 
     def get(self, request):
-        products = Product.objects.order_by('-created_at')
+        products = Product.objects.order_by('-created_at'
+                                            ).filter(is_deleted=False)
         search_term = None
 
         if 'sort' in request.GET:
@@ -105,7 +106,8 @@ class SearchByView(View):
 
     def get(self, request, search_slug):
         category = get_object_or_404(Category, slug=search_slug)
-        products = Product.objects.filter(category=category, is_deleted=False)
+        products = Product.objects.filter(
+            category=category, is_deleted=False)
 
         context = {
                 'products': products,
@@ -121,7 +123,8 @@ class SearchBySubCategoryView(View):
 
     def get(self, request, slug_sub_cat):
         subcategory = get_object_or_404(SubCategory, slug=slug_sub_cat)
-        products = Product.objects.filter(subcategory=subcategory, is_deleted=False)
+        products = Product.objects.filter(
+            subcategory=subcategory, is_deleted=False)
 
         context = {
                 'products': products,
@@ -140,8 +143,8 @@ class NewProductsListView(View):
     paginate_by = 6
 
     def get(self, request):
-        products = Product.objects.filter(product_status=0, is_deleted=False
-                                          ).order_by('-created_at')
+        products = Product.objects.filter(
+            product_status=0, is_deleted=False).order_by('-created_at')
 
         context = {
                 'products': products,
@@ -195,7 +198,8 @@ class ProductDetailsView(View):
 
     def post(self, request, slug, *args, **kwargs):
         product = Product.objects.get(slug=slug)
-        comments = ProductComment.objects.filter(product=product).order_by('-commented_date')
+        comments = ProductComment.objects.filter(product=product
+                                                 ).order_by('-commented_date')
         rating_stars = ProductRating.objects.filter(product=product)
         comments_form = ProductCommentForm(request.POST)
         rating_form = ProductRatingForm(request.POST)
