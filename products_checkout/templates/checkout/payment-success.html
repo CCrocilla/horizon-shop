@@ -20,36 +20,54 @@
 
 <section class="container">
     <div class="row">
-        <div class="col">
+        <div class="col m-4 m-lg-5">
 
         </div>
     </div>
 </section>
 
 
-<section class="py-4 mt-5 mb-3">
-    <div class="container-lg">
-        <div class="row justify-content-center hero-text">
-            <div class="col text-center text-warning">
+
+<section class="container mb-5">
+    <div class="row">
+        <div class="col text-center text-warning">
+            <div class="mb-3">
                 <h1 class="fw-bold text-center text-dark">Payment Success</h1>
                 <hr class="w-25 mx-auto my-0 text-dark" style="height:2px;" />
             </div>
         </div>
     </div>
 
-    <div class="container card rounded-3">
-        <div class="row py-5 d-flex justify-content-center align-items-center">
-            <div class="col-12">
-                <div class="text-center text-dark">
-                    <h1> Thanks for your purchase! YEEEEAAAHHHH!!!!</h1>
-                    <h1> Your Order Number is: {{ order }}</h1>
+    <div class="hero-image rounded-3 mb-5"
+        style="background-image: url('{% static "images/cart.webp" %}'); height: 800px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-10 my-5 p-3 images-text-cart">
+                    <div class="text-align-left">
+                        <h1 class="fs-2 text-yellow">The Payment has been processed successfully!!!</h1>
 
-                    {{ order.billed }}
+                        <p class="fs-4 text-light">
+                            Thanks for your purchase!
+                        </p>
+                        <p href="{% url 'order-details' order.id %}" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                            data-bs-title="{{ order.order_number }}">
+                            Your Order Number is: {{ order.order_number|truncatechars:12 }}
+                        </p>
+
+                        <p>
+                            You can review all the information relative to your order by clicking on the button below
+                            (You can also access always the list of your orders via the My Order Sub-Section in the My
+                            Horizon Shop Dashoard!):
+                        </p>
+
+                        <a href="{% url 'order-list' %}" class="btn btn-yellow rounded-3 btn-lg mb-2">
+                            <span class="text-uppercase text-dark fst-italic">My Orders</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
 
 {% endblock %}

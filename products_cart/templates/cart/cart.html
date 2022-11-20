@@ -18,7 +18,7 @@
 <!--       End Messages      -->
 <!-- ======================= -->
 
-{% if user.is_authenticated %}
+
 
 <section class="container">
     <div class="row">
@@ -29,219 +29,281 @@
             </div>
         </div>
     </div>
+    {% if user.is_authenticated %}
 
     {% if order.cart_products.exists %}
 
-    <div class="row">
-        <div class="col-md-12 px-5 text-dark">
-            <p>Cart Details</p>
-            <table>
+    <div class="row d-flex justify-content-center mt-2 mb-4">
 
-                <tr>
-                    <th class="px-5 text-center">Image</th>
-                    <th class="px-5 text-center">Name</th>
-                    <th class="px-5 text-center">Condition</th>
-                    <th class="px-5 text-center">Price</th>
-                    <th class="px-5 text-center">Quantity</th>
-                    <th class="px-5 text-center">Final Price</th>
-                    <th class="px-5 text-center">Delete</th>
-                </tr>
-
-                {% for cart in order.cart_products.all %}
-
-                <tr>
-                    {% if cart.product.image %}
-
-                    <td class="px-5">
-                        <a href="">
-                            <img src="{{ cart.product.image.url }}" class="card-img-top img-fluid"
-                                alt="Image {{ cart.product.title }}">
-                        </a>
-                    </td>
-
-                    {% else %}
-
-                    <td class="px-5">
-                        <a href="">
-                            <img src="{{ MEDIA_URL }}no-image-placeholder.webp" class="card-img-top img-fluid"
-                                alt="Image {{ cart.product.title }}">
-                        </a>
-                    </td>
-
-                    {% endif %}
-
-                    <td class="px-5">{{ cart.product.title }}</td>
-
-                    <td class="px-5">
-                        {% if cart.product.product_status == 0 %}
-                        <p class="card-text">New</p>
-                        {% else %}
-                        <p class="card-text">Used</p>
-                        {% endif %}
-                    </td>
-
-                    <td class="px-5">
-                        {% if cart.product.discounted_price %}
-
-                        <p class="text-muted text-right">
-                            {{ cart.product.discounted_price }} Euro
-                        </p>
-
-                        {% else %}
-
-                        <p class="text-muted text-right">
-                            {{ cart.product.price }} Euro
-                        </p>
-
-                        {% endif %}
-                    </td>
-
-                    <td class="px-5">
-                        <!-- Form to remove Quantity -->
-                        <form method="POST" action="{% url 'remove-quantity' cart.product.id %}" class="">
-                            {% csrf_token %}
-                            <button type="submit"><i class="fas fa-minus"></i></button>
-                        </form>
-
-                        <p class="text-muted">{{ cart.quantity }}</p>
-
-                        <!-- Form to add Quantity -->
-                        <form method="POST" action="{% url 'add-quantity' cart.product.id %}" class="">
-                            {% csrf_token %}
-                            <button type="submit"><i class="fas fa-plus"></i></button>
-                        </form>
-                    </td>
-
-                    <td class="px-5">
-                        <p class="text-muted text-right">
-                            {{ cart.product_price }} Euro
-                        </p>
-
-                    </td>
-                    <td class="px-5 text-center">
-                        <form action="{% url 'remove-from-cart' cart.product.id %}" method="POST">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-lg text-center">
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
-                        </form>
-                    </td>
-                </tr>
-
-                {% endfor %}
-
-            </table>
-        </div>
-    </div>
-
-
-
-    <form action="{% url 'checkout' %}" method="POST">
-        {% csrf_token %}
-        <div class="row">
-            <div class="col-12 text-dark">
-
-                <!-- ====================== -->
-                <!--    Shipping Address    -->
-                <!-- ====================== -->
-
-                <div id="div_id_shipping_address" class="my-5">
-                    <label for="id_shipping_address" class="form-label text-dark fw-bold">
-                        Shipping Address
-                        <span class="asteriskField">*</span>
-                    </label>
-                    {% if shipping_address.exists %}
-                    <select name="shipping_address" autofocus="True" class="select form-select" id="id_shipping_address"
-                        required>
-                        <option value="" selected="">---------</option>
-
-                        {% for address in shipping_address %}
-
-                        <option value="{{ address.id }}" class="text-black">
-                            {{ address.shipping_name }} - {{ address.address_street }},
-                            {{ address.apartment_number }} - {{ address.city }}
-                        </option>
-
-                        {% endfor %}
-
-                    </select>
-
-                    {% else %}
-
-                    <span class="form-control border-2 border-danger text-danger fw-bold">
-                        No Shipping Address Available! Click
-                        <a href="{% url 'shipping-address-add' %}">
-                            Shipping Address
-                        </a>
-                        here to register your Address!
-                    </span>
-
-                    {% endif %}
+        <div class="col-10 col-md-6 col-lg-8 order-last order-md-first">
+            <div class="card mb-4 rounded-3">
+                <div class="card-header py-3 bg-dark">
+                    <h5 class="fs-5 mb-0 text-yellow">Quantity Products: {{ total_products_cart }}</h5>
                 </div>
+                <div class="card-body">
 
-                <!-- ====================== -->
-                <!--  End Shipping Address  -->
-                <!-- ====================== -->
+                    {% for cart in order.cart_products.all %}
 
+                    <div class="row">
+                        <div class="col-lg-3 col-md-12 mb-4 mb-lg-0 rounded-3">
 
-                <p> Total Products: {{ total_products_cart }} </p>
+                            <div class="rounded-3">
+                                {% if cart.product.image %}
 
-                <p> Price Cart: {{ total_price_cart }}</p>
+                                <a href="{% url 'product_details' cart.product.slug %}">
+                                    <img src="{{ cart.product.image.url }}" class="card-img-top img-fluid rounded-3"
+                                        alt="Image {{ cart.product.title }}">
+                                </a>
 
-                <p> Delivery Cost:
-                    {% if delivery_cost == 0 %}
-                    FREE
-                    {% else %}
-                    {{ delivery_cost }} Euro
-                    {% endif %}
-                </p>
+                                {% else %}
 
-            </div>
-        </div>
+                                <a href="{% url 'product_details' cart.product.slug %}">
+                                    <img src="{{ MEDIA_URL }}no-image-placeholder.webp"
+                                        class="card-img-top img-fluid rounded-3" alt="Image {{ cart.product.title }}">
+                                </a>
 
-        <button type="submit" class="btn btn-lg">Checkout</button>
-    </form>
+                                {% endif %}
+                            </div>
 
-    {% else %}
+                        </div>
 
-    <div class="hero-image rounded-3 mb-5"
-        style="background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.1)), url('{% static "images/cart.webp" %}'); height: 600px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 my-5 p-3">
-                    <div class="text-align-left">
-                        <h1 class="fs-2 text-yellow">Your Cart is Empty!</h1>
-                        <p class="fs-5 text-light">
-                            Milions of New and Used Products are available for you in our shop!
-                            If you are looking for a new <strong class="text-yellow">Smartphone</strong>,
-                            a new <strong class="text-yellow">Appliance</strong> or an used
-                            <strong class="text-yellow">TV</strong> we have them all!
-                            What's are you waiting for!
-                        </p>
-                        <a href="{% url 'all_products' %}" class="btn btn-dark rounded-3 btn-lg">
-                            <span class="text-uppercase text-yellow">Go Shopping</span>
-                        </a>
+                        <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+
+                            <p class="fs-5" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                data-bs-title="{{ cart.product.title }}">
+                                <strong>{{ cart.product.title|truncatechars:30 }}</strong>
+                            </p>
+                            <p><strong>Condition:</strong>
+                                {% if cart.product.product_status == 0 %}
+                                <span class="card-text">New</span>
+                                {% else %}
+                                <span class="card-text">Used</span>
+                                {% endif %}
+                            </p>
+
+                            <div>
+                                <ul class="list-unstyled">
+                                    <div>
+                                        {% if cart.product.discounted_price %}
+                                        <li class="text-dark">
+                                            <strong>Sale Price:</strong>
+                                            {{ cart.product.discounted_price }} Euro
+                                        </li>
+
+                                        <li class="text-muted">
+                                            <span>
+                                                <strong>Price:</strong>
+                                                <del>{{ cart.product.price }} Euro</del>
+                                            </span>
+                                        </li>
+
+                                        {% else %}
+
+                                        <li class="text-dark mb-3">
+                                            <strong>Price:</strong>{{ cart.product.price }} Euro</li>
+                                        {% endif %}
+                                    </div>
+                                </ul>
+                            </div>
+
+                            <form action="{% url 'remove-from-cart' cart.product.id %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-lg text-center" data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom" data-bs-title="Remove from Cart">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </form>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                            <!-- Quantity -->
+                            <p class="fs-6"><strong>Quantity</strong></p>
+                            <div class="d-flex mb-4">
+                                <form method="POST" action="{% url 'remove-quantity' cart.product.id %}" class="">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-dark rounded-3 text-yellow"
+                                        data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                        data-bs-title="Remove Quantity from Cart"><i class="fas fa-minus"></i></button>
+                                </form>
+
+                                <div class="">
+                                    <p class="fs-5 mx-3">{{ cart.quantity }}</p>
+                                </div>
+
+                                <!-- Form to add Quantity -->
+                                <form method="POST" action="{% url 'add-quantity' cart.product.id %}" class="">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-dark rounded-3 text-yellow"
+                                        data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                        data-bs-title="Add Quantity to Cart"><i class="fas fa-plus"></i></button>
+                                </form>
+                            </div>
+                            <!-- Quantity -->
+
+                            <!-- Price -->
+                            <p class="text-start">
+                                Final Price: <strong>{{ cart.product_price }} Euro</strong>
+                            </p>
+                            <!-- Price -->
+                        </div>
                     </div>
+
+                    <hr class="my-3" />
+
+                    {% endfor %}
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-10 col-md-6 col-lg-4 order-first order-md-last">
+            <div class="card mb-4 rounded-3">
+                <div class="card-header py-3 bg-dark">
+                    <h5 class="fs-5 mb-0 text-yellow">Summary</h5>
+                </div>
+                <div class="card-body">
+                    <form action="{% url 'checkout' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-12 text-dark">
+                                <h3> Select your shipping address from the list below to proceed to the Checkout! </h3>
+                                <!-- ====================== -->
+                                <!--    Shipping Address    -->
+                                <!-- ====================== -->
+
+                                <div id="div_id_shipping_address" class="mt-3 mb-5">
+                                    <label for="id_shipping_address" class="form-label text-dark fw-bold">
+                                        Shipping Address
+                                        <span class="asteriskField">*</span>
+                                    </label>
+                                    {% if shipping_address.exists %}
+                                    <select name="shipping_address" autofocus="True" class="select form-select"
+                                        id="id_shipping_address" required>
+                                        <option value="" selected="">---------</option>
+
+                                        {% for address in shipping_address %}
+
+                                        <option value="{{ address.id }}" class="text-black">
+                                            {{ address.shipping_name }} -
+                                            {{ address.address_street|truncatechars:15}},
+                                            {{ address.apartment_number }}
+                                        </option>
+
+                                        {% endfor %}
+
+                                    </select>
+
+                                    {% else %}
+
+                                    <span class="form-control border-2 border-danger text-danger fw-bold">
+                                        No Shipping Address Available! Click
+                                        <a href="{% url 'shipping-address-add' %}">
+                                            Shipping Address
+                                        </a>
+                                        here to register your Address!
+                                    </span>
+
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ====================== -->
+                        <!--  End Shipping Address  -->
+                        <!-- ====================== -->
+
+                        <ul class="list-unstyled">
+                            <li class="d-flex justify-content-between align-items-center border-0 px-0 mb-2">
+                                Quantity Products:
+                                <span>{{ total_products_cart }}</span>
+                            </li>
+                            <li class="d-flex justify-content-between align-items-center border-0 px-0 mb-2">
+                                Delivery:
+                                <span>
+                                    {% if delivery_cost == 0 %}
+                                    FREE
+                                    {% else %}
+                                    {{ delivery_cost }} Euro
+                                    {% endif %}</span>
+                            </li>
+                            <hr class="w-100 mx-auto my-0 text-dark" style="height:2px;" />
+                            <li
+                                class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                                <div>
+                                    <strong class="fs-5">Total amount: </strong>
+                                </div>
+                                <span><strong class="fs-5">{{ total_price_cart }} Euro</strong></span>
+                            </li>
+                        </ul>
+
+                        <button type="submit" class="btn btn-lg btn-yellow text-dark rounded-3">Checkout</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-
-    {% endif %}
-
 </section>
+
 
 {% else %}
-<section class="container mb-5">
-    <div class="row">
-        <div class="col">
-            <div class="my-5 py-5">
-                {% include 'dashboard/includes/auth-error.html' %}
+
+<div class="hero-image rounded-3 mb-5" style="background-image: url('{% static "images/cart.webp" %}'); height: 800px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-10 my-5 p-3 images-text-cart">
+                <div class="text-align-left">
+                    <h1 class="fs-2 text-yellow">Opss...Your Cart is still Empty!</h1>
+
+                    <p class="fs-5 text-light">
+                        If you are looking for a new <strong
+                            class="text-yellow text-uppercase fst-italic">Smartphone</strong>,
+                        a new <strong class="text-yellow text-uppercase fst-italic">Appliance</strong> or an used
+                        <strong class="text-yellow text-uppercase fst-italic">TV</strong> we have them all!
+                        What are you waiting for!
+                    </p>
+                    <a href="{% url 'all_products' %}" class="btn btn-dark rounded-3 btn-lg mb-2">
+                        <span class="text-uppercase text-yellow fst-italic">Go Shopping</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-</section>
+</div>
 
 {% endif %}
+
+{% else %}
+
+<div class="hero-image rounded-3 mb-5" style="background-image: url('{% static "images/cart.webp" %}'); height: 800px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-10 my-5 p-3 images-text-cart">
+                <div class="text-align-left">
+                    <h1 class="fs-2 text-yellow">Looks like you are not sign in!</h1>
+                    <p class="fs-5 text-light">
+                        Milions of New and Used Products are available for you in our shop!
+                    </p>
+                    <p class="fs-5 text-light">
+                        Do you need a New <strong class="text-yellow text-uppercase fst-italic">Smartphone</strong>,
+                        new <strong class="text-yellow text-uppercase fst-italic">Appliances</strong> or used
+                        <strong class="text-yellow text-uppercase fst-italic">TV</strong>??? We have them all!
+                        What are you waiting for! Sign In if you already have an Horizon Shop Account or Sign Up
+                        Today and join milions of other happy customers!
+                    </p>
+                    <a class="btn btn-dark rounded-3 btn-lg mb-2" href="{% url 'account_signup' %}">
+                        <span class="text-uppercase text-yellow fst-italic">Sign Up</span>
+                    </a>
+
+                    <a class="btn btn-dark rounded-3 btn-lg mb-2" href="{% url 'account_login' %}">
+                        <span class="text-uppercase text-light fst-italic">Sign In</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endif %}
+
+</section>
 
 {% endblock %}

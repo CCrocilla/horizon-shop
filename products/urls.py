@@ -12,6 +12,7 @@ from .views import NewProductsListView
 from .views import UsedProductsListView
 from .views import ProductDetailsView
 from .views import SearchByView
+from .views import SearchBySubCategoryView
 
 
 urlpatterns = [
@@ -29,9 +30,13 @@ urlpatterns = [
          UsedProductsListView.as_view(),
          name='used_products'
          ),
-    path('search_by/<slug:search_slug>/',
+    path('search-by/category/<slug:search_slug>/',
          SearchByView.as_view(),
          name='search_by'
+         ),
+    path('search-by/subcategory/<slug:slug_sub_cat>/',
+         SearchBySubCategoryView.as_view(),
+         name='search_by_sub_cat'
          ),
     path('<slug:slug>/details/',
          ProductDetailsView.as_view(),

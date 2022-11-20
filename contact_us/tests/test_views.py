@@ -29,7 +29,7 @@ class TestViews(TestCase):
         # Check if response is 200.
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'contact_us/contact-us.html')
-    
+
     def test_GET_view_terms_and_condition(self):
         # GET Request
         response = self.client.get(self.terms_url)

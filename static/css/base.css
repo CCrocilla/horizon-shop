@@ -215,7 +215,6 @@ Carousel Hero & Testimonials
 Hero Banner
 ---------------------------------------------------------------*/
 .bg-hero {
-    /* background: linear-gradient(90deg, rgba(29, 39, 59, 1) 24%, rgba(9, 70, 121, 1) 35%, rgba(0, 212, 255, 0) 60%); */
     background: linear-gradient(90deg, rgba(29, 39, 59, 0.9) 30%, rgba(29, 35, 62, 0.5) 60%);
 }
 
@@ -313,7 +312,17 @@ Contact Us & Bookings Background Images
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
+    color: #FFFFFF;
+}
+
+.images-text-cart {
+    height: fit-content;
+    text-align: center;
+    color: #FFFFFF;
+    padding: 30px;
+    margin: 40px auto;
+    background-color: rgba(29, 39, 59, 0.9);
+    border-radius: 35px;
 }
 
 
@@ -927,15 +936,15 @@ Dashboard
 }
 
 .sb-sidenav-dark .sb-sidenav-menu .nav-link:hover {
-    color: #fff;
+    color: #F59F00;
 }
 
 .sb-sidenav-dark .sb-sidenav-menu .nav-link.active {
-    color: #fff;
+    color: #F59F00;
 }
 
 .sb-sidenav-dark .sb-sidenav-menu .nav-link.active .sb-nav-link-icon {
-    color: #fff;
+    color: #F59F00;
 }
 
 .sb-sidenav-dark .sb-sidenav-footer {
@@ -987,7 +996,9 @@ Dashboard
     background-color: #1D273B;
 }
 
-/* Stripe */
+/*************************************
+Stripe 
+*************************************/
 .StripeElement,
 .stripe-style-input {
     box-sizing: border-box;
@@ -1081,6 +1092,10 @@ Tabler
     box-shadow: 0 0.5rem 1rem 0rem rgba(0, 0, 0, .5) !important;
 }
 
+.dropdown-item:hover {
+    color: #F59F00;
+    background-color: #181D31;
+}
 
 /*-------------------------------
 Messages
@@ -1123,4 +1138,14 @@ Messages
         left: 10px;
         right: 10px;
     }
+}
+
+
+/*--------------------------------------------------------------
+Background Images
+--------------------------------------------------------------*/
+.bg-cb-image {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }

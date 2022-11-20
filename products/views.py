@@ -115,6 +115,22 @@ class SearchByView(View):
         return render(request, self.template_name, context)
 
 
+class SearchBySubCategoryView(View):
+    model = Product()
+    template_name = 'products/search_by.html'
+
+    def get(self, request, slug_sub_cat):
+        subcategory = get_object_or_404(SubCategory, slug=slug_sub_cat)
+        products = Product.objects.filter(subcategory=subcategory, is_deleted=False)
+
+        context = {
+                'products': products,
+                'subcategory': subcategory,
+            }
+
+        return render(request, self.template_name, context)
+
+
 class NewProductsListView(View):
     """
     Class to display Only New Products

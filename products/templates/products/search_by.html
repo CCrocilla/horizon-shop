@@ -3,17 +3,51 @@
 {% load static %}
 
 {% block content %}
+
+<section class="container">
+    <div class="row">
+        <div class="col m-4 m-lg-5">
+
+        </div>
+    </div>
+</section>
+
 <section class="container">
     <div class="row">
         <div class="col">
-            <div class="my-5 py-5">
+            <div class="mb-5">
+                {% if category %}
+
                 <h1 class="text-center text-dark">Category Products List</h1>
+                <hr class="w-25 mx-auto my-0 text-dark" style="height:2px;" />
 
                 <ol class="breadcrumb mb-4">
-                    <li class="active">Category Products: </li>
+                    <h3 class="active">Category Products: <span class="badge bg-dark">{{ category }}</span> </h3>
                 </ol>
 
-                <div class="row d-flex align-items-center">
+                <!-- ===================== -->
+                <!--    Product Sorting    -->
+                <!-- ===================== -->
+                {% include 'products/includes/search-by-products-sorting.html' %}
+
+                {% else %}
+
+                <h1 class="text-center text-dark">Sub-Category Products List</h1>
+                <hr class="w-25 mx-auto my-0 text-dark" style="height:2px;" />
+
+                <ol class="breadcrumb mb-4">
+                    <h3 class="active">Sub-Category Products: <span class="badge bg-dark">{{ subcategory }}</span>
+                    </h3>
+                </ol>
+
+                <!-- ===================== -->
+                <!--    Product Sorting    -->
+                <!-- ===================== -->
+                {% include 'products/includes/search-by-products-sorting.html' %}
+
+                {% endif %}
+
+                <div class="row d-flex align-items-center mt-5">
 
                     {% for product in products %}
 
