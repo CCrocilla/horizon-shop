@@ -71,7 +71,9 @@ class CustomerExtraForm(ModelForm):
         }
 
         widgets = {'avatar': forms.FileInput(
-            attrs={'class': 'form-control form-control-file border border-dark rounded-3'}), }
+            attrs={
+                'class': 'form-control form-control-file border rounded-3'
+                }), }
 
 
 class ShippingAddressForm(ModelForm):
@@ -148,6 +150,12 @@ class CategoryForm(ModelForm):
 
 
 class SubCategoryForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(SubCategoryForm, self).__init__(*args, **kwargs)
+        self.fields[
+            'category'].queryset = Category.objects.filter(is_deleted=False)
+        self.fields['category'].widget.attrs['autofocus'] = True
+
     """ Form Category """
     class Meta:
         model = SubCategory

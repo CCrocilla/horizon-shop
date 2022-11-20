@@ -6,6 +6,8 @@ from django_resized import ResizedImageField
 
 from django_countries.fields import CountryField
 
+from home.models import SoftDeleteModel
+
 
 class Customer(models.Model):
     customer = models.OneToOneField(
@@ -32,7 +34,7 @@ class Customer(models.Model):
         return self.customer.username
 
 
-class ShippingAddress(models.Model):
+class ShippingAddress(SoftDeleteModel):
     created_by = models.ForeignKey(
         User,
         null=True, blank=True,

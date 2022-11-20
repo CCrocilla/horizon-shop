@@ -34,11 +34,15 @@ from .views import CategoryAddView
 from .views import CategoryListView
 from .views import CategoryUpdateView
 from .views import CategoryDeleteView
+from .views import CategoryRestoreView
+from .views import CategoriesDeletedListView
 
 from .views import SubCategoryAddView
 from .views import SubCategoryListView
 from .views import SubCategoryUpdateView
 from .views import SubCategoryDeleteView
+from .views import SubCategoryRestoreView
+from .views import SubCategoriesDeletedListView
 
 from products_wishlist.views import WishlistView
 from products_wishlist.views import AddToWishlistView
@@ -170,8 +174,18 @@ urlpatterns = [
         ),
     path(
         'category/<int:pk>/delete',
-        CategoryDeleteView.as_view(),
+        CategoryDeleteView,
         name='category-delete'
+        ),
+    path(
+        'category/<int:pk>/restore',
+        views.CategoryRestoreView,
+        name='category-restore'
+        ),
+    path(
+        'deleted/category/list',
+        CategoriesDeletedListView.as_view(),
+        name='deleted-category-list'
         ),
     ##########################################
     #           Sub-Category Paths           #
@@ -193,8 +207,18 @@ urlpatterns = [
         ),
     path(
         'sub-category/<int:pk>/delete',
-        SubCategoryDeleteView.as_view(),
+        SubCategoryDeleteView,
         name='subcategory-delete'
+        ),
+    path(
+        'sub-category/<int:pk>/restore',
+        views.SubCategoryRestoreView,
+        name='subcategory-restore'
+        ),
+    path(
+        'deleted/sub-category/list',
+        SubCategoriesDeletedListView.as_view(),
+        name='deleted-subcategory-list'
         ),
     ##########################################
     #           Testimonial Paths            #

@@ -144,7 +144,7 @@ class ShippingAddressListView(ListView):
         Return a list of all the Shipping Address
         for the authenticated user.
         """
-        queryset = ShippingAddress.objects.filter(created_by=self.request.user)
+        queryset = ShippingAddress.objects.filter(created_by=self.request.user, is_deleted=False)
         return queryset
 
 
@@ -382,6 +382,11 @@ class CategoryListView(ListView):
     ordering = ['name']
     fields = ['name', ]
 
+    def get_queryset(self):
+        queryset = Category.objects.filter(is_deleted=False)
+
+        return queryset
+
 
 class CategoryUpdateView(SuccessMessageMixin, UpdateView):
     """
@@ -394,14 +399,43 @@ class CategoryUpdateView(SuccessMessageMixin, UpdateView):
     success_message = "Category updated successfully!"
 
 
-class CategoryDeleteView(SuccessMessageMixin, DeleteView):
+class CategoriesDeletedListView(ListView):
     """
-    Class to delete Category
+    Class to display the Deleted Categories
     """
     model = Category
-    template_name = 'dashboard/admin/category-delete.html'
-    success_url = reverse_lazy('category-list')
-    success_message = "Category deleted successfully!"
+    template_name = 'dashboard/admin/deleted-category-list.html'
+    ordering = ['name']
+    fields = '__all__'
+
+    def get_queryset(self):
+        queryset = Category.objects.filter(is_deleted=True)
+
+        return queryset
+
+
+def CategoryDeleteView(request, pk):
+    """ Soft Delete a Category from the store """
+    category = get_object_or_404(Category, id=pk)
+    category.soft_delete()
+
+    messages.success(
+        request,
+        f'Category {category.name} deleted successfully!'
+        )
+    return redirect(reverse('category-list'))
+
+
+def CategoryRestoreView(request, pk):
+    """ Restore a category from the Deleted Categories List """
+    category = get_object_or_404(Category, id=pk)
+    category.restore()
+
+    messages.success(
+        request,
+        f'Category {category.name}  restored successfully!'
+        )
+    return redirect(reverse('category-list'))
 
 
 ################################
@@ -457,26 +491,61 @@ class SubCategoryListView(ListView):
     ordering = ['name']
     fields = ['category', 'name', ]
 
+    def get_queryset(self):
+        queryset = SubCategory.objects.filter(is_deleted=False)
+
+        return queryset
+
 
 class SubCategoryUpdateView(SuccessMessageMixin, UpdateView):
     """
     Class to update Sub-Category
     """
     model = SubCategory
+    form_class = SubCategoryForm
     template_name = 'dashboard/admin/sub-category-update.html'
-    fields = ['category', 'name', ]
     success_url = reverse_lazy('subcategory-list')
     success_message = "Sub-Category updated successfully!"
 
 
-class SubCategoryDeleteView(SuccessMessageMixin, DeleteView):
+class SubCategoriesDeletedListView(ListView):
     """
-    Class to delete Sub-Category
+    Class to display the Deleted Categories
     """
     model = SubCategory
-    template_name = 'dashboard/admin/sub-category-delete.html'
-    success_url = reverse_lazy('subcategory-list')
-    success_message = "Category deleted successfully!"
+    template_name = 'dashboard/admin/deleted-subcategory-list.html'
+    ordering = ['name']
+    fields = '__all__'
+
+    def get_queryset(self):
+        queryset = SubCategory.objects.filter(is_deleted=True)
+
+        return queryset
+
+
+def SubCategoryDeleteView(request, pk):
+    """ Soft Delete a Sub-Category from the store """
+    subcategory = get_object_or_404(SubCategory, id=pk)
+    subcategory.soft_delete()
+
+    messages.success(
+        request,
+        f'Sub-Category {subcategory.name} deleted successfully!'
+        )
+    return redirect(reverse('subcategory-list'))
+
+
+def SubCategoryRestoreView(request, pk):
+    """ Restore a Sub-Category from the Deleted Sub-Categories List """
+
+    subcategory = get_object_or_404(SubCategory, id=pk)
+    subcategory.restore()
+
+    messages.success(
+        request,
+        f'Sub-Category {subcategory.name}  restored successfully!'
+        )
+    return redirect(reverse('subcategory-list'))
 
 
 ################################

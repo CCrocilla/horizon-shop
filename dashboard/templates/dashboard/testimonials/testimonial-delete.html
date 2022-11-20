@@ -16,25 +16,27 @@
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-12 col-md-10 col-lg-8">
-                <div class="card rounded-3">
+                <div class="card bg-dark rounded-3">
                     <form method="POST">
                         {% csrf_token%}
                         <div class="modal-dialog">
                             <div class="modal-content">
-                                <div class="modal-header m-3">
-                                    <h1 class="modal-title text-center fs-5" id="staticBackdropLabel">Are you sure?</h1>
+                                <div class="modal-header d-flex justify-content-center bg-yellow">
+                                    <h1 class="fs-4 modal-title d-flex justify-content-center text-center text-dark"
+                                        id="staticBackdropLabel">Are you sure?</h1>
                                 </div>
-                                <div class="modal-body m-3">
-                                    By Clicking Confirm the Testimonial will be deleted and you will be redirected
-                                    to the previous page!
+                                <div class="fs-6 modal-body d-flex justify-content-center m-3 text-yellow text-center">
+                                    <p>By Clicking <strong>Delete</strong> the Sub-Category will be deleted and you will
+                                        be redirected to the previous page!
+                                    </p>
                                 </div>
                                 <div class="modal-footer m-3">
                                     <a href="{% url 'testimonials-list' %}"
-                                        class="my-2 btn btn-sm-minwidth btn-outline-primary rounded-3"
+                                        class="m-2 btn btn-sm-minwidth btn-outline-primary rounded-3"
                                         aria-label="Back">Back
                                     </a>
                                     <button type="submit"
-                                        class="my-2 btn btn-sm-minwidth btn-outline-danger rounded-3">Delete</button>
+                                        class="m-2 btn btn-sm-minwidth btn-outline-danger rounded-3">Delete</button>
                                 </div>
                             </div>
                         </div>
@@ -44,6 +46,8 @@
         </div>
     </div>
 </div>
+
+
 
 
 {% else %}

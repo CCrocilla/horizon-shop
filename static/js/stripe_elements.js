@@ -76,11 +76,8 @@ function handlerSubmit(event) {
                 var form = document.getElementById('payment-form');
                 console.log('Succeeded')
                 form.removeEventListener('submit', handlerSubmit);
-                setTimeout(() => {
-                    console.log("Redirect")
-                    var form = document.getElementById('payment-form');
-                    form.submit()
-                }, 3000);
+                var form = document.getElementById('payment-form');
+                form.submit()
             }
         }
     });

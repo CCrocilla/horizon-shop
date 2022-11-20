@@ -37,7 +37,7 @@
             {% else %}
 
             <a href="{% url 'product_details' product.slug %}">
-                <img src="{{ MEDIA_URL }}no-image-placeholder.webp" class="img-fluid img-card-products rounded-3"
+                <img src="{{ MEDIA_URL }}no-image-placeholder.png" class="img-fluid img-card-products rounded-3"
                     alt="Image {{ product.title }}">
             </a>
 
@@ -174,8 +174,8 @@
                                 {% csrf_token%}
                                 {{ rating_form|crispy }}
                             </div>
-                            <h2 class=" fs-5 text-dark">How much do you rate this product?</h2>
-                            <p class="text-muted">Only one rating per product/customer is allowed!</p>
+                            <h2 class=" fs-5 text-yellow">How much do you rate this product?</h2>
+                            <p class="text-muted text-yellow">Only one rating per product/customer is allowed!</p>
                             <div class="row">
                                 <div class="col">
                                     <div class="rating">
