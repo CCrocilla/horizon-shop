@@ -8,6 +8,7 @@ from django.conf import settings
 
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
+from smtplib import SMTPException
 
 from horizon_shop.settings import DEFAULT_FROM_EMAIL
 
@@ -136,25 +137,26 @@ def stripe_webhook(request):
     if event['type'] == 'charge.succeeded':
         intent = event['data']['object']
 
-        customer_email = intent["receipt_email"]
+        customer_email = intent['receipt_email']
 
         order_id = intent["metadata"]["order_id"]
         order = Order.objects.get(id=order_id)
 
-        print("I AM HERE BEFORE THE SEND")
-        send_mail(
-            subject=render_to_string(
-                'text_emails/email-order-subject.txt',
-                {'order': order}
-                ),
-            message=render_to_string(
-                'text_emails/email-order-succeeded.txt',
-                {'order': order, 'contact_email': DEFAULT_FROM_EMAIL}
-                ),
-            recipient_list=[customer_email],
-            from_email=[DEFAULT_FROM_EMAIL],
+        try:
+            send_mail(
+                subject=render_to_string(
+                    'text_emails/email-order-subject.txt',
+                    {'order': order}
+                    ),
+                message=render_to_string(
+                    'text_emails/email-order-succeeded.txt',
+                    {'order': order, 'contact_email': DEFAULT_FROM_EMAIL}
+                    ),
+                recipient_list=[customer_email, ],
+                from_email=DEFAULT_FROM_EMAIL,
             )
-        print("I AM HERE AFTER THE SEND")
+        except SMTPException as e:
+            print('There was an error sending an email: ', e)
 
         PaymentSuccess(request, order_id)
 
