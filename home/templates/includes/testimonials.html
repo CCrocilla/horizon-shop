@@ -9,7 +9,7 @@
     </svg>
     <div class="container">
         <div class="row text-center text-white">
-            <h1 class="display-3 fw-bold text-yellow">Testimonials</h1>
+            <h2 class="display-3 fw-bold text-yellow">Testimonials</h2>
             <hr style="width: 100px; height: 3px;" class="mx-auto">
             <p class="display-6 lead pt-1 text-white">Our Clients Voices!!! </p>
         </div>
@@ -23,7 +23,7 @@
                     <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}" data-bs-interval="5000">
                         <!-- testimonials card  -->
                         <div class="testimonial-card">
-                            <p class="lh-lg text-dark">
+                            <div class="lh-lg text-dark mt-1 mb-3">
                                 <i class="fas fa-quote-left text-dark "></i>
                                 {{ testimonial.comment }}
                                 <i class="fas fa-quote-right text-dark"></i>
@@ -34,7 +34,7 @@
                                     {% endfor %}
                                     {% endwith %}
                                 </div>
-                            </p>
+                            </div>
                         </div>
                         <!-- Client Picture  -->
                         {% if testimonial.created_by.customer.avatar %}

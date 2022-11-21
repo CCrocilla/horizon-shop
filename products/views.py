@@ -42,16 +42,6 @@ def subcategories(request):
     }
 
 
-# def subcategories(request):
-#     categories = Category.objects.all()
-#     for category in categories:
-#         subcategories = SubCategory.objects.filter(category=category)
-#         print(subcategories)
-#     return {
-#         'subcategories': subcategories
-#     }
-
-
 class AllProductsListView(View):
     """
     Class to display Users' Dashboard

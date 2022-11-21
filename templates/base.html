@@ -95,7 +95,7 @@
                             </li>
                             <li class="btn btn-link">
                                 <i class="fa fa-phone fa-fw"></i>
-                                <a class="text-decoration-none text-white" href="tel:+353 (0) 123456789">
+                                <a class="text-decoration-none text-white" href="tel:+353(0)123456789">
                                     +353 (0) 123456789
                                 </a>
                             </li>
@@ -165,9 +165,9 @@
     {% block postloadjs %}
     <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta12/dist/js/tabler.min.js"></script>
     <!-- MailChimp Javascript -->
-    <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'>
+    <script src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'>
     </script>
-    <script type='text/javascript'>
+    <script>
         (function ($) {
             window.fnames = new Array();
             window.ftypes = new Array();
@@ -176,8 +176,10 @@
         }(jQuery));
         var $mcj = jQuery.noConflict(true);
     </script>
-    <!-- Stripe -->
-    <script src="https://js.stripe.com/v3/"></script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     {% endblock %}
 
 </body>

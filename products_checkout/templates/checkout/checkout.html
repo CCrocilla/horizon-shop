@@ -46,9 +46,9 @@
                     {% csrf_token %}
 
                     <div class="card-body">
-                        <!-- ----------------- -->
-                        <!--  Account Details  -->
-                        <!-- ----------------- -->
+                        <!-- ======================= -->
+                        <!--     Account Details     -->
+                        <!-- ======================= -->
                         <div class="card-body">
                             <legend class="fieldset-label text-dark px-2 w-auto"> Account Details</legend>
                             <div>
@@ -93,13 +93,13 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- ----------------------- -->
+                        <!-- ======================= -->
                         <!--   End Account Details   -->
-                        <!-- ----------------------- -->
+                        <!-- ======================= -->
 
-                        <!-- ---------------------- -->
-                        <!--    Shipping Address    -->
-                        <!-- ---------------------- -->
+                        <!-- ======================= -->
+                        <!--     Shipping Address    -->
+                        <!-- ======================= -->
 
                         <div class="card-body my-4">
                             <legend class="fieldset-label text-dark px-2 w-auto">Shipping Address Details:
@@ -148,14 +148,14 @@
 
                             </div>
                         </div>
-                        <!-- ---------------------- -->
-                        <!--  End Shipping Address  -->
-                        <!-- ---------------------- -->
+                        <!-- ======================= -->
+                        <!--   End Shipping Address  -->
+                        <!-- ======================= -->
 
 
-                        <!-- ------------------ -->
-                        <!-- Product's Summary  -->
-                        <!-- ------------------ -->
+                        <!-- ======================= -->
+                        <!--    Product's Summary    -->
+                        <!-- ======================= -->
                         <div class="card-body">
                             <legend class="fieldset-label text-dark px-2 w-auto">Products Summary</legend>
                             <div class="row my-5">
@@ -238,9 +238,9 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- ---------------------- -->
-                        <!-- End Product's Summary  -->
-                        <!-- ---------------------- -->
+                        <!-- ======================= -->
+                        <!--  End Product's Summary  -->
+                        <!-- ======================= -->
 
                         <div class="card-body">
                             <div class="row my-3">
@@ -314,6 +314,9 @@
 {{ block.super }}
 {{ stripe_public_key|json_script:"id_stripe_public_key" }}
 {{ client_secret|json_script:"id_client_secret" }}
+
+<!-- Stripe -->
+<script src="https://js.stripe.com/v3/"></script>
 <script src="{% static 'js/stripe_elements.js' %}"></script>
 
 {% endblock %}

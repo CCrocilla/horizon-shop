@@ -98,20 +98,7 @@ def RemoveFromCart(request, product_id):
         for product in products:
             try:
                 order.cart_products.remove(product)
-                # TO DO: The Orphan does not cancel all the Item from the Cart.
-                # to_be_remove = order.cart_products.through.objects.filter(
-                # cartproducts_id=product.id)
-                # print("Elements to_be_remove:")
-                # print(to_be_remove.all().values())
-
-                # product_found = to_be_remove.count()
-                # if product_found > 0:
-                #     to_be_remove.delete()
-                #     print("List of Products:")
-                #     print(product)
-                #     CartProducts.objects.filter(cartproducts_id=product.id).delete()
-                # else:
-                #     print('Product not found!')
+                
             except Exception as e:
                 print(e)
 
@@ -156,22 +143,19 @@ def AddQuantityProduct(request, product_id):
             order = order[0]
             product_found = None
             try:
-                print("SUCCESS0")
                 product_found = order.cart_products.get(
                     created_by=request.user, product=product)
-                print("SUCCESS1")
-                print(product_found)
-
                 product_found.quantity += 1
-                print("SUCCESS2")
-
                 product_found.save()
-                print("SUCCESS3")
 
                 messages.success(request, 'Quantity Updated!')
 
             except ObjectDoesNotExist:
-                print("DENIED")
+                messages.error(
+                    request,
+                    'Something went wrong! Please try again!'
+                    )
+                return HttpResponseRedirect(reverse('cart', ))
 
                 product_not_found = CartProducts.objects.create(
                     created_by=request.user, product=product)
@@ -180,7 +164,10 @@ def AddQuantityProduct(request, product_id):
             finally:
                 return HttpResponseRedirect(reverse('cart', ))
         else:
-            messages.error(request, 'Something went wrong! Please try again!')
+            messages.error(
+                request,
+                'Something went wrong! Please try again!'
+                )
             return HttpResponseRedirect(reverse('cart', ))
 
 

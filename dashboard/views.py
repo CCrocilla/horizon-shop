@@ -67,7 +67,6 @@ class CustomerView(LoginRequired, View):
     template_name = 'dashboard/customer/customer.html'
 
     def get(self, request):
-        print("IN THE GET!!!")
         """ Function to retrive data for Booking """
         customer_form = CustomerForm(instance=request.user)
         customer_extra_form = CustomerExtraForm(instance=request.user.customer)
@@ -80,7 +79,6 @@ class CustomerView(LoginRequired, View):
 
     def post(self, request, *args, **kwargs):
         """ Post Function Booking """
-        print("INSIDE THE POST!!!")
         customer_form = CustomerForm(
             request.POST, instance=request.user
             )
@@ -89,9 +87,7 @@ class CustomerView(LoginRequired, View):
             )
 
         if customer_form.is_valid():
-            print("I AM VALID: CUSTOMER_EXTRA")
             if customer_extra_form.is_valid():
-                print("I AM VALID: CUSTOMER_FORM")
                 customer_form.save()
                 customer_extra_form.save()
 

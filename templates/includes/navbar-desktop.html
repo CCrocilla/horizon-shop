@@ -1,13 +1,13 @@
 {% load static %}
 
-<header class="navbar navbar-expand-lg navbar-dark d-print-none">
+<div class="navbar navbar-expand-lg navbar-dark d-print-none">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu">
             <span class="navbar-toggler-icon"></span>
         </button>
         <h1 class="ms-2 navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
-            <a class="text-decoration-none" href="{% url 'homepage' %}">
-                <h1 class="fs-1 text-decoration-none text-yellow">Horizon Shop</h1>
+            <a class="fs-1 text-decoration-none text-yellow" href="{% url 'homepage' %}">
+                Horizon Shop
             </a>
         </h1>
 
@@ -126,14 +126,13 @@
             </div>
         </div>
     </div>
-</header>
+</div>
 <div class="navbar-expand-lg">
     <div class="collapse navbar-collapse" id="navbar-menu">
         <div class="navbar navbar-dark">
             <div class="container-fluid">
                 <ul class="navbar-nav d-flex align-items-center">
-                    <div class="sb-sidenav-menu-heading d-md-none fs-5 text-yellow">Website</div>
-                    <hr class="w-25 mx-auto my-0 d-md-none text-yellow" style="height:2px;" />
+                    <li class="sb-sidenav-menu-heading d-md-none fs-5 text-yellow">Website</li>
                     <li class="nav-item d-md-none">
                         <a class="nav-link active text-light" aria-current="page" href="{% url 'homepage' %}">
                             <span class="nav-link-title">
@@ -178,8 +177,7 @@
                         </a>
                     </li>
 
-                    <div class="sb-sidenav-menu-heading d-md-none fs-5 text-yellow mt-3">Search By</div>
-                    <hr class="w-25 mx-auto my-0 d-md-none text-yellow" style="height:2px;" />
+                    <li class="sb-sidenav-menu-heading d-md-none fs-5 text-yellow mt-4">Search By</li>
                     <li class="nav-item text-light">
                         <a class="nav-link text-light" href="{% url 'all_products' %}">
                             <span class="nav-link-title">
@@ -202,8 +200,9 @@
                         </a>
                     </li>
                     <li class="nav-item dropdown text-light">
-                        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDarkDropdownMenuLink"
-                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle text-light" href="#navbar-categories"
+                            id="navbarDarkDropdownMenuLinkCategories" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             <span class="nav-link-title pe-2">
                                 Categories
                             </span>
@@ -221,12 +220,12 @@
                         </div>
                     </li>
 
-                    <!-- ------------------------------------------ -->
+                    <!-- ========================================== -->
                     <!-- New Drop-Down Sub-Categories in Categories -->
-                    <!-- ------------------------------------------ -->
+                    <!-- ========================================== -->
                     <li class="nav-item dropdown text-light">
-                        <a class="nav-link dropdown-toggle text-light" href="#navbar-fouth"
-                            id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle text-light" href="#navbar-subcategories"
+                            id="navbarDarkDropdownMenuLinkSubCategories" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             <span class="nav-link-title pe-2">
                                 Sub-Categories
@@ -245,7 +244,6 @@
                         </div>
                     </li>
 
-                    <!-- End Drop-Down Sub-Categories in Categories -->
                 </ul>
                 <div class="mx-3 my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-lg-last">
                     <form action="{% url 'all_products' %}" method="GET" autocomplete="off" novalidate="">
