@@ -10,7 +10,7 @@
                 <h5 class="h2 text-yellow border-bottom pb-3 border-light logo">Newsletter</h5>
                 <p class="text-light">Subscribe to the newsletter for free!</p>
                 <div class="position-relative mx-auto rounded-3" style="max-width: 1200px;">
-                    <input type=" email" placeholder="Your email" value="" name="EMAIL"
+                    <input type="email" placeholder="Your email" value="" name="EMAIL"
                         class="required email form-control border-0 w-100 py-3 ps-4 pe-5 rounded-3" id="mce-EMAIL"
                         required>
 
@@ -19,6 +19,7 @@
                     <div class="optionalParent">
                         <div class="clear foot">
                             <input type="submit" value="Sign Up!" name="subscribe" id="mc-embedded-subscribe"
+                                onclick="onSubmitNewsletter()"
                                 class="btn btn-yellow py-2 position-absolute top-0 end-0 mt-2 me-2 text-dark rounded-3">
                         </div>
                     </div>
@@ -30,6 +31,28 @@
                     </div>
                 </div>
             </div>
+
+            <script>
+                function onSubmitNewsletter() {
+                    const isEmail = /^[a-z0-9.]{1,64}@[a-z0-9.]{1,64}$/i.test(document.getElementById(
+                        "mc-embedded-subscribe").value);
+                    if (!isEmail) {
+                        Toastify({
+                            backgroundColor: "linear-gradient(103deg, rgba(195,34,34,1) 6%, rgba(253,100,45,1) 100%)",
+                            text: 'Invalid Email!',
+                            duration: 3000
+                        }).showToast();
+                        return;
+                    }
+                    Toastify({
+                        backgroundColor: "linear-gradient(208.18deg, #67C3F3 9.05%, #5A98F2 76.74%)",
+                        type: "success",
+                        text: 'Thanks for your subscription!',
+                        duration: 3000
+                    }).showToast();
+                    document.getElementById("mc-embedded-subscribe").value = "";
+                }
+            </script>
         </form>
     </div>
 </div>

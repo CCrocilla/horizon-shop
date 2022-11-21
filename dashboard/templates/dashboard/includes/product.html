@@ -31,40 +31,60 @@
             </div>
             <p class="card-text">Brand: {{ product.brand }}</p>
 
-            <ul class="list-unstyled d-flex justify-content-between">
-                {% if product.get_avg_rating %}
-                <li>
-                    {% with ''|center:product.get_avg_rating as range %}
-                    {% for i in range %}
-                    <i class="fas fa-star text-yellow"></i>
-                    {% endfor %}
-                    {% endwith %}
-                </li>
-                {% else %}
-                <li> No Rating </li>
-                {% endif %}
+            {% if product.is_deleted %}
+            <div class="mb-2">
+                <span class="badge bg-danger">Out Of Stock</span>
+            </div>
+
+            {% else %}
+
+            {% if product.product_status == 0 %}
+            <p class="card-text">Condition: New</p>
+            {% else %}
+            <p class="card-text">Condition: Used</p>
+            {% endif %}
+            {% endif %}
+
+            <div class="d-flex justify-content-between">
+                <div>
+                    <ul class="list-unstyled">
+                        {% if product.get_avg_rating %}
+                        <li>
+                            {% with ''|center:product.get_avg_rating as range %}
+                            {% for i in range %}
+                            <i class="fas fa-star text-yellow"></i>
+                            {% endfor %}
+                            {% endwith %}
+                        </li>
+                        {% else %}
+                        <li> No Rating </li>
+                        {% endif %}
+                    </ul>
+                </div>
 
                 <div>
+                    <ul class="list-unstyled">
+                        {% if product.discounted_price %}
 
-                    {% if product.discounted_price %}
+                        <li class="text-dark text-right">
+                            {{ product.discounted_price }} Euro
+                        </li>
 
-                    <li class="text-dark text-right">
-                        {{ product.discounted_price }} Euro
-                    </li>
+                        <li class="text-muted text-right">
+                            <span>
+                                <del>{{ product.price }} Euro</del>
+                            </span>
+                        </li>
 
-                    <li class="text-muted text-right">
-                        <span>
-                            <del>{{ product.price }} Euro</del>
-                        </span>
-                    </li>
+                        {% else %}
 
-                    {% else %}
+                        <li class="text-dark text-right mb-4">{{ product.price }} Euro</li>
 
-                    <li class="text-dark text-right mb-3">{{ product.price }} Euro</li>
-
-                    {% endif %}
+                        {% endif %}
+                    </ul>
                 </div>
-            </ul>
+            </div>
+
             <div class="row">
                 <div class="col-12">
                     <p class="text-muted">Comments ({{ product.productcomment_set.count }})</p>

@@ -83,26 +83,24 @@
 
                             <div>
                                 <ul class="list-unstyled">
-                                    <div>
-                                        {% if cart.product.discounted_price %}
-                                        <li class="text-dark">
-                                            <strong>Sale Price:</strong>
-                                            {{ cart.product.discounted_price }} Euro
-                                        </li>
+                                    {% if cart.product.discounted_price %}
+                                    <li class="text-dark">
+                                        <strong>Sale Price:</strong>
+                                        {{ cart.product.discounted_price }} Euro
+                                    </li>
 
-                                        <li class="text-muted">
-                                            <span>
-                                                <strong>Price:</strong>
-                                                <del>{{ cart.product.price }} Euro</del>
-                                            </span>
-                                        </li>
+                                    <li class="text-muted">
+                                        <span>
+                                            <strong>Price:</strong>
+                                            <del>{{ cart.product.price }} Euro</del>
+                                        </span>
+                                    </li>
 
-                                        {% else %}
+                                    {% else %}
 
-                                        <li class="text-dark mb-3">
-                                            <strong>Price:</strong>{{ cart.product.price }} Euro</li>
-                                        {% endif %}
-                                    </div>
+                                    <li class="text-dark mb-3">
+                                        <strong>Price:</strong>{{ cart.product.price }} Euro</li>
+                                    {% endif %}
                                 </ul>
                             </div>
 

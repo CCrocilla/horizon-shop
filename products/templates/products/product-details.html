@@ -27,7 +27,7 @@
     </div>
     <div class="row">
         <div
-            class="col-10 offset-1 offset-md-0 col-md-6 col-lg-4 order-md-first border border-dark bg-dark rounded-3 py-2 mb-2">
+            class="col-10 offset-1 offset-md-0 col-md-6 col-lg-4 order-md-first border border-dark bg-light rounded-3 py-2 mb-2">
             {% if product.image %}
 
             <a href="{% url 'product_details' product.slug %}">
@@ -93,26 +93,24 @@
             </div>
             <div class="col-12 pb-3">
                 <ul class="list-unstyled">
-                    <div>
-                        {% if product.discounted_price %}
-                        <li class="fs-5 text-dark text-right">
-                            <strong>Sale Price:</strong>
-                            {{ product.discounted_price }} Euro
-                        </li>
+                    {% if product.discounted_price %}
+                    <li class="fs-5 text-dark text-right">
+                        <strong>Sale Price:</strong>
+                        {{ product.discounted_price }} Euro
+                    </li>
 
-                        <li class="fs-5 text-muted text-right">
-                            <span>
-                                <strong>Price:</strong>
-                                <del>{{ product.price }} Euro</del>
-                            </span>
-                        </li>
+                    <li class="fs-5 text-muted text-right">
+                        <span>
+                            <strong>Price:</strong>
+                            <del>{{ product.price }} Euro</del>
+                        </span>
+                    </li>
 
-                        {% else %}
+                    {% else %}
 
-                        <li class="fs-4 text-dark text-right mb-3">
-                            <strong>Price:</strong> {{ product.price }} Euro</li>
-                        {% endif %}
-                    </div>
+                    <li class="fs-4 text-dark text-right mb-3">
+                        <strong>Price:</strong> {{ product.price }} Euro</li>
+                    {% endif %}
                 </ul>
             </div>
         </div>

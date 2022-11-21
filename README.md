@@ -92,9 +92,330 @@ Best practices used in Horizon Shop for the SEO:
 
 To provide usefull information for search engines a Robot.txt and a Sitemap.xml file has also been created and added to Horizon Shop. 
 
+### robots.txt
+```
+User-agent: *
+Disallow: /accounts/
+Disallow: /dashboard/
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /wishlist/
+Sitemap: https://horizonshop.herokuapp.com/sitemap.xml
+```
+
+### sitemap.xml
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://horizonshop.herokuapp.com/</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/contact-us/</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/cart/</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/accounts/signup/</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/accounts/login/</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/all/</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/new/</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/used/</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/search-by/category/console-videogames/</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/search-by/subcategory/console/</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/search-by/subcategory/videogames/</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/ps5-3w6Hq/details/</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/ps5/details/</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/xbox-series-x-1tb-console/details/</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/contact-us/terms/</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/accounts/password/reset/</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/all/?sort=price&amp;direction=desc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/all/?sort=price&amp;direction=asc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/all/?sort=brand&amp;direction=asc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/all/?sort=brand&amp;direction=desc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/all/?sort=title&amp;direction=asc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/all/?sort=title&amp;direction=desc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/new/?sort=price&amp;direction=desc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/new/?sort=price&amp;direction=asc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/new/?sort=brand&amp;direction=asc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/new/?sort=brand&amp;direction=desc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/new/?sort=title&amp;direction=asc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/new/?sort=title&amp;direction=desc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/used/?sort=price&amp;direction=desc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/used/?sort=price&amp;direction=asc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/used/?sort=brand&amp;direction=asc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/used/?sort=brand&amp;direction=desc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/used/?sort=title&amp;direction=asc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/used/?sort=title&amp;direction=desc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/search-by/category/console-videogames/?sort=price&amp;direction=desc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/search-by/category/console-videogames/?sort=price&amp;direction=asc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/search-by/category/console-videogames/?sort=brand&amp;direction=asc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/search-by/category/console-videogames/?sort=brand&amp;direction=desc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/search-by/category/console-videogames/?sort=title&amp;direction=asc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/search-by/category/console-videogames/?sort=title&amp;direction=desc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/search-by/category/test-cat/?sort=price&amp;direction=desc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/search-by/category/test-cat/?sort=price&amp;direction=asc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/search-by/category/test-cat/?sort=brand&amp;direction=asc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/search-by/category/test-cat/?sort=brand&amp;direction=desc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/search-by/category/test-cat/?sort=title&amp;direction=asc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/search-by/category/test-cat/?sort=title&amp;direction=desc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/search-by/subcategory/console/?sort=price&amp;direction=desc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/search-by/subcategory/console/?sort=price&amp;direction=asc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/search-by/subcategory/console/?sort=brand&amp;direction=asc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/search-by/subcategory/console/?sort=brand&amp;direction=desc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/search-by/subcategory/console/?sort=title&amp;direction=asc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/search-by/subcategory/console/?sort=title&amp;direction=desc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/search-by/subcategory/videogames/?sort=price&amp;direction=desc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/search-by/subcategory/videogames/?sort=price&amp;direction=asc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/search-by/subcategory/videogames/?sort=brand&amp;direction=asc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/search-by/subcategory/videogames/?sort=brand&amp;direction=desc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/search-by/subcategory/videogames/?sort=title&amp;direction=asc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://horizonshop.herokuapp.com/products/search-by/subcategory/videogames/?sort=title&amp;direction=desc</loc>
+  <lastmod>2022-11-21T15:43:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
+```
+
+
 ### **Social Media**
 
+
 ### **Newsletter**
+
+
 
 ---
 

@@ -37,39 +37,45 @@
             <div class="mb-2">
                 <span class="badge bg-secondary">{{ product.category }}</span>
             </div>
-
-            <ul class="list-unstyled d-flex justify-content-between">
-                {% if product.get_avg_rating %}
-                <li>
-                    {% with ''|center:product.get_avg_rating as range %}
-                    {% for i in range %}
-                    <i class="fas fa-star text-yellow"></i>
-                    {% endfor %}
-                    {% endwith %}
-                </li>
-                {% else %}
-                <li> No Rating </li>
-                {% endif %}
+            <div class="d-flex justify-content-between">
+                <div>
+                    <ul class="list-unstyled">
+                        {% if product.get_avg_rating %}
+                        <li>
+                            {% with ''|center:product.get_avg_rating as range %}
+                            {% for i in range %}
+                            <i class="fas fa-star text-yellow"></i>
+                            {% endfor %}
+                            {% endwith %}
+                        </li>
+                        {% else %}
+                        <li> No Rating </li>
+                        {% endif %}
+                    </ul>
+                </div>
 
                 <div>
-                    {% if product.discounted_price %}
-                    <li class="text-dark text-right">
-                        {{ product.discounted_price }} Euro
-                    </li>
+                    <ul class="list-unstyled">
+                        {% if product.discounted_price %}
 
-                    <li class="text-muted text-right">
-                        <span>
-                            <del>{{ product.price }} Euro</del>
-                        </span>
-                    </li>
+                        <li class="text-dark text-right">
+                            {{ product.discounted_price }} Euro
+                        </li>
 
-                    {% else %}
+                        <li class="text-muted text-right">
+                            <span>
+                                <del>{{ product.price }} Euro</del>
+                            </span>
+                        </li>
 
-                    <li class="text-dark text-right mb-3">{{ product.price }} Euro</li>
+                        {% else %}
 
-                    {% endif %}
+                        <li class="text-dark text-right mb-4">{{ product.price }} Euro</li>
+
+                        {% endif %}
+                    </ul>
                 </div>
-            </ul>
+            </div>
             <div class="row">
                 <div class="col-12">
                     <p class="text-muted">Comments ({{ product.productcomment_set.count }})</p>

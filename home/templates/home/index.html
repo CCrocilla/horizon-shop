@@ -72,8 +72,8 @@
     <div class="container py-5">
         <div class="row text-center py-3">
             <div class="col-lg-12 m-auto title-all text-center text-dark">
-                <h1>Latest New Products</h1>
-                <p>
+                <h2>Latest New Products</h2>
+                <p class="text-dark">
                     Below the latest new products added to Horizon Shop!!!
                 </p>
             </div>
@@ -91,15 +91,16 @@
 
             {% else %}
 
-            <div class="card-body">
-                <h1>
+            <div class="card-body text-center my-5">
+                <h2>
                     No Products Available!
-                </h1>
+                </h2>
             </div>
 
             {% endif %}
 
         </div>
+    </div>
 </section>
 
 
@@ -110,8 +111,8 @@
     <div class="container py-5">
         <div class="row text-center py-3">
             <div class="col-lg-12 m-auto title-all text-center text-dark">
-                <h1 class="h1">Latest Used Products</h1>
-                <p>
+                <h2 class="h1">Latest Used Products</h2>
+                <p class="text-dark">
                     Below the latest used products added from our customer to Horizon Shop!!!
                 </p>
             </div>
@@ -127,11 +128,13 @@
             {% endfor %}
 
             {% else %}
-            <div class="card-body">
-                <h1>
+
+            <div class="card-body text-center my-5">
+                <h2>
                     No Products Available!
-                </h1>
+                </h2>
             </div>
+
             {% endif %}
         </div>
     </div>
