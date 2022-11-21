@@ -190,9 +190,11 @@ class ProductAddView(SuccessMessageMixin, View):
     def get(self, request):
         product_form = None
         if request.user.is_superuser:
-            product_form = ProductAdminForm(request.POST or None, request.FILES or None)
+            product_form = ProductAdminForm(
+                request.POST or None, request.FILES or None)
         else:
-            product_form = ProductForm(request.POST or None, request.FILES or None)
+            product_form = ProductForm(
+                request.POST or None, request.FILES or None)
 
         context = {
             'form': product_form,
@@ -202,9 +204,11 @@ class ProductAddView(SuccessMessageMixin, View):
     def post(self, request, *args, **kwargs):
         product_form = None
         if request.user.is_superuser:
-            product_form = ProductAdminForm(request.POST or None, request.FILES or None)
+            product_form = ProductAdminForm(
+                request.POST or None, request.FILES or None)
         else:
-            product_form = ProductForm(request.POST or None, request.FILES or None)
+            product_form = ProductForm(
+                request.POST or None, request.FILES or None)
 
         if product_form.is_valid():
             product = product_form.save(commit=False)

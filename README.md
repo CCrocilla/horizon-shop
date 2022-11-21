@@ -81,6 +81,16 @@ Click in the image above to access the Live Website or [click here!](https://hor
 ## **Marketing Strategies** 
 
 ### **SEO**
+Customers all around the world looking to buy and/or sell products when search for their next eCommerce looks for example at the description of the Websites in the Search Results. 
+To make sure that Horizon Shop is more visible it was crucial to put in place some SEO practice in order to increase the traffic on the Website and more opportunities to convert prospects into customers.
+Best practices used in Horizon Shop for the SEO: 
+- Meta Tag Keywords: A set of the most researched Keywords has been used between Short-tail and Long-tail Keywords (also with the help of the auto-complete feature of google search) in order to tell to the Search Engine about the content of Horizon Shop! Keywords are important because they are what people are searching for and the content you are providing to fill that need.
+- Meta Tag Description: The Description is a short snippet paragraph displayed underneath the Website Title Link that describe the Website content. It is the first thing that a Customer see when they search for website and it was implemented a specific and relevant Description that attract customers. 
+- Strong and Effective Titles and Heading has been used in Horizon Shop to help Google understand the content of the Website, but also because the pages more user-friendly. 
+- Horizon Shop has been realized with just one idea, create a User Friendly Website with a great and easy Design in order to offer a great user experience to the customers! This is because quick load times lead to better Search Engine Optimization (SEO) rankings, making it easier for people to find your website in the first place
+- To provide the best user experience possible to the customers and improve the websites' SEO ranking as well as improving the pages load speed all the Images has been optimized.
+
+To provide usefull information for search engines a Robot.txt and a Sitemap.xml file has also been created and added to Horizon Shop. 
 
 ### **Social Media**
 
