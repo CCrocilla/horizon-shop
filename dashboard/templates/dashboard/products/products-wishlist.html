@@ -51,8 +51,8 @@
                 {% else %}
 
                 <a href="{% url 'product_details' wish.product.slug %}">
-                    <img src="{{ MEDIA_URL }}no-image-placeholder.png" class="img-fluid img-card-products rounded-3"
-                        alt="Image {{ wish.product.title }}">
+                    <img src="{% static 'images/no-image-placeholder.png' %}"
+                        class="img-fluid img-card-products rounded-3" alt="Image {{ wish.product.title }}">
                 </a>
 
                 {% endif %}

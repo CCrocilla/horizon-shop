@@ -68,6 +68,10 @@ Tools
     border-radius: 35px !important;
 }
 
+.rounded-bottom {
+    border-bottom-left-radius: 35px !important;
+    border-bottom-right-radius: 35px !important;
+}
 
 
 /*--------------------------------------------------------------

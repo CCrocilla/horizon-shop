@@ -71,7 +71,7 @@
 
                         {% if user.customer.avatar %}
                         <span class="avatar avatar-sm">
-                            <img class="" src="{{ user.customer.avatar.url }}" alt="Client Avatar">
+                            <img class="" src="{{ user.customer.avatar.url }}" alt="Avatar">
                         </span>
                         {% else %}
                         <span class="avatar bg-azure-lt">
@@ -220,34 +220,6 @@
 
                         </div>
                     </li>
-
-                    <!-- <li class="nav-item dropdown text-light">
-                        <a class="nav-link dropdown-toggle text-light" href="#navbar-fifth" data-bs-toggle="dropdown"
-                            data-bs-auto-close="outside" role="button" aria-expanded="false">
-                            <span class="nav-link-title">
-                                Categories
-                            </span>
-                        </a>
-                        <div class="dropdown-menu">
-                            {% for category in categories %}
-                            <a class="nav-link dropdown-toggle text-dark" href="#navbar-sixth" data-bs-toggle="dropdown"
-                                data-bs-auto-close="outside" role="button" aria-expanded="false">
-                                <span class="nav-link-title">
-                                    {{ category.name }}
-                                </span>
-                            </a>
-
-                            {% for subcategory in subcategories.category_set.all %}
-
-                            <a class="dropdown-item" href="{{ subcategory.get_absolute_url }}">
-                                {{ subcategory.name }}
-                            </a>
-
-                            {% endfor %}
-                            {% endfor %}
-
-                        </div>
-                    </li> -->
 
                     <!-- ------------------------------------------ -->
                     <!-- New Drop-Down Sub-Categories in Categories -->

@@ -40,8 +40,6 @@
                     <span class="badge text-bg-info text-dark">{{ subcategory.category }}</span>
                 </p>
 
-                {% if user.is_superuser %}
-
                 {% if subcategory.is_deleted %}
                 <a class="my-2 btn btn-outline-warning btn-sm-minwidth rounded-3"
                     href="{% url 'subcategory-restore' subcategory.pk %}" aria-label="Restore">Restore</a>
@@ -54,9 +52,6 @@
                     href="{% url 'subcategory-delete' subcategory.pk %}" aria-label="Delete">Delete</a>
                 {% endif %}
 
-                {% else %}
-
-                {% endif %}
             </div>
         </div>
 

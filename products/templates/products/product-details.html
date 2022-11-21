@@ -26,7 +26,8 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-10 offset-1 offset-md-0 col-md-6 col-lg-4 order-md-first border border-dark rounded-3 mb-2">
+        <div
+            class="col-10 offset-1 offset-md-0 col-md-6 col-lg-4 order-md-first border border-dark bg-dark rounded-3 py-2 mb-2">
             {% if product.image %}
 
             <a href="{% url 'product_details' product.slug %}">
@@ -37,7 +38,7 @@
             {% else %}
 
             <a href="{% url 'product_details' product.slug %}">
-                <img src="{{ MEDIA_URL }}no-image-placeholder.png" class="img-fluid img-card-products rounded-3"
+                <img src="{% static 'images/no-image-placeholder.png' %}" class="img-fluid img-card-products rounded-3"
                     alt="Image {{ product.title }}">
             </a>
 
@@ -109,7 +110,7 @@
                         {% else %}
 
                         <li class="fs-4 text-dark text-right mb-3">
-                            <strong>Price:</strong>{{ product.price }} Euro</li>
+                            <strong>Price:</strong> {{ product.price }} Euro</li>
                         {% endif %}
                     </div>
                 </ul>
@@ -123,7 +124,7 @@
                 {% csrf_token %}
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
 
-                <button type="submit" class="wish btn btn-sm-minwidth btn-primary rounded-3 text-dark"
+                <button type="submit" class="wish btn btn-sm-minwidth btn-primary rounded-3 text-light"
                     data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Add to Wishlist">
                     Add to Wishlist
                 </button>
@@ -151,7 +152,7 @@
     {% if user_rated %}
 
     <div class="row">
-        <div class="col-12 my-2">
+        <div class="col-12 mt-4 mb-2">
             <div class="card bg-dark">
                 <div class="card-body p-3">
                     <div class="text-yellow">
@@ -165,7 +166,7 @@
     {% else %}
 
     <div class="row">
-        <div class="col-12 my-2">
+        <div class="col-12 mt-4 mb-2">
             <div class="card bg-dark">
                 <div class="card-body p-3">
                     <div class="d-flex flex-start w-100">
@@ -204,7 +205,7 @@
 
     {% else %}
     <div class="row">
-        <div class="col-12 my-2">
+        <div class="col-12 mt-4 mb-2">
             <div class="card bg-dark">
                 <div class="card-body p-3">
                     <div class="d-flex flex-start w-100">
@@ -281,7 +282,7 @@
     <div class="modal-dialog modal-dialog-centered rounded-3">
         <div class="modal-content rounded-3 ">
             <div class="modal-header bg-yellow">
-                <h1 class="modal-title fs-5" id="commentModalLabel">Leave a comment or a review!!!
+                <h1 class="modal-title fs-5 ms-3" id="commentModalLabel">Leave a comment or a review!!!
                 </h1>
                 <button type="button" class="btn-close rounded-3" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -289,13 +290,13 @@
                 {% csrf_token %}
 
                 {% if user.is_authenticated %}
-                <div class="modal-body">
-                    <h3>Leave your comment/review here:</h3>
+                <div class="modal-body bg-dark">
+                    <h3 class="text-yellow">Leave your comment/review here:</h3>
 
                     {{ comments_form | crispy }}
 
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer bg-dark rounded-bottom">
                     <button type="button" class="btn btn-secondary btn-sm-minwidth rounded-3"
                         data-bs-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-yellow btn-sm-minwidth text-dark rounded-3">Submit</button>
