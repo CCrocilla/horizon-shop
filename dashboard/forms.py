@@ -111,6 +111,12 @@ class ProductForm(ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['created_by'].disabled = True
         self.fields['category'].widget.attrs['autofocus'] = True
+        self.fields[
+            'category'].queryset = Category.objects.filter(
+                is_deleted=False)
+        self.fields[
+            'subcategory'].queryset = SubCategory.objects.filter(
+                is_deleted=False)
 
     class Meta:
         model = Product
@@ -123,6 +129,42 @@ class ProductForm(ModelForm):
                   'brand',
                   'price',
                   'discounted_price',
+                  'image'
+                  )
+
+        widgets = {
+                'created_by': forms.HiddenInput(),
+                'image': forms.FileInput(
+                    attrs={'class': 'form-control-file'}),
+        }
+
+
+class ProductAdminForm(ModelForm):
+    """ Form for Products """
+    def __init__(self, *args, **kwargs):
+        super(ProductAdminForm, self).__init__(*args, **kwargs)
+        self.fields['created_by'].disabled = True
+        self.fields['category'].widget.attrs['autofocus'] = True
+        self.fields[
+            'category'].queryset = Category.objects.filter(
+                is_deleted=False)
+        self.fields[
+            'subcategory'].queryset = SubCategory.objects.filter(
+                is_deleted=False)
+
+    class Meta:
+        model = Product
+
+        fields = ('created_by',
+                  'category',
+                  'subcategory',
+                  'sku',
+                  'title',
+                  'description',
+                  'brand',
+                  'price',
+                  'discounted_price',
+                  'product_status',
                   'image'
                   )
 

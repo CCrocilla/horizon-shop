@@ -41,6 +41,7 @@ from .forms import CustomerExtraForm
 from .forms import ShippingAddressForm
 from .forms import TestimonialForm
 from .forms import ProductForm
+from .forms import ProductAdminForm
 from .forms import CategoryForm
 from .forms import SubCategoryForm
 
@@ -187,7 +188,11 @@ class ProductAddView(SuccessMessageMixin, View):
     template_name = 'dashboard/products/product-add.html'
 
     def get(self, request):
-        product_form = ProductForm(request.POST or None, request.FILES or None)
+        product_form = None
+        if request.user.is_superuser:
+            product_form = ProductAdminForm(request.POST or None, request.FILES or None)
+        else:
+            product_form = ProductForm(request.POST or None, request.FILES or None)
 
         context = {
             'form': product_form,
@@ -195,7 +200,11 @@ class ProductAddView(SuccessMessageMixin, View):
         return render(request, self.template_name, context)
 
     def post(self, request, *args, **kwargs):
-        product_form = ProductForm(request.POST or None, request.FILES or None)
+        product_form = None
+        if request.user.is_superuser:
+            product_form = ProductAdminForm(request.POST or None, request.FILES or None)
+        else:
+            product_form = ProductForm(request.POST or None, request.FILES or None)
 
         if product_form.is_valid():
             product = product_form.save(commit=False)
@@ -206,7 +215,7 @@ class ProductAddView(SuccessMessageMixin, View):
                 product.slug = product.slug + '-' + get_random_string(length=5)
 
             if product.created_by.is_superuser:
-                product.product_status = 0
+                product.product_status = request.POST.get('product_status')
             else:
                 product.product_status = 1
             product.save()
@@ -234,7 +243,6 @@ class ProductListView(ListView):
 
     def get_queryset(self):
         if self.request.user.is_superuser:
-            # queryset = Product.objects.all()
             queryset = Product.objects.filter(is_deleted=False)
         else:
             queryset = Product.objects.filter(

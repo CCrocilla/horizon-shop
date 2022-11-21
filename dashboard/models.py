@@ -22,7 +22,6 @@ class Customer(models.Model):
         null=True
         )
     avatar = ResizedImageField(
-        default='default.jpg',
         size=[300, 300],
         crop=['middle', 'center'],
         upload_to='customer_avatar/',

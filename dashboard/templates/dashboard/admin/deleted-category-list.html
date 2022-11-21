@@ -36,11 +36,9 @@
                     <strong>{{ category.name }}</strong>
                 </h3>
 
-                {% if user.is_superuser %}
-
-                {% if subcategory.is_deleted %}
+                {% if category.is_deleted %}
                 <a class="my-2 btn btn-outline-warning btn-sm-minwidth rounded-3"
-                    href="{% url 'subcategory-restore' subcategory.pk %}" aria-label="Restore">Restore</a>
+                    href="{% url 'category-restore' category.pk %}" aria-label="Restore">Restore</a>
 
                 {% else %}
 
@@ -48,10 +46,6 @@
                     href="{% url 'category-update' category.pk %}" aria-label="Update">Edit</a>
                 <a class="btn btn-sm-minwidth btn-outline-warning rounded-3 mt-4"
                     href="{% url 'category-delete' category.pk %}" aria-label="Delete">Delete</a>
-                {% endif %}
-
-                {% else %}
-
                 {% endif %}
 
             </div>

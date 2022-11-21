@@ -82,8 +82,11 @@
                                                         <label class="small mb-1">Change Avatar:</label>
                                                         {{ customer_extra_form.avatar }}
                                                         <div class="avatar-picture">
+                                                            {% if user.customer.avatar %}
                                                             <img class="" src="{{ user.customer.avatar.url }}"
-                                                                alt="Client Avatar">
+                                                                alt="Avatar">
+                                                            {% else %}
+                                                            {% endif %}
                                                         </div>
                                                     </div>
                                                 </div>

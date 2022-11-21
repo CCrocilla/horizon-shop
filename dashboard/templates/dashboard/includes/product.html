@@ -81,13 +81,52 @@
 
             <a class="my-2 btn btn-outline-primary btn-sm-minwidth rounded-3"
                 href="{% url 'product-update' product.slug %}" aria-label="Update">Edit</a>
-            <a class="my-2 btn btn-outline-warning btn-sm-minwidth rounded-3"
-                href="{% url 'product-delete' product.slug %}" aria-label="Delete">Delete</a>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-sm-minwidth btn-danger rounded-3" data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop">
+                Delete
+            </button>
             {% endif %}
 
             {% else %}
 
             {% endif %}
+
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content bg-dark rounded-3">
+                        <form method="POST">
+                            {% csrf_token%}
+                            <div class="modal-header d-flex justify-content-center bg-yellow">
+                                <h1 class="fs-4 modal-title d-flex justify-content-center text-center text-dark"
+                                    id="staticBackdropLabel">Are you sure?</h1>
+                            </div>
+                            <div class="fs-6 modal-body d-flex justify-content-center m-3 text-yellow text-center">
+                                <p>
+                                    By Clicking <strong>Delete</strong> the Product will be deleted and it will not be
+                                    displayed in the Store!
+                                    {% if user.is_superuser %}
+                                    <br><br>
+                                    <strong>Note:</strong> Go to the <strong><i>Deleted Products</i></strong>
+                                    Sub-Section if you want to restore it!
+                                    {% endif %}
+                                </p>
+                            </div>
+                            <div class="modal-footer m-3">
+                                <a href="{% url 'products-list' %}"
+                                    class="m-1 btn btn-sm-minwidth btn-primary rounded-3" aria-label="Back">Back
+                                </a>
+                                <a class="btn btn-sm-minwidth btn-danger rounded-3"
+                                    href="{% url 'product-delete' product.slug %}" aria-label="Delete">Delete</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
