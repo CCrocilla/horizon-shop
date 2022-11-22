@@ -53,7 +53,34 @@ class DashboardView(LoginRequired, View):
                                  only to Authenticated Customers!'
 
     def get(self, request):
-        return render(request, self.template_name, {})
+        if request.user.is_superuser:
+            orders = Order.objects.all()
+
+            products = Product.objects.all().count()
+
+            addresses = ShippingAddress.objects.all().count()
+
+            testimonials = Testimonial.objects.all().count()
+        else:
+            orders = Order.objects.filter(
+                created_by=request.user)
+
+            products = Product.objects.filter(
+                created_by=request.user).count()
+
+            addresses = ShippingAddress.objects.filter(
+                created_by=request.user).count()
+
+            testimonials = Testimonial.objects.filter(
+                created_by=request.user)
+
+        context = {
+                'orders': orders,
+                'products': products,
+                'addresses': addresses,
+                'testimonials': testimonials,
+            }
+        return render(request, self.template_name, context)
 
 
 ################################

@@ -23,6 +23,10 @@ from django.conf.urls.static import static
 
 from .views import ErrorPage404
 
+from django.contrib.sitemaps.views import sitemap
+
+from django.views.generic.base import TemplateView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,6 +37,20 @@ urlpatterns = [
     path('cart/', include('products_cart.urls')),
     path('checkout/', include('products_checkout.urls')),
     path('dashboard/', include('dashboard.urls')),
+    # Added Robot.txt and Sitemap.xml to the views as studied on ordinarycoders
+    # https://ordinarycoders.com/blog/article/robots-text-file-django
+    path(
+        "sitemap.xml",
+        TemplateView.as_view(
+            template_name="home/sitemap.xml", content_type="text/xml"
+        ),
+    ),
+    path(
+        "robots.txt",
+        TemplateView.as_view(
+            template_name="home/robots.txt", content_type="text/plain"
+        ),
+    ),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = 'horizon_shop.views.ErrorPage404'
