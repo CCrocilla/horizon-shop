@@ -141,7 +141,9 @@ class ShippingAddressListView(ListView):
         Return a list of all the Shipping Address
         for the authenticated user.
         """
-        queryset = ShippingAddress.objects.filter(created_by=self.request.user, is_deleted=False)
+        queryset = ShippingAddress.objects.filter(
+            created_by=self.request.user,
+            is_deleted=False)
         return queryset
 
 

@@ -140,7 +140,8 @@ class Product(SoftDeleteModel):
         return self.title
 
     def get_avg_rating(self):
-        rating = ProductRating.objects.filter(product=self).aggregate(rating_avg=Avg('rating_stars'))
+        rating = ProductRating.objects.filter(
+            product=self).aggregate(rating_avg=Avg('rating_stars'))
         return (rating['rating_avg'])
 
 

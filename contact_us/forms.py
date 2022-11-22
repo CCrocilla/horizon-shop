@@ -31,7 +31,10 @@ class ContactUsForm(ModelForm):
                     }),
             'comment': forms.Textarea(
                 attrs={
-                    'class': 'form-control text-dark rounded-3', 'rows': 3, 'cols': 5
+                    'class':
+                        'form-control text-dark rounded-3',
+                        'rows': 3,
+                        'cols': 5
                     }),
             'terms': forms.CheckboxInput(
                 attrs={

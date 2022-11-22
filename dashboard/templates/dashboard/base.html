@@ -43,6 +43,18 @@
 </head>
 
 <body>
+
+    <!-- ======================= -->
+    <!--         Messages        -->
+    <!-- ======================= -->
+
+    {% include 'dashboard/includes/messages.html' %}
+
+    <!-- ======================= -->
+    <!--       End Messages      -->
+    <!-- ======================= -->
+
+
     <!-- ============================================-->
     <!--                    Navbar                   -->
     <!-- ============================================-->
@@ -355,8 +367,8 @@
     <script src="{% static 'js/navbar-script.js' %}"></script>
 
     <script>
-        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
     </script>
 
     {% endblock %}

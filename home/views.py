@@ -34,7 +34,7 @@ class HomeView(View):
 class LoginRequired(LoginRequiredMixin):
     """
     Extended the LoginRequiredMixin adding a Warning message
-    framework to ``permission_denied_message`` attribute. 
+    framework to ``permission_denied_message`` attribute.
     """
 
     permission_denied_message = 'You have to be logged in to access that page'

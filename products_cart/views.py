@@ -57,6 +57,7 @@ class CartView(View):
 
 
 def AddToCart(request, product_id):
+    """ Function to Add a Product to the User's Cart"""
     if request.method == 'POST':
         product = get_object_or_404(Product, id=product_id)
 
@@ -89,6 +90,7 @@ def AddToCart(request, product_id):
 
 
 def RemoveFromCart(request, product_id):
+    """ Function to Remove the Product from the Cart """
     if request.method == "POST":
         order = Order.objects.get(created_by=request.user, billed=False)
 
@@ -98,7 +100,7 @@ def RemoveFromCart(request, product_id):
         for product in products:
             try:
                 order.cart_products.remove(product)
-                
+
             except Exception as e:
                 print(e)
 
@@ -106,6 +108,7 @@ def RemoveFromCart(request, product_id):
 
 
 def RemoveQuantityProduct(request, product_id):
+    """ Function to Remove Quantity of a Product """
     if request.method == "POST":
         product = get_object_or_404(Product, id=product_id)
 
@@ -134,6 +137,7 @@ def RemoveQuantityProduct(request, product_id):
 
 
 def AddQuantityProduct(request, product_id):
+    """ Function to Add Quantity of a Product """
     if request.method == "POST":
         product = get_object_or_404(Product, id=product_id)
 
@@ -169,27 +173,3 @@ def AddQuantityProduct(request, product_id):
                 'Something went wrong! Please try again!'
                 )
             return HttpResponseRedirect(reverse('cart', ))
-
-
-# def RemoveQuantityProduct(request, product_id):
-#     if request.method == "POST":
-#         product = CartProducts.objects.get(
-#             created_by=request.user, product=product_id)
-
-#         if product.quantity > 1:
-#             product.quantity -= 1
-#             product.save()
-#         else:
-#             product.delete()
-#         return HttpResponseRedirect(reverse('cart', ))
-
-
-# def AddQuantityProduct(request, product_id):
-#     if request.method == "POST":
-#         product = CartProducts.objects.get(
-#             created_by=request.user, product=product_id)
-
-#         if product.quantity >= 1:
-#             product.quantity += 1
-#             product.save()
-#         return HttpResponseRedirect(reverse('cart', ))
