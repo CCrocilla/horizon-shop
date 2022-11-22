@@ -15,14 +15,14 @@
 
         <a href="{% url 'product_details' product.slug %}">
             <img src="{{ product.image.url }}" class="img-fluid img-card-products rounded-3"
-                alt="Image {{ product.title }}">
+                alt="Image {{ product.title }}" width="500" height="500">
         </a>
 
         {% else %}
 
         <a href="{% url 'product_details' product.slug %}">
             <img src="{% static 'images/no-image-placeholder.png' %}" class="img-fluid img-card-products rounded-3"
-                alt="Image {{ product.title }}">
+                alt="Image {{ product.title }}" width="500" height="500">
         </a>
 
         {% endif %}

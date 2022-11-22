@@ -40,14 +40,14 @@
 
                                 <a href="{% url 'product_details' cart.product.slug %}">
                                     <img src="{{ cart.product.image.url }}" class="card-img-top img-fluid rounded-3"
-                                        alt="Image {{ cart.product.title }}">
+                                        alt="Image {{ cart.product.title }}" width="300" height="300">
                                 </a>
 
                                 {% else %}
 
                                 <a href="{% url 'product_details' cart.product.slug %}">
                                     <img src="{% static 'images/no-image-placeholder.png' %}"
-                                        class="card-img-top img-fluid rounded-3" alt="Image {{ cart.product.title }}">
+                                        class="card-img-top img-fluid rounded-3" alt="Image {{ cart.product.title }}" width="300" height="300">
                                 </a>
 
                                 {% endif %}

@@ -2,7 +2,7 @@
 
 <div class="navbar navbar-expand-lg navbar-dark d-print-none">
     <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu" aria-label="Open Side Menu">
             <span class="navbar-toggler-icon"></span>
         </button>
         <h1 class="ms-2 navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
@@ -70,9 +70,10 @@
                         aria-label="Open user menu">
 
                         {% if user.customer.avatar %}
-                        <span class="avatar avatar-sm">
-                            <img class="" src="{{ user.customer.avatar.url }}" alt="Avatar">
-                        </span>
+                        <div class="avatar avatar-sm">
+                            <img class="img-fluid" src="{{ user.customer.avatar.url }}" alt="Avatar" width="150"
+                                height="150">
+                        </div>
                         {% else %}
                         <span class="avatar bg-azure-lt">
                             <i class="fas fa-user text-yellow fa-lg"></i>
