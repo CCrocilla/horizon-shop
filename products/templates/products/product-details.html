@@ -4,25 +4,25 @@
 
 {% load static %}
 
-{% block extra_title %} {{ product.title }} {% endblock %}
+{% block extra_title %} - {{ product.title }} {% endblock %}
 
 {% block content %}
 
 <!-- ======================== -->
 <!-- Product Details Section -->
 <!-- ======================== -->
-<section class="container">
+<div class="container">
     <div class="row">
         <div class="col m-4 m-lg-5">
 
         </div>
     </div>
-</section>
+</div>
 
 <section class="container">
     <div class="row">
         <div class="col-12">
-            <h1 class="fs-4">{{ product.title }}</h1>
+            <h2 class="fs-4">{{ product.title }}</h2>
         </div>
     </div>
     <div class="row">
@@ -178,17 +178,26 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="rating">
-                                        <input type="submit" id="id_rating_stars_4" name="rating_stars" value="5"
-                                            required><label for="id_rating_stars_4" title="Excellent">5
-                                            stars</label>
-                                        <input type="submit" id="id_rating_stars_3" name="rating_stars" value="4"
-                                            required><label for="id_rating_stars_3" title="Good">4 stars</label>
-                                        <input type="submit" id="id_rating_stars_2" name="rating_stars" value="3"
-                                            required><label for="id_rating_stars_2" title="OK">3 stars</label>
-                                        <input type="submit" id="id_rating_stars_1" name="rating_stars" value="2"
-                                            required><label for="id_rating_stars_1" title="Poor">2 stars</label>
-                                        <input type="submit" id="id_rating_stars_0" name="rating_stars" value="1"
-                                            required><label for="id_rating_stars_0" title="Bad">1 star</label>
+                                        <input type="submit" id="id_rating_stars_4" name="rating_stars" value="5">
+                                        <label for="id_rating_stars_4" title="Excellent">
+                                            5 stars
+                                        </label>
+                                        <input type="submit" id="id_rating_stars_3" name="rating_stars" value="4">
+                                        <label for="id_rating_stars_3" title="Good">
+                                            4 stars
+                                        </label>
+                                        <input type="submit" id="id_rating_stars_2" name="rating_stars" value="3">
+                                        <label for="id_rating_stars_2" title="OK">
+                                            3 stars
+                                        </label>
+                                        <input type="submit" id="id_rating_stars_1" name="rating_stars" value="2">
+                                        <label for="id_rating_stars_1" title="Poor">
+                                            2 stars
+                                        </label>
+                                        <input type="submit" id="id_rating_stars_0" name="rating_stars" value="1">
+                                        <label for="id_rating_stars_0" title="Bad">
+                                            1 star
+                                        </label>
                                     </div>
                                 </div>
                             </div>

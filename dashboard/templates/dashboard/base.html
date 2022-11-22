@@ -9,8 +9,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Parkland! The Car Parking that you have always dreamed of!">
-    <meta name="keywords" content="parkland, parking airport, car parking, car, parking, booking parking, car service">
+    <meta name="description" content="Horizon Shop is the eCommerce you were looking for! Milions of New and Used products for everyone everyday! You can browse, buy and/or sell. Just surf and choose. Hey...We are waiting for
+        you, fill your cart and enjoy your journey with us.">
+    <meta name="keywords"
+        content="horizon shop, shopping, ecommerce, buy, sell, shop services, shop product, free delivery, gift for her, gift for him, tv, laptop, smartphone, gadget, buy electronics devices, buy appliances, buy smartphone, buy laptop, buy home forniture">
     {% endblock %}
 
     <title>My Horizon Shop{% block extra_title %}{% endblock %}</title>
@@ -52,8 +54,8 @@
                 id="sidebarToggle" href="#!" aria-label="Open Sidebar"><i class="fas fa-bars"></i></a>
 
             <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal d-none pe-0 pe-md-3">
-                <a class="text-decoration-none" href="{% url 'homepage' %}">
-                    <h1 class="fs-1 text-decoration-none text-yellow">Horizon Shop</h1>
+                <a class="fs-1 text-decoration-none text-yellow" href="{% url 'homepage' %}">
+                    Horizon Shop
                 </a>
             </h1>
 
@@ -308,7 +310,7 @@
         <!--                Main Content                 -->
         <!-- ============================================-->
         <div id="layoutSidenav_content">
-            <div class="container-fluid px-4">
+            <div class="container-fluid">
                 {% block content %}
 
                 {% endblock %}
@@ -335,6 +337,7 @@
         </div>
     </div>
 
+
     {% block postloadjs %}
     {{ block.super }}
     <!-- ===============================================-->
@@ -351,7 +354,7 @@
     <script src="https://kit.fontawesome.com/0644654b1f.js" crossorigin="anonymous"></script>
     <script src="{% static 'js/navbar-script.js' %}"></script>
 
-    <script type="text/javascript">
+    <script>
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     </script>

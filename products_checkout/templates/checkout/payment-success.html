@@ -18,13 +18,13 @@
 <!--       End Messages      -->
 <!-- ======================= -->
 
-<section class="container">
+<div class="container">
     <div class="row">
         <div class="col m-4 m-lg-5">
 
         </div>
     </div>
-</section>
+</div>
 
 
 
@@ -32,8 +32,8 @@
     <div class="row">
         <div class="col text-center text-warning">
             <div class="mb-3">
-                <h1 class="fw-bold text-center text-dark">Payment Success</h1>
-                <hr class="w-25 mx-auto my-0 text-dark" style="height:2px;" />
+                <h2 class="fw-bold text-center text-dark">Payment Success</h2>
+                <hr class="w-25 mx-auto my-0 text-dark" style="height:2px;">
             </div>
         </div>
     </div>
@@ -44,13 +44,12 @@
             <div class="row">
                 <div class="col-10 my-5 p-3 images-text-cart">
                     <div class="text-align-left">
-                        <h1 class="fs-2 text-yellow">The Payment has been processed successfully!!!</h1>
+                        <h2 class="fs-2 text-yellow">The Payment has been processed successfully!!!</h2>
 
                         <p class="fs-4 text-light">
                             Thanks for your purchase!
                         </p>
-                        <p href="{% url 'order-details' order.id %}" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                            data-bs-title="{{ order.order_number }}">
+                        <p data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="{{ order.order_number }}">
                             Your Order Number is: {{ order.order_number|truncatechars:12 }}
                         </p>
 

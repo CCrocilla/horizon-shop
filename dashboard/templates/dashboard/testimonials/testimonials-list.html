@@ -1,6 +1,6 @@
 {% extends 'dashboard/base.html' %}
 
-{% block extra_title %} - Dashboard{% endblock %}
+{% block extra_title %} - Testimonial List{% endblock %}
 
 {% load static %}
 
@@ -48,8 +48,8 @@
                     {% endwith %}
                 </div>
                 <div><strong>Date:</strong> {{ testimonial.created_at }}</div>
-                <br />
-                <div><strong>Comment:</strong> {{ testimonial.comment|truncatechars:300 }} <br /></div>
+                <br>
+                <div><strong>Comment:</strong> {{ testimonial.comment|truncatechars:300 }} <br></div>
 
 
                 <a class="btn btn-sm-minwidth btn-outline-primary rounded-3 mt-4"
