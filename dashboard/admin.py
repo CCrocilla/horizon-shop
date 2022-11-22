@@ -8,7 +8,10 @@ from .models import ShippingAddress
 class CustomerAdmin(admin.ModelAdmin):
     """ Customer """
     list_display = (
-        'customer', 'customer_status', 'avatar')
+        'customer',
+        'customer_status',
+        'avatar'
+        )
 
 
 @admin.register(ShippingAddress)
@@ -20,11 +23,16 @@ class ShippingAddressAdmin(admin.ModelAdmin):
         'country',
         'phone_number',
         'city',
-        'postcode')
+        'postcode'
+        )
 
 
 @admin.register(Testimonial)
 class TestimonialAdmin(admin.ModelAdmin):
     """ Users' Testimonials """
     list_display = (
-        'created_by', 'title', 'created_at', 'rating_stars')
+        'created_by',
+        'title',
+        'created_at',
+        'rating_stars'
+        )

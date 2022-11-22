@@ -8,7 +8,7 @@ from .models import ContactUs
 from .forms import ContactUsForm
 
 
-class ContactUsView(CreateView):
+class ContactUsView(SuccessMessageMixin, CreateView):
     """ Contact Page """
     template_name = 'contact_us/contact-us.html'
     model = ContactUs

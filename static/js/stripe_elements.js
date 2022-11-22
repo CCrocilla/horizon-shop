@@ -1,12 +1,13 @@
 /* 
-Core logic/payment comes from Code Institute(Boutique Ado Project) and Stripe Docs: 
+The Core Logic/Payment Code is inspired by the Code Institute(Boutique Ado Project) 
+and Stripe Docs and has been customized by the Developer (Claudio Crocilla) for the needs of the project.
 htts:// stripe.com/docs/payments/accept-a-payment
 */
 
 var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 var clientSecret = $('#id_client_secret').text().slice(1, -1);
 
-const stripe = Stripe(stripePublicKey)
+const stripe = Stripe(stripePublicKey);
 
 var elements = stripe.elements();
 var card = elements.create('card');
@@ -42,7 +43,7 @@ form.addEventListener('submit', handlerSubmit);
 // Handle form submit
 function handlerSubmit(event) {
     event.preventDefault();
-    console.log('Submit Fired!!!', event)
+    console.log('Submit Fired!!!', event);
     card.update({
         'disabled': true
     });
@@ -56,7 +57,6 @@ function handlerSubmit(event) {
         },
 
     }).then(function (result) {
-        console.log('Inside Then Function: ', result)
         if (result.error) {
             var errorDiv = document.getElementById('card-errors');
             var html = `
@@ -74,10 +74,8 @@ function handlerSubmit(event) {
         } else {
             if (result.paymentIntent.status === 'succeeded') {
                 var form = document.getElementById('payment-form');
-                console.log('Succeeded')
                 form.removeEventListener('submit', handlerSubmit);
-                var form = document.getElementById('payment-form');
-                form.submit()
+                form.submit();
             }
         }
     });

@@ -8,12 +8,6 @@
 
 {% if user.is_authenticated %}
 
-<!-- ======================= -->
-<!--         Messages        -->
-<!-- ======================= -->
-{% include 'dashboard/includes/messages.html' %}
-
-
 <div class="container text-dark">
     {% if user.is_superuser %}
     <h1 class="mt-4 text-center">Product List Administrator</h1>

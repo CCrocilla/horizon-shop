@@ -103,21 +103,8 @@ Footer
     box-shadow: none;
 }
 
-.footer .copyright {
-    padding: 25px 0;
-    border-top: 1px solid rgba(256, 256, 256, .1);
-}
-
-.footer .copyright a {
-    color: var(--light);
-}
-
-.footer .copyright a:hover {
-    color: var(--primary);
-}
-
 .footer {
-    border-top: var(--tblr-border-width) solid var(--dark);
+    border-top: 1px solid var(--dark);
     margin-top: -2px;
 }
 
@@ -382,96 +369,6 @@ Products Section
     left: 0;
     min-height: 600px;
     background: rgba(0, 0, 0, 0.7);
-}
-
-@keyframes bounceY {
-    0% {
-        transform: translateY(-205px);
-    }
-
-    40% {
-        transform: translateY(-100px);
-    }
-
-    65% {
-        transform: translateY(-52px);
-    }
-
-    82% {
-        transform: translateY(-25px);
-    }
-
-    92% {
-        transform: translateY(-12px);
-    }
-
-    55%,
-    75%,
-    87%,
-    97%,
-    100% {
-        transform: translateY(0px);
-    }
-}
-
-@-moz-keyframes bounceY {
-    0% {
-        -moz-transform: translateY(-205px);
-    }
-
-    40% {
-        -moz-transform: translateY(-100px);
-    }
-
-    65% {
-        -moz-transform: translateY(-52px);
-    }
-
-    82% {
-        -moz-transform: translateY(-25px);
-    }
-
-    92% {
-        -moz-transform: translateY(-12px);
-    }
-
-    55%,
-    75%,
-    87%,
-    97%,
-    100% {
-        -moz-transform: translateY(0px);
-    }
-}
-
-@-webkit-keyframes bounceY {
-    0% {
-        -webkit-transform: translateY(-205px);
-    }
-
-    40% {
-        -webkit-transform: translateY(-100px);
-    }
-
-    65% {
-        -webkit-transform: translateY(-52px);
-    }
-
-    82% {
-        -webkit-transform: translateY(-25px);
-    }
-
-    92% {
-        -webkit-transform: translateY(-12px);
-    }
-
-    55%,
-    75%,
-    87%,
-    97%,
-    100% {
-        -webkit-transform: translateY(0px);
-    }
 }
 
 /*--------------------------------------------------------------
@@ -856,7 +753,6 @@ Stripe
     border-radius: 0px;
     background-color: white;
     box-shadow: 0 1px 3px 0 #e6ebf1;
-    -webkit-transition: box-shadow 150ms ease;
     transition: box-shadow 150ms ease;
     border-radius: 35px;
 }
@@ -914,7 +810,7 @@ Stripe
 Tabler
 -------------------------------*/
 .bg-azure-lt {
-    color: var(--tblr-dark) !important;
+    color: var(--dark) !important;
 }
 
 .textarea,
@@ -949,10 +845,25 @@ Tabler
     padding: 0;
 }
 
-
 /*-------------------------------
 Messages
 -------------------------------*/
+
+.alert-error {
+    --tblr-alert-color: #9c0d0d;
+    background: rgb(233, 179, 179);
+}
+
+.alert-success {
+    --tblr-alert-color: #0d9c0d;
+    background: rgb(181, 233, 179);
+}
+
+.alert-info {
+    --tblr-alert-color: #1d618f;
+    background: rgb(147, 196, 211);
+}
+
 .messages {
     border-left: .25rem solid var(--tblr-alert-color);
     position: fixed;
@@ -965,23 +876,6 @@ Messages
     overflow: visible;
 }
 
-.alert-error {
-    --tblr-alert-color: #9c0d0d;
-    background: rgb(233, 179, 179);
-    border: 1px solid var(--tblr-border-color-translucent);
-}
-
-.alert-success {
-    --tblr-alert-color: #0d9c0d;
-    background: rgb(181, 233, 179);
-    border: 1px solid var(--tblr-border-color-translucent);
-}
-
-.alert-info {
-    --tblr-alert-color: #1d618f;
-    background: rgb(147, 196, 211);
-    border: 1px solid var(--tblr-border-color-translucent);
-}
 
 /* Small devices */
 @media (max-width: 992px) {
