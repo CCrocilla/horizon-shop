@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /accounts/
+Disallow: /dashboard/
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /wishlist/
+Sitemap: https://horizonshop.herokuapp.com/sitemap.xml

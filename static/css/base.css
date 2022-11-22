@@ -864,6 +864,10 @@ Contact Us & Cart Images/Background
     height: 600px;
 }
 
+.hero-cart {
+    background-image: url('https://horizonshop-project.s3.amazonaws.com/static/images/cart.webp');
+    height: 800px;
+}
 
 .images-text-forms {
     text-align: center;
