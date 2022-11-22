@@ -40,12 +40,12 @@
                         {% if testimonial.created_by.customer.avatar %}
                         <div class="testimonials-picture">
                             <img class="img-fluid rounded-circle" src="{{ testimonial.created_by.customer.avatar.url }}"
-                                alt="Client Avatar">
+                                alt="Client Avatar" width="300" height="300">
                         </div>
                         {% else %}
                         <div class="testimonials-picture">
                             <img class="img-fluid rounded-circle" src="{% static 'images/kamala.webp' %}"
-                                alt="Client Avatar">
+                                alt="Client Avatar" width="300" height="300">
                         </div>
                         {% endif %}
 

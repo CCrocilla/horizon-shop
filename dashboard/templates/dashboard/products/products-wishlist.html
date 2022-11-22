@@ -35,14 +35,14 @@
 
                 <a href="{% url 'product_details' wish.product.slug %}">
                     <img src="{{ wish.product.image.url }}" class="img-fluid img-card-products rounded-3"
-                        alt="Image {{ wish.product.title }}">
+                        alt="Image {{ wish.product.title }}" width="300" height="300">
                 </a>
 
                 {% else %}
 
                 <a href="{% url 'product_details' wish.product.slug %}">
                     <img src="{% static 'images/no-image-placeholder.png' %}"
-                        class="img-fluid img-card-products rounded-3" alt="Image {{ wish.product.title }}">
+                        class="img-fluid img-card-products rounded-3" alt="Image {{ wish.product.title }}" width="300" height="300">
                 </a>
 
                 {% endif %}
