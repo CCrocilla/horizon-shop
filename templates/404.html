@@ -4,11 +4,17 @@
 
 {% block content %}
 
+<div class="container">
+    <div class="row">
+        <div class="col m-4 m-lg-5">
+        </div>
+    </div>
+</div>
 
 <div class="container py-4 mt-5 mb-4 bg-cb-image rounded-3"
-    style="background-image: url('{% static "images/404.webp" %}'); height: 800px;">
+    style="background-image: url('https://horizonshop-project.s3.amazonaws.com/static/images/404.webp'); height: 800px;">
     <div class="row justify-content-center">
-        <div class="col-10 col-md-8 text-center pt-5 images-text-forms bg-dark">
+        <div class="col-10 col-md-8 text-center pt-5 images-text-forms">
             <h1 class="justify-content-center text-yellow">
                 Oopsss... Error Page 404 - Page Not Found!
             </h1>
@@ -16,7 +22,7 @@
                 on
                 the button below and continue Shopping on millions of other products!!!</p>
             <div class="my-5">
-                <a href="{% url 'homepage' %}" class="btn btn-lg btn-minwidth btn-outline-warning rounded-3"
+                <a href="{% url 'homepage' %}" class="btn btn-lg btn-minwidth btn-yellow text-dark rounded-3"
                     aria-label="Go to Homepage">
                     Back to Homepage
                 </a>
