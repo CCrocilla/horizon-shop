@@ -1,6 +1,6 @@
 {% extends 'dashboard/base.html' %}
 
-{% block extra_title %} - Dashboard{% endblock %}
+{% block extra_title %} - Order: {{ order.order_number }}{% endblock %}
 
 {% load static %}
 
@@ -40,7 +40,7 @@
                             data-bs-toggle="collapse" href="#collapseAccount" role="button" aria-expanded="false"
                             aria-controls="collapseAccount"> Account Details </a></h3>
 
-                    <hr class="w-10 text-yellow" style="height:2px;" />
+                    <hr class="w-10 text-yellow" style="height:2px;">
                     <div class="collapse" id="collapseAccount">
                         <div class="row">
                             <div class="col-12 col-sm-6">
@@ -81,7 +81,7 @@
                         </a>
 
                     </h3>
-                    <hr class="w-10 text-yellow" style="height:2px;" />
+                    <hr class="w-10 text-yellow" style="height:2px;">
                     <div class="collapse" id="collapseShipping">
                         <div class="row">
                             <div class="col-12 col-sm-8">
@@ -131,7 +131,7 @@
                             Order Details
                         </a>
                     </h3>
-                    <hr class="w-10 text-yellow" style="height:2px;" />
+                    <hr class="w-10 text-yellow" style="height:2px;">
                     <div class="collapse" id="collapseOrder">
                         <div class="row">
                             <div class="col-12 col-md-8">
@@ -167,7 +167,7 @@
                             Products Details
                         </a>
                     </h3>
-                    <hr class="w-10 text-yellow" style="height:2px;" />
+                    <hr class="w-10 text-yellow" style="height:2px;">
                     <div class="collapse" id="collapseProducts">
                         <div class="row">
                             <div class="col-12">

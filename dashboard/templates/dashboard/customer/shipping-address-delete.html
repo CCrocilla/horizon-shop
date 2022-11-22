@@ -1,6 +1,6 @@
 {% extends 'dashboard/base.html' %}
 
-{% block extra_title %} - Dashboard{% endblock %}
+{% block extra_title %} - Delete Shipping Address{% endblock %}
 
 {% load static %}
 
@@ -19,13 +19,13 @@
                 <div class="card rounded-3">
                     <form method="POST">
                         {% csrf_token%}
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header m-3">
+                        <div class="modal-dialog text-center">
+                            <div class="modal-content text-center">
+                                <div class="modal-header m-3 d-flex justify-content-center">
                                     <h1 class="modal-title text-center fs-5" id="staticBackdropLabel">Are you sure?</h1>
                                 </div>
                                 <div class="modal-body m-3">
-                                    By Clicking Confirm the Testimonial will be deleted and you will be redirected
+                                    By Clicking Delete the Shipping Address will be deleted and you will be redirected
                                     to the previous page!
                                 </div>
                                 <div class="modal-footer m-3">
@@ -34,7 +34,7 @@
                                         aria-label="Back">Back
                                     </a>
                                     <button type="submit"
-                                        class="my-2 btn btn-sm-minwidth btn-outline-danger rounded-3">Delete</button>
+                                        class="my-2 ms-2 btn btn-sm-minwidth btn-outline-danger rounded-3">Delete</button>
                                 </div>
                             </div>
                         </div>

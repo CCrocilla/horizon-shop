@@ -18,21 +18,21 @@
 <!--       End Messages      -->
 <!-- ======================= -->
 
-<section class="container">
+<div class="container">
     <div class="row">
         <div class="col m-4 m-lg-5">
 
         </div>
     </div>
-</section>
+</div>
 
 
 <section class="container mb-5">
     <div class="row">
         <div class="col">
             <div class="mb-3">
-                <h1 class="fw-bold text-center text-dark">Checkout</h1>
-                <hr class="w-25 mx-auto my-0 text-dark" style="height:2px;" />
+                <h2 class="fw-bold text-center text-dark">Checkout</h2>
+                <hr class="w-25 mx-auto my-0 text-dark" style="height:2px;">
             </div>
         </div>
     </div>
@@ -50,7 +50,9 @@
                         <!--     Account Details     -->
                         <!-- ======================= -->
                         <div class="card-body">
-                            <legend class="fieldset-label text-dark px-2 w-auto"> Account Details</legend>
+                            <fieldset>
+                                <legend class="fieldset-label text-dark px-2 w-auto"> Account Details</legend>
+                            </fieldset>
                             <div>
                                 <div class="row">
                                     {% if order.created_by.first_name and order.created_by.last_name %}
@@ -102,8 +104,10 @@
                         <!-- ======================= -->
 
                         <div class="card-body my-4">
-                            <legend class="fieldset-label text-dark px-2 w-auto">Shipping Address Details:
-                                {{ order.shipping_address.shipping_name }}</legend>
+                            <fieldset>
+                                <legend class="fieldset-label text-dark px-2 w-auto">Shipping Address Details:
+                                    {{ order.shipping_address.shipping_name }}</legend>
+                            </fieldset>
                             <div class="row">
 
                                 <div class="col-12 col-sm-8 my-2 text-dark">
@@ -157,7 +161,9 @@
                         <!--    Product's Summary    -->
                         <!-- ======================= -->
                         <div class="card-body">
-                            <legend class="fieldset-label text-dark px-2 w-auto">Products Summary</legend>
+                            <fieldset>
+                                <legend class="fieldset-label text-dark px-2 w-auto">Products Summary</legend>
+                            </fieldset>
                             <div class="row my-5">
                                 <div class="col-12">
                                     <div class="card">
@@ -245,23 +251,38 @@
                         <div class="card-body">
                             <div class="row my-3">
                                 <div class="col-12 text-dark">
-                                    <legend class="fs-5"><i>Quantity Products:</i> {{ total_products_cart }}</legend>
-                                    <legend class="fs-5"><i>Delivery:</i>
-                                        {% if delivery_cost == 0 %}
-                                        FREE
-                                        {% else %}
-                                        {{ delivery_cost }} Euro
-                                        {% endif %}
-                                    </legend>
-                                    <hr class="w-100 mx-auto my-0 text-dark" style="height:2px;" />
-                                    <legend class="fs-3"><strong><i>Total:</i></strong> {{ total_price_cart }} Euro
-                                    </legend>
+                                    <ul class="list-unstyled">
+                                        <li
+                                            class="d-flex justify-content-between align-items-center border-0 px-0 mb-2 fs-5">
+                                            Quantity Products:
+                                            <span>{{ total_products_cart }}</span>
+                                        </li>
+                                        <li
+                                            class="d-flex justify-content-between align-items-center border-0 px-0 mb-2 fs-5">
+                                            Delivery:
+                                            <span>
+                                                {% if delivery_cost == 0 %}
+                                                FREE
+                                                {% else %}
+                                                {{ delivery_cost }} Euro
+                                                {% endif %}</span>
+                                        </li>
+                                    </ul>
+                                    <hr class="w-100 mx-auto my-0 text-dark" style="height:2px;">
+                                    <ul class="list-unstyled">
+                                        <li
+                                            class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                                            <div>
+                                                <strong class="fs-4">Total amount: </strong>
+                                            </div>
+                                            <span><strong class="fs-4">{{ total_price_cart }} Euro</strong></span>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Confirmation Order Modal -->
-                        <!-- {% include 'includes/order-modal.html' %} -->
+
                         <div class="card-body">
                             <fieldset>
                                 <legend class="fieldset-label text-dark px-2 w-auto">Payment Details</legend>
@@ -280,17 +301,17 @@
 
 
                             <div class="row">
-                                <div class="col-12 d-flex justify-content-between">
-                                    <a class="my-2 btn btn-lg btn-minwidth btn-light rounded-3"
+                                <div class="col-12">
+                                    <a class="my-2 me-2 btn btn-lg btn-minwidth btn-light rounded-3"
                                         href="{% url 'all_products' %}" aria-label="Go Shopping">Go
                                         Shopping!
                                     </a>
 
                                     <button id="submit-button" type="submit"
-                                        class="my-2 btn btn-lg btn-minwidth bg-dark text-yellow rounded-3">
-                                        <div id="spinner" class="spinner-border hidden" role="status">
+                                        class="my-2 me-2 btn btn-lg btn-minwidth btn-dark text-yellow rounded-3">
+                                        <span id="spinner" class="spinner-border hidden" role="status">
                                             <span class="visually-hidden">Loading...</span>
-                                        </div>
+                                        </span>
                                         <span id="button-text">Pay now</span>
                                     </button>
                                     <div id="payment-message" class="hidden">

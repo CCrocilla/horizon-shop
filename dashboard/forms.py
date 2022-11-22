@@ -49,13 +49,11 @@ class CustomerForm(ModelForm):
                 attrs={
                     'readonly': 'readonly',
                     'class': 'form-control border border-dark rounded-3',
-                    'required': 'false'
                     }),
             'last_login': forms.DateTimeInput(
                 attrs={
                     'readonly': 'readonly',
                     'class': 'form-control border border-dark rounded-3',
-                    'required': 'false'
                     }),
         }
 

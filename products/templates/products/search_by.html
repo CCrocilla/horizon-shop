@@ -2,15 +2,17 @@
 
 {% load static %}
 
+{% block extra_title %} - {% if category %}{{ category.name }}{% else %}{{ subcategory.name }}{% endif %}{% endblock %}
+
 {% block content %}
 
-<section class="container">
+<div class="container">
     <div class="row">
         <div class="col m-4 m-lg-5">
 
         </div>
     </div>
-</section>
+</div>
 
 <section class="container">
     <div class="row">
@@ -18,11 +20,13 @@
             <div class="mb-5">
                 {% if category %}
 
-                <h1 class="text-center text-dark">Category Products List</h1>
-                <hr class="w-25 mx-auto my-0 text-dark" style="height:2px;" />
+                <h2 class="text-center text-dark fs-4">Category Products List</h2>
+                <hr class="w-25 mx-auto my-0 text-dark" style="height:2px;">
 
-                <ol class="breadcrumb mb-4">
-                    <h3 class="active">Category Products: <span class="badge bg-dark">{{ category }}</span> </h3>
+                <ol class="breadcrumb mt-4 mb-4">
+                    <li class="active fs-6">Category Products:
+                        <span class="badge bg-dark text-yellow fs-6">{{ category }}</span>
+                    </li>
                 </ol>
 
                 <!-- ===================== -->
@@ -32,12 +36,13 @@
 
                 {% else %}
 
-                <h1 class="text-center text-dark">Sub-Category Products List</h1>
-                <hr class="w-25 mx-auto my-0 text-dark" style="height:2px;" />
+                <h2 class="text-center text-dark">Sub-Category Products List</h2>
+                <hr class="w-25 mx-auto my-0 text-dark" style="height:2px;">
 
-                <ol class="breadcrumb mb-4">
-                    <h3 class="active">Sub-Category Products: <span class="badge bg-dark">{{ subcategory }}</span>
-                    </h3>
+                <ol class="breadcrumb mt-4 mb-4">
+                    <li class="active fs-6">Sub-Category Products:
+                        <span class="badge bg-dark text-yellow fs-6">{{ subcategory }}</span>
+                    </li>
                 </ol>
 
                 <!-- ===================== -->

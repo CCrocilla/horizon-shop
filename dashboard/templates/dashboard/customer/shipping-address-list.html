@@ -1,6 +1,6 @@
 {% extends 'dashboard/base.html' %}
 
-{% block extra_title %} - Dashboard{% endblock %}
+{% block extra_title %} - Shipping Addresses{% endblock %}
 
 {% load static %}
 
@@ -44,7 +44,7 @@
                 <div>Apartment: {{ shipping.apartment_number }}</div>
                 <div>City: {{ shipping.city }}</div>
                 <div>Postcode: {{ shipping.postcode }}</div>
-                <br />
+                <br>
 
 
                 <a class="my-2 btn btn-sm-minwidth btn-outline-primary rounded-3"
@@ -65,34 +65,57 @@
 {% if shippingaddress_list %}
 
 {% if is_paginated %}
+<div class="container">
+    <div class="row my-4">
+        <div class="col d-flex justify-content-center">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
 
-<nav aria-label="Page navigation example">
-    <ul class="pagination">
-        <li class="page-item disabled">
-            <span class="page-link text-dark">
-                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
-            </span>
-        </li>
-        {% if page_obj.has_previous %}
-        <li class="page-item">
-            <a class="page-link pagination-buttons"
-                href="/dashboard/shipping-address/list?page={{ page_obj.previous_page_number }}">
-                &laquo;
-                Previous
-            </a>
-        </li>
-        {% endif %}
-        {% if page_obj.has_next %}
-        <li class="page-item">
-            <a class="page-link pagination-buttons"
-                href="/dashboard/shipping-address/list?page={{ page_obj.next_page_number }}">
-                Next
-                &raquo;
-            </a>
-        </li>
-        {% endif %}
-    </ul>
-</nav>
+                    {% if page_obj.has_previous %}
+                    <li class="page-item btn btn-dark bg-dark rounded-3">
+                        <a class="page-link pagination-buttons btn btn-dark bg-dark text-yellow"
+                            href="/dashboard/shipping-address/list?page={{ page_obj.previous_page_number }}">
+                            &laquo;
+                            Previous
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="page-item disabled btn btn-dark bg-dark rounded-3">
+                        <a class="page-link pagination-buttons btn btn-dark bg-dark text-yellow" href="">
+                            &laquo;
+                            Previous
+                        </a>
+                    </li>
+                    {% endif %}
+
+                    <li class="page-item disabled btn btn-dark bg-dark rounded-3 mx-4">
+                        <span class="page-link text-dark btn btn-dark bg-dark text-yellow">
+                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                        </span>
+                    </li>
+
+                    {% if page_obj.has_next %}
+                    <li class="page-item btn btn-dark bg-dark rounded-3">
+                        <a class="page-link pagination-buttons btn btn-dark bg-dark text-yellow"
+                            href="/dashboard/shipping-address/list?page={{ page_obj.next_page_number }}">
+                            Next
+                            &raquo;
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="page-item disabled btn btn-dark bg-dark rounded-3">
+                        <a class="page-link pagination-buttons btn btn-dark bg-dark text-yellow" href="">
+                            Next
+                            &raquo;
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
 {% endif %}
 
 {% endif %}

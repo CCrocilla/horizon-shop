@@ -1,6 +1,6 @@
 {% extends 'dashboard/base.html' %}
 
-{% block extra_title %} - Dashboard{% endblock %}
+{% block extra_title %} - Wishlist{% endblock %}
 
 {% load static %}
 
@@ -68,7 +68,7 @@
 
                     {% if wish.product.is_deleted %}
                     <div class="mb-2">
-                        <span class="badge bg-danger">Out Of Stock</span>
+                        <span class="badge bg-danger">Deleted</span>
                     </div>
 
                     {% else %}

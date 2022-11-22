@@ -33,7 +33,7 @@
 
             {% if product.is_deleted %}
             <div class="mb-2">
-                <span class="badge bg-danger">Out Of Stock</span>
+                <span class="badge bg-danger">Product Deleted</span>
             </div>
 
             {% else %}
@@ -103,7 +103,7 @@
                 href="{% url 'product-update' product.slug %}" aria-label="Update">Edit</a>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-sm-minwidth btn-danger rounded-3" data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop">
+                data-bs-target="#staticBackdrop{{ product.slug }}">
                 Delete
             </button>
             {% endif %}
@@ -115,20 +115,22 @@
 
 
             <!-- Modal -->
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal fade" id="staticBackdrop{{ product.slug }}" data-bs-backdrop="static"
+                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel{{ product.slug }}"
+                aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content bg-dark rounded-3">
                         <form method="POST">
                             {% csrf_token%}
                             <div class="modal-header d-flex justify-content-center bg-yellow">
                                 <h1 class="fs-4 modal-title d-flex justify-content-center text-center text-dark"
-                                    id="staticBackdropLabel">Are you sure?</h1>
+                                    id="staticBackdropLabel{{ product.slug }}">Are you sure?</h1>
                             </div>
                             <div class="fs-6 modal-body d-flex justify-content-center m-3 text-yellow text-center">
                                 <p>
-                                    By Clicking <strong>Delete</strong> the Product will be deleted and it will not be
-                                    displayed in the Store!
+                                    By Clicking <strong>Delete</strong> the Product <strong>{{ product.title}}</strong>
+                                    will be deleted
+                                    and it will not be displayed in the Store!
                                     {% if user.is_superuser %}
                                     <br><br>
                                     <strong>Note:</strong> Go to the <strong><i>Deleted Products</i></strong>

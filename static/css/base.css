@@ -41,16 +41,6 @@ Buttons
     height: 38px;
 }
 
-.btn-sm-square {
-    width: 32px;
-    height: 32px;
-}
-
-.btn-lg-square {
-    width: 48px;
-    height: 48px;
-}
-
 .btn-square,
 .btn-sm-square,
 .btn-lg-square {
@@ -285,18 +275,10 @@ Offer Section
 
 
 /*--------------------------------------------------------------
-Contact Us & Bookings Background Images
+Contact Us & Cart Images/Background
 --------------------------------------------------------------*/
-.bg-cb-image {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
 .images-text-forms {
-    height: fit-content;
     text-align: center;
-    color: #FFFFFF;
     padding: 30px;
     margin: 40px auto;
     background-color: rgba(24, 29, 49, 0.9);
@@ -320,15 +302,27 @@ Contact Us & Bookings Background Images
 }
 
 .images-text-cart {
+    text-align: center;
+    padding: 30px;
+    margin: 40px auto;
+    background-color: rgba(29, 39, 59, 0.9);
+    border-radius: 35px;
+    color: #FFFFFF;
+}
+
+.images-text-forms {
     height: fit-content;
     text-align: center;
     color: #FFFFFF;
     padding: 30px;
     margin: 40px auto;
-    background-color: rgba(29, 39, 59, 0.9);
-    border-radius: 35px;
+    background-color: rgba(24, 29, 49, 0.9);
+    border-radius: 20px;
 }
 
+hr {
+    opacity: 0.5;
+}
 
 /*--------------------------------------------------------------
 Products Section 
@@ -344,22 +338,7 @@ Products Section
 }
 
 .title-all p {
-    color: #999999;
     font-size: 16px;
-}
-
-.products-box {
-    padding: 70px 0px;
-}
-
-.special-menu {
-    margin-bottom: 40px;
-}
-
-.products-single {
-    overflow: hidden;
-    position: relative;
-    margin-bottom: 30px;
 }
 
 .img-card-products {
@@ -368,21 +347,10 @@ Products Section
     object-fit: contain;
 }
 
-.products-single .box-img-hover {
-    overflow: hidden;
-    position: relative;
-}
-
-.box-img-hover img {
-    margin: 0 auto;
-    text-align: center;
-    display: block;
-}
-
 .type-lb {
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 20px;
+    right: 20px;
     z-index: 8;
 }
 
@@ -390,8 +358,6 @@ Products Section
     background: #F59F00;
     color: #1D273B;
     padding: 22px 15px;
-    top: 20px;
-    right: 20px;
     font-weight: 700;
     text-transform: uppercase;
     border-radius: 50px;
@@ -402,104 +368,20 @@ Products Section
     background: #23BF44;
     color: #181D31;
     padding: 22px 15px;
-    top: 20px;
-    right: 20px;
     font-weight: 700;
     text-transform: uppercase;
     border-radius: 50px;
     position: relative;
 }
 
-.why-text {
-    background: #f5f5f5;
-    padding: 15px;
-    border: #000000;
-}
-
-
-.mask-icon {
-    width: 100%;
-    height: 100%;
+.img-carousel {
     position: absolute;
-    overflow: hidden;
+    object-fit: cover;
+    width: 100%;
     top: 0;
     left: 0;
-}
-
-.mask-icon ul {
-    display: inline-block;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-}
-
-.mask-icon ul li {
-    background: #1D273B;
-}
-
-.mask-icon ul li a {
-    color: #ffffff;
-    padding: 5px 10px;
-    display: block;
-}
-
-.mask-icon a.cart {
-    background: #1D273B;
-    position: absolute;
-    bottom: 0;
-    right: 0px;
-    padding: 10px 20px;
-    font-weight: 700;
-    color: #F59F00;
-}
-
-.mask-icon a.wish {
-    background: #1D273B;
-    position: absolute;
-    bottom: 0;
-    left: 0px;
-    padding: 10px 20px;
-    font-weight: 700;
-    color: #ffffff;
-}
-
-.mask-icon a.cart:hover {
-    background: #000000;
-    color: #ffffff;
-}
-
-.mask-icon ul li a:hover {
-    background: #000000;
-    color: #ffffff;
-}
-
-.products-single .mask-icon {
-    background: rgba(1, 1, 1, 0.5);
-    top: -100%;
-    -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    filter: alpha(opacity=0);
-    opacity: 0;
-    -webkit-transition: all 0.3s ease-out 0.5s;
-    -moz-transition: all 0.3s ease-out 0.5s;
-    -o-transition: all 0.3s ease-out 0.5s;
-    -ms-transition: all 0.3s ease-out 0.5s;
-    transition: all 0.3s ease-out 0.5s;
-}
-
-.products-single:hover .mask-icon {
-    -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
-    filter: alpha(opacity=100);
-    opacity: 1;
-    top: 0px;
-    -webkit-transition-delay: 0s;
-    -moz-transition-delay: 0s;
-    -o-transition-delay: 0s;
-    -ms-transition-delay: 0s;
-    transition-delay: 0s;
-    -webkit-animation: bounceY 0.9s linear;
-    -moz-animation: bounceY 0.9s linear;
-    -ms-animation: bounceY 0.9s linear;
-    animation: bounceY 0.9s linear;
+    min-height: 600px;
+    background: rgba(0, 0, 0, 0.7);
 }
 
 @keyframes bounceY {
@@ -592,23 +474,6 @@ Products Section
     }
 }
 
-
-.img-carousel {
-    position: absolute;
-    object-fit: cover;
-    width: 100%;
-    top: 0;
-    left: 0;
-    min-height: 600px;
-    background: rgba(0, 0, 0, 0.7);
-}
-
-
-/*--------------------------------------------------------------
-Extra CSS Dashboard
---------------------------------------------------------------*/
-
-
 /*--------------------------------------------------------------
 Navbar Underline effect
 --------------------------------------------------------------*/
@@ -625,30 +490,6 @@ Placeholders
     opacity: 1;
     /* Firefox */
 }
-
-/*--------------------------------------------------------------
-Contact Us Background Images
---------------------------------------------------------------*/
-.bg-cb-image {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.images-text-forms {
-    height: fit-content;
-    text-align: center;
-    color: #FFFFFF;
-    padding: 30px;
-    margin: 40px auto;
-    background-color: rgba(24, 29, 49, 0.9);
-    border-radius: 20px;
-}
-
-hr {
-    opacity: 0.5;
-}
-
 
 /*--------------------------------------------------------------
 Dashboard
@@ -700,6 +541,9 @@ Customer Updating Information Page
     display: none;
 }
 
+#hint_id_new_password1 ul li {
+    color: #F6F7F8;
+}
 
 /*--------------------------------------------------------------
 Customer Avatar
@@ -1105,10 +949,10 @@ Tabler
     padding: 0;
 }
 
+
 /*-------------------------------
 Messages
 -------------------------------*/
-
 .messages {
     border-left: .25rem solid var(--tblr-alert-color);
     position: fixed;
