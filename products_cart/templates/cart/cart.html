@@ -153,7 +153,7 @@
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-12 text-dark">
-                                <h3> Select your shipping address from the list below to proceed to the Checkout! </h3>
+                                <h3> To proceed to the Checkout select your shipping address from the list below! </h3>
                                 <!-- ====================== -->
                                 <!--    Shipping Address    -->
                                 <!-- ====================== -->
@@ -183,11 +183,11 @@
                                     {% else %}
 
                                     <span class="form-control border-2 border-danger text-danger fw-bold">
-                                        No Shipping Address Available! Click
+                                        No Shipping Address Available! Click on
                                         <a href="{% url 'shipping-address-add' %}">
                                             Shipping Address
                                         </a>
-                                        here to register your Address!
+                                        to register your Address!
                                     </span>
 
                                     {% endif %}
@@ -200,7 +200,7 @@
 
                         <ul class="list-unstyled">
                             <li class="d-flex justify-content-between align-items-center border-0 px-0 mb-2">
-                                Quantity Products:
+                                Products' Quantity:
                                 <span>{{ total_products_cart }}</span>
                             </li>
                             <li class="d-flex justify-content-between align-items-center border-0 px-0 mb-2">
@@ -240,14 +240,14 @@
             <div class="row">
                 <div class="col-10 my-5 p-3 images-text-cart">
                     <div class="text-align-left">
-                        <h2 class="fs-2 text-yellow">Opss...Your Cart is still Empty!</h2>
+                        <h2 class="fs-2 text-yellow">Opss...Your Cart is Empty!</h2>
 
                         <p class="fs-5 text-light">
                             If you are looking for a new <strong
                                 class="text-yellow text-uppercase fst-italic">Smartphone</strong>,
-                            a new <strong class="text-yellow text-uppercase fst-italic">Appliance</strong> or an used
-                            <strong class="text-yellow text-uppercase fst-italic">TV</strong> we have them all!
-                            What are you waiting for!
+                            a new <strong class="text-yellow text-uppercase fst-italic">Appliance</strong> or a used
+                            <strong class="text-yellow text-uppercase fst-italic">TV</strong> browse through Horizon
+                            Shop...we have all you have ever wished for!
                         </p>
                         <a href="{% url 'all_products' %}" class="btn btn-dark rounded-3 btn-lg mb-2">
                             <span class="text-uppercase text-yellow fst-italic">Go Shopping</span>
@@ -267,16 +267,16 @@
             <div class="row">
                 <div class="col-10 my-5 p-3 images-text-cart">
                     <div class="text-align-left">
-                        <h2 class="fs-2 text-yellow">Looks like you are not sign in!</h2>
+                        <h2 class="fs-2 text-yellow">Looks like you are not signed in!</h2>
                         <p class="fs-5 text-light">
-                            Milions of New and Used Products are available for you in our shop!
+                            Millions of New and Used Products are available for you in our shop!
                         </p>
                         <p class="fs-5 text-light">
                             Do you need a New <strong class="text-yellow text-uppercase fst-italic">Smartphone</strong>,
-                            new <strong class="text-yellow text-uppercase fst-italic">Appliances</strong> or used
+                            a new <strong class="text-yellow text-uppercase fst-italic">Appliances</strong> or a used
                             <strong class="text-yellow text-uppercase fst-italic">TV</strong>??? We have them all!
-                            What are you waiting for! Sign In if you already have an Horizon Shop Account or Sign Up
-                            Today and join milions of other happy customers!
+                            What are you waiting for!? Sign In if you already have a Horizon Shop Account or Sign Up
+                            Today and join our amazing community!
                         </p>
                         <a class="btn btn-dark rounded-3 btn-lg mb-2" href="{% url 'account_signup' %}">
                             <span class="text-uppercase text-yellow fst-italic">Sign Up</span>
