@@ -54,7 +54,7 @@ class DashboardView(LoginRequired, View):
 
     def get(self, request):
         if request.user.is_superuser:
-            orders = Order.objects.all()
+            orders = Order.objects.all().order_by('-created_at')
 
             products = Product.objects.all().count()
 
@@ -63,7 +63,7 @@ class DashboardView(LoginRequired, View):
             testimonials = Testimonial.objects.all().count()
         else:
             orders = Order.objects.filter(
-                created_by=request.user)
+                created_by=request.user).order_by('-created_at')
 
             products = Product.objects.all().filter(
                 created_by=request.user, is_deleted=False).count()
@@ -283,7 +283,7 @@ class ProductListView(ListView):
 
 class ProductsDeletedListView(ListView):
     """
-    Class to display the User's Product
+    Class to display the User's Deleted Product
     """
     model = Product
     template_name = 'dashboard/products/products-deleted-list.html'
@@ -301,10 +301,19 @@ class ProductUpdateView(SuccessMessageMixin, UpdateView):
     Class to update User's Product
     """
     model = Product
-    form_class = ProductForm
     template_name = 'dashboard/products/product-update.html'
     success_url = reverse_lazy('products-list')
     success_message = "Product updated successfully!"
+
+    def get_form_class(self):
+        form_class = ProductAdminForm
+
+        if self.request.user.is_superuser:
+            form_class = ProductAdminForm
+        else:
+            form_class = ProductForm
+
+        return form_class
 
 
 def ProductDeleteView(request, slug):

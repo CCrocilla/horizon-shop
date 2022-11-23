@@ -408,13 +408,38 @@ Sitemap: https://horizonshop.herokuapp.com/sitemap.xml
 
 </urlset>
 ```
-
+<br>
 
 ### **Social Media**
+Social Media are great to boost the market of a website! It is an effective way to connect with more customers and improve the visibility of the website increasing awareness about the brand.
+Social Media also helps build trust, authority and also to show the brand personality!
 
+One of the most valuable social media platform is Facebook and it has been used to create a business page that matches the branding of the website and increase the visibility. 
+
+The Facebook Page shows offers as can be seen in the screenshot below: 
+
+<img src="static/images/readme/facebook/fb-home.webp" alt="Facebook - Page" width="1200px"/>
+
+To gain our customer trust, part of the Horizon Shop Team is also shown in one of the Post:
+
+<img src="static/images/readme/facebook/fb-team.webp" alt="Facebook - Horizon Shop Team" width="1200px"/>
+
+The user that enters in the Facebook Page is Welcomed with a first message: 
+
+<img src="static/images/readme/facebook/fb-welcome.webp" alt="Facebook - Welcome Message" width="1200px"/>
+
+The Facebook Page can be accessed using the link below: 
+ [Horizon Shop Facebook Page](https://www.facebook.com/iehorizonshop)
+
+<br>
 
 ### **Newsletter**
+Newsletters are one of the most powerful digital marketing tools.
+They let you communicate directly with prospects and customers in a personalized way by serving valuable content and relevant promotions straight to their inboxes.
+In Horizon Shop anyone can Sign Up for the Newsletter and no registration is required! 
 
+One of the most used is Mailchimp that it is an all-in-one marketing platform that helps manage and talk to clients, customers, and other interested parties and has been implemented in the Footer of Horizon Shop! 
+ 
 
 
 ---
@@ -1032,7 +1057,7 @@ Sources:
 <details>
     <summary>My Admin</summary>
 
-#### My Admin includes all that is needed to an Admin to manage an E-Commerce and it is accessible only by a signed-in Admin User (No Customer are allowed to access the sub-section of *My Admin*). It is composed by 9 main sub-sections realized using class base views and functions:
+#### My Admin includes all that is needed to an Admin to manage an E-Commerce and it is accessible only by a signed-in Admin User (No Customer are allowed to access the sub-section of *My Admin*). It is composed by 9 main sub-sections realized using Class base views and functions:
 
 - Add Category
 #### The sub-section *Add Category*, realized using a CreateView, allows the Admin to add Categories to Horizon Shop.
@@ -1089,8 +1114,7 @@ Sources:
 <details>
     <summary>My Horizon Shop</summary>
 
-#### *My Horizon Shop* summarises in just one page-view and with different cards all user’s information allowing to access Orders, Testimonials and more. A link “View Details” is present in each card and will redirect the users to the selected list.
-
+#### *My Horizon Shop* summarises in just one page-view and with different cards all user’s information. From this page the user can access Orders, Testimonials and more. A link “View Details” is present in each card and will redirect the users to the selected list.
 #### The Function .count() has been used in this section to display the total number of the selected items.
 
 </details>
@@ -1099,11 +1123,11 @@ Sources:
 <details>
     <summary>My Profile</summary>
 
-#### *My Profile* is composed of 4 main sub-section (Edit Profile, Change Password, Add Address, List Addresses) realized using class base views. 
+#### *My Profile*, realized using Class base Views, is composed of 4 main sub-sections (Edit Profile, Change Password, Add Address, List Addresses). 
 
 
 - Edit Profile
-#### In *Edit Profile*, realized using a UpdateView, the users can edit their own profile changing Username, Email, First and Last Name and Avatar. The User can also see the Date when he/she has sign up in Horizon Shop and the Last Login. 
+#### In *Edit Profile*, realized using a UpdateView, the users can edit their profile changing Username, Email, First and Last Name and Avatar. In here, the users can also see the sign-up and last login date. 
 
 
 - Change Password
@@ -1111,67 +1135,75 @@ Sources:
 
 
 - Add Address 
-#### *Add Address* has been realized using a CreateView and this sub-section allows the user to add his/her own Address to Horizon Shop.
-#### A Reset and a Create buttons are displayed.
+#### The sub-section*Add Address*, realized using a CreateView,  allows the user to add his/her Address to Horizon Shop.
+#### A Reset and a Create Buttons are displayed.
 #### The Reset Button resets the form.
-#### After clicking on the Create Button, if the form is correctly filled in, the user is redirected to the Shipping Addresses List and a notification message is displayed informing the user that the address has been created successfully.
+#### After clicking on the Create Button, if the form is correctly filled-in, the user is redirected to the Shipping Addresses List and a notification message is displayed informing the user that the address has been created successfully.
 
 
 - List Addresses
-#### In the *List Addresses* for a consistent display setting through the website, the Addresses are shown in cards.
-#### The Addresses List has been realized using a ListView. The user can review all information as well as Edit or Delete using dedicated buttons.
-#### Consistently with all other pages deleting an Address triggers a pop-up message requesting user’s confirmation.
+#### The addresses in the *List Addresses* are shown in cards (for display consistency through the website).
+#### The Addresses List has been realized using a ListView. The user can review all information as well as Edit or Delete using the dedicated buttons.
+#### Consistently with all other pages, when deleting an address product, a notification is triggered requesting user’s confirmation.
+
 
 </details>
 
 <details>
     <summary>My Products</summary>
 
-#### *My Products* is composed of 4 main sub-section (My Orders, Sell Product, Product List, My Wishlist) realized using class base views. 
+#### *My Products*, realized using Class base Views, is composed of 4 main sub-sections (My Orders, Sell Product, Product List, My Wishlist).  
 
 - My Orders
-#### In *My Order*, realized using a ListView, the users can review all information of the completed orders and check the details of the order using a *Details* dedicated buttons.
+#### In *My Order*, realized using a ListView, the users can review the completed orders and check the details using a *Details* dedicated button. This will open a sub-menu with account, shipping, order and products details available for review.
+
 
 - Sell Product
-#### *Sell Product* has been realized using a CreateView and this sub-section allows the user to sell their own products that will be exposed for free on the Home page and on the Used Product List.
-#### The Sell Product is similar to the Add Product of the Admin but with less fields to fill in. 
-#### A Reset and a Create buttons are displayed.
+#### The sub-section *Sell Product*, realized using a CreateView, allows the customer users to sell their products. Horizon Shop provides a free service to show case the used products on the Home page and on the Used Product List.
+#### The Sell Product is similar to the Admin Add Product form but with less fields to fill-in. 
+#### A Reset and a Create Buttons are displayed.
 #### The Reset Button resets the form.
-#### After clicking on the Create Button, if the form is correctly filled in, the user is redirected to the his/her own Product List and a notification message is displayed informing the user that the Product has been created successfully.
+#### After clicking on the Create Button, if the form is correctly filled-in, the user is redirected to his/hers Product List and a notification message is displayed informing the user that the product has been created successfully.
+
 
 - Product List 
-#### In *Product List* for a consistent display setting through the website, the Products are shown in cards.
-#### The Product List has been realized using a ListView. The user can review all information as well as Edit or Delete using dedicated buttons.
-#### Consistently with all other pages deleting an Product triggers a pop-up message requesting user’s confirmation.
+#### The products in the *Product List* are shown in cards (for display consistency through the website).
+#### The Product List has been realized using a ListView. The customer user can review all information as well as Edit or Delete Products using the dedicated buttons.
+#### Consistently with all other pages, when deleting a product, a notification is triggered requesting user’s confirmation.
+
 
 - My Wishlist
-#### In *My Wishlist* for a consistent display setting through the website, the Products are shown in cards.
-#### My Wishlist has been realized using a ListView. The user can review all the product added to the wishlist.
-#### The user can remove the product from the wishlish using a Remove Button. 
+#### The products in the *My Wishlist*  are shown in cards (for display consistency through the website).
+#### My Wishlist has been realized using a ListView. The customer user can review all the products added to the wishlist.
+#### The user can remove the products from the wishlish using the Remove Button. 
+ 
 
 </details>
 
 <details>
    <summary>My Testimonials</summary>
 
-#### *My Testimonials* includes 2 sub-section (*Add Testimonials* and *Testimonials List*).
-#### The subsections are consistent in colors and layout with the Sections described above.
+#### *My Testimonials* includes 2 sub-sections (*Add Testimonials* and *Testimonials List*).
+#### The subsections are consistent in colors and layout with the sections described above.
 
-#### *Add Testimonials* (realized using a CreateView) allows the user to leave a Testimonials to Horizon Shop.
-#### The latest 3 Testimonials added are displayed in the Homepage.
+#### *Add Testimonials* (realized using a CreateView) allows the user to leave a testimonial to Horizon Shop.
+#### The latest 3 added testimonials are displayed in the Homepage.
 
-#### In order to realize a better visual impact Testimonials page a combination between the forms provided by Django and a custom form has been used where each Testimonials can be rated with a star system (from 1 to 5) for easy-to-use and effective view.
-#### In the Testimonials List for a consistent display setting through the website, the logged-in user Testimonials are shown in cards.
+#### For a better visual impact and effective user experience of the testimonials page, the standard Django form has been modified and customised with the possibility of rating each Testimonials with a star system (from 1 to 5).
 
-#### The *Testimonials List* has been realized using a ListView. The user can review all information as well as Edit or Delete using dedicated buttons.
-#### Consistently with all other pages deleting a Testimonials triggers a pop-up message requesting user’s confirmation.
+#### The testimonials in the *Testimonials List*  are shown in cards (for display consistency through the website).
+
+#### The *Testimonials List* has been realized using a ListView. The user can review all information as well as Edit or Delete using the dedicated buttons.
+
+#### Consistently with all other pages, when deleting a Testimonial, a notification is triggered requesting user’s confirmation.
 
 </details>
 
 
 - ### *__404 Error Page__*:
-#### For any broken or incorrect links, the 404 Error page will be triggered. Here the user will have an image displayed in the background and above text box that will inform the users that the page is not correct.
-#### A button is present in the text displayed in order to allow the user to navigate back to the Home Page.  
+#### For any broken or incorrect links, the 404 Error page will be triggered. Here an image is displayed in the background with a text box above that will inform the users that the link used is not correct.
+#### A Button is present in the text displayed to allow the user to navigate back to the Home Page.  
+
 
 ---
 
@@ -1350,7 +1382,7 @@ Sources:
 
 - ### **Frameworks, Libraries & Programs Used** 
 
-#### Django Framework has been used.
+#### Django Framework has been utilized.
 
 - #### Google Fonts: 
     - #### Google fonts were used for the font in all pages throughout the project.
@@ -1389,18 +1421,18 @@ Sources:
     - #### This is an infinite, collaborative canvas for effective meetings and engaging learning. Whiteboard was used to summarise the programming steps, the layout and the rationale behind those. Whiteboard has been used together with the Wondershare EdrawMax.
 
 - #### AWS S3
-    - #### Used to store all all the static files. 
+    - #### Used to store all the static files.  
 
 - #### Stripe Payment System
-    - #### Stripe is a payment services provider that lets merchants accept credit and debit cards or other payments and it has been used for the Payment System in Horizon Shop.
+    - #### Stripe, a payment service provider that lets merchants accept credit and debit cards or other payments, has been used for the Payment System in Horizon Shop.
 
 - #### Gmail
-    - #### Gmail has been used to send the email. A dedicated email address has been created. 
+    - #### Gmail has been used to send the emails including reset passwords email, verification emails customer emails. A dedicated Horizon Shop address has been created.  
 
 ---
 
 ## **Testing**
-The testing phases have been carried out using the **PIP8 Python Validator**. No errors have been identified from the Validators as can be seen in the screenshots below:
+The testing phases have been carried out using the **PIP8 Python Validator**. No errors have been identified from the Validators as it can be seen in the screenshots below:
 
 - **Python**
 
@@ -1451,7 +1483,7 @@ The testing phases have been carried out using the **PIP8 Python Validator**. No
 
 </details>
 
-The testing phases have been also carried out using the **W3C Javascript Validator**, **W3C CSS Validator** and **W3C Markup Validator**(in all pages). No errors have been identified from the Validators as can be seen in the screenshot below: 
+The testing phases have been also carried out using the **W3C Javascript Validator**, **W3C CSS Validator** and **W3C Markup Validator**(in all pages). No errors have been identified from the Validators as it can be seen in the screenshot below:  
 
 - **JavaScript**
 
@@ -1554,122 +1586,122 @@ The testing phases have been also carried out using the **W3C Javascript Validat
 Below it is possible to taka e look at the result obtained in Lighthouse:
 
 <details>
-    <summary>Click here for for Lighthouse Desktop - Homepage</summary>
+    <summary>Click here for Lighthouse Desktop - Homepage</summary>
 <img src="static/images/readme/lighthouse/homepage-desktop.webp" alt="Lighthouse Desktop Homepage" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for for Lighthouse Mobile - Homepage</summary>
+    <summary>Click here for Lighthouse Mobile - Homepage</summary>
 <img src="static/images/readme/lighthouse/homepage-mobile.webp" alt="Lighthouse Mobile Homepage" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for for Lighthouse Desktop - Contact Us</summary>
+    <summary>Click here for Lighthouse Desktop - Contact Us</summary>
 <img src="static/images/readme/lighthouse/contactus-desktop.webp" alt="Lighthouse Desktop Contact Us" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for for Lighthouse Mobile - Contact Us</summary>
+    <summary>Click here for Lighthouse Mobile - Contact Us</summary>
 <img src="static/images/readme/lighthouse/contactus-mobile.webp" alt="Lighthouse Mobile Contact Us" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for for Lighthouse Desktop - Sign In</summary>
+    <summary>Click here for Lighthouse Desktop - Sign In</summary>
 <img src="static/images/readme/lighthouse/signin-desktop.webp" alt="Lighthouse Desktop Sign In" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for for Lighthouse Mobile - Sign In</summary>
+    <summary>Click here for Lighthouse Mobile - Sign In</summary>
 <img src="static/images/readme/lighthouse/signup-desktop.webp" alt="Lighthouse Mobile Sign In" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for for Lighthouse Desktop - Sign Up</summary>
+    <summary>Click here for Lighthouse Desktop - Sign Up</summary>
 <img src="static/images/readme/lighthouse/signup-desktop.webp" alt="Lighthouse Desktop Sign In" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for for Lighthouse Mobile - Sign Up</summary>
+    <summary>Click here for Lighthouse Mobile - Sign Up</summary>
 <img src="static/images/readme/lighthouse/signin-desktop.webp" alt="Lighthouse Mobile Sign In" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for for Lighthouse Desktop - Sign Out</summary>
+    <summary>Click here for Lighthouse Desktop - Sign Out</summary>
 <img src="static/images/readme/lighthouse/sign-out-desktop.webp" alt="Lighthouse Desktop Sign In" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for for Lighthouse Mobile - Sign Out</summary>
+    <summary>Click here for Lighthouse Mobile - Sign Out</summary>
 <img src="static/images/readme/lighthouse/sign-out-mobile.webp" alt="Lighthouse Mobile Sign In" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for for Lighthouse Desktop - Password Reset Desktop</summary>
+    <summary>Click here for Lighthouse Desktop - Password Reset Desktop</summary>
 <img src="static/images/readme/lighthouse/password-reset-desktop.webp" alt="Lighthouse Desktop Sign In" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for for Lighthouse Mobile - Password Reset Desktop</summary>
+    <summary>Click here for Lighthouse Mobile - Password Reset Desktop</summary>
 <img src="static/images/readme/lighthouse/password-reset-mobile.webp" alt="Lighthouse Mobile Sign In" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for for Lighthouse Desktop - My Horizon Shop</summary>
+    <summary>Click here for Lighthouse Desktop - My Horizon Shop</summary>
 <img src="static/images/readme/lighthouse/myHorizon Shop-desktop.webp" alt="Lighthouse Desktop Sign In" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for for Lighthouse Mobile - My Horizon Shop</summary>
+    <summary>Click here for Lighthouse Mobile - My Horizon Shop</summary>
 <img src="static/images/readme/lighthouse/myHorizon Shop-mobile.webp" alt="Lighthouse Mobile Sign In" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for for Lighthouse Desktop - Edit Profile</summary>
+    <summary>Click here for Lighthouse Desktop - Edit Profile</summary>
 <img src="static/images/readme/lighthouse/edit-profile-desktop.webp" alt="Lighthouse Desktop Sign In" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for for Lighthouse Mobile - Edit Profile</summary>
+    <summary>Click here for Lighthouse Mobile - Edit Profile</summary>
 <img src="static/images/readme/lighthouse/edit-profile-mobile.webp" alt="Lighthouse Mobile Sign In" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for for Lighthouse Desktop - Change Password Profile</summary>
+    <summary>Click here for Lighthouse Desktop - Change Password Profile</summary>
 <img src="static/images/readme/lighthouse/change-password-desktop.webp" alt="Lighthouse Desktop Sign In" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for for Lighthouse Mobile - Change Password Profile</summary>
+    <summary>Click here for Lighthouse Mobile - Change Password Profile</summary>
 <img src="static/images/readme/lighthouse/change-password-mobile.webp" alt="Lighthouse Mobile Sign In" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for for Lighthouse Desktop - Add Feedback</summary>
+    <summary>Click here for Lighthouse Desktop - Add Feedback</summary>
 <img src="static/images/readme/lighthouse/add-feedback-desktop.webp" alt="Lighthouse Desktop Sign In" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for for Lighthouse Mobile - Add Feedback</summary>
+    <summary>Click here for Lighthouse Mobile - Add Feedback</summary>
 <img src="static/images/readme/lighthouse/add-feedback-mobile.webp" alt="Lighthouse Mobile Sign In" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for for Lighthouse Desktop - Feedback List</summary>
+    <summary>Click here for Lighthouse Desktop - Feedback List</summary>
 <img src="static/images/readme/lighthouse/add-feedback-desktop.webp" alt="Lighthouse Desktop Sign In" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for for Lighthouse Mobile - Feedback List</summary>
+    <summary>Click here for Lighthouse Mobile - Feedback List</summary>
 <img src="static/images/readme/lighthouse/add-feedback-mobile.webp" alt="Lighthouse Mobile Sign In" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for for Lighthouse Desktop - Error 404</summary>
+    <summary>Click here for Lighthouse Desktop - Error 404</summary>
 <img src="static/images/readme/lighthouse/error404-desktop.webp" alt="Lighthouse Desktop Error 404" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for for Lighthouse Mobile - Error 404</summary>
+    <summary>Click here for Lighthouse Mobile - Error 404</summary>
 <img src="static/images/readme/lighthouse/error404-mobile.webp" alt="Lighthouse Mobile Error 404" width="600px"/>
 </details>
 
@@ -1677,36 +1709,39 @@ Below it is possible to taka e look at the result obtained in Lighthouse:
 
 - ### **Test Cases**
 
-- #### List of Manual Test Cases perfomed. 
+- #### List of Manual Test Cases perfomed.
 All the Tests have also been performed in all the Devices and the tests includes also Layout testing. 
+
+<details>
+    <summary>Click here to see the list of Manual Tests</summary>
 
 | Page | Feature | Expected Result | Status |
 | --- | --- | --- | --- |
-| Home | Header | Make sure that the Logo and the nav bar are displayed on the top part of the Home Page. | Pass |
+| Home | Header | Make sure that the Logo and the Navbar are displayed on the top part of the Home Page. | Pass |
 | Home | Header | Make sure that non-authenticated users can only access Home, Contact Us, Products, Sign In/Up Pages. | Pass |
 | Home | Header | Make sure that non-authenticated users cannot add product to the Cart or to the Wishlist. | Pass |
-| Home | Header | Make sure that authenticated user can see/access Home, Contact Us, Products, Wishlist and all the customer sections of My Horizon Shop Dashboard. | Pass |
+| Home | Header | Make sure that authenticated user can see/access Home, Contact Us, Products, Cart, Wishlist and all the customer sections of My Horizon Shop Dashboard. | Pass |
 | Home | Header | Make sure that by clicking on the Logo the user is redirected to the Home Page. | Pass |
-| Home | Header | Make sure that by clicking to one of the Products Button the user is redirected to the Products List selected. | Pass |
+| Home | Header | Make sure that by clicking onto one of the Products Button the user is redirected to the Products List selected. | Pass |
 | Home | Header | Make sure that by using the search field the user is redirected to the Products List displaying the products that match the query entered by the user. | Pass |
-| Home | Horizon Shop Service | Make sure that the Services of Horizon Shop are displayed with no overlap with the Logos, Nav Bar and/or text. | Pass |
+| Home | Horizon Shop Service | Make sure that the Services of Horizon Shop are displayed with no overlap with the Logos, Navbar and/or text. | Pass |
 | Home | Hero Offer Section | Make sure that the Images in a Carousel are displayed with the correct text/buttons. | Pass |
-| Home | Hero Offer Section | Make sure that only Carousel and it's content does not overlap with other contents. | Pass |
+| Home | Hero Offer Section | Make sure that the Carousel and its content do not overlap with other website contents. | Pass |
 | Home | Latest New Products | Make sure that the latest 4 New Products added to Horizon Shop are displayed in cards with no overlap with other sections. | Pass |
-| Home | Latest New Products | Make sure that in each New Product Card the correct information are displayed (Title, Category, Rating, Price, Comments' Quantity, Buttons Cart and Wishlist) for Authenticated Users. | Pass |
-| Home | Latest New Products | Make sure that in each New Product Card the correct information are displayed (Title, Category, Rating, Price, Comments' Quantity) for Non-Authenticated Users. | Pass |
+| Home | Latest New Products | Make sure that in each New Product Card the correct information is displayed (Title, Category, Rating, Price, Comments' Quantity, Buttons Cart and Wishlist) for Authenticated Users. | Pass |
+| Home | Latest New Products | Make sure that in each New Product Card the correct information is displayed (Title, Category, Rating, Price, Comments' Quantity) for Non-Authenticated Users. | Pass |
 | Home | Latest Used Products | Make sure that the latest 4 Used Products added to Horizon Shop are displayed in cards with no overlap with other sections. | Pass |
-| Home | Latest Used Products | Make sure that in each Used Product Card the correct information are displayed (Title, Category, Rating, Price, Comments' Quantity, Buttons Cart and Wishlist) for Authenticated Users. | Pass |
-| Home | Latest Used Products | Make sure that in each Used Product Card the correct information are displayed (Title, Category, Rating, Price, Comments' Quantity) for Non-Authenticated Users. | Pass |
+| Home | Latest Used Products | Make sure that in each Used Product Card the correct information is displayed (Title, Category, Rating, Price, Comments' Quantity, Buttons Cart and Wishlist) for Authenticated Users. | Pass |
+| Home | Latest Used Products | Make sure that in each Used Product Card the correct information is displayed (Title, Category, Rating, Price, Comments' Quantity) for Non-Authenticated Users. | Pass |
 | Home | Testimonials Section | Make sure that the Testimonials area displays a carousel with Users’ Testimonials.| Pass |
 | Home | Testimonials Section | Make sure that the user can use the arrows to switch between Testimonials. | Pass |
-| Home | Testimonials Section | Make sure that are displayed properly including the Comment, the Rating, the Avatar and the Username of the User. | Pass |
+| Home | Testimonials Section | Make sure that Testimonials are displayed properly including the Comment, the Rating, the Avatar and the Username of the User. | Pass |
 | Home | Footer | Make sure that the footer displays the information of the company | Pass |
 | Home | Footer | Make sure that the footer provides the link to access the social media and when clicking on the icons a new tab is opened | Pass |
 | Home | Footer | Make sure that the user can sign up with an email address to receive the newsletter.| Pass |
-| Home | Footer | Make sure that by clicking on the newsletter form button if no email or an invalid email has been entered an error message is displayed to the user. | Pass |
-| Home | Footer | Make sure that by clicking on the newsletter form button if correct email has been entered a success message notification is displayed to the user | Pass |
-| Contact Us | Form Section | Make sure that the information are displayed correctly in the page and no overlap/cut-off are present. | Pass |
+| Home | Footer | Make sure that, by clicking on the newsletter form button, if no email or an invalid email has been entered an error message is displayed to the user. | Pass |
+| Home | Footer | Make sure that by clicking on the newsletter form button, if a correct email has been entered, a success message notification is displayed to the user | Pass |
+| Contact Us | Form Section | Make sure that the information is displayed correctly in the page and no overlap/cut-off are present. | Pass |
 | Contact Us | Form Section | Make sure all the fields (Full Name, Email, Message) are editable. | Pass |
 | Contact Us | Form Section | Make sure the checkboxes Terms & Condition is clickable. | Pass |
 | Contact Us | Form Section | Make sure all the fields (Full Name, Email, Message, Terms & Condition) are mandatory. | Pass |
@@ -1720,130 +1755,133 @@ All the Tests have also been performed in all the Devices and the tests includes
 | Wishlist | Wishlist List | Make sure that the authenticated users can see only their own wished products. | Pass |
 | Wishlist | Wishlist List | Make sure that the authenticated users can see the list of products in cards and no overlaps are present. | Pass |
 | Cart | Cart Page | Make sure that non-authenticated users can see a message informing them to log in Horizon Shop to see the content of the Cart. | Pass |
-| Cart | Cart Page | Make sure that the authenticated users can see/acces the Cart Page. | Pass |
-| Cart | Cart Page | Make sure taht if no product has been added to the Cart, the user see a Background Image and message informing that no Products are present. | Pass |
-| Cart | Cart Page | Make sure taht if no product has been added to the Cart, a button that redirect the user to the list of products is displayed. | Pass |
-| Cart | Cart Page | Make sure that the users can see the list of products added if present and no overlaps are present. | Pass |
-| Cart | Cart Page | Make sure that the users can see update the quantity of products added using dedicated buttons. | Pass |
-| Cart | Cart Page | Make sure that the users can see the list of his/her own Shipping Addresses. | Pass |
-| Cart | Cart Page | Make sure that if the user does not have any Shipping Address saved a message is displayed to the user with a link to redirect to the Address Creation. | Pass |
+| Cart | Cart Page | Make sure that the authenticated users can see/access the Cart Page. | Pass |
+| Cart | Cart Page | Make sure that if no product has been added to the Cart, the user sees a Background Image and message informing that no Products are present. | Pass |
+| Cart | Cart Page | Make sure that if no product has been added to the Cart, a button that redirects the user to the list of products is displayed. | Pass |
+| Cart | Cart Page | Make sure that the users can see the list of products added and no overlaps are present. | Pass |
+| Cart | Cart Page | Make sure that the users can see the quantity of added products added being update when using the dedicated buttons. | Pass |
+| Cart | Cart Page | Make sure that the users can see the list of their Shipping Addresses. | Pass |
+| Cart | Cart Page | Make sure that if the user does not have any Shipping Address saved, a message is displayed to the user with a link to go back to the Address Creation. | Pass |
 | Cart | Cart Page | Make sure that a clickable Checkout Button is displayed. | Pass |
 | Cart | Cart Page | Make sure that by clicking on the Checkout Button the user is redirected to the Checkout page. | Pass |
 | Checkout | Summary | Make sure that a summary with the important information of the order are displayed. | Pass |
 | Checkout | Summary | Make sure that the summary contains the User Details. | Pass |
 | Checkout | Summary | Make sure that the summary contains the Shipping Address Details. | Pass |
-| Checkout | Summary | Make sure that the summary contains the List of Products present in the Cart of the user. | Pass |
+| Checkout | Summary | Make sure that the summary contains the List of Products present in the  user cart. | Pass |
 | Checkout | Stripe | Make sure that the Stripe Payment Form is displayed. | Pass |
-| Checkout | Stripe | Make sure that the a Pay Now Button is displayed and it is disabled if the form is not filled in correctly. | Pass |
-| Checkout | Stripe | Make sure that the a Continue Shopping Button is displayed and that redirect the user to the All Products List Page. | Pass |
+| Checkout | Stripe | Make sure that the a Pay Now Button is displayed and/or it is disabled if the form is not filled in correctly. | Pass |
+| Checkout | Stripe | Make sure that a Continue Shopping Button, that redirect the user to the All Products List Page, is displayed.  | Pass |
 | Checkout | Stripe | Make sure that the fields in the Payment form are editable. | Pass |
-| Checkout | Stripe | Make sure that if a non valid *Credit/Debit Card* and/or incorrect *Valid Date* are entered an error message is displayed to the user. | Pass |
-| Checkout | Stripe | Make sure that if the form is correctly filled in the Pay Now button is clickable. | Pass |
+| Checkout | Stripe | Make sure that if a non valid *Credit/Debit Card* and/or incorrect *Valid Date* are entered, an error message is displayed to the user. | Pass |
+| Checkout | Stripe | Make sure that if the form is correctly filled-in, the Pay Now button is clickable. | Pass |
 | Checkout | Payment Success | Make sure that by clicking on the Pay Now Button a Wheel Spinner is displayed and the Pay Now Button is not visible. | Pass |
-| Checkout | Payment Success | Make sure that by clicking on the Pay Now Button if the Payment is processed correctly, the user is redirected to the Payment Success Page. | Pass |
-| Checkout | Payment Success | Make sure that by clicking on the Pay Now Button if the Payment is processed correctly. | Pass |
+| Checkout | Payment Success | Make sure that when clicking on the Pay Now Button if the Payment is processed correctly, the user is redirected to the Payment Success Page. | Pass |
 | Checkout | Email Success | Make sure that the user receives an email confirming that the order has been processed correctly. | Pass |
-| Checkout | Payment Fail | Make sure that by clicking on the Pay Now Button if the Payment fails, the user is redirected to the Payment Failed Page. | Pass |
-| Checkout | Payment Fail | Make sure that by clicking on the Pay Now Button if the Payment fails. | Pass |
+| Checkout | Payment Fail | Make sure that when clicking on the Pay Now Button if the Payment fails, the user is redirected to the Payment Failed Page. | Pass |
 | Checkout | Email Fail | Make sure that the user receives an email confirming that the order has not been processed. | Pass |
-| Dashboard | My Horizon Shop | Make sure that only authenticated user can access and view the content of the My Horizon Shop Page. | Pass |
-| Dashboard | My Horizon Shop | Make sure that Quick Access Link Card are displayed correctly. | Pass |
+| Dashboard | My Horizon Shop | Make sure that only authenticated users can access and view the content of the My Horizon Shop Page. | Pass |
+| Dashboard | My Horizon Shop | Make sure that Quick Access Link Cards are displayed correctly. | Pass |
 | Dashboard | My Horizon Shop | Make sure that the correct value of the Quick Access Link Cards is displayed in each card. | Pass |
-| Dashboard | My Horizon Shop | Make sure that from the cards it is possible to access the relative sub-section. | Pass |
+| Dashboard | My Horizon Shop | Make sure that from the cards it is possible to access the relative sub-sections. | Pass |
 | Management | My Admin | Make sure that the My Admin Section includes the Add Category/Sub-Category, Categories/Sub-Categories List, Add Product, Product List and Deleted Product List. | Pass |
-| Management | My Admin | Make sure that only Admin User can access the My Admin Section and the relative Sub-Sections. | Pass |
+| Management | My Admin | Make sure that only Admin User can access the My Admin Section and the relative sub-sections. | Pass |
 | My Admin | Add Category | Make sure that by clicking Add Category the Admin User is able to access the Add Category Page form. | Pass |
 | My Admin | Add Category | Make sure that after filling-in the form, the Admin User is redirected to the Categories List Page if the form is valid. | Pass |
-| My Admin | Add Category | Make sure that after the redirect to the Categories List Page a Message is displayed to the Admin User confirming the creation of the Category. | Pass |
+| My Admin | Add Category | Make sure that after the redirect to the Categories List Page, a Message is displayed to the Admin User confirming the creation of the Category. | Pass |
 | My Admin | Add Category | Make sure that the Admin User is obliged to fill the mandatory fields correctly. | Pass |
-| My Admin | Category List | Make sure that by clicking Category List Sub-Section the Admin Admin User is able to see the Categories added. | Pass |
-| My Admin | Category List | Make sure that the Admin Admin User can visualise the name of the Category. | Pass |
-| My Admin | Category List | Make sure that a Delete button is present and that the Admin User can click on the Delete button to delete the entered category. | Pass |
-| My Admin | Category List | Make sure that by clicking on the Delete Button a modal requesting confirmation to the Admin User in opened. | Pass |
-| My Admin | Category List | Make sure that after confirmation the Admin User is redirected to the Category List and a message confirm that deletion of the Category id displayed. | Pass |
-| My Admin | Category List | Make sure that an Edit button is displayed. | Pass |
-| My Admin | Category List | Make sure that by clicking on the Edit button the Admin User can update the information of a previous entered Category. | Pass |
+| My Admin | Category List | Make sure that by clicking Category List Sub-Section the Admin User is able to see the Categories added. | Pass |
+| My Admin | Category List | Make sure that the Admin User can visualise the name of the Category. | Pass |
+| My Admin | Category List | Make sure that a Delete Button is present for the Admin User to click on if the entered category needs to be deleted. | Pass |
+| My Admin | Category List | Make sure that by clicking on the Delete Button a modal requesting confirmation to the Admin User is opened. | Pass |
+| My Admin | Category List | Make sure that after confirmation, the Admin User is redirected to the Category List and a message confirming the deletion is displayed. | Pass |
+| My Admin | Category List | Make sure that an Edit Button is displayed. | Pass |
+| My Admin | Category List | Make sure that by clicking on the Edit Button the Admin User can update the information of a previous entered Category. | Pass |
 | My Admin | Category List | Make sure that every page is responsive and that no overlaps are presents. | Pass |
-| My Admin | Add Sub-Category | Make sure that by clicking Add Sub-Category the Admin Admin User is able to access the Add Sub-Category Page form. | Pass |
-| My Admin | Add Sub-Category | Make sure that after filling-in the form, the Admin Admin User is redirected to the Sub-Categories List Page if the form is valid. | Pass |
+| My Admin | Add Sub-Category | Make sure that by clicking Add Sub-Category the Admin User is able to access the Add Sub-Category Page form. | Pass |
+| My Admin | Add Sub-Category | Make sure that after filling-in the form, the Admin User is redirected to the Sub-Categories List Page if the form is valid. | Pass |
 | My Admin | Add Sub-Category | Make sure that after the redirect to the Sub-Categories List Page a Message is displayed to the Admin User confirming the creation of the Sub-Category. | Pass |
 | My Admin | Add Sub-Category | Make sure that the Admin User is obliged to fill the mandatory fields correctly. | Pass |
-| My Admin | Category List | Make sure that by clicking Sub-Category List Sub-Section the Admin Admin User is able to see the Sub-Categories added. | Pass |
-| My Admin | Category List | Make sure that the Admin Admin User can visualise the name of the Sub-Category and the Category associated to. | Pass |
-| My Admin | Category List | Make sure that a Delete button is present and that the Admin User can click on the Delete button to delete the entered Sub-Category. | Pass |
-| My Admin | Category List | Make sure that by clicking on the Delete Button a modal requesting confirmation to the Admin User in opened. | Pass |
-| My Admin | Category List | Make sure that after confirmation the Admin User is redirected to the Sub-Category List and a message confirm that deletion of the Sub-Category id displayed. | Pass |
-| My Admin | Category List | Make sure that an Edit button is displayed. | Pass |
-| My Admin | Category List | Make sure that by clicking on the Edit button the Admin User can update the information of a previous entered Sub-Category. | Pass |
-| My Admin | Category List | Make sure that every page is responsive and that no overlaps are presents. | Pass |
-| My Admin | Add Product | Make sure that by clicking Add Product the Admin Admin User is able to access the Add Product Page form. | Pass |
+| My Admin | Sub-Category List | Make sure that by clicking Sub-Category List Sub-Section the Admin User is able to see the Sub-Categories added. | Pass |
+| My Admin | Sub-Category List | Make sure that the Admin User can visualise the name of the Sub-Category and the Category associated to it. | Pass |
+| My Admin | Sub-Category List | Make sure that a Delete Button is present and that the Admin User can click on the Delete button to delete the entered Sub-Category. | Pass |
+| My Admin | Sub-Category List | Make sure that by clicking on the Delete Button a modal requesting confirmation to the Admin User is opened. | Pass |
+| My Admin | Sub-Category List | Make sure that after confirmation the Admin User is redirected to the Sub-Category List and a message confirming the deletion is displayed. | Pass |
+| My Admin | Sub-Category List | Make sure that an Edit Button is displayed. | Pass |
+| My Admin | Sub-Category List | Make sure that by clicking on the Edit Button the Admin User can update the information of a previous entered Sub-Category. | Pass |
+| My Admin |Sub-Category List | Make sure that every page is responsive and that no overlaps are presents. | Pass |
+| My Admin | Add Product | Make sure that by clicking Add Product the Admin User is able to access the Add Product Page form. | Pass |
 | My Admin | Add Product | Make sure that after filling-in the form and clicking on the Create Button, the Admin User is redirected to the Products List Page if the form is valid. | Pass |
-| My Admin | Add Product | Make sure that after the redirect to the Products List Page a Message is displayed to the Admin User confirming the creation of the Product. | Pass |
+| My Admin | Add Product | Make sure that after the redirect to the Products List Page a Message is displayed to the Admin User confirming the creation of the product. | Pass |
 | My Admin | Add Product | Make sure that the Admin User is obliged to fill the mandatory fields correctly. | Pass |
-| My Admin | Product List | Make sure that by clicking Product List Sub-Section the Admin Admin User is able to see the Products added. | Pass |
-| My Admin | Product List | Make sure that the Admin Admin User can visualise all the information of the Products. | Pass |
-| My Admin | Product List | Make sure that a Delete button is present and that by click on it the entered Product is set as Deleted and it is not available in any of the Products List. | Pass |
-| My Admin | Product List | Make sure that by clicking on the Delete Button a modal requesting confirmation to the Admin User in opened. | Pass |
-| My Admin | Product List | Make sure that after confirmation the Admin User is redirected to the Product List and a message confirm that deletion of the Product id displayed. | Pass |
-| My Admin | Product List | Make sure that an Edit button is displayed. | Pass |
-| My Admin | Product List | Make sure that by clicking on the Edit button the Admin User can update the information of a previous entered Product. | Pass |
-| My Admin | Product List | Make sure that every page is responsive and that no overlaps are presents. | Pass |
-| My Admin | Deleted Product List | Make sure that by clicking Deleted Product List Sub-Section the Admin Admin User is able to see the Products that are in Deleted Status. | Pass |
-| My Admin | Deleted Product List | Make sure that the Admin Admin User can visualise basic information of the Deleted Products. | Pass |
-| My Admin | Deleted Product List | Make sure that a Restore button is present and that by click on it the Product is restored and available in all the Products List. | Pass |
-| My Admin | Deleted Product List | Make sure that after restoring the product the Admin User is redirected to the Product List and a message confirm that restore of the Product id displayed. | Pass |
-| Dashboard | My Profile | Make sure that the My Profile Section includes the Edit Profile, Change word, Add Cars and Cars List Sub-Sections. | Pass |
+| My Admin | Product List | Make sure that by clicking Product List Sub-Section the Admin User is able to see the products added. | Pass |
+| My Admin | Product List | Make sure that the Admin User can visualise all the products information. | Pass |
+| My Admin | Product List | Make sure that a Delete Button is present and when clicking on it, the entered product is set as Deleted and it is not available in any of the Products Lists. | Pass |
+| My Admin | Product List | Make sure that by clicking on the Delete Button a modal requesting confirmation to the Admin User is opened. | Pass |
+| My Admin | Product List | Make sure that after confirmation the Admin User is redirected to the Product List and a message confirming the deletion of the Product is displayed. | Pass |
+| My Admin | Product List | Make sure that an Edit Button is displayed. | Pass |
+| My Admin | Product List | Make sure that by clicking on the Edit Button the Admin User can update the information of a product. | Pass |
+| My Admin | Product List | Make sure that every page is responsive and that no overlaps are present. | Pass |
+| My Admin | Deleted Product List | Make sure that by clicking Deleted Product List Sub-Section the  Admin User is able to see the products in deleted Status. | Pass |
+| My Admin | Deleted Product List | Make sure that the Admin User can visualise basic information of the Deleted Products. | Pass |
+| My Admin | Deleted Product List | Make sure that a Restore Button is present and when clicking on it, the product is restored and available in all the Products List. | Pass |
+| My Admin | Deleted Product List | Make sure that after restoring the product the Admin User is redirected to the Product List and a message confirming the action is displayed. | Pass |
+| Dashboard | My Profile | Make sure that the My Profile Section includes the Edit Profile, Change Password, Add address and List Addresses subsection. | Pass |
 | My Profile | Edit Profile | Make sure that by clicking Edit Profile the Admin User is able to access the personal information form. | Pass |
 | My Profile | Edit Profile | Make sure that in the Edit Profile Form the user can edit only his/her own personal information. | Pass |
-| My Profile | Change password | Make sure that by clicking Change word Sub-Section the user is able to successfully access the Change password Page. | Pass |
-| My Profile | Change password | Make sure that in the Change password Form the user can change the password associated to his/her account. | Pass |
-| Dashboard | My Products | Make sure that the My Profile Section includes the Edit Profile, Change word, Add Cars and Cars List Sub-Sections. | Pass |
-| My Products | My Order | Make sure that by clicking to My Order Sub-Section the User is able to see the completed orders. | Pass |
-| My Products | My Order | Make sure that the User can visualise the basic information about the order (Order Number, Order Status, Order Date). | Pass |
-| My Products | My Order | Make sure that a Details button is present and that by click on it the user can see the details of the Order. | Pass |
-| My Products | My Order | Make sure that in the Details Page the Accout, the Shipping Address, the Products Summary and the Costs Details are displayed.  | Pass |
-| My Products | My Order | Make sure that every page is responsive and that no overlaps are presents. | Pass |
-| My Products | Sell Product | Make sure that by clicking Add Product the User is able to access the Add Product Page form. | Pass |
-| My Products | Sell Product | Make sure that after filling-in the form and clicking on the Create Button, the User is redirected to the Products List Page if the form is valid. | Pass |
-| My Products | Sell Product | Make sure that after the redirect to the Products List Page a Message is displayed to the User confirming the creation of the Product. | Pass |
-| My Products | Sell Product | Make sure that the User is obliged to fill the mandatory fields correctly. | Pass |
-| My Products | Product List | Make sure that by clicking Product List Sub-Section the User is able to see the Products added. | Pass |
-| My Products | Product List | Make sure that the User can visualise all the information of the Products. | Pass |
-| My Products | Product List | Make sure that a Delete button is present and that by click on it the entered Product is set as Deleted and it is not available in any of the Products List. | Pass |
-| My Products | Product List | Make sure that by clicking on the Delete Button a modal requesting confirmation to the User in opened. | Pass |
-| My Products | Product List | Make sure that after confirmation the User is redirected to the Product List and a message confirm that deletion of the Product id displayed. | Pass |
-| My Products | Product List | Make sure that an Edit button is displayed. | Pass |
-| My Products | Product List | Make sure that by clicking on the Edit button the User can update the information of a previous entered Product. | Pass |
-| My Products | Product List | Make sure that every page is responsive and that no overlaps are presents. | Pass |
+| My Profile | Change password | Make sure that by clicking Change Password Sub-Section, the user is able to successfully access the Change Password Page. | Pass |
+| My Profile | Change password | Make sure that in the Change Password Form the user can change the password associated to his/her account. | Pass |
+| Dashboard | My Products | Make sure that My Profile Section includes the My Order, Sell Products, Product List, My Wishlist Sub-Sections. | Pass |
+| My Products | My Order | Make sure that by clicking to My Order Sub-Section the user is able to see the completed orders. | Pass |
+| My Products | My Order | Make sure that the user can visualise the basic information about the order (Order Number, Status, date of the Order). | Pass |
+| My Products | My Order | Make sure that a Details Button is present and when clicking on it the user can see the details of the Order. | Pass |
+| My Products | My Order | Make sure that in the Details Page the Account, the Shipping Address, the Order and Product details, including the cost, are displayed.  | Pass |
+| My Products | My Order | Make sure that every page is responsive and that no overlaps are present. | Pass |
+| My Products | Sell Product | Make sure that by clicking Add Product, the user is able to access the Add Product Page form. | Pass |
+| My Products | Sell Product | Make sure that after filling-in the form and clicking on the Create Button, the user is redirected to the Products List Page if the form is valid. | Pass |
+| My Products | Sell Product | Make sure that after the redirect to the Products List Page a Message is displayed to the user confirming the creation of the product. | Pass |
+| My Products | Sell Product | Make sure that the user is obliged to fill the mandatory fields correctly. | Pass |
+| My Products | Product List | Make sure that by clicking Product List Sub-Section the user is able to see the added products. | Pass |
+| My Products | Product List | Make sure that the user can visualise all the information of the Products. | Pass |
+| My Products | Product List | Make sure that a Delete Button is present and when clicking on it the entered product is set as Deleted and it is not available in any of the Products List. | Pass |
+| My Products | Product List | Make sure that by clicking on the Delete Button a modal requesting confirmation to the user is opened. | Pass |
+| My Products | Product List | Make sure that after confirmation the user is redirected to the Product List and a message confirm the deletion is displayed. | Pass |
+| My Products | Product List | Make sure that an Edit Button is displayed. | Pass |
+| My Products | Product List | Make sure that by clicking on the Edit Button the user can update the information of a product. | Pass |
+| My Products | Product List | Make sure that every page is responsive and that no overlaps are present. | Pass |
 | My Products | My Wishlist | Make sure that by clicking My Wishlist Sub-Section the user is able to access his/her own personal wishlist. | Pass |
 | My Products | My Wishlist | Make sure that the authenticated users can see the list of products in cards and no overlaps are present. | Pass |
-| My Products | My Wishlist | Make sure that the user can remove the product from the wishlist by clicking on a remove button displayed on each card. | Pass |
-| My Products | My Wishlist | Make sure that the remove button redirected the user to the Wishlist Sub-Section and a message confirming that the product has been removed is displayed. | Pass |
-| Dashboard | My Testimonials | Make sure that the My Testimonials Section includes the Add Testimonial and Testimonials List Sub-Sections. | Pass |
+| My Products | My Wishlist | Make sure that the user can remove the products from the wishlist by clicking on a remove button displayed on each card. | Pass |
+| My Products | My Wishlist | Make sure that the Remove Button redirects the user to the Wishlist Sub-Section and a message confirming the deletion is displayed. | Pass |
+| Dashboard | My Testimonials | Make sure that the My Testimonials Section includes the Add Testimonial and Testimonial List Sub-Sections. | Pass |
 | My Testimonials | Add Testimonial | Make sure that by clicking Add Testimonial the user is able to access the Add Testimonial Page form. | Pass |
 | My Testimonials | Add Testimonial | Make sure that after filling-in the form, the user is redirected to the Testimonials List Page if the form is valid. | Pass |
-| My Testimonials | Add Testimonial | Make sure that after the redirect to the Testimonials List Page a Message is displayed to the user confirming the creation of the Testimonials. | Pass |
+| My Testimonials | Add Testimonial | Make sure that after the redirect to the Testimonials List Page a message is displayed to the user confirming the creation of the Testimonials. | Pass |
 | My Testimonials | Add Testimonial | Make sure that the user is obliged to fill the mandatory fields correctly. | Pass |
-| My Testimonials | Testimonials List | Make sure that by clicking Testimonials List Sub-Section the user is able to access his/her own personal Testimonials List. | Pass |
-| My Testimonials | Testimonials List | Make sure that the user can visualise the information of his/her own Testimonials. | Pass |
-| My Testimonials | Testimonials List | Make sure that a Delete button is present and that the user can click on the Delete button to delete the entered Testimonials. | Pass |
-| My Testimonials | Testimonials List | Make sure that by clicking on the Delete Button a modal requesting confirmation to the user in opened. | Pass |
-| My Testimonials | Testimonials List | Make sure that after confirmation the user is redirected to the Testimonials List and a message confirm that deletion of the Testimonials id displayed. | Pass |
-| My Testimonials | Testimonials List | Make sure that an Edit button is displayed. | Pass |
-| My Testimonials | Testimonials List | Make sure that by clicking on the Edit button the user can update the information of a previous entered Testimonials. | Pass |
-| My Testimonials | Testimonials List | Make sure that every page is responsive and that no overlap are presents. | Pass |
+| My Testimonials | Testimonials List | Make sure that when clicking on the Testimonials List Sub-Section, the user is able to access his/her own personal Testimonials List. | Pass |
+| My Testimonials | Testimonials List | Make sure that the user can visualise the information of his/hers Testimonials. | Pass |
+| My Testimonials | Testimonials List | Make sure that a Delete Button is present and that the user can click on it to delete the entered Testimonials. | Pass |
+| My Testimonials | Testimonials List | Make sure that by clicking on the Delete Button a modal requesting confirmation is opened. | Pass |
+| My Testimonials | Testimonials List | Make sure that after confirmation the user is redirected to the Testimonials List and a message confirm the action is displayed. | Pass |
+| My Testimonials | Testimonials List | Make sure that an Edit Button is displayed. | Pass |
+| My Testimonials | Testimonials List | Make sure that by clicking on the Edit Button the user can update the information of a Testimonials. | Pass |
+| My Testimonials | Testimonials List | Make sure that every page is responsive and that no overlap are present. | Pass |
+
+</details>
 
 
-- #### List of Automated Test Cases perfomed:
-#### The Automation testing is the process of testing the software (as well as other tech products) to ensure it meets the requirements. In Horizon Shop 10 Automated Tests have been designed and run, all with positive final results. 
 
-#### The Tests have been included in the tests folder and have been divided by type allowing a better visualization of the tests carried out. See below for further details:
+- #### List of Automated Test Cases performed:
+#### The Automation testing is the process of testing the software (as well as other tech products) to ensure it meets the requirements. In Horizon Shop 19 Automated Tests have been designed and run, all with positive final results. 
+
+#### The Tests have been included in a tests folder for each app and have been divided by type allowing a better visualization of the tests carried out. See below for further details:
 
 - Urls Automation Testing: The urls tests aim to ensure that all the urls in the application are functioning correctly calling the matched View.
 
 - Views Automation Testing: The aim of the Views Automation Testing is to ensure that once the views are called they return a status code 200 meaning that the View is working correctly.
 
-- Forms Automation Testing: The aim of the Forms Automation Testing is to ensure that when filling-in the form (or when trying to send an empty form), only if all the information is populated correctly the form is sent, otherwise it is not possible to proceed. 
+- Forms Automation Testing: The aim of the Forms Automation Testing is to ensure that when filling-in the form (or when trying to send an empty form), only when/if the information is populated correctly the form is sent, otherwise it is not possible to proceed. 
+  
+- Models Automation Testing: The aim of the Models Automation Testing is to ensure that when filling-in the information in the database, those are available. 
 
 
 ### **Additional Tests**
@@ -1862,23 +1900,25 @@ Additional tests include checks on different devices using the Toggle Device Emu
 
 
 ### **Future Implementation**
-A milion of additional features are ready to be implemented in the future to offer a better user experience and a better website and services to Horizon Shop that unfrotunately have not been implmented because of the time available. The essential features have been integrated in order to provide a . 
+A million of additional features are ready to be implemented in the future to offer a better user experience, and better services thorough the Horizon Shop website. Unfortunately, due to timing constraints not all the desired features have been implemented. Example of those are listed below and will be implemented in future releases:
 
 - Out of Stock Functionality: 
-The Out of Stock Functionality will allow to have a Store quantity for each New Product and let the Customer determinate how many quantity of product they want to sell too.
+The Out of Stock Functionality will indicate when a product is out of stock, to do this the quantity of each item needs to be included. If the requested quantity is larger than the available products, a message will inform the customer that that particular item is out of stock. This will be implemented for new and used products, with selling customers able to indicate the quantity they want to sell.
 
 - Multi Image per Products
-Implement the management of multi images per product. This will increase the possibility for selling products. 
+Implement the management of multi images per product. This will increase the selling possibilities of each product. 
 
-- Analytics Data
-Collection of information from the selling of the products as well as the Orders placed displaying the graphs with some interesting report on what the user search the most and which one are the main category were the user buy products. 
+- Analytics Data and Dashboarding
+To collect information of each sold product including the numbers of the orders placed to calculate the revenue of the website. This information will be displayed using dashboards and graphs to gain insights on the spending habits of the customers and to highlight favourite and most sought products or categories. 
 
-- Reward Point 
-User that sell or buy products should receive rewards point that can be used to redeem prices. An example of usage is the possibility to use the reward point to collect discounts. 
+- Reward Points
+Users that sell or buy products should receive rewards point that can be used to redeem prices (for example, customers can use reward points to redeem discounts).
 
 - Quantity Products
-User should be able to select the quantity of the desired product before to add it in the cart and add the relative quantity preselected. 
-
+Users should be able to select the quantity of the desired products before adding them to the cart. 
+ 
+- Admin Orders Management
+Admin Users should be able to change the status of the Orders and provide a feedback to the user if the order has been shipped or delivered, including the information in the Customers Pages. 
 
 ---
 
@@ -1924,7 +1964,7 @@ The project was deployed to GitHub Pages using the following steps:
 3.	On the left menu bar, click on the "Pages" Tab
 4.	Under "Source", click the dropdown called "None" and select "Main"
 5.	The page will automatically refresh
-6.	When the website is disployed, on top of this page you can see the link of the live website 
+6.	When the website is displayed, on top of this page you can see the link of the live website 
 
 
 <!-- Forking Content from Code Institute Readme File Sample -->

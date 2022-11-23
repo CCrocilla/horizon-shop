@@ -822,6 +822,11 @@ Tabler
     padding: 0;
 }
 
+.footer {
+    border-top: var(--tblr-border-width) solid var(--dark) !important;
+}
+
+
 /*-------------------------------
 Messages
 -------------------------------*/
