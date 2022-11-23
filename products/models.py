@@ -124,7 +124,9 @@ class Product(SoftDeleteModel):
     image = ResizedImageField(
         size=[500, 500],
         crop=['middle', 'center'],
+        force_format="WEBP",
         upload_to='images/',
+        quality=100,
         null=True,
         blank=True
         )
