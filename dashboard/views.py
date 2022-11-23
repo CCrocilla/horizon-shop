@@ -65,14 +65,14 @@ class DashboardView(LoginRequired, View):
             orders = Order.objects.filter(
                 created_by=request.user)
 
-            products = Product.objects.filter(
-                created_by=request.user).count()
+            products = Product.objects.all().filter(
+                created_by=request.user, is_deleted=False).count()
 
-            addresses = ShippingAddress.objects.filter(
-                created_by=request.user).count()
+            addresses = ShippingAddress.objects.all().filter(
+                created_by=request.user, is_deleted=False).count()
 
             testimonials = Testimonial.objects.filter(
-                created_by=request.user)
+                created_by=request.user).count()
 
         context = {
                 'orders': orders,

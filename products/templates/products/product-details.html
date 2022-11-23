@@ -115,7 +115,7 @@
             </div>
         </div>
     </div>
-    {% if user.is_authenticated %}
+    {% if user.is_authenticated and not product.is_deleted %}
     <div class="row">
         <div class="col-12 d-flex justify-content-between">
             <form action="{% url 'add-to-wishlist' product.id %}" method="POST">
@@ -137,6 +137,14 @@
             </form>
         </div>
     </div>
+    {% else %}
+
+    {% if user.is_superuser %}
+    <a class="my-2 btn btn-outline-warning btn-sm-minwidth rounded-3" href="{% url 'product-restore' product.slug %}"
+        aria-label="Restore">Restore</a>
+
+    {% endif%}
+
     {% endif %}
 
 </section>

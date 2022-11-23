@@ -16,11 +16,17 @@ body {
 }
 
 :root {
-    --primary: #1E4CA1;
+    --primary: #206BC4;
     --light: #F6F7F8;
     --dark: #1D273B;
     --warning: #F59F00;
     --bs-dark-rgb: 29, 39, 59;
+    --tblr-primary: #206BC4;
+    --tblr-success: #2fb344;
+    --tblr-danger: #D63939;
+    --tblr-warning: #F59F00;
+    --tblr-secondary: #616876;
+
 }
 
 /*--------------------------------------------------------------
@@ -52,6 +58,31 @@ Buttons
     align-items: center;
     justify-content: center;
     font-weight: normal;
+}
+
+.btn-outline-danger:hover {
+    background-color: var(--tblr-danger) !important;
+    color: #181D31 !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--tblr-primary) !important;
+    color: #181D31 !important;
+}
+
+.btn-outline-success:hover {
+    background-color: var(--tblr-success) !important;
+    color: #181D31 !important;
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--tblr-secondary) !important;
+    color: #181D31 !important;
+}
+
+.btn-outline-warning:hover {
+    background-color: var(--tblr-warning) !important;
+    color: #181D31 !important;
 }
 
 /*--------------------------------------------------------------
@@ -106,11 +137,6 @@ Footer
     box-shadow: none;
 }
 
-.footer {
-    border-top: 1px solid var(--dark);
-    margin-top: -2px;
-}
-
 /*--------------------------------------------------------------
 Carousel Hero & Testimonials
 --------------------------------------------------------------*/
@@ -133,7 +159,6 @@ Carousel Hero & Testimonials
     position: relative;
     padding: 0;
     background: #1D273B;
-    margin: -5px;
 }
 
 .testimonial-card {

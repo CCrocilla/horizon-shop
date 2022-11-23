@@ -14,12 +14,12 @@
 
                     <div class="row">
                         <div class="col-12">
-                            <h2 class="mt-4 text-center">My Horizon Shop</h2>
+                            <h2 class="fs-1 mt-4 text-center">My Horizon Shop</h2>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-xl-3">
+                        <div class="col-12">
                             <div class="card overflow-hidden rounded-3 mb-4">
                                 <div class="bg-dark">
                                     <div class="row">
@@ -80,72 +80,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-9 col-md-4">
-                            <div class="card overflow-hidden rounded-3 mb-4">
-                                <div class="bg-dark">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="text-yellow p-3">
-                                                <h5 class="fs-4 text-yellow">Welcome Back!</h5>
-                                                <p class="fs-6">
-                                                    {% if not user.first_name %}
 
-                                                    {{ user }} Dashboard!
-
-                                                    {% else %}
-
-                                                    {{ user.first_name }} Dashboard
-
-                                                    {% endif %}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-body pt-0">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="avatar-md profile-user-wid mb-2 d-flex align-self-center mt-2">
-                                                {% if user.customer.avatar %}
-                                                <img src="{{ user.customer.avatar.url }}" alt="Avatar {{ user }}"
-                                                    class="img-thumbnail rounded-circle" width="150" height="150">
-                                                {% else %}
-
-                                                {% endif %}
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <h1 class="fs2">
-                                                        {% if not user.first_name %}
-
-                                                        {{ user }}
-
-                                                        {% else %}
-
-                                                        {{ user.first_name }} {{ user.last_name }}
-
-                                                        {% endif %}
-                                                    </h1>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-8">
-                                            <div class="pt-2">
-                                                <a href="{% url 'customer-update' %}"
-                                                    class="btn btn-dark text-yellow">View
-                                                    Profile <i class="mdi mdi-arrow-right ms-1"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-xl-3 col-md-4">
-
+                        <div class="col-md-6 col-xl-3">
                             <div class="card bg-yellow mb-4 rounded-3">
-                                <div class="card-body fs-5">Orders: <span class="ms-2">{{ orders.count }}</span></div>
+                                <div class="card-body fw-bold fs-5">Orders:
+                                    <span class="ms-2">
+                                        {% if orders %} {{ orders.count }} {% else %} 0 {% endif %}
+                                    </span>
+                                </div>
 
                                 <div class="card-footer bg-dark d-flex align-items-center justify-content-between">
                                     <a class="text-yellow stretched-link" href="{% url 'order-list' %}">
@@ -156,9 +98,14 @@
                             </div>
                         </div>
 
-                        <div class="col-xl-3 col-md-4">
+                        <div class="col-md-6 col-xl-3">
                             <div class="card bg-success mb-4 rounded-3">
-                                <div class="card-body fs-5">Products: <span class="ms-2">{{ products }}</span></div>
+
+                                <div class="card-body fw-bold fs-5">Products:
+                                    <span class="ms-2">
+                                        {% if products %} {{ products }} {% else %} 0 {% endif %}
+                                    </span>
+                                </div>
                                 <div class="card-footer bg-dark d-flex align-items-center justify-content-between">
                                     <a class="text-yellow stretched-link" href="{% url 'products-list' %}">
                                         View
@@ -169,9 +116,12 @@
                             </div>
                         </div>
 
-                        <div class="col-xl-3 col-md-4">
+                        <div class="col-md-6 col-xl-3">
                             <div class="card bg-danger mb-4 rounded-3">
-                                <div class="card-body fs-5">Shipping Address: <span class="ms-2">{{ addresses }}</span>
+                                <div class="card-body fw-bold fs-5">Addresses:
+                                    <span class="ms-2">
+                                        {{ addresses }}
+                                    </span>
                                 </div>
                                 <div class="card-footer bg-dark d-flex align-items-center justify-content-between">
                                     <a class="text-yellow stretched-link" href="{% url 'shipping-address-list' %}">
@@ -183,9 +133,12 @@
                             </div>
                         </div>
 
-                        <div class="col-xl-3 col-md-4">
+                        <div class="col-md-6 col-xl-3">
                             <div class="card bg-info mb-4 rounded-3">
-                                <div class="card-body fs-5">Testimonials: <span class="ms-2">{{ testimonials }}</span>
+                                <div class="card-body fw-bold fs-5">Testimonials:
+                                    <span class="ms-2">
+                                        {% if testimonials %} {{ testimonials }} {% else %} 0 {% endif %}
+                                    </span>
                                 </div>
                                 <div class="card-footer bg-dark d-flex align-items-center justify-content-between">
                                     <a class="text-yellow stretched-link" href="{% url 'testimonials-list' %}">
@@ -201,9 +154,9 @@
 
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="card">
+                            <div class="card rounded-3">
                                 <div class="card-body">
-                                    <h4 class="card-title mb-4 fs-5">Latest Transaction</h4>
+                                    <h4 class="card-title mb-4 fs-4">Latest Transaction</h4>
                                     <div class="table-responsive">
 
                                         <table class="table table-vcenter table-mobile-md card-table">
@@ -280,7 +233,7 @@
 
                                                     <td>
                                                         <a href="{% url 'order-details' order.pk %}" type="button"
-                                                            class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
+                                                            class="btn btn-dark btn-sm btn-rounded text-yellow rounded-3">
                                                             View Details
                                                         </a>
                                                     </td>

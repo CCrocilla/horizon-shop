@@ -2,7 +2,8 @@
 
 <div class="navbar navbar-expand-lg navbar-dark d-print-none">
     <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu" aria-label="Open Side Menu">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu"
+            aria-label="Open Side Menu">
             <span class="navbar-toggler-icon"></span>
         </button>
         <h1 class="ms-2 navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
@@ -45,7 +46,7 @@
                     </a>
                     {% endif %}
 
-                    <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link text-light {% if 'cart' in request.path %} border border-bottom border-yellow active text-yellow rounded-3{% endif %}"
+                    <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link text-light {% if 'cart' in request.path %} border border-bottom border-yellow active text-yellow rounded-3 pe-1 ps-2{% endif %}"
                         href="{% url 'cart' %}" data-bs-toggle="tooltip" data-bs-placement="bottom"
                         data-bs-title="Cart">
                         <span class="badge badge-sm bg-red">{{ total_products_cart }}</span>
@@ -94,7 +95,6 @@
 
                                 {%endif%}
                             </div>
-                            <div class="mt-1 small text-muted"></div>
                         </div>
 
                         {% endif %}
@@ -165,7 +165,7 @@
                     {% endif %}
 
                     <li class="nav-item active d-md-none">
-                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link text-light"
+                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link text-light pe-1 ps-2"
                             href="{% url 'cart' %}">
                             <span class="nav-link-title">
                                 <i class="fas fa-shopping-cart fa-lg"></i>
