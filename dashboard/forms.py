@@ -84,7 +84,15 @@ class ShippingAddressForm(ModelForm):
     class Meta:
         model = ShippingAddress
 
-        fields = '__all__'
+        fields = (
+            'created_by',
+            'shipping_name',
+            'phone_number',
+            'address_street',
+            'apartment_number',
+            'city',
+            'postcode',
+            )
 
         widgets = {
             'created_by': forms.HiddenInput(),

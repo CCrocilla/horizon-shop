@@ -35,11 +35,15 @@
             <script>
                 function onSubmitNewsletter() {
                     const isEmail = /^[a-z0-9.]{1,64}@[a-z0-9.]{1,64}$/i.test(document.getElementById(
-                        "mc-embedded-subscribe").value);
+                        "mce-EMAIL").value);
                     if (!isEmail) {
                         Toastify({
                             backgroundColor: "linear-gradient(103deg, rgba(195,34,34,1) 6%, rgba(253,100,45,1) 100%)",
-                            text: 'Invalid Email!',
+                            text: 'The Email entered is not Valid! Please try again!',
+                            offset: {
+                                x: '1.2em',
+                                y: '4em'
+                            },
                             duration: 3000
                         }).showToast();
                         return;
@@ -48,9 +52,13 @@
                         backgroundColor: "linear-gradient(208.18deg, #67C3F3 9.05%, #5A98F2 76.74%)",
                         type: "success",
                         text: 'Thanks for your subscription!',
+                        offset: {
+                            x: '1.2em',
+                            y: '4em'
+                        },
                         duration: 3000
                     }).showToast();
-                    document.getElementById("mc-embedded-subscribe").value = "";
+                    document.getElementById("mce-EMAIL").value = "";
                 }
             </script>
         </form>

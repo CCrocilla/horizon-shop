@@ -30,6 +30,7 @@
     <!-- Tabler -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta12/dist/css/tabler.min.css">
     <link href="//cdn-images.mailchimp.com/embedcode/classic-071822.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 
     <link href="{% static 'css/rating.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css">
@@ -49,7 +50,7 @@
 <body class="bg-azure-lt">
     <header class="fixed-top">
 
-        {% include 'includes/navbar-desktop.html' %}
+        {% include 'includes/navbar.html' %}
 
     </header>
 
@@ -83,7 +84,7 @@
     <footer class="bg-dark">
         <div class="container-fluid bg-dark text-body footer pt-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container py-5">
-                <div class="row g-5">
+                <div class="row gy-5">
                     <div class="col-12 col-md-6 col-lg-4">
                         <h2 class="h2 text-decoration-none text-yellow border-bottom pb-3 border-light logo">
                             Horizon Shop</h2>
@@ -161,7 +162,6 @@
             </div>
         </div>
 
-
         <!-- ============================================-->
         <!--            Final Section Copyright          -->
         <!-- ============================================-->
@@ -182,7 +182,7 @@
 
 
     {% block postloadjs %}
-
+    {{ block.super }}
     <script src="https://kit.fontawesome.com/0644654b1f.js" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"
@@ -191,7 +191,7 @@
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta12/dist/js/tabler.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta12/dist/js/tabler.min.js"></script>
 
     <!-- MailChimp Javascript -->
     <script src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js' defer>
