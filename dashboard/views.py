@@ -63,7 +63,7 @@ class DashboardView(LoginRequired, View):
             testimonials = Testimonial.objects.all().count()
         else:
             orders = Order.objects.filter(
-                created_by=request.user).order_by('-created_at')
+                created_by=request.user, billed=True).order_by('-created_at')
 
             products = Product.objects.all().filter(
                 created_by=request.user, is_deleted=False).count()

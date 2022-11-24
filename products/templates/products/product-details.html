@@ -25,9 +25,9 @@
             <h2 class="fs-4">{{ product.title }}</h2>
         </div>
     </div>
-    <div class="row">
+    <div class="row ps-2 ps-md-2">
         <div
-            class="col-10 offset-1 offset-md-0 col-md-6 col-lg-4 order-md-first border border-dark bg-light rounded-3 py-2 mb-2">
+            class="col-10 offset-1 offset-md-0 col-md-6 col-lg-4 order-md-first border border-dark bg-light rounded-3 py-2 mb-2 d-flex align-items-center justify-content-center">
             {% if product.image %}
 
             <a href="{% url 'product_details' product.slug %}">
@@ -68,7 +68,7 @@
 
             <p><strong>About This Products:</strong></p>
             {% if not product.is_deleted %}
-            <p>{{ product.description|truncatechars:1000 }}</p>
+            <p>{{ product.description|truncatechars:1200 }}</p>
             {% else %}
             <p>
                 <strong>This product is not available anymore!</strong>

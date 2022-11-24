@@ -139,11 +139,29 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                                     {% if user.is_authenticated %}
+
                                     <a class="dropdown-item" href="{% url 'dashboard' %}">My Horizon Shop</a>
                                     <a class="dropdown-item" href="{% url 'customer-update' %}">My Profile</a>
                                     <a class="dropdown-item" href="{% url 'shipping-address-list' %}">My Addresses</a>
+
+                                    {% if user.is_superuser %}
+                                    <a class="dropdown-item" href="{% url 'category-add' %}">Add Category</a>
+                                    <a class="dropdown-item" href="{% url 'category-list' %}">Categories' List</a>
+                                    <a class="dropdown-item" href="{% url 'subcategory-add' %}">Add Sub-Category</a>
+                                    <a class="dropdown-item" href="{% url 'subcategory-list' %}">Sub-Categories'
+                                        List</a>
+                                    <a class="dropdown-item" href="{% url 'order-list' %}">Orders</a>
+                                    <a class="dropdown-item" href="{% url 'product-add' %}">Add Product</a>
+                                    <a class="dropdown-item" href="{% url 'products-list' %}">Products</a>
+
+                                    {% else %}
+
                                     <a class="dropdown-item" href="{% url 'order-list' %}">My Orders</a>
+                                    <a class="dropdown-item" href="{% url 'product-add' %}">Sell Product</a>
                                     <a class="dropdown-item" href="{% url 'products-list' %}">My Products</a>
+
+                                    {% endif %}
+
                                     <a class="dropdown-item" href="{% url 'products-wishlist' %}">My Wishlist</a>
                                     <a class="dropdown-item" href="{% url 'testimonials-list' %}">My Testimonials</a>
                                     <div class="dropdown-divider"></div>
@@ -190,15 +208,34 @@
                             Contact Us
                         </a>
 
+
+                        <!-- ============================== -->
+                        <!--            Dashboard           -->
+                        <!-- ============================== -->
+                        {% if user.is_authenticated %}
+
+                        <div class="sb-sidenav-menu-heading text-yellow">Dashboard</div>
+                        <a class="nav-link" href="{% url 'dashboard' %}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            My Horizon Shop
+                        </a>
+                        {% endif %}
+
+
+                        <!-- ============================== -->
+                        <!--            Management          -->
+                        <!-- ============================== -->
+                        {% if user.is_authenticated %}
+                        <div class="sb-sidenav-menu-heading text-yellow">Management</div>
+
                         <!-- ============================== -->
                         <!--         Administrator          -->
                         <!-- ============================== -->
 
-                        {% if user.is_authenticated and user.is_superuser %}
-                        <div class="sb-sidenav-menu-heading text-yellow">Management</div>
+                        {% if user.is_superuser %}
                         <a id="mymanagement" class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                             data-bs-target="#collapseManagement" aria-expanded="false" aria-controls="collapseLayouts">
-                            <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-lock"></i></div>
                             My Admin
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
@@ -212,23 +249,9 @@
                                 <a class="nav-link" href="{% url 'subcategory-list' %}">List Sub-Categories</a>
                                 <a class="nav-link" href="{% url 'deleted-subcategory-list' %}">Deleted
                                     Sub-Categories</a>
-                                <a class="nav-link" href="{% url 'product-add' %}">Add Product</a>
-                                <a class="nav-link" href="{% url 'products-list' %}">Product List</a>
-                                <a class="nav-link" href="{% url 'products-deleted-list' %}">Deleted Products</a>
                             </nav>
                         </div>
                         {% endif %}
-
-                        <!-- ============================== -->
-                        <!--            Dashboard           -->
-                        <!-- ============================== -->
-                        {% if user.is_authenticated %}
-
-                        <div class="sb-sidenav-menu-heading text-yellow">Dashboard</div>
-                        <a class="nav-link" href="{% url 'dashboard' %}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            My Horizon Shop
-                        </a>
 
                         <!-- ============================== -->
                         <!--             Profile            -->
@@ -249,9 +272,22 @@
                             </nav>
                         </div>
 
-                        <!-- ============================== -->
-                        <!--         Order Management       -->
-                        <!-- ============================== -->
+                        <!-- ========================================= -->
+                        <!--         Products & Order Management       -->
+                        <!-- ========================================= -->
+                        <a class="nav-link" href="{% url 'order-list' %}">
+                            <div class="sb-nav-link-icon"><i class="fab fa-jedi-order"></i></div>
+                            {% if user.is_superuser %}
+
+                            Orders
+
+                            {% else %}
+
+                            My Orders
+
+                            {% endif %}
+                        </a>
+
                         <a id="myorders" class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                             data-bs-target="#collapseOrders" aria-expanded="false" aria-controls="collapseOrders">
                             <div class="sb-nav-link-icon"><i class="fas fa-tasks"></i></div>
@@ -261,20 +297,26 @@
                         <div class="collapse" id="collapseOrders" aria-labelledby="myorders"
                             data-bs-parent="#sidenavAccordionOrders">
                             <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPagesOrders">
-                                <a class="nav-link" href="{% url 'order-list' %}">
-                                    My Orders
-                                </a>
+
                                 <a class="nav-link" href="{% url 'product-add' %}">
-                                    Sell Products
+                                    Sell Product
                                 </a>
                                 <a class="nav-link" href="{% url 'products-list' %}">
                                     Products' List
                                 </a>
-                                <a class="nav-link" href="{% url 'products-wishlist' %}">
-                                    My Wishlist
+
+                                {% if user.is_superuser %}
+                                <a class="nav-link" href="{% url 'products-deleted-list' %}">
+                                    Deleted Products
                                 </a>
+                                {% endif %}
+
                             </nav>
                         </div>
+                        <a class="nav-link" href="{% url 'products-wishlist' %}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-heart"></i></div>
+                            My Wishlist
+                        </a>
 
                         <!-- ============================== -->
                         <!--          Testimonials          -->
