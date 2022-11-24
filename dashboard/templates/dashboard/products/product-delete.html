@@ -1,12 +1,13 @@
 {% extends 'dashboard/base.html' %}
 
-{% block extra_title %} - Dashboard{% endblock %}
+{% block extra_title %} - Delete {{ product.title }}{% endblock %}
 
 {% load static %}
 
 {% block content %}
 
-{% if user.is_authenticated %}
+
+{% if user.is_authenticated and product.created_by.id == request.user.id or user.is_superuser %}
 
 <div class="text-dark">
     <h1 class="mt-4 text-center">Delete Product: {{ product.title }}</h1>
@@ -44,7 +45,6 @@
         </div>
     </div>
 </div>
-
 
 {% else %}
 

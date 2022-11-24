@@ -25,15 +25,15 @@
             <div class="card card-md bg-dark rounded-3">
                 <div class="card-body">
                     <h2 class="text-center text-yellow mb-4">Sign In to your account</h2>
-                    <form class="signup text-yellow" method="POST" action="{% url 'account_login' %}" method="get"
-                        autocomplete="off" novalidate="">
+                    <form class="signup text-yellow" method="POST" action="{% url 'account_login' %}" autocomplete="off"
+                        novalidate="">
 
                         {% csrf_token %}
                         {{ form|crispy }}
 
                         {% if redirect_field_value %}
 
-                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
 
                         {% endif %}
 

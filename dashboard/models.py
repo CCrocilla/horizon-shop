@@ -24,7 +24,9 @@ class Customer(models.Model):
     avatar = ResizedImageField(
         size=[300, 300],
         crop=['middle', 'center'],
+        force_format="WEBP",
         upload_to='customer_avatar/',
+        quality=100,
         null=True,
         blank=True
         )

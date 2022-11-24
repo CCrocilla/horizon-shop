@@ -89,10 +89,17 @@ Best practices used in Horizon Shop for the SEO:
 - Strong and Effective Titles and Heading has been used in Horizon Shop to help Google understand the content of the Website, but also because the pages more user-friendly. 
 - Horizon Shop has been realized with just one idea, create a User Friendly Website with a great and easy Design in order to offer a great user experience to the customers! This is because quick load times lead to better Search Engine Optimization (SEO) rankings, making it easier for people to find your website in the first place
 - To provide the best user experience possible to the customers and improve the websites' SEO ranking as well as improving the pages load speed all the Images has been optimized.
+- CDN have been used in Horizon Shop because CDNs improve a website’s loading speed and performance and consequentially it improves search engine ranking and search engine optimization increasing the SEO of the Website since Google gives priority to websites that have faster load times and those that are easy to crawl repeatedly.
+
 
 To provide usefull information for search engines a Robot.txt and a Sitemap.xml file has also been created and added to Horizon Shop. 
 
+<br>
+
 ### robots.txt
+<details>
+    <summary>Click here to see the robots.txt content.</summary>
+
 ```
 User-agent: *
 Disallow: /accounts/
@@ -103,7 +110,14 @@ Disallow: /wishlist/
 Sitemap: https://horizonshop.herokuapp.com/sitemap.xml
 ```
 
+</details>
+
+<br>
+
 ### sitemap.xml
+<details>
+    <summary>Click here to see the sitemap.xml content.</summary>
+
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset
@@ -408,6 +422,9 @@ Sitemap: https://horizonshop.herokuapp.com/sitemap.xml
 
 </urlset>
 ```
+
+</details>
+
 <br>
 
 ### **Social Media**
@@ -1047,7 +1064,7 @@ Sources:
 - My Testimonials
 #### The Dashboard shows a Hamburger Menu that toggles the opening and closing of a side Navbar.
 #### All the forms have been realized with Crispy Forms of Django and Crispy Bootstrap (Details can be found in the following link: https://pypi.org/project/crispy-bootstrap5/)
-#### The Dashboard shows the user's avatar (if present, otherwise an icon is displayed) on the top right of the Navbar that allow the user to quickly access the different lists of the Dashboard and the Logout Button to easily exit the website.
+#### The Dashboard shows the user's avatar (if present, otherwise an icon is displayed) on the top right of the Navbar that allow the user to quickly access the different lists of the Dashboard and the Sign Out Button to easily exit the website.
 #### The Dashboard's Navbar also includes the Wishlist and the Cart Buttons to easily access these pages.  
 #### Depending on the device used (laptop, desktop, tablet or smartphone) the sidebar opens and closes automatically allowing the user to select different options from the hamburger menu and/or have a full visual of the page for a highly responsive rendering.
 #### Those behaviours are consistent in all sections of Dashboard.
@@ -1105,11 +1122,6 @@ Sources:
 
 </details>
 
-<!-- ######################### -->
-<!-- ######################### -->
-<!--            TO DO            -->
-<!-- ######################### -->
-<!-- ######################### -->
 
 <details>
     <summary>My Horizon Shop</summary>
@@ -1429,59 +1441,192 @@ Sources:
 - #### Gmail
     - #### Gmail has been used to send the emails including reset passwords email, verification emails customer emails. A dedicated Horizon Shop address has been created.  
 
+- #### Mailchimp
+    - #### Mailchimp is a marketing automation platform and email marketing service that have been used for the Newsletter System in Horizon Shop.  
+
 ---
 
 ## **Testing**
-The testing phases have been carried out using the **PIP8 Python Validator**. No errors have been identified from the Validators as it can be seen in the screenshots below:
+The testing phases have been carried out using the **Code Institute PIP8 Python Validator**. No errors have been identified from the Validators as it can be seen in the screenshots below:
 
 - **Python**
 
 <details>
     <summary>PIP8 Python Validator</summary>
 
-
 <details>
-    <summary>Click here for PIP8 Python Validator - Horizon Shop [urls.py]</summary>
-<img src="static/images/readme/validation-pip8/Horizon Shop-url.webp" alt="W3C Javascript Validator - Home Page" width="800"/>
-</details>
-
-<details>
-    <summary>Click here for PIP8 Python Validator - Horizon Shop [settings.py]</summary>
-<img src="static/images/readme/validation-pip8/Horizon Shop-settings.webp" alt="W3C Javascript Validator - Home Page" width="800"/>
+    <summary>Click here for the CI Python Linter Validator - Home [views.py]</summary>
+<img src="static/images/readme/validation-pip8/home-views.webp" alt="CI Python Linter Validator - Home Page [views.py]" width="1000"/>
 </details>
 
 <details>
-    <summary>Click here for PIP8 Python Validator - Contact [urls.py]</summary>
-<img src="static/images/readme/validation-pip8/contact-url.py.webp" alt="W3C Javascript Validator - Home Page" width="800"/>
+    <summary>Click here for the CI Python Linter Validator - Home [urls.py]</summary>
+<img src="static/images/readme/validation-pip8/home-urls.webp" alt="CI Python Linter Validator - Home Page [urls.py]" width="1000"/>
 </details>
 
 <details>
-    <summary>Click here for PIP8 Python Validator - Contact [views.py]</summary>
-<img src="static/images/readme/validation-pip8/contact-views.py.webp" alt="W3C Javascript Validator - Home Page" width="800"/>
+    <summary>Click here for the CI Python Linter Validator - Home [models.py]</summary>
+<img src="static/images/readme/validation-pip8/home-models.webp" alt="CI Python Linter Validator - Home Page [models.py]" width="1000"/>
 </details>
 
 <details>
-    <summary>Click here for PIP8 Python Validator - Contact [forms.py]</summary>
-<img src="static/images/readme/validation-pip8/contact-form.py.webp" alt="W3C Javascript Validator - Home Page" width="800"/>
+    <summary>Click here for the CI Python Linter Validator - Contact_Us [views.py]</summary>
+<img src="static/images/readme/validation-pip8/contact-us-views.webp" alt="CI Python Linter Validator - Contact Us [views.py]" width="1000"/>
 </details>
 
 <details>
-    <summary>Click here for PIP8 Python Validator - Dashboard [urls.py]</summary>
-<img src="static/images/readme/validation-pip8/dashboard-url.webp" alt="W3C Javascript Validator - Home Page" width="800"/>
+    <summary>Click here for the CI Python Linter Validator - Contact_Us [urls.py]</summary>
+<img src="static/images/readme/validation-pip8/contact-us-urls.webp" alt="CI Python Linter Validator - Contact Us [urls.py]" width="1000"/>
 </details>
 
 <details>
-    <summary>Click here for PIP8 Python Validator - Dashboard [views.py]</summary>
-<img src="static/images/readme/validation-pip8/dashboard-views.webp" alt="W3C Javascript Validator - Home Page" width="800"/>
+    <summary>Click here for the CI Python Linter Validator - Contact_Us [models.py]</summary>
+<img src="static/images/readme/validation-pip8/contact-us-models.webp" alt="CI Python Linter Validator - Contact Us [models.py]" width="1000"/>
 </details>
 
 <details>
-    <summary>Click here for PIP8 Python Validator - Dashboard [forms.py]</summary>
-<img src="static/images/readme/validation-pip8/dashboard-forms.webp" alt="W3C Javascript Validator - Home Page" width="800"/>
+    <summary>Click here for the CI Python Linter Validator - Contact_Us [forms.py]</summary>
+<img src="static/images/readme/validation-pip8/contact-us-forms.webp" alt="CI Python Linter Validator - Contact Us [forms.py]" width="1000"/>
 </details>
 
+<details>
+    <summary>Click here for the CI Python Linter Validator - Products [admin.py]</summary>
+<img src="static/images/readme/validation-pip8/contact-us-admin.webp" alt="CI Python Linter Validator - Contact Us [admin.py]" width="1000"/>
+</details>
+
+<details>
+    <summary>Click here for the CI Python Linter Validator - Products [views.py]</summary>
+<img src="static/images/readme/validation-pip8/products-views.webp" alt="CI Python Linter Validator - Products [views.py]" width="1000"/>
+</details>
+
+<details>
+    <summary>Click here for the CI Python Linter Validator - Products [urls.py]</summary>
+<img src="static/images/readme/validation-pip8/products-urls.webp" alt="CI Python Linter Validator - Products [urls.py]" width="1000"/>
+</details>
+
+<details>
+    <summary>Click here for the CI Python Linter Validator - Products [models.py]</summary>
+<img src="static/images/readme/validation-pip8/products-models.webp" alt="CI Python Linter Validator - Products [models.py]" width="1000"/>
+</details>
+
+<details>
+    <summary>Click here for the CI Python Linter Validator - Products [forms.py]</summary>
+<img src="static/images/readme/validation-pip8/products-forms.webp" alt="CI Python Linter Validator - Products [forms.py]" width="1000"/>
+</details>
+
+<details>
+    <summary>Click here for the CI Python Linter Validator - Products [admin.py]</summary>
+<img src="static/images/readme/validation-pip8/products-admin.webp" alt="CI Python Linter Validator - Products [admin.py]" width="1000"/>
+</details>
+
+<details>
+    <summary>Click here for the CI Python Linter Validator - Products_Cart [views.py]</summary>
+<img src="static/images/readme/validation-pip8/cart-views.webp" alt="CI Python Linter Validator - Products_Cart [views.py]" width="1000"/>
+</details>
+
+<details>
+    <summary>Click here for the CI Python Linter Validator - Products_Cart [urls.py]</summary>
+<img src="static/images/readme/validation-pip8/cart-urls.webp" alt="CI Python Linter Validator - Products_Cart [urls.py]" width="1000"/>
+</details>
+
+<details>
+    <summary>Click here for the CI Python Linter Validator - Products_Cart [models.py]</summary>
+<img src="static/images/readme/validation-pip8/cart-models.webp" alt="CI Python Linter Validator - Products_Cart [models.py]" width="1000"/>
+</details>
+
+<details>
+    <summary>Click here for the CI Python Linter Validator - Products_Cart [forms.py]</summary>
+<img src="static/images/readme/validation-pip8/cart-forms.webp" alt="CI Python Linter Validator - Products_Cart [forms.py]" width="1000"/>
+</details>
+
+<details>
+    <summary>Click here for the CI Python Linter Validator - Products_Cart [context-processors.py]</summary>
+<img src="static/images/readme/validation-pip8/cart-context-processors.webp" alt="CI Python Linter Validator - Products_Cart [context-processors.py]" width="1000"/>
+</details>
+
+<details>
+    <summary>Click here for the CI Python Linter Validator - Products_Cart [admin.py]</summary>
+<img src="static/images/readme/validation-pip8/cart-admin.webp" alt="CI Python Linter Validator - Products_Cart [admin.py]" width="1000"/>
+</details>
+
+<details>
+    <summary>Click here for the CI Python Linter Validator - Products_Checkout [views.py]</summary>
+<img src="static/images/readme/validation-pip8/checkout-views.webp" alt="CI Python Linter Validator - Products_Checkout [views.py]" width="1000"/>
+</details>
+
+<details>
+    <summary>Click here for the CI Python Linter Validator - Products_Checkout [urls.py]</summary>
+<img src="static/images/readme/validation-pip8/checkout-urls.webp" alt="CI Python Linter Validator - Products_Checkout [urls.py]" width="1000"/>
+</details>
+
+<details>
+    <summary>Click here for the CI Python Linter Validator - Products_Checkout [models.py]</summary>
+<img src="static/images/readme/validation-pip8/checkout-models.webp" alt="CI Python Linter Validator - Products_Checkout [models.py]" width="1000"/>
+</details>
+
+<details>
+    <summary>Click here for the CI Python Linter Validator - Products_Checkout [forms.py]</summary>
+<img src="static/images/readme/validation-pip8/checkout-forms.webp" alt="CI Python Linter Validator - Products_Checkout [forms.py]" width="1000"/>
+</details>
+
+<details>
+    <summary>Click here for the CI Python Linter Validator - Products_Checkout [admin.py]</summary>
+<img src="static/images/readme/validation-pip8/checkout-admin.webp" alt="CI Python Linter Validator - Products_Checkout [admin.py]" width="1000"/>
+</details>
+
+<details>
+    <summary>Click here for the CI Python Linter Validator - Products_Wishlist [views.py]</summary>
+<img src="static/images/readme/validation-pip8/wishlist-views.webp" alt="CI Python Linter Validator - Products_Wishlist [views.py]" width="1000"/>
+</details>
+
+<details>
+    <summary>Click here for the CI Python Linter Validator - Products_Wishlist [models.py]</summary>
+<img src="static/images/readme/validation-pip8/wishlist-models.webp" alt="CI Python Linter Validator - Products_Wishlist [models.py]" width="1000"/>
+</details>
+
+<details>
+    <summary>Click here for the CI Python Linter Validator - Products_Wishlist [context-processors.py]</summary>
+<img src="static/images/readme/validation-pip8/wishlist-context-processors.webp" alt="CI Python Linter Validator - Products_Wishlist [context-processors.py]" width="1000"/>
+</details>
+
+<details>
+    <summary>Click here for the CI Python Linter Validator - Products_Wishlist [admin.py]</summary>
+<img src="static/images/readme/validation-pip8/wishlist-admin.webp" alt="CI Python Linter Validator - Products_Wishlist [admin.py]" width="1000"/>
+</details>
+
+<details>
+    <summary>Click here for the CI Python Linter Validator - Dashboard [views.py]</summary>
+<img src="static/images/readme/validation-pip8/dashboard-views.webp" alt="CI Python Linter Validator - Dashboard [views.py]" width="1000"/>
+</details>
+
+<details>
+    <summary>Click here for the CI Python Linter Validator - Dashboard [urls.py]</summary>
+<img src="static/images/readme/validation-pip8/dashboard-urls.webp" alt="CI Python Linter Validator - Dashboard [urls.py]" width="1000"/>
+</details>
+
+<details>
+    <summary>Click here for the CI Python Linter Validator - Dashboard [models.py]</summary>
+<img src="static/images/readme/validation-pip8/dashboard-models.webp" alt="CI Python Linter Validator - Dashboard [models.py]" width="1000"/>
+</details>
+
+<details>
+    <summary>Click here for the CI Python Linter Validator - Dashboard [forms.py]</summary>
+<img src="static/images/readme/validation-pip8/dashboard-forms.webp" alt="CI Python Linter Validator - Dashboard [forms.py]" width="1000"/>
+</details>
+
+<details>
+    <summary>Click here for the CI Python Linter Validator - Dashboard [signals.py]</summary>
+<img src="static/images/readme/validation-pip8/dashboard-signals.webp" alt="CI Python Linter Validator - Dashboard [signals.py]" width="1000"/>
+</details>
+
+<details>
+    <summary>Click here for the CI Python Linter Validator - Dashboard [admin.py]</summary>
+<img src="static/images/readme/validation-pip8/dashboard-admin.webp" alt="CI Python Linter Validator - Dashboard [admin.py]" width="1000"/>
+</details>
 
 </details>
+
+<br><br>
 
 The testing phases have been also carried out using the **W3C Javascript Validator**, **W3C CSS Validator** and **W3C Markup Validator**(in all pages). No errors have been identified from the Validators as it can be seen in the screenshot below:  
 
@@ -1491,11 +1636,23 @@ The testing phases have been also carried out using the **W3C Javascript Validat
     <summary>W3C Javascript Validator</summary>
 
 <details>
+    <summary>Click here for W3C Javascript Validator - Navbar_Script.js</summary>
+<img src="static/images/readme/validation-js/js-navbar-script.webp" alt="W3C Javascript Validator - Navbar-Script" width="1000"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Javascript Validator - Stripe_Element.js</summary>
+<img src="static/images/readme/validation-js/js-stripe-elements.webp" alt="W3C Javascript Validator - Stripe" width="1000"/>
+</details>
+
+<details>
     <summary>Click here for W3C Javascript Validator - Script.js</summary>
-<img src="static/images/readme/validation-js/js-script.js.webp" alt="W3C Javascript Validator - Home Page" width="800"/>
+<img src="static/images/readme/validation-js/js-toastify.webp" alt="W3C Javascript Validator - Toastify" width="1000"/>
 </details>
 
 </details>
+
+<br><br>
 
 - **CSS**
 
@@ -1503,16 +1660,18 @@ The testing phases have been also carried out using the **W3C Javascript Validat
     <summary>W3C CSS Validator</summary>
 
 <details>
-    <summary>Click here for W3C CSS Validator - Custom-style.css</summary>
-<img src="static/images/readme/validation-css/css-custom-style.webp" alt="W3C Markup Validator - Home Page" width="800"/>
+    <summary>Click here for W3C CSS Validator - Base.css</summary>
+<img src="static/images/readme/validation-css/css-base.webp" alt="W3C CSS Validator - Base.css" width="1000"/>
 </details>
 
 <details>
     <summary>Click here for W3C CSS Validator - Rating-stars.css</summary>
-<img src="static/images/readme/validation-css/css-rating-stars.webp" alt="W3C Markup Validator - Home Page" width="800"/>
+<img src="static/images/readme/validation-css/css-rating.webp" alt="W3C CSS Validator - Rating-stars.css" width="1000"/>
 </details>
 
 </details>
+
+<br><br>
 
 - **HTML**
 
@@ -1521,188 +1680,644 @@ The testing phases have been also carried out using the **W3C Javascript Validat
 
 <details>
     <summary>Click here for W3C Markup Validator - Home Page</summary>
-<img src="static/images/readme/validation-html/html-homepage.webp" alt="W3C Markup Validator - Home Page" width="800px"/>
+<img src="static/images/readme/validation-html/homepage.webp" alt="W3C Markup Validator - Home Page" width="1000px"/>
 </details>
 
 <details>
     <summary>Click here for W3C Markup Validator - Contact Us</summary>
-<img src="static/images/readme/validation-html/html-contact.webp" alt="W3C Markup Validator - Contact Us" width="800px"/>
+<img src="static/images/readme/validation-html/contact-us.webp" alt="W3C Markup Validator - Contact Us" width="1000px"/>
 </details>
 
 <details>
     <summary>Click here for W3C Markup Validator - Sign In</summary>
-<img src="static/images/readme/validation-html/html-signin.webp" alt="W3C Markup Validator - Sign In" width="800px"/>
+<img src="static/images/readme/validation-html/sign-in.webp" alt="W3C Markup Validator - Sign In" width="1000px"/>
 </details>
 
 <details>
     <summary>Click here for W3C Markup Validator - Sign Up</summary>
-<img src="static/images/readme/validation-html/html-signup.webp" alt="W3C Markup Validator - Sign Up" width="800px"/>
+<img src="static/images/readme/validation-html/sign-up.webp" alt="W3C Markup Validator - Sign Up" width="1000px"/>
 </details>
 
 <details>
     <summary>Click here for W3C Markup Validator - Sign Out</summary>
-<img src="static/images/readme/validation-html/html-signout.webp" alt="W3C Markup Validator - Sign Out" width="800px"/>
+<img src="static/images/readme/validation-html/logout.webp" alt="W3C Markup Validator - Sign Out" width="1000px"/>
 </details>
 
 <details>
-    <summary>Click here for W3C Markup Validator - Dashboard</summary>
-<img src="static/images/readme/validation-html/html-dashboard.webp" alt="W3C Markup Validator - Dashboard" width="800px"/>
+    <summary>Click here for W3C Markup Validator - All Products</summary>
+<img src="static/images/readme/validation-html/all-products.webp" alt="W3C Markup Validator - All Products" width="1000px"/>
 </details>
 
 <details>
-    <summary>Click here for W3C Markup Validator - Edit Profile</summary>
-<img src="static/images/readme/validation-html/html-profile-edit.webp" alt="W3C Markup Validator - Edit Profile" width="800px"/>
+    <summary>Click here for W3C Markup Validator - New Products</summary>
+<img src="static/images/readme/validation-html/new-products.webp" alt="W3C Markup Validator - New Products" width="1000px"/>
 </details>
 
 <details>
-    <summary>Click here for W3C Markup Validator - Change Password</summary>
-<img src="static/images/readme/validation-html/html-profile-changepassword.webp" alt="W3C Markup Validator - Change Password" width="800px"/>
+    <summary>Click here for W3C Markup Validator - Used Products</summary>
+<img src="static/images/readme/validation-html/used-products.webp" alt="W3C Markup Validator - Used Products" width="1000px"/>
 </details>
 
 <details>
-    <summary>Click here for W3C Markup Validator - Add Feedback</summary>
-<img src="static/images/readme/validation-html/html-feedback-add.webp" alt="W3C Markup Validator - Thank You" width="800px"/>
+    <summary>Click here for W3C Markup Validator - Search By Category</summary>
+<img src="static/images/readme/validation-html/by-category-products.webp" alt="W3C Markup Validator - Search By Category" width="1000px"/>
 </details>
 
 <details>
-    <summary>Click here for W3C Markup Validator - Edit Feedback</summary>
-<img src="static/images/readme/validation-html/html-feedback-edit.webp" alt="W3C Markup Validator - Error 404" width="800px"/>
+    <summary>Click here for W3C Markup Validator - Search By Sub-Category</summary>
+<img src="static/images/readme/validation-html/by-subcategory-products.webp" alt="W3C Markup Validator - Search By Sub-Category" width="1000px"/>
 </details>
 
 <details>
-    <summary>Click here for W3C Markup Validator - Details Feedback</summary>
-<img src="static/images/readme/validation-html/html-feedback-details.webp" alt="W3C Markup Validator - Error 404" width="800px"/>
+    <summary>Click here for W3C Markup Validator - Product Details</summary>
+<img src="static/images/readme/validation-html/product-details.webp" alt="W3C Markup Validator - Product Details" width="1000px"/>
 </details>
 
 <details>
-    <summary>Click here for W3C Markup Validator - Delete Feedback</summary>
-<img src="static/images/readme/validation-html/html-feedback-delete.webp" alt="W3C Markup Validator - Error 404" width="800px"/>
+    <summary>Click here for W3C Markup Validator - Cart</summary>
+<img src="static/images/readme/validation-html/cart.webp" alt="W3C Markup Validator - Cart" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - Checkout</summary>
+<img src="static/images/readme/validation-html/checkout.webp" alt="W3C Markup Validator - Checkout" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - Payment Success</summary>
+<img src="static/images/readme/validation-html/payment-success.webp" alt="W3C Markup Validator - Payment Success" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - Wishlist</summary>
+<img src="static/images/readme/validation-html/wishlist.webp" alt="W3C Markup Validator - Wishlist" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - My Horizon Shop</summary>
+<img src="static/images/readme/validation-html/my-horizon-shop.webp" alt="W3C Markup Validator - My Horizon Shop" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - [Admin] Add Category</summary>
+<img src="static/images/readme/validation-html/admin-add-category-.webp" alt="W3C Markup Validator - [Admin] Add Category" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - [Admin] List Categories</summary>
+<img src="static/images/readme/validation-html/admin-categories.webp" alt="W3C Markup Validator - [Admin] List Categories" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - [Admin] Update Category</summary>
+<img src="static/images/readme/validation-html/admin-category-update.webp" alt="W3C Markup Validator - [Admin] Update Category" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - [Admin] Deleted Categories</summary>
+<img src="static/images/readme/validation-html/admin-deleted-categories.webp" alt="W3C Markup Validator - [Admin] List Categories" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - [Admin] Add Sub-Category</summary>
+<img src="static/images/readme/validation-html/admin-add-subcategory.webp" alt="W3C Markup Validator - [Admin] Add Sub-Category" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - [Admin] List Sub-Categories</summary>
+<img src="static/images/readme/validation-html/admin-subcategories.webp" alt="W3C Markup Validator - [Admin] List Sub-Categories" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - [Admin] Update Sub-Category</summary>
+<img src="static/images/readme/validation-html/admin-subcategory-update.webp" alt="W3C Markup Validator - [Admin] Update Sub-Category" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - [Admin] Deleted Sub-Categories</summary>
+<img src="static/images/readme/validation-html/admin-deleted-subcategories.webp" alt="W3C Markup Validator - [Admin] Deleted Sub-Categories" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - [Admin] Add Product</summary>
+<img src="static/images/readme/validation-html/admin-add-product.webp" alt="W3C Markup Validator - [Admin] Add Product" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - [Admin] List Products</summary>
+<img src="static/images/readme/validation-html/admin-products-list.webp" alt="W3C Markup Validator - [Admin] List Products" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - [Admin] Update Product</summary>
+<img src="static/images/readme/validation-html/admin-product-update.webp" alt="W3C Markup Validator - [Admin] Update Product" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - [Admin] Deleted Products</summary>
+<img src="static/images/readme/validation-html/admin-deleted-products.webp.webp" alt="W3C Markup Validator - [Admin] Deleted Products" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - [Admin/Customer] Edit Profile </summary>
+<img src="static/images/readme/validation-html/customer-edit-profile.webp" alt="W3C Markup Validator - [Admin/Customer] Edit Profile" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - [Admin/Customer] Change Password</summary>
+<img src="static/images/readme/validation-html/customer-change-password.webp" alt="W3C Markup Validator - [Admin/Customer] Change Password" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - [Admin/Customer] Add Address </summary>
+<img src="static/images/readme/validation-html/customer-add-shipping-address.webp" alt="W3C Markup Validator - [Admin/Customer] Add Address" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - [Admin/Customer] List Addresses </summary>
+<img src="static/images/readme/validation-html/customer-shipping-addresses.webp" alt="W3C Markup Validator - [Admin/Customer] List Addresses" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - [Admin/Customer] Update Address</summary>
+<img src="static/images/readme/validation-html/customer-shipping-address-update.webp" alt="W3C Markup Validator - [Admin/Customer] Update Address" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - [Admin/Customer] Delete Address</summary>
+<img src="static/images/readme/validation-html/customer-delete-shipping-address.webp" alt="W3C Markup Validator - [Admin/Customer] Delete Address" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - [Admin/Customer] My Orders</summary>
+<img src="static/images/readme/validation-html/customer-my-orders.webp" alt="W3C Markup Validator - [Admin/Customer] My Orders" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - [Admin/Customer] Order Details</summary>
+<img src="static/images/readme/validation-html/customer-order-details.webp" alt="W3C Markup Validator - [Admin/Customer] Order Details" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - [Admin/Customer] Sell Product</summary>
+<img src="static/images/readme/validation-html/customer-sell-product.webp" alt="W3C Markup Validator - [Admin/Customer] Sell Product" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - [Admin/Customer] Products' List</summary>
+<img src="static/images/readme/validation-html/customer-my-products.webp" alt="W3C Markup Validator - [Admin/Customer] Products' List" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - [Admin/Customer] Update Product</summary>
+<img src="static/images/readme/validation-html/customer-product-update.webp" alt="W3C Markup Validator - [Admin/Customer] Update Product" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - [Admin/Customer] Wishlist</summary>
+<img src="static/images/readme/validation-html/wishlist.webp" alt="W3C Markup Validator - [Admin/Customer] Wishlist" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - [Admin/Customer] Add Testimonial</summary>
+<img src="static/images/readme/validation-html/customer-add-testimonial.webp" alt="W3C Markup Validator - [Admin/Customer] Add Testimonial" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - [Admin/Customer] Testimonial List</summary>
+<img src="static/images/readme/validation-html/customer-testimonial-list.webp" alt="W3C Markup Validator - [Admin/Customer] Testimonial List" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - [Admin/Customer] Update Testimonial</summary>
+<img src="static/images/readme/validation-html/customer-testimonial-update.webp" alt="W3C Markup Validator - [Admin/Customer] Update Testimonial" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - [Admin/Customer] Delete Testimonial</summary>
+<img src="static/images/readme/validation-html/customer-testimonial-delete.webp" alt="W3C Markup Validator - [Admin/Customer] Delete Testimonial" width="1000px"/>
+</details>
+
+<details>
+    <summary>Click here for W3C Markup Validator - Error 404</summary>
+<img src="static/images/readme/validation-html/error-404.webp" alt="W3C Markup Validator - Error 404" width="1000px"/>
 </details>
 
 </details>
 
+<br><br>
 
 - ### **Lighthouse Validator**
 Below it is possible to taka e look at the result obtained in Lighthouse:
 
 <details>
     <summary>Click here for Lighthouse Desktop - Homepage</summary>
-<img src="static/images/readme/lighthouse/homepage-desktop.webp" alt="Lighthouse Desktop Homepage" width="600px"/>
+<img src="static/images/readme/lighthouse/lh-home-desktop.webp" alt="Lighthouse Desktop Homepage" width="600px"/>
 </details>
 
 <details>
     <summary>Click here for Lighthouse Mobile - Homepage</summary>
-<img src="static/images/readme/lighthouse/homepage-mobile.webp" alt="Lighthouse Mobile Homepage" width="600px"/>
+<img src="static/images/readme/lighthouse/lh-home-mobile.webp" alt="Lighthouse Mobile Homepage" width="600px"/>
 </details>
 
 <details>
     <summary>Click here for Lighthouse Desktop - Contact Us</summary>
-<img src="static/images/readme/lighthouse/contactus-desktop.webp" alt="Lighthouse Desktop Contact Us" width="600px"/>
+<img src="static/images/readme/lighthouse/lh-contact-us-desktop.webp" alt="Lighthouse Desktop Contact Us" width="600px"/>
 </details>
 
 <details>
     <summary>Click here for Lighthouse Mobile - Contact Us</summary>
-<img src="static/images/readme/lighthouse/contactus-mobile.webp" alt="Lighthouse Mobile Contact Us" width="600px"/>
+<img src="static/images/readme/lighthouse/lh-contact-us-mobile.webp" alt="Lighthouse Mobile Contact Us" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for Lighthouse Desktop - Sign In</summary>
-<img src="static/images/readme/lighthouse/signin-desktop.webp" alt="Lighthouse Desktop Sign In" width="600px"/>
+    <summary>Click here for Lighthouse Desktop - All Products</summary>
+<img src="static/images/readme/lighthouse/lh-all-products-desktop.webp" alt="Lighthouse Desktop All Products" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for Lighthouse Mobile - Sign In</summary>
-<img src="static/images/readme/lighthouse/signup-desktop.webp" alt="Lighthouse Mobile Sign In" width="600px"/>
+    <summary>Click here for Lighthouse Mobile - All Products</summary>
+<img src="static/images/readme/lighthouse/lh-all-products-mobile.webp" alt="Lighthouse Mobile All Products" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for Lighthouse Desktop - Sign Up</summary>
-<img src="static/images/readme/lighthouse/signup-desktop.webp" alt="Lighthouse Desktop Sign In" width="600px"/>
+    <summary>Click here for Lighthouse Desktop - New Products</summary>
+<img src="static/images/readme/lighthouse/lh-new-products-desktop.webp" alt="Lighthouse Desktop New Products" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for Lighthouse Mobile - Sign Up</summary>
-<img src="static/images/readme/lighthouse/signin-desktop.webp" alt="Lighthouse Mobile Sign In" width="600px"/>
+    <summary>Click here for Lighthouse Mobile - New Products</summary>
+<img src="static/images/readme/lighthouse/lh-new-products-mobile.webp" alt="Lighthouse Mobile New Products" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for Lighthouse Desktop - Sign Out</summary>
-<img src="static/images/readme/lighthouse/sign-out-desktop.webp" alt="Lighthouse Desktop Sign In" width="600px"/>
+    <summary>Click here for Lighthouse Desktop - Used Products</summary>
+<img src="static/images/readme/lighthouse/lh-used-products-desktop.webp" alt="Lighthouse Desktop Used Products" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for Lighthouse Mobile - Sign Out</summary>
-<img src="static/images/readme/lighthouse/sign-out-mobile.webp" alt="Lighthouse Mobile Sign In" width="600px"/>
+    <summary>Click here for Lighthouse Mobile - Used Products</summary>
+<img src="static/images/readme/lighthouse/lh-used-products-mobile.webp" alt="Lighthouse Mobile Used Products" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for Lighthouse Desktop - Password Reset Desktop</summary>
-<img src="static/images/readme/lighthouse/password-reset-desktop.webp" alt="Lighthouse Desktop Sign In" width="600px"/>
+    <summary>Click here for Lighthouse Desktop - Products Search By</summary>
+<img src="static/images/readme/lighthouse/lh-search-by-products-desktop.webp" alt="Lighthouse Desktop Products Search By" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for Lighthouse Mobile - Password Reset Desktop</summary>
-<img src="static/images/readme/lighthouse/password-reset-mobile.webp" alt="Lighthouse Mobile Sign In" width="600px"/>
+    <summary>Click here for Lighthouse Mobile - Products Search By</summary>
+<img src="static/images/readme/lighthouse/lh-serach-by-products-mobile.webp" alt="Lighthouse Mobile Products Search By" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Desktop - Products Details</summary>
+<img src="static/images/readme/lighthouse/lh-product-details-desktop.webp" alt="Lighthouse Desktop Products Details" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Mobile - Products Details</summary>
+<img src="static/images/readme/lighthouse/lh-product-details-mobile.webp" alt="Lighthouse Mobile Products Details" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Desktop - Cart</summary>
+<img src="static/images/readme/lighthouse/lh-cart-desktop.webp" alt="Lighthouse Desktop Cart" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Mobile - Cart</summary>
+<img src="static/images/readme/lighthouse/lh-cart-mobile.webp" alt="Lighthouse Mobile Cart" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Desktop - Checkout</summary>
+<img src="static/images/readme/lighthouse/lh-checkout-desktop.webp" alt="Lighthouse Desktop Checkout" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Mobile - Checkout</summary>
+<img src="static/images/readme/lighthouse/lh-checkout-mobile.webp" alt="Lighthouse Mobile Checkout" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Desktop - Payment Success</summary>
+<img src="static/images/readme/lighthouse/lh-payment-success-desktop.webp" alt="Lighthouse Desktop Payment Success" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Mobile - Payment Success</summary>
+<img src="static/images/readme/lighthouse/lh-payment-success-mobile.webp" alt="Lighthouse Mobile Payment Success" width="600px"/>
 </details>
 
 <details>
     <summary>Click here for Lighthouse Desktop - My Horizon Shop</summary>
-<img src="static/images/readme/lighthouse/myHorizon Shop-desktop.webp" alt="Lighthouse Desktop Sign In" width="600px"/>
+<img src="static/images/readme/lighthouse/lh-my-horizon-shop-desktop.webp" alt="Lighthouse Desktop My Horizon Shop" width="600px"/>
 </details>
 
 <details>
     <summary>Click here for Lighthouse Mobile - My Horizon Shop</summary>
-<img src="static/images/readme/lighthouse/myHorizon Shop-mobile.webp" alt="Lighthouse Mobile Sign In" width="600px"/>
+<img src="static/images/readme/lighthouse/lh-my-horizon-shop-mobile.webp" alt="Lighthouse Mobile My Horizon Shop" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for Lighthouse Desktop - Edit Profile</summary>
-<img src="static/images/readme/lighthouse/edit-profile-desktop.webp" alt="Lighthouse Desktop Sign In" width="600px"/>
+    <summary>Click here for Lighthouse Desktop - [Admin] Add Category </summary>
+<img src="static/images/readme/lighthouse/lh-admin-add-category-desktop.webp" alt="Lighthouse Desktop [Admin] Add Category" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for Lighthouse Mobile - Edit Profile</summary>
-<img src="static/images/readme/lighthouse/edit-profile-mobile.webp" alt="Lighthouse Mobile Sign In" width="600px"/>
+    <summary>Click here for Lighthouse Mobile - [Admin] Add Category </summary>
+<img src="static/images/readme/lighthouse/lh-admin-add-category-mobile.webp" alt="Lighthouse Mobile [Admin] Add Category" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for Lighthouse Desktop - Change Password Profile</summary>
-<img src="static/images/readme/lighthouse/change-password-desktop.webp" alt="Lighthouse Desktop Sign In" width="600px"/>
+    <summary>Click here for Lighthouse Desktop - [Admin] List Categories </summary>
+<img src="static/images/readme/lighthouse/lh-admin-list-category-desktop.webp" alt="Lighthouse Desktop [Admin] List Category" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for Lighthouse Mobile - Change Password Profile</summary>
-<img src="static/images/readme/lighthouse/change-password-mobile.webp" alt="Lighthouse Mobile Sign In" width="600px"/>
+    <summary>Click here for Lighthouse Mobile - [Admin] List Categories </summary>
+<img src="static/images/readme/lighthouse/lh-admin-list-category-mobile.webp" alt="Lighthouse Mobile [Admin] List Category" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for Lighthouse Desktop - Add Feedback</summary>
-<img src="static/images/readme/lighthouse/add-feedback-desktop.webp" alt="Lighthouse Desktop Sign In" width="600px"/>
+    <summary>Click here for Lighthouse Desktop - [Admin] Update Category </summary>
+<img src="static/images/readme/lighthouse/lh-admin-update-category-desktop.webp" alt="Lighthouse Desktop [Admin] Update Category" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for Lighthouse Mobile - Add Feedback</summary>
-<img src="static/images/readme/lighthouse/add-feedback-mobile.webp" alt="Lighthouse Mobile Sign In" width="600px"/>
+    <summary>Click here for Lighthouse Mobile - [Admin] Update Category </summary>
+<img src="static/images/readme/lighthouse/lh-admin-update-category-mobile.webp" alt="Lighthouse Mobile [Admin] Update Category" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for Lighthouse Desktop - Feedback List</summary>
-<img src="static/images/readme/lighthouse/add-feedback-desktop.webp" alt="Lighthouse Desktop Sign In" width="600px"/>
+    <summary>Click here for Lighthouse Desktop - [Admin] Deleted Categories </summary>
+<img src="static/images/readme/lighthouse/lh-admin-deleted-categories-desktop.webp" alt="Lighthouse Desktop [Admin] Deleted Category" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for Lighthouse Mobile - Feedback List</summary>
-<img src="static/images/readme/lighthouse/add-feedback-mobile.webp" alt="Lighthouse Mobile Sign In" width="600px"/>
+    <summary>Click here for Lighthouse Mobile - [Admin] Deleted Categories </summary>
+<img src="static/images/readme/lighthouse/lh-admin-deleted-categories-mobile.webp" alt="Lighthouse Mobile [Admin] Deleted Category" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for Lighthouse Desktop - Error 404</summary>
-<img src="static/images/readme/lighthouse/error404-desktop.webp" alt="Lighthouse Desktop Error 404" width="600px"/>
+    <summary>Click here for Lighthouse Desktop - [Admin] Add Sub-Category </summary>
+<img src="static/images/readme/lighthouse/lh-admin-add-subcategory-desktop.webp" alt="Lighthouse Desktop [Admin] Add Sub-Category" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for Lighthouse Mobile - Error 404</summary>
-<img src="static/images/readme/lighthouse/error404-mobile.webp" alt="Lighthouse Mobile Error 404" width="600px"/>
+    <summary>Click here for Lighthouse Mobile - [Admin] Add Sub-Category </summary>
+<img src="static/images/readme/lighthouse/lh-admin-add-subcategory-mobile.webp" alt="Lighthouse Mobile [Admin] Add Sub-Category" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Desktop - [Admin] List Sub-Categories </summary>
+<img src="static/images/readme/lighthouse/lh-admin-list-subcategory-desktop.webp" alt="Lighthouse Desktop [Admin] List Sub-Categories" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Mobile - [Admin] List Sub-Categories </summary>
+<img src="static/images/readme/lighthouse/lh-admin-list-subcategory-mobile.webp" alt="Lighthouse Mobile [Admin] List Sub-Categories" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Desktop - [Admin] Update Sub-Category </summary>
+<img src="static/images/readme/lighthouse/lh-admin-update-subcategory-desktop.webp" alt="Lighthouse Desktop [Admin] Update Sub-Categories" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Mobile - [Admin] Update Sub-Category </summary>
+<img src="static/images/readme/lighthouse/lh-admin-update-subcategory-mobile.webp" alt="Lighthouse Mobile [Admin] Update Sub-Categories" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Desktop - [Admin] Deleted Sub-Categories </summary>
+<img src="static/images/readme/lighthouse/lh-admin-deleted-subcategories-desktop.webp" alt="Lighthouse Desktop [Admin] Deleted Sub-Categories" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Mobile - [Admin] Deleted Sub-Categories </summary>
+<img src="static/images/readme/lighthouse/lh-admin-deleted-subcategories-mobile.webp" alt="Lighthouse Mobile [Admin] Deleted Sub-Categories" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Desktop - [Admin] Add Product </summary>
+<img src="static/images/readme/lighthouse/lh-admin-add-products-desktop.webp" alt="Lighthouse Desktop [Admin] Add Product" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Mobile - [Admin] Add Product </summary>
+<img src="static/images/readme/lighthouse/lh-admin-add-products-mobile.webp" alt="Lighthouse Mobile [Admin] Add Product" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Desktop - [Admin] Update Product </summary>
+<img src="static/images/readme/lighthouse/lh-admin-update-products-desktop.webp" alt="Lighthouse Desktop [Admin] Update Product" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Mobile - [Admin] Update Product </summary>
+<img src="static/images/readme/lighthouse/lh-admin-update-products-mobile.webp" alt="Lighthouse Mobile [Admin] Update Product" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Desktop - [Admin] Deleted Product</summary>
+<img src="static/images/readme/lighthouse/lh-admin-deleted-products-desktop.webp" alt="Lighthouse Desktop [Admin] Deleted Product" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Mobile - [Admin] Deleted Product</summary>
+<img src="static/images/readme/lighthouse/lh-admin-deleted-products-mobile.webp" alt="Lighthouse Mobile [Admin] Deleted Product" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Desktop - [Admin/Customer] Edit Profile</summary>
+<img src="static/images/readme/lighthouse/lh-customer-edit-profile-desktop.webp" alt="Lighthouse Desktop [Admin] Edit Profile" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Mobile - [Admin] Edit Profile</summary>
+<img src="static/images/readme/lighthouse/lh-customer-edit-profile-mobile.webp" alt="Lighthouse Mobile [Admin] Edit Profile" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Desktop - [Admin/Customer] Change Password Profile</summary>
+<img src="static/images/readme/lighthouse/lh-customer-edit-password-desktop.webp" alt="Lighthouse Desktop [Admin/Customer] Change Password Profile" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Mobile - [Admin/Customer] Change Password Profile</summary>
+<img src="static/images/readme/lighthouse/lh-customer-edit-password-mobile.webp" alt="Lighthouse Mobile [Admin/Customer] Change Password Profile" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Desktop - [Admin/Customer] Add Address</summary>
+<img src="static/images/readme/lighthouse/lh-customer-add-addresse-desktop.webp" alt="Lighthouse Desktop [Admin/Customer] Add Address" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Mobile - [Admin/Customer] Add Address</summary>
+<img src="static/images/readme/lighthouse/lh-customer-add-addresse-mobile.webp" alt="Lighthouse Mobile [Admin/Customer] Add Address" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Desktop - [Admin/Customer] List Address</summary>
+<img src="static/images/readme/lighthouse/lh-customer-list-addresses-desktop.webp" alt="Lighthouse Desktop [Admin/Customer] List Address" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Mobile - [Admin/Customer] List Address</summary>
+<img src="static/images/readme/lighthouse/lh-customer-list-addresses-mobile.webp" alt="Lighthouse Mobile [Admin/Customer] List Address" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Desktop - [Admin/Customer] Update Address</summary>
+<img src="static/images/readme/lighthouse/lh-customer-update-address-desktop.webp" alt="Lighthouse Desktop [Admin/Customer] Update Address" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Mobile - [Admin/Customer] Update Address</summary>
+<img src="static/images/readme/lighthouse/lh-customer-update-address-mobile.webp" alt="Lighthouse Mobile [Admin/Customer] Update Address" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Desktop - [Admin/Customer] Delete Address</summary>
+<img src="static/images/readme/lighthouse/lh-customer-delete-address-desktop.webp" alt="Lighthouse Desktop [Admin/Customer] Delete Address" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Mobile - [Admin/Customer] Delete Address</summary>
+<img src="static/images/readme/lighthouse/lh-customer-delete-address-mobile.webp" alt="Lighthouse Mobile [Admin/Customer] Delete Address" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Desktop - [Admin/Customer] My Orders</summary>
+<img src="static/images/readme/lighthouse/lh-customer-order-list-desktop.webp" alt="Lighthouse Desktop [Admin/Customer] My Orders" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Mobile - [Admin/Customer] My Orders</summary>
+<img src="static/images/readme/lighthouse/lh-customer-order-list-mobile.webp" alt="Lighthouse Mobile [Admin/Customer] My Orders" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Desktop - [Admin/Customer] Order Details</summary>
+<img src="static/images/readme/lighthouse/lh-customer-order-details-desktop.webp" alt="Lighthouse Desktop [Admin/Customer] Order Details" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Mobile - [Admin/Customer] Order Details</summary>
+<img src="static/images/readme/lighthouse/lh-customer-order-details-mobile.webp" alt="Lighthouse Mobile [Admin/Customer] Order Details" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Desktop - [Admin/Customer] Sell Product</summary>
+<img src="static/images/readme/lighthouse/lh-customer-add-product-desktop.webp" alt="Lighthouse Desktop [Admin/Customer] Sell Product" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Mobile - [Admin/Customer] Sell Product</summary>
+<img src="static/images/readme/lighthouse/lh-customer-add-product-mobile.webp" alt="Lighthouse Mobile [Admin/Customer] Sell Product" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Desktop - [Admin/Customer] Products' List</summary>
+<img src="static/images/readme/lighthouse/lh-customer-list-products-desktop.webp" alt="Lighthouse Desktop [Admin/Customer] Products' List" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Mobile - [Admin/Customer] Products' List</summary>
+<img src="static/images/readme/lighthouse/lh-customer-list-products-mobile.webp" alt="Lighthouse Mobile [Admin/Customer] Products' List" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Desktop - [Admin/Customer] Update Product</summary>
+<img src="static/images/readme/lighthouse/lh-customer-edit-products-desktop.webp" alt="Lighthouse Desktop [Admin/Customer] Update Product" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Mobile - [Admin/Customer] Update Product</summary>
+<img src="static/images/readme/lighthouse/lh-customer-edit-products-mobile.webp" alt="Lighthouse Mobile [Admin/Customer] Update Product" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Desktop - [Admin/Customer] My Wishlist</summary>
+<img src="static/images/readme/lighthouse/lh-wishlist-desktop.webp" alt="Lighthouse Desktop [Admin/Customer] My Wishlist" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Mobile - [Admin/Customer] My Wishlist</summary>
+<img src="static/images/readme/lighthouse/lh-wishlist-mobile.webp" alt="Lighthouse Mobile [Admin/Customer] My Wishlist" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Desktop - [Admin/Customer] Add Testimonial</summary>
+<img src="static/images/readme/lighthouse/lh-customer-add-testimonials-desktop.webp" alt="Lighthouse Desktop [Admin/Customer] Add Testimonial" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Mobile - [Admin/Customer] Add Testimonial</summary>
+<img src="static/images/readme/lighthouse/lh-customer-add-testimonials-mobile.webp" alt="Lighthouse Mobile [Admin/Customer] Add Testimonial" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Desktop - [Admin/Customer] List Testimonials</summary>
+<img src="static/images/readme/lighthouse/lh-customer-list-testimonials-desktop.webp" alt="Lighthouse Desktop [Admin/Customer] List Testimonials" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Mobile - [Admin/Customer] List Testimonials</summary>
+<img src="static/images/readme/lighthouse/lh-customer-list-testimonials-mobile.webp" alt="Lighthouse Mobile [Admin/Customer] List Testimonials" width="600px"/>
+</details>
+---------------
+<details>
+    <summary>Click here for Lighthouse Desktop - [Admin/Customer] Update Testimonial</summary>
+<img src="static/images/readme/lighthouse/lh-customer-update-testimonials-desktop.webp" alt="Lighthouse Desktop [Admin/Customer] Update Testimonial" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Mobile - [Admin/Customer] Update Testimonial</summary>
+<img src="static/images/readme/lighthouse/lh-customer-update-testimonials-mobile.webp" alt="Lighthouse Mobile [Admin/Customer] Update Testimonial" width="600px"/>
+</details>
+---------------
+<details>
+    <summary>Click here for Lighthouse Desktop - [Admin/Customer] Delete Testimonial</summary>
+<img src="static/images/readme/lighthouse/lh-customer-delete-testimonials-desktop.webp" alt="Lighthouse Desktop [Admin/Customer] Delete Testimonial" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Mobile - [Admin/Customer] Delete Testimonial</summary>
+<img src="static/images/readme/lighthouse/lh-customer-delete-testimonials-mobile.webp" alt="Lighthouse Mobile [Admin/Customer] Delete Testimonial" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Desktop - Sign In</summary>
+<img src="static/images/readme/lighthouse/lh-signin-desktop.webp" alt="Lighthouse Desktop Sign In" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Mobile - Sign In</summary>
+<img src="static/images/readme/lighthouse/lh-signin-mobile.webp" alt="Lighthouse Mobile Sign In" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Desktop - Sign Up</summary>
+<img src="static/images/readme/lighthouse/lh-signup-desktop.webp" alt="Lighthouse Desktop Sign Up" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Mobile - Sign Up</summary>
+<img src="static/images/readme/lighthouse/lh-signup-mobile.webp" alt="Lighthouse Mobile Sign Up" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Desktop - Sign Out</summary>
+<img src="static/images/readme/lighthouse/lh-logout-desktop.webp" alt="Lighthouse Desktop Sign Out" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Lighthouse Mobile - Sign Out</summary>
+<img src="static/images/readme/lighthouse/lh-logout-mobile.webp" alt="Lighthouse Mobile Sign Out" width="600px"/>
 </details>
 
 

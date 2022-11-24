@@ -183,7 +183,7 @@ def PaymentSuccess(request, order_id):
     order.save()
 
     messages.success(request, f'Order successfully processed! \
-        Your order number is {order.order_number}. A confirmation \
+        Order number: {order.order_number}. A confirmation \
         email will be sent to { order.created_by.email }.')
 
     template_name = 'checkout/payment-success.html'
@@ -202,9 +202,8 @@ def PaymentFailed(request, order_id):
     order.billed = False
     order.save()
 
-    messages.error(request, f'There has been an issue with the \
-        order number: {order.order_number}. Please contact the \
-        support for further details.')
+    messages.error(request, f'There has been an issue with your \
+        order. Please contact the support for further details.')
 
     template_name = 'checkout/payment-failed.html'
     context = {
