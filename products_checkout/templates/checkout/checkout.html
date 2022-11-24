@@ -46,17 +46,24 @@
                             <div>
                                 <div class="row">
                                     {% if order.created_by.first_name and order.created_by.last_name %}
-                                    <div class="col-12 col-sm-6 my-2 text-dark">
+                                    <div class="col-12 col-md-6 col-xl-4 my-2 text-dark">
                                         <label class="h2 fw-bold form-label mt-2 text-dark ">First
                                             Name:</label>
                                         <span class="form-control border-1 rounded-3">
                                             {{ order.created_by.first_name }}
                                         </span>
                                     </div>
-                                    <div class="col-12 col-sm-6 my-2 text-dark">
+                                    <div class="col-12 col-md-6 col-xl-4 my-2 text-dark">
                                         <label class="h2 fw-bold form-label mt-2 text-dark">Last Name:</label>
                                         <span class="form-control border-1 rounded-3">
                                             {{ order.created_by.last_name }}
+                                        </span>
+                                    </div>
+
+                                    <div class="col-12 col-xl-4 my-2 text-dark">
+                                        <label class="h2 fw-bold form-label mt-2 text-dark">Email:</label>
+                                        <span class="form-control border-1 rounded-3">
+                                            {{ order.created_by.email }}
                                         </span>
                                     </div>
 
@@ -70,14 +77,14 @@
                                         </span>
                                     </div>
 
-                                    {% endif %}
-
                                     <div class="col-12 col-md-6 my-2 text-dark">
                                         <label class="h2 fw-bold form-label mt-2 text-dark">Email:</label>
                                         <span class="form-control border-1 rounded-3">
                                             {{ order.created_by.email }}
                                         </span>
                                     </div>
+
+                                    {% endif %}
 
                                     <input type="hidden" id="created_by_email_id" name="email"
                                         value="{{ order.created_by.email }}">
@@ -113,26 +120,26 @@
                                     </span>
                                 </div>
 
-                                <div class="col-12 col-md-2 my-2 text-dark">
+                                <div class="col-12 col-md-6 col-xxl-3 my-2 text-dark">
                                     <label class="h2 fw-bold form-label mt-2 text-dark">Country:</label>
                                     <span class="form-control border-1 rounded-3">
                                         {{ order.shipping_address.country }}
                                     </span>
                                 </div>
-                                <div class="col-12 col-md-3 my-2 text-dark">
+                                <div class="col-12 col-md-6 col-xxl-3 my-2 text-dark">
                                     <label class="h2 fw-bold form-label mt-2 text-dark">City:</label>
                                     <span class="form-control border-1 rounded-3">
                                         {{ order.shipping_address.city }}
                                     </span>
                                 </div>
 
-                                <div class="col-12 col-md-3 my-2 text-dark">
+                                <div class="col-12 col-md-6 col-xxl-3 my-2 text-dark">
                                     <label class="h2 fw-bold form-label mt-2 text-dark">Postcode:</label>
                                     <span class="form-control border-1 rounded-3">
                                         {{ order.shipping_address.postcode }}
                                     </span>
                                 </div>
-                                <div class="col-12 col-md-4 my-2 text-dark">
+                                <div class="col-12 col-md-6 col-xxl-3 my-2 text-dark">
                                     <label class="h2 fw-bold form-label mt-2 text-dark">Phone:</label>
                                     <span class="form-control border-1 rounded-3">
                                         {{ order.shipping_address.phone_number }}
@@ -145,7 +152,6 @@
                         <!-- ======================= -->
                         <!--   End Shipping Address  -->
                         <!-- ======================= -->
-
 
                         <!-- ======================= -->
                         <!--    Product's Summary    -->
