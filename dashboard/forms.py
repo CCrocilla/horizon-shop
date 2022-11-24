@@ -79,7 +79,8 @@ class ShippingAddressForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['created_by'].disabled = True
-        self.fields["shipping_name"].widget.attrs["autofocus"] = True
+        self.fields['shipping_name'].widget.attrs["autofocus"] = True
+        self.fields['country'].required = True
 
     class Meta:
         model = ShippingAddress
@@ -87,6 +88,7 @@ class ShippingAddressForm(ModelForm):
         fields = (
             'created_by',
             'shipping_name',
+            'country',
             'phone_number',
             'address_street',
             'apartment_number',
