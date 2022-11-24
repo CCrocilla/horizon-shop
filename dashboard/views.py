@@ -317,7 +317,7 @@ class ProductUpdateView(SuccessMessageMixin, UpdateView):
 
 
 def ProductDeleteView(request, slug):
-    """ Delete a product from the store """
+    """ Soft Delete a product """
 
     product = get_object_or_404(Product, slug=slug)
     product.soft_delete()
@@ -330,7 +330,7 @@ def ProductDeleteView(request, slug):
 
 
 def ProductRestoreView(request, slug):
-    """ Delete a product from the store """
+    """ Restore a product """
 
     product = get_object_or_404(Product, slug=slug)
     product.restore()

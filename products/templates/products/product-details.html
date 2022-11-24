@@ -38,7 +38,7 @@
             {% else %}
 
             <a href="{% url 'product_details' product.slug %}">
-                <img src="{% static 'images/no-image-placeholder.png' %}" class="img-fluid img-card-products rounded-3"
+                <img src="{% static 'images/no-image-placeholder.webp' %}" class="img-fluid img-card-products rounded-3"
                     alt="Image {{ product.title }}" width="500" height="500">
             </a>
 
@@ -136,6 +136,7 @@
 
             <form action="{% url 'add-to-cart' product.id %}" method="POST">
                 {% csrf_token %}
+                <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 <button type="submit" class="cart btn btn-sm-minwidth btn-yellow rounded-3 text-dark"
                     data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Add to Cart">
                     Add to Cart
@@ -281,19 +282,27 @@
     <div class="row">
         <div class="col-12">
             <div class="card-body ">
-                {% for c in comments %}
+                {% for comment in comments %}
                 <div class="text-dark border border-3 border-dark rounded-3 p-3 m-2">
                     <p>
-                        <strong>Customer:</strong> {{ c.commented_by.username }}
+                        <strong>Customer:</strong> {{ comment.commented_by.username }}
                         <br>
                         <span class="text-dark">
-                            <strong>On Date:</strong> {{ c.commented_date }}
+                            <strong>On Date:</strong> {{ comment.commented_date }}
                         </span>
                     </p>
                     <p>
-                        Comment: {{ c.comment  }}
+                        Comment: {{ comment.comment  }}
                     </p>
+
+                    {% if user.is_superuser or comment.commented_by.id == request.user.id %}
+                    <a class="btn btn-sm-minwidth btn-outline-danger rounded-3"
+                        href="{% url 'delete-comment' comment.pk %}" aria-label="Delete">
+                        Delete
+                    </a>
+                    {% endif %}
                 </div>
+
                 {% endfor %}
             </div>
         </div>

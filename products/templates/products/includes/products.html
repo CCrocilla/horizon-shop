@@ -21,7 +21,7 @@
         {% else %}
 
         <a href="{% url 'product_details' product.slug %}">
-            <img src="{% static 'images/no-image-placeholder.png' %}" class="img-fluid img-card-products rounded-3"
+            <img src="{% static 'images/no-image-placeholder.webp' %}" class="img-fluid img-card-products rounded-3"
                 alt="Image {{ product.title }}" width="500" height="500">
         </a>
 
@@ -99,6 +99,7 @@
 
                     <form action="{% url 'add-to-cart' product.id %}" method="POST">
                         {% csrf_token %}
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         <button type="submit" class="cart btn btn-lg btn-outline-yellow rounded-3"
                             data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Add to Cart">
                             <i class="fas fa-plus me-1"></i>

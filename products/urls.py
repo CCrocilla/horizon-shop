@@ -13,6 +13,7 @@ from .views import UsedProductsListView
 from .views import ProductDetailsView
 from .views import SearchByView
 from .views import SearchBySubCategoryView
+from .views import ProductCommentDeleteView
 
 
 urlpatterns = [
@@ -42,4 +43,8 @@ urlpatterns = [
          ProductDetailsView.as_view(),
          name='product_details'
          ),
+    path('comment/<int:pk>/delete',
+         ProductCommentDeleteView,
+         name='delete-comment'
+         )
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -207,3 +207,18 @@ class ProductDetailsView(View):
             rating_stars.save()
 
         return redirect(request.path)
+
+
+def ProductCommentDeleteView(request, pk):
+    """ Delete a product from the store """
+
+    comment = get_object_or_404(ProductComment, id=pk)
+    comment.delete()
+
+    messages.success(
+        request,
+        'Comment deleted successfully!'
+        )
+    return redirect(reverse(
+        'product_details',
+        kwargs={'slug': comment.product.slug}))
