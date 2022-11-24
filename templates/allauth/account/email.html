@@ -1,4 +1,3 @@
-<!-- Done -->
 {% extends "account/base.html" %}
 
 {% load static %}
@@ -43,7 +42,7 @@
 
                                     <input id="email_radio_{{forloop.counter}}" type="radio" name="email"
                                         {% if emailaddress.primary or user.emailaddress_set.count == 1 %}checked="checked"
-                                        {%endif %} value="{{emailaddress.email}}" />
+                                        {%endif %} value="{{emailaddress.email}}">
 
                                     {{ emailaddress.email }}
 

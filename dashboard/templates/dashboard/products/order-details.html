@@ -6,7 +6,7 @@
 
 {% block content %}
 
-{% if user.is_authenticated %}
+{% if user.is_authenticated and order.created_by.id == request.user.id or user.is_superuser %}
 
 <div class="container text-dark">
     {% if user.is_superuser %}
@@ -192,7 +192,8 @@
                                                                             href="{% url 'product_details' product.product.slug %}">
                                                                             <img src="{{ product.product.image.url }}"
                                                                                 class="card-img-top img-fluid avatar "
-                                                                                alt="Image {{ product.product.title }}" width="150" height="150">
+                                                                                alt="Image {{ product.product.title }}"
+                                                                                width="150" height="150">
                                                                         </a>
                                                                     </div>
                                                                 </td>
@@ -204,7 +205,8 @@
                                                                             href="{% url 'product_details' product.product.slug %}">
                                                                             <img src="{% static 'images/no-image-placeholder.png' %}"
                                                                                 class="card-img-top img-fluid avatar "
-                                                                                alt="Image {{ product.product.title }}" width="150" height="150">
+                                                                                alt="Image {{ product.product.title }}"
+                                                                                width="150" height="150">
                                                                         </a>
                                                                     </div>
                                                                 </td>

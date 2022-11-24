@@ -3,10 +3,11 @@
         <div class="col-md-10 col-lg-8 col-xl-6">
             <div class="card rounded-3 bg-dark shadow-lg">
                 <div class="text-center text-yellow mb-5">
-                    <h1 class="my-4 text-danger">Authentication Error!</h1>
+                    <h1 class="my-4 fs-3 fw-bold text-danger">Error!</h1>
                     <ol class="breadcrumb mx-auto d-flex justify-content-center mb-4">
-                        <li class="text-danger">Restricted Access Area</li>
+                        <li class="fs-4 text-danger">Restricted Access Area</li>
                     </ol>
+                    {% if not user.is_authenticated %}
                     <p class=" mb-2 text-center">
                         <span class="text-light">Access reserved only to authenticated user!</span>
                     </p>
@@ -15,6 +16,11 @@
                     </p>
                     <a class="mt-4 btn btn-lg btn-sm-minwidth btn-yellow text-dark rounded-3"
                         href="{% url 'account_login' %}" aria-label="Login">Sign In</a>
+                    {% else %}
+                    <p class=" mb-2 text-center">
+                        <span class="text-light">Access reserved only to Administrators!</span>
+                    </p>
+                    {% endif %}
                 </div>
             </div>
         </div>

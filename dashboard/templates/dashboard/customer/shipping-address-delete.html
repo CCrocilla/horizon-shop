@@ -6,7 +6,7 @@
 
 {% block content %}
 
-{% if user.is_authenticated %}
+{% if user.is_authenticated and shippingaddress.created_by.id == request.user.id or user.is_superuser %}
 
 <div class="text-dark">
     <h1 class="mt-4 text-center">Delete Shipping Address: {{ shippingaddress.shipping_name }}</h1>
@@ -44,7 +44,6 @@
         </div>
     </div>
 </div>
-
 
 {% else %}
 

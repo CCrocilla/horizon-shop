@@ -8,7 +8,7 @@
 
 {% block content %}
 
-{% if user.is_authenticated %}
+{% if user.is_authenticated and product.created_by.id == request.user.id or user.is_superuser %}
 
 <div class="container text-dark">
     <h1 class="mt-4 text-center">Update the Product: {{ product.title }}</h1>

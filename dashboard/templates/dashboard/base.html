@@ -147,7 +147,7 @@
                                     <a class="dropdown-item" href="{% url 'products-wishlist' %}">My Wishlist</a>
                                     <a class="dropdown-item" href="{% url 'testimonials-list' %}">My Testimonials</a>
                                     <div class="dropdown-divider"></div>
-                                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                                    <a href="{% url 'account_logout' %}" class="dropdown-item">Sign Out</a>
 
                                     {% else %}
 
@@ -364,7 +364,7 @@
         integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
     </script>
     <script src="https://kit.fontawesome.com/0644654b1f.js" crossorigin="anonymous"></script>
-    <script src="{% static 'js/navbar-script.js' %}"></script>
+    <script src="{% static 'js/navbar_script.js' %}"></script>
 
     <script>
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
