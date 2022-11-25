@@ -153,7 +153,7 @@ class ShippingAddressAddView(SuccessMessageMixin, CreateView):
         return {'created_by': user}
 
 
-class ShippingAddressListView(ListView):
+class ShippingAddressListView(LoginRequired, ListView):
     """
     Class to display the User's Shipping Addresses
     """
@@ -162,6 +162,8 @@ class ShippingAddressListView(ListView):
     ordering = ['-created_at']
     fields = '__all__'
     paginate_by = 6
+    permission_denied_message = 'Authentication Error! Access reserved \
+                                 only to Authenticated Customers!'
 
     def get_queryset(self):
         """
@@ -261,7 +263,7 @@ class ProductAddView(SuccessMessageMixin, View):
             return redirect(request.path)
 
 
-class ProductListView(ListView):
+class ProductListView(LoginRequired, ListView):
     """
     Class to display the User's Product
     """
@@ -269,6 +271,8 @@ class ProductListView(ListView):
     template_name = 'dashboard/products/products-list.html'
     ordering = ['-created_at']
     fields = '__all__'
+    permission_denied_message = 'Authentication Error! Access reserved \
+                                 only to Authenticated Customers!'
 
     def get_queryset(self):
         if self.request.user.is_superuser:
@@ -281,7 +285,7 @@ class ProductListView(ListView):
         return queryset
 
 
-class ProductsDeletedListView(ListView):
+class ProductsDeletedListView(LoginRequired, ListView):
     """
     Class to display the User's Deleted Product
     """
@@ -289,6 +293,8 @@ class ProductsDeletedListView(ListView):
     template_name = 'dashboard/products/products-deleted-list.html'
     ordering = ['-created_at']
     fields = '__all__'
+    permission_denied_message = 'Authentication Error! Access reserved \
+                                 only to Admin Users!'
 
     def get_queryset(self):
         queryset = Product.objects.filter(is_deleted=True)
@@ -318,34 +324,36 @@ class ProductUpdateView(SuccessMessageMixin, UpdateView):
 
 def ProductDeleteView(request, slug):
     """ Soft Delete a product """
+    if request.user.is_authenticated:
+        product = get_object_or_404(Product, slug=slug)
+        product.soft_delete()
 
-    product = get_object_or_404(Product, slug=slug)
-    product.soft_delete()
-
-    messages.success(
-        request,
-        f'Product {product.title} deleted successfully!'
-        )
-    return redirect(reverse('products-list'))
+        messages.success(
+            request,
+            f'Product {product.title} deleted successfully!'
+            )
+        return redirect(reverse('products-list'))
+    return HttpResponseRedirect(reverse('products-list'))
 
 
 def ProductRestoreView(request, slug):
     """ Restore a product """
+    if request.user.is_authenticated:
+        product = get_object_or_404(Product, slug=slug)
+        product.restore()
 
-    product = get_object_or_404(Product, slug=slug)
-    product.restore()
-
-    messages.success(
-        request,
-        f'Product { product.title } restored successfully!'
-        )
-    return redirect(reverse('products-list'))
+        messages.success(
+            request,
+            f'Product { product.title } restored successfully!'
+            )
+        return redirect(reverse('products-list'))
+    return HttpResponseRedirect(reverse('products-list'))
 
 
 ################################
 #         Order Views          #
 ################################
-class OrderListView(ListView):
+class OrderListView(LoginRequired, ListView):
     """
     Class to display the User's Order
     """
@@ -353,6 +361,8 @@ class OrderListView(ListView):
     template_name = 'dashboard/products/order-list.html'
     ordering = ['-created_at']
     fields = '__all__'
+    permission_denied_message = 'Authentication Error! Access reserved \
+                                 only to Authenticated Customers!'
 
     def get_queryset(self):
         if self.request.user.is_superuser:
@@ -462,26 +472,30 @@ class CategoriesDeletedListView(ListView):
 
 def CategoryDeleteView(request, pk):
     """ Soft Delete a Category from the store """
-    category = get_object_or_404(Category, id=pk)
-    category.soft_delete()
+    if request.user.is_authenticated:
+        category = get_object_or_404(Category, id=pk)
+        category.soft_delete()
 
-    messages.success(
-        request,
-        f'Category {category.name} deleted successfully!'
-        )
-    return redirect(reverse('category-list'))
+        messages.success(
+            request,
+            f'Category {category.name} deleted successfully!'
+            )
+        return redirect(reverse('category-list'))
+    return HttpResponseRedirect(reverse('category-list'))
 
 
 def CategoryRestoreView(request, pk):
     """ Restore a category from the Deleted Categories List """
-    category = get_object_or_404(Category, id=pk)
-    category.restore()
+    if request.user.is_authenticated:
+        category = get_object_or_404(Category, id=pk)
+        category.restore()
 
-    messages.success(
-        request,
-        f'Category {category.name}  restored successfully!'
-        )
-    return redirect(reverse('category-list'))
+        messages.success(
+            request,
+            f'Category {category.name}  restored successfully!'
+            )
+        return redirect(reverse('category-list'))
+    return HttpResponseRedirect(reverse('category-list'))
 
 
 ################################
@@ -571,27 +585,30 @@ class SubCategoriesDeletedListView(ListView):
 
 def SubCategoryDeleteView(request, pk):
     """ Soft Delete a Sub-Category from the store """
-    subcategory = get_object_or_404(SubCategory, id=pk)
-    subcategory.soft_delete()
+    if request.user.is_authenticated:
+        subcategory = get_object_or_404(SubCategory, id=pk)
+        subcategory.soft_delete()
 
-    messages.success(
-        request,
-        f'Sub-Category {subcategory.name} deleted successfully!'
-        )
-    return redirect(reverse('subcategory-list'))
+        messages.success(
+            request,
+            f'Sub-Category {subcategory.name} deleted successfully!'
+            )
+        return redirect(reverse('subcategory-list'))
+    return HttpResponseRedirect(reverse('subcategory-list'))
 
 
 def SubCategoryRestoreView(request, pk):
     """ Restore a Sub-Category from the Deleted Sub-Categories List """
+    if request.user.is_authenticated:
+        subcategory = get_object_or_404(SubCategory, id=pk)
+        subcategory.restore()
 
-    subcategory = get_object_or_404(SubCategory, id=pk)
-    subcategory.restore()
-
-    messages.success(
-        request,
-        f'Sub-Category {subcategory.name}  restored successfully!'
-        )
-    return redirect(reverse('subcategory-list'))
+        messages.success(
+            request,
+            f'Sub-Category {subcategory.name}  restored successfully!'
+            )
+        return redirect(reverse('subcategory-list'))
+    return HttpResponseRedirect(reverse('subcategory-list'))
 
 
 ################################
