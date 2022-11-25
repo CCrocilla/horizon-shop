@@ -11,12 +11,15 @@
 <div class="container text-dark">
     {% if user.is_superuser %}
     <h1 class="mt-4 text-center">Order Administrator</h1>
+    <ol class="breadcrumb mb-4 mx-auto d-flex justify-content-center">
+        <li class="active">Review the information of all the orders!</li>
+    </ol>
     {% else %}
     <h1 class="mt-4 text-center">Order List</h1>
-    {% endif %}
     <ol class="breadcrumb mb-4 mx-auto d-flex justify-content-center">
         <li class="active">Review the information of your orders!</li>
     </ol>
+    {% endif %}
 
     <div class="row d-flex align-items-center mt-5">
         <div class="list-group">
@@ -33,19 +36,29 @@
                                 {{ order.order_number|truncatechars:12 }}
                             </a>
                         </h3>
-                        <small>{{ order.created_at}}</small>
-                    </div>
-                    <p class="mb-1"><strong>Total Price:</strong> {{ order.total_price }} Euro</p>
-                    <p class="mb-1"><strong>Quantity of Items:</strong> {{ order.quantity_products }}</p>
-                    <p class="my-3">
-                        {% if order.billed %}
-                        <span class="badge bg-success text-dark rounded-3 p-2">Order Completed</span>
-                        {% else %}
-                        <span class="badge bg-danger text-dark p-2">Order Not Completed</span>
-                        {% endif %}
-                    </p>
+                        <p>
+                            {% if order.billed %}
+                            <span class="badge bg-success text-dark rounded-3 p-2">Order Completed</span>
+                            {% else %}
+                            <span class="badge bg-danger text-dark p-2">Order Not Completed</span>
+                            {% endif %}
+                        </p>
 
-                    <a class="btn btn-sm-minwidth btn-outline-info rounded-3 mt-3"
+                    </div>
+
+                    {% if user.is_superuser %}
+                    <p class="mb-1"><strong>Created By:</strong> {{ order.created_by }} |
+                        <small>{{ order.created_at}}</small>
+                    </p>
+                    {% else %}
+                    <p class="mb-1"><strong>Created Date:</strong>{{ order.created_at}}</p>
+                    {% endif %}
+
+                    <p class="mb-1"><strong>Quantity of Items:</strong> {{ order.quantity_products }}</p>
+                    <p class="mb-1"><strong>Total Price:</strong> {{ order.total_price }} Euro</p>
+
+
+                    <a class="btn btn-sm-minwidth btn-outline-primary rounded-3 mt-3"
                         href="{% url 'order-details' order.pk %}" aria-label="Details">Details</a>
                 </div>
             </div>
