@@ -56,7 +56,23 @@
 
                     {% for product in products %}
 
+                    {% if product %}
+
                     {% include 'products/includes/products.html' %}
+
+                    {% else %}
+
+                    <div class="container my-5">
+                        <div class="row bg-yellow rounded-3 my-5">
+                            <div class="col-10 offset-1">
+                                <div class="single-service p-5">
+                                    <h2>No Products Available!</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endif %}
 
                     {% endfor %}
                 </div>
