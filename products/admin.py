@@ -28,13 +28,23 @@ class SubCategoryAdmin(admin.ModelAdmin):
 class ProductAdmin(admin.ModelAdmin):
     """ Product """
     list_display = (
-        'category', 'title', 'brand',
-        'created_by', 'created_at',
-        'price', 'product_status')
+        'category',
+        'title',
+        'brand',
+        'created_by',
+        'created_at',
+        'price',
+        'discounted_price',
+        'product_status')
     list_filter = (
-        'category', 'brand', 'title')
+        'category',
+        'brand',
+        'title')
     search_fields = (
-        'created_by', 'category', 'created_at', 'brand')
+        'created_by',
+        'category',
+        'created_at',
+        'brand')
     prepopulated_fields = {'slug': ('title',)}
 
 
