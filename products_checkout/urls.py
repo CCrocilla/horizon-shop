@@ -5,7 +5,6 @@ from . import views
 from .views import CheckoutView
 from .views import PaymentSuccess
 from .views import PaymentFailed
-# from .webhooks import webhook
 from .views import stripe_webhook
 
 
