@@ -1,1 +1,1 @@
-Your Horizon Shop Order {{ order.order_number }}!
+Your Horizon Shop Order is: {{ order.order_number }}!

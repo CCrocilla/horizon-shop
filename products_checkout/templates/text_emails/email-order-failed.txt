@@ -1,6 +1,7 @@
-Hello {{ order.created_by.first_name }}, 
+Hello {% if order.created_by.first_name and order.created_by.last_name %}First Name: {{ order.created_by.first_name }} Last Name: {{ order.created_by.last_name }}{% else %}Username: {{ order.created_by.username }}{% endif %}, 
 
 we are sorry to inform you that something went wrong during the payment process and it has not been possible to process correctly your order. 
+No money has been deducted from your account.
 
 Please contact us via the Contact Us Page or send us an email to: {{ contact_email }}.
 
