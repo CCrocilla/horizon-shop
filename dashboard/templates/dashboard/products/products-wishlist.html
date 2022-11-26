@@ -42,7 +42,8 @@
 
                 <a href="{% url 'product_details' wish.product.slug %}">
                     <img src="{% static 'images/no-image-placeholder.webp' %}"
-                        class="img-fluid img-card-products rounded-3" alt="Image {{ wish.product.title }}" width="300" height="300">
+                        class="img-fluid img-card-products rounded-3" alt="Image {{ wish.product.title }}" width="300"
+                        height="300">
                 </a>
 
                 {% endif %}
@@ -58,7 +59,7 @@
 
                     {% if wish.product.is_deleted %}
                     <div class="mb-2">
-                        <span class="badge bg-danger">Deleted</span>
+                        <span class="badge bg-danger">Product Deleted</span>
                     </div>
 
                     {% else %}
@@ -67,6 +68,8 @@
                     <p class="card-text">Condition: New</p>
                     {% else %}
                     <p class="card-text">Condition: Used</p>
+                    {% endif %}
+
                     {% endif %}
 
                     <p class="card-text">Brand: {{ wish.product.brand }}</p>
@@ -110,7 +113,7 @@
                             </ul>
                         </div>
                     </div>
-                    {% endif %}
+
 
                     <form action="{% url 'remove-from-wishlist' wish.product.id %}" method="POST">
                         {% csrf_token %}
