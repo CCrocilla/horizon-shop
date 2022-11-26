@@ -30,8 +30,8 @@
                     href="{% url 'category-update' category.pk %}" aria-label="Update">Edit</a>
 
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-sm-minwidth btn-danger rounded-3 mt-4" data-bs-toggle="modal"
-                    data-bs-target="#staticBackdrop{{ category.slug }}">
+                <button type="button" class="btn btn-sm-minwidth btn-outline-danger rounded-3 mt-4"
+                    data-bs-toggle="modal" data-bs-target="#staticBackdrop{{ category.slug }}">
                     Delete
                 </button>
 
@@ -59,9 +59,10 @@
                                 </div>
                                 <div class="modal-footer m-3">
                                     <a href="{% url 'category-list' %}"
-                                        class="m-1 btn btn-sm-minwidth btn-primary rounded-3" aria-label="Back">Back
+                                        class="m-1 btn btn-sm-minwidth btn-outline-primary rounded-3"
+                                        aria-label="Back">Back
                                     </a>
-                                    <a class="btn btn-sm-minwidth btn-danger rounded-3"
+                                    <a class="btn btn-sm-minwidth btn-outline-danger rounded-3"
                                         href="{% url 'category-delete' category.pk %}" aria-label="Delete">Delete</a>
                                 </div>
                             </form>
