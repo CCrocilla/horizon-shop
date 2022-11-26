@@ -3,6 +3,14 @@
 <div class="col-12 offset-sm-2 col-sm-8 offset-md-0 col-md-6 col-lg-6 col-xl-4 col-xxl-3 mb-4">
     <div class="card h-100 py-2 px-2 rounded-3 shadow-lg">
 
+        <div class="type-lb">
+            {% if product.product_status == 0 %}
+            <p class="new">New</p>
+            {% else %}
+            <p class="sale">Used</p>
+            {% endif %}
+        </div>
+
         {% if product.image %}
 
         <a href="{% url 'product_details' product.slug %}">

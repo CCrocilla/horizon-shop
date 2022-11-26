@@ -28,11 +28,13 @@
 
                 <div class="row d-flex align-items-center mt-5">
 
+                    {% if products %}
+
                     {% for product in products %}
 
-                    {% if product %}
-
                     {% include 'products/includes/products.html' %}
+
+                    {% endfor %}
 
                     {% else %}
 
@@ -48,7 +50,6 @@
 
                     {% endif %}
 
-                    {% endfor %}
                 </div>
             </div>
         </div>

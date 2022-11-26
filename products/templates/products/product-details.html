@@ -65,6 +65,10 @@
                 <strong>Category:</strong> <span class="badge bg-secondary">{{ product.category }}</span>
             </div>
 
+            <div class="mb-3">
+                <strong>Sub-Category:</strong> <span class="badge bg-secondary">{{ product.subcategory }}</span>
+            </div>
+
 
             <p><strong>About This Products:</strong></p>
             {% if not product.is_deleted %}
@@ -282,6 +286,8 @@
     <div class="row">
         <div class="col-12">
             <div class="card-body ">
+                {% if comments %}
+
                 {% for comment in comments %}
                 <div class="text-dark border border-3 border-dark rounded-3 p-3 m-2">
                     <p>
@@ -304,6 +310,15 @@
                 </div>
 
                 {% endfor %}
+
+                {% else %}
+
+                <div class="single-service bg-yellow rounded-3 my-5 p-5">
+                    <h2>No Comments Available!</h2>
+                </div>
+
+                {% endif %}
+
             </div>
         </div>
     </div>

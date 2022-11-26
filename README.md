@@ -45,8 +45,8 @@
 
 ## **Overview**
 
-##### Internet users all around the world love to buy and sell products online. Since the Covid-19 pandemic hit, our ways to shop have drastically changed. 
-##### E-commerce business has grown exponentially making online shopping not only a habit but also a pleasure! Online shopping is in fact part of our life with products available just at a (mouse) click.
+##### Internet users all around the world love to buy and sell products online. Since the Covid-19 pandemic hit, our ways of shopping have drastically changed. 
+##### E-commerce business has grown exponentially making online shopping not only a habit but also a pleasure! Online shopping is in fact part of our lives with products available just at a (mouse) click.
 ##### Horizon Shop is not like any other e-commerce website. All the products that you have ever wanted are there for you. You can browse, buy or sell. Just surf and choose. Hey...We are waiting for you, fill your cart and enjoy your journey with us.
 
 ##### The Horizon Shop website is intuitive and user-friendly! The users can register to the website with a few easy steps by entering Username and Email and have access to all Horizon Shop great services! The users can also subscribe to a newsletter and receive regular updates as well as provide/review a testimonial, comment on the Products, Report issues or Request support!
@@ -76,13 +76,13 @@ Click in the image above to access the Live Website or [click here!](https://hor
 ## **Marketing Strategies** 
 
 ### **SEO**
-#### Search Engine Optimization (SEO) is a fundamental tool to improve the traffic of a website. Website ranking high in the results reported by searching engines get more visibilities and hence more prospects converted into customers. Horizon Shop aims at being one of the most sought e-commerce all around the world. Best practices used in Horizon Shop for the SEO are listed below:
-- Meta Tag Keywords: A set of the most researched Keywords has been used between Short-tail and Long-tail Keywords (also with the help of the auto-complete feature of google search) in order to tell the Search Engine about the content of Horizon Shop! Keywords such as “great offers”, “good customer service”, “E-commerce” are what the our customers are looking for and can find when googling Horizon Shop.
-- Meta Tag Description: The Description is a short snippet paragraph displayed underneath the Website Title Link that describe the Website content. It is the first thing that a Customer see when they search for website. The Horizon Shop tag description include a bumper sticker  implemented to attract customers.  
+#### Search Engine Optimization (SEO) is a fundamental tool to improve the traffic of a website. Websites ranking high in the results reported by searching engines get more visibilities and hence more prospects converted into customers. Horizon Shop aims at being one of the most sought e-commerce all around the World. Best practices used in Horizon Shop for the SEO are listed below:
+- Meta Tag Keywords: A set of the most researched Keywords has been used between Short-tail and Long-tail Keywords (also with the help of the auto-complete feature of google search) in order to tell the Search Engine about the content of Horizon Shop! Keywords such as “great offers”, “good customer service”, “E-commerce” are what our customers are looking for and can find when googling Horizon Shop.
+- Meta Tag Description: The Description is a short snippet paragraph displayed underneath the Website Title Link that describes the Website content. It is the first thing that a Customer see when they search for a website. The Horizon Shop tag description includes a bumper sticker  implemented to attract customers.  
 - Strong and Effective Titles and Headings have been used in Horizon Shop to help Google understand the content of the Website making the pages more user-friendly. 
 - Horizon Shop has been realized with one main aim, create a User Friendly Website with a great and easy Design to offer a great user experience to the customers! Particular care has been applied in obtaining great responsiveness thorough the entire website, as quick load times lead to better SEO rankings, making it easier for people to find our website. 
 - Together with the responsiveness, the images showing Horizon Shop new and used products have been optimised resulting in faster-page-load to provide the best user experience possible to the customers and consequently improve the websites SEO ranking. 
-- CDN have been used in Horizon Shop as CDNs improve a website’s loading speep/performance and consequentially it improves search engine ranking and search engine optimization increasing the SEO of the Website since Google gives priority to websites that have faster load times and those that are easy to crawl repeatedly.
+- CDNs have been used in Horizon Shop as they improve a website’s loading speed/performance and consequentially the search engine ranking and search engine optimization increasing the SEO of the Website. This is because Google or other search engines give priority to those websites that have faster load times and are easy to crawl repeatedly.
 
 
 To provide usefull information for search engines a Robot.txt and a Sitemap.xml file has also been created and added to Horizon Shop. 
@@ -431,7 +431,7 @@ Sitemap: https://horizonshop.herokuapp.com/sitemap.xml
 
 <img src="static/images/readme/facebook/fb-team.webp" alt="Facebook - Horizon Shop Team" width="1200px"/>
 
-##### The user that enters in the Facebook Page is Welcomed with a first message: 
+##### The user entering in the Facebook Page is Welcomed with a first message: 
 
 <img src="static/images/readme/facebook/fb-welcome.webp" alt="Facebook - Welcome Message" width="1200px"/>
 
@@ -441,7 +441,7 @@ Sitemap: https://horizonshop.herokuapp.com/sitemap.xml
 <br>
 
 ### **Newsletter**
-##### Newsletters are one of the most powerful digital marketing tools. Thanks to Newsletter management and administrators can directly communicate with prospects and customers in a personalized way providing valuable content and relevant promotions straight to their inboxes. In Horizon Shop anyone can Sign Up for the Newsletter and no registration is required!
+##### Newsletters are one of the most powerful digital marketing tools. Thanks to Newsletters, management and administrators can directly communicate with prospects and customers in a personalized way providing valuable content and relevant promotions straight to their inboxes. In Horizon Shop anyone can Sign Up for the Newsletter and no registration is required!
 ##### One of the most used Newsletter is Mailchimp, an all-in-one marketing platform, that helps manage and communicate to clients, customers, and other interested parties. Mailchimp has been implemented in the Footer Section of Horizon Shop!
 
  
@@ -471,8 +471,8 @@ Sitemap: https://horizonshop.herokuapp.com/sitemap.xml
 - #### Frequent User Goals
     1. As a Frequent User, I want to see new products/offers.
     2. As a Frequent User, I want to see new services.
-    3. As a Frequent User, I want to be able to change my personal registered information (if/when necessary)..
-    4. As a frequent User, I want to be able to access my personal information via a Dashboard Page.
+    3. As a Frequent User, I want to be able to change my personal registered information (if/when necessary).
+    4. As a Frequent User, I want to be able to access my personal information via a Dashboard Page.
     5. As a Frequent User, I want to sign up to the Newsletter to receive updates about new offers on Horizon Shop.
     6. As a Frequent User, I want to report issues.
     7. As a Frequent User, I want to share my personal reviews or leave a comment on the products.
@@ -544,8 +544,8 @@ Users should register into the website to rate a product.
     <summary>Description</summary>
 
 - Users can subscribe to the newsletter, report issues or request assistance.
-- Users can accept/visualise the terms and conditions.
-- Users can use this page to see the general info of Horizon Shop Company (including Address, Email address, phone, and a map showing Horizon Shop HQ).
+- Users can accept/visualise the Terms and Conditions.
+- Users can use this page to see the general info of Horizon Shop Company (including Address, Email address, phone, and a map showing Horizon Shop HQ.
 
 </details>
 
@@ -565,7 +565,7 @@ Users should accept the Terms and Conditions to be able to ask for support/repor
 <details>
     <summary>Basic Flow</summary>
 
-- The user user browses the internet to buy and/or sell products online and knows about the website. The user navigates to the Home Page then goes into the Contact Us Page to ask for support/report issues.
+- The user browses the internet to buy and/or sell products online and knows about the website. The user navigates to the Home Page then goes into the Contact Us Page to ask for support/report issues.
 - The user fills the forms mandatory fields.
 - The user must accept the Terms and Conditions to subscribe to the newsletter and/or report issues/ request support.
 - The user submits the form.
@@ -668,7 +668,7 @@ Users should register into the website to be able to add products to the Cart.
 - The user signs into the website and navigates to the Home Page.
 - The user goes into one of the Products Page (All Products, New Products, Used Products, Products By Category, Products By Sub-Category). 
 - The user sees the list of products clearly marked as used or new.  
-- The user find the product that he/she likes and can click on the Quick Add to Cart Icon/Button. 
+- The user finds the product that he/she likes and can click on the Quick Add to Cart Icon/Button. 
 - The user goes into the Cart Page and can change the quantity of product(s) added.
 - The user selects a Shipping Address. 
 - The user clicks on the Checkout Button.
@@ -742,28 +742,28 @@ Users should register into the website to be able to add products to the Wishlis
 
 <details>
     <summary>Admin Description</summary>
-- Admin Users can access My Horizon Shop page only when they are signed in.
-- Admin Users can access a number of services divided into separate sub-section listed as follow:
+- Admin Users can access My Horizon Shop page only when they are signed-in.
+- Admin Users can access a number of services divided into separate sub-sections listed as follow:
 
 1. My Admin: to add, edit and/or delete Categories and Sub-Categories.  
 2. My Profile: to add or edit their personal profile information, change the passwords, register a new address and/or list/delete previously registered shipping addresses.
-3. Orders: to see and Review the Customer’s Orders.
-4. My Products: to add, edit, delete and/or restore Products, to post the products they want to sell.
+3. Orders: to see and review Customer’s Orders.
+4. My Products: to add, edit, delete and/or restore products, to post the products they want to sell.
 5. My Wishlist: to visualise the list of items they want to buy using a dedicated Wishlist section page.
-6. My Testimonials: to visualise past or add new testimonials. Once signed-in the Admin User is presented with the possibility to delete/edit past testimonials.
+6. My Testimonials: to visualise past or add new testimonials. Once signed-in the Admin Users are presented with the possibility to delete/edit past testimonials.
 
 </details>
 
 <details>
     <summary>Customer Description </summary>
-- Users can access My Horizon Shop page only when they are signed in.
-- Users can access a number of services divided into separate sub-section listed as follow:
+- Users can access My Horizon Shop page only when they are signed-in.
+- Users can access a number of services divided into separate sub-sections listed as follow:
 
 1. My Profile: to add or edit their personal profile information, change their passwords, add an avatar, register a new address and/or list/delete previously registered shipping addresses.
-2. My Orders: to see and Review their own orders.
+2. My Orders: to see and review their own orders.
 3. My Products: to post the products they want to sell as used product in Horizon Shop.  
 4. My Wishlist: to visualise the list of items they want to buy using a Wishlist section page.
-5. My Testimonials: to visualise past or add new testimonials. Once signed-in the customer user is presented with the possibility to delete/edit past testimonials.
+5. My Testimonials: to visualise past or add new testimonials. Once signed-in the customer users are presented with the possibility to delete/edit their own past testimonials.
 
 </details>
 
@@ -776,14 +776,14 @@ Users should register into the website to be able to add products to the Wishlis
 **System:** E-commerce Website.
 
 **Actors:**
-Admin that want to manage their own E-Commerce.
+Admins that want to manage their own E-Commerce.
 Customers that want to access past/present orders, edit or create their profile and/or provide testimonials.
 
 </details>
 
 <details>
     <summary>Pre-Conditions</summary>
-Admin/Customers should register into the website to access the page.
+Admins/Customers should register into the website to access the page.
 </details>
 
 <details>
@@ -844,7 +844,7 @@ Users should be willing to register to the website.
 <details>
     <summary>Alternative/Exception Flow</summary>
 
-- The users can click on the Forgot Password Button if they are not able to sign in.
+- The users can click on the Forgot Password Button if they are not able to sign-in.
 - The users can click to the Need an Account Button if they need to register.
 - When the user selects a non-existent page, a 404 Error Page will be prompted guiding the user back to Home Page.
 
@@ -910,11 +910,11 @@ Sources:
 
 #### The project has been realize creating a single app for each main section:
 - Home App is the main app that stores the landing page of Horizon Shop. Here are displayed the Products (New and Used) and the Testimonials of the customers.
-- Contact Us App contains the views, models, urls and form files for the Contact Us Page. The user can send a request via the Contact Us page and the information are stored in the Database.
+- Contact Us App contains the views, models, urls and form files for the Contact Us Page. The user can send a request via the Contact Us Page and the information are stored in the Database.
 - Product App contains the views, models, urls files for the Products advertized in Horizon Shop.
 - Products Cart App contains the views, models, urls and templates for the management of the Cart.
 - Products Checkout App contains the views, models, forms, urls and templates of the Checkout Process for the Orders of the Customers. It also includes the Webhook for the Stripe Payment Process.
-- Products Wishlist App contains the views, models, urls that manages the Wishlist of the Customers. The user can add product to his/her own wishlist. 
+- Products Wishlist App contains the views, models, urls that manages the Wishlist of the customers. The user can add product to his/her own wishlist. 
 - Dashboard App includes the views, models, forms, urls and template for all the My Horizon Shop Dashboard Sections. 
 
 
@@ -926,7 +926,7 @@ Sources:
 #### The Nav Bar has been extended including the Products Buttons (All Product, New Products, Used Products, Products By Categories) that contains pre-set filters in order to display to the user the desired products.
 #### Additionally, the user can avail of the Search Field on the right to search for product Title, Description, Brand, Categories and Sub-Categories and to display both New and Used Product matching the entered query. 
 
-#### The active page is in bold and highlighted in yellow with rounded borders when selected. A small underline animation activates when the user mouse hovers on of the elements in the nav bar, highlighting the content.
+#### The active page is in bold and highlighted in yellow with rounded borders when selected. 
 
 #### A Tooltip showing the page name is displayed when hovering with mouse over the Home, Contact, Wishlist and Cart Page.
 #### For the Wishlist and Cart Button a Badge has been included displaying the amount of selected products. This has been achieved by using the count() function in the back-end, the value is displayed using Django Template Tags.  
@@ -961,7 +961,7 @@ Sources:
 #### The user needs to accept the Terms & Conditions Checkbox to being able to move forward.
 #### A Reset and a Submit buttons are included.
 #### The Reset Button resets the form.
-#### After clicking on the Submit Button, if the form is correctly filled in, the user is redirected to the same page and a notification is displayed informing the user that the request has been submitted successfully.
+#### After clicking on the Submit Button, if the form is correctly filled-in, the user is redirected to the same page and a notification is displayed informing the user that the request has been submitted successfully.
 #### Following the form, the page shows a map where the Horizon Shop HQ's Location is displayed.
 #### Below the Map the Horizon Shop HQ’s Company Contact Details are displayed (Office address, Email, Phone Number).
 
@@ -981,16 +981,16 @@ Sources:
 #### The Products can be posted to Horizon Shop by the signed-in Admin and/or by the signed-in Customers (only Used Products) filling-in the Add Product or Sell Product Forms in the Products Sub-Section of My Horizon Shop Dashboard.
 #### Once posted, the Product are automatically displayed in the Products Pages and can be reviewed by all users. 
 
-#### The visualization of the Products have been realized using a Django Template Tag For Loop that iterates on the Products Table in the Database based on the pre-set filters and displays the list of Products to the user.
+#### The visualization of the Products have been realized using a Django Template Tag For Loop that iterates on the Products Table in the Database based on the pre-set filters to displays the list of products to the user.
 
-#### By clicking on the Image or the Title of the Product the user can access the Product Details Information and this has been achive adding the slug in the url.
+#### By clicking on the Image or the Title of the Product the user can access the Product Details Information, this has been achive adding the slug in the url.
 
 
 - ### *__Cart__*:
 #### The Cart Page has Header and Footer consistent with the Home Page. Only Authenticated Users can add products in the Cart and display them.
-#### If the user is not logged in Horizon Shop a message is displayed in a modal with a button that redirect the user to the Sign In Page. The visualization of the modal has been achieved using Django Template Tags with an If Statement that check if the user is logged in. 
+#### If the user is not logged in Horizon Shop a message is displayed in a modal with a button that redirect the user to the Sign In Page. The visualization of the modal has been achieved using Django Template Tags with an If Statement that checks if the user is logged in. 
 #### The user can access the Cart from every page of the website by clicking on the dedicated Cart icon on the Navbar. 
-#### By using Context Processor (context_processors is a list of dotted Python paths to callable that are used to populate the context when a template is rendered with a request), it has been possible to calculate the cost of the Order and to display it in the Navbar on the Cart Button. This provide the user with an immediate idea of the purchase value.
+#### By using Context Processor (context_processors is a list of dotted Python paths to callable that are used to populate the context when a template is rendered with a request), it has been possible to calculate the cost of the Order and to display it in the Navbar on the Cart Button. This provides the user with an immediate idea of the purchase value.
 #### Once the user enters in the Cart Page or Add a Product to the Cart, a new order is created in the database with a status *Billed* set to False, allowing the user to add multiple products to a single order number. A new order is created only after the previous order has changed status from Billed=False to Billed=True. This change of status is achieved only when the current order and the associated payment process is successfully completed.
 #### A "+" and "-" buttons are displayed for each product, to allow the user to adjust the desired quantity.
 #### A delete button is displayed for each product, to allow the user to remove the undesired item from the cart.  
@@ -1014,7 +1014,7 @@ Sources:
 
 #### A *Continue Shopping* Button is displayed at the bottom of the page bringing the user back to the list of all products. 
 #### Stripe is a complete payments platform for e-commerce. It provides all the tools needed to accept payments online and in-person from customers around the world and has been used for the Payment Process in Horizon Shop. 
-#### A Payment Form is provided to the user to enter the Credit Card Info with a *Pay Now* Button option. The *Pay Now* Button is disable unless the Credit Card entered by the user is valid. This has been achived integrating a function that disable and enable the buttons in the javascript file (stripe-elements.js) present in the js sub-folder of the static folder. 
+#### A Payment Form is provided to the user to enter the Credit Card Info with a *Pay Now* Button option. The *Pay Now* Button is disable unless the Credit Card entered by the user is valid. This has been achived integrating a function that disables and enables the buttons in the javascript file (stripe-elements.js) present in the js sub-folder of the static folder. 
 #### When Entering a valid credit card the Pay Now Button becomes clickable. 
 #### By Clicking on the Pay Now a Wheel Spin is displayed providing a clear feedback that the process for the payment is in progress. During this time, the Pay Now Button is disabled to avoid any double click from the user. This has been achieved by implementing a custom function called isLoading that is lunched when the user clicks on the Pay Now Button. 
 
@@ -1023,13 +1023,13 @@ Sources:
 #### In order to Test the Payment Process, a card number, such as 4000 0037 2000 0005 (Ireland) needs to be used. The card number should be entered into the Payment Form, and:
   - A valid future date, such as 02/24 should be utilised.
   - Any three-digit CVC (four digits for American Express cards) should be included.
-  - Any values can be used in other field of the form.
+  - Any values can be used in other fields of the form.
 
 #### For further information about the Testing of the Stripe Payment Form please refer to the official stripe docs [Stripe Testing Link](https://stripe.com/docs/testing?testing-method=card-numbers).
 
 
 - ### *__Sign Up/Sign In Page and Authentication Process__*:
-#### The Sign In and Sign Up pages are characterized by a light background color where in the middle center of the page is displayed the Form.
+#### The Sign In and Sign Up pages are characterized by a light background color where in the middle-center of the page the form is displayed.
 #### The authentication module used for Horizon Shop is Allauth (a set of Django applications dealing with account authentication, registration, management, and third-party (social) account authentication) [Allauth](https://django-allauth.readthedocs.io/en/latest/overview.html).
 #### The pages have been directly imported from Allauth and customized for the needs of Horizon Shop.   
 
