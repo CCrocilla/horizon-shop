@@ -28,6 +28,7 @@
     <div class="row ps-2 ps-md-2">
         <div
             class="col-10 offset-1 offset-md-0 col-md-6 col-lg-4 order-md-first border border-dark bg-light rounded-3 py-2 mb-2 d-flex align-items-center justify-content-center">
+
             {% if product.image %}
 
             <a href="{% url 'product_details' product.slug %}">
@@ -52,12 +53,18 @@
             <p>
                 <span class="lead"><strong>Delivered by:</strong> <i>Horizon Shop</i></span>
             </p>
+            <p>
+                <span class="lead"><strong>Condition:</strong> <i>New</i></span>
+            </p>
             {% else %}
             <p>
                 <span class="lead"><strong>Sold by:</strong> <i>{{ product.created_by }}</i></span>
             </p>
             <p>
                 <span class="lead"><strong>Delivered by:</strong> <i>Horizon Shop</i></span>
+            </p>
+            <p>
+                <span class="lead"><strong>Condition:</strong> <i>Used</i></span>
             </p>
             {% endif%}
 

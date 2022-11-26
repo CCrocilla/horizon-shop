@@ -439,7 +439,7 @@ class CategoryListView(ListView):
     template_name = 'dashboard/admin/category-list.html'
     ordering = ['name']
     fields = ['name', ]
-    paginated_by = 9
+    paginate_by = 9
 
     def get_queryset(self):
         queryset = Category.objects.filter(is_deleted=False)
@@ -553,7 +553,7 @@ class SubCategoryListView(ListView):
     template_name = 'dashboard/admin/sub-category-list.html'
     ordering = ['name']
     fields = ['category', 'name', ]
-    paginated_by = 9
+    paginate_by = 9
 
     def get_queryset(self):
         queryset = SubCategory.objects.filter(is_deleted=False)
