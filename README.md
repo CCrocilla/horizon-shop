@@ -1078,13 +1078,13 @@ Sources:
 <details>
     <summary>My Admin</summary>
 
-#### My Admin includes all that is needed to an Admin to manage an E-Commerce and it is accessible only by a signed-in Admin User (No Customer are allowed to access the sub-section of *My Admin*). It is composed by 9 main sub-sections realized using Class base views and functions:
+#### My Admin includes all that is needed to an Admin to manage an E-Commerce and it is accessible only by a signed-in Admin User (No Customer are allowed to access the sub-section of *My Admin*). It is composed of 9 main sub-sections realized using Class base views and functions:
 
 - Add Category
 #### The sub-section *Add Category*, realized using a CreateView, allows the Admin to add Categories to Horizon Shop.
 #### A Reset and a Create Buttons are displayed.
 #### The Reset Button resets the form.
-#### After clicking on the Create Button, if the form is correctly filled-in, the Admin User is redirected to the Categories List and a notification message is displayed informing the user that the category has been successfully. created 
+#### After clicking on the Create Button, if the form is correctly filled-in, the Admin User is redirected to the Categories List and a notification message is displayed informing the admin that the category has been successfully created. 
 #### If the Category already exists the Admin User is prompt with a notification message that will inform him/her that the Category already exists. 
 
 - Categories List
@@ -1128,7 +1128,7 @@ Sources:
 
 
 - Add Address 
-#### The sub-section*Add Address*, realized using a CreateView,  allows the user to add his/her Address to Horizon Shop.
+#### The sub-section *Add Address*, realized using a CreateView, allows the user to add his/her Address to Horizon Shop.
 #### A Reset and a Create Buttons are displayed.
 #### The Reset Button resets the form.
 #### After clicking on the Create Button, if the form is correctly filled-in, the user is redirected to the Shipping Addresses List and a notification message is displayed informing the user that the address has been created successfully.
@@ -1184,11 +1184,11 @@ Sources:
     <summary>Customer View</summary>
 
 - Sell Product
-#### The sub-section *Sell Product*, realized using a CreateView, allows the customer users to sell their products. Horizon Shop provides a free service to show case the used products on the Home page and on the Used Product List.
-#### The Sell Product is similar to the Admin Add Product form but with less fields to fill-in. 
+#### The sub-section *Sell Product*, realized using a CreateView, allows customer users to sell their products. Horizon Shop provides a free service to show case the used products on the Home page and on the Used Product List.
+#### Sell Product is similar to the Admin Add Product form but with less fields to fill-in. 
 #### A Reset and a Create Buttons are displayed.
 #### The Reset Button resets the form.
-#### After clicking on the Create Button, if the form is correctly filled-in, the user is redirected to his/hers Product List and a notification message is displayed informing the user that the product has been created successfully.
+#### After clicking on the Create Button, if the form is correctly filled-in, the user is redirected to his/her Product List and a notification message is displayed informing the user that the product has been created successfully.
 
 
 - Product List 
@@ -1233,7 +1233,7 @@ Sources:
 
 - ### *__404 Error Page__*:
 #### For any broken or incorrect links, the 404 Error page will be triggered. Here an image is displayed in the background with a text box above that will inform the users that the link used is not correct.
-#### A Button is present in the text displayed to allow the user to navigate back to the Home Page.  
+#### A Button is present in the displayed text to allow the user to navigate back to the Home Page.  
 
 
 ---
@@ -1243,7 +1243,7 @@ Sources:
 #### Below you can open the accordions divided by page and by device used (desktop, tablet and smartphone).
 
 
-- ## Home Page 
+- ## Sign In/Sign Up 
 
 <details>
     <summary>Sign In/Sign Up Pages Wireframes</summary> 
@@ -1276,6 +1276,7 @@ Sources:
 <details>
     <summary>Click here for Smartphone View - Sign Up</summary>
 <img src="static/images/readme/wireframes/sign-up-smartphone.webp" alt="Smartphone View Sign Up" width="400px"/>
+</details>
 
 </details>
 
@@ -1861,7 +1862,6 @@ details>
 <img src="static/images/readme/wireframes/error404-smartphone.webp" alt="Smartphone View Error 404 Page" width="400px"/>
 </details>
 
-
 </details>
 
 ---
@@ -2043,14 +2043,14 @@ In order to create a Local Clone follow the steps below:
 - [Djangoproject.com - Creating Forms from Models](https://docs.djangoproject.com/en/dev/topics/forms/modelforms/#controlling-which-fields-are-used-with-fields-and-exclude)
 
 
-#### Messages Framework has been implemented in Parkland and here is the link source for the studies:
+#### Messages Framework has been implemented in Horizon Shop and here is the link source for the studies:
 - [Djangoproject.com - Messages](https://docs.djangoproject.com/en/4.1/ref/contrib/messages/)
 
 
-#### The most complex developing portion of the Horizon Shop Website application were:
+#### The most complex developing portions of the Horizon Shop Website application were:
 - The realization of the Cart.
 - The logic associated to the "Add/Remove to Cart" functionality.
-- The logic associated to it including the filtering on the Products/Order Tables.
+- The logic associated to the Cart including the filtering on the Products/Order Tables.
 - The interaction between tables into the database to being able to display the correct information on the front-end.
 - The implementation of the Checkout Page and Stripe as payment method.
 - The Webhook Handler. 

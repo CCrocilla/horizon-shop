@@ -480,7 +480,7 @@ The testing phases have been also carried out using the **W3C Javascript Validat
 <br>
 
 - ### **Lighthouse Validator**
-Below it is possible to taka e look at the result obtained in Lighthouse:
+Below it is possible to take a look at the result obtained in Lighthouse:
 
 <details>
     <summary>Click here for Lighthouse the Lighthouse Results</summary>
@@ -903,7 +903,7 @@ Below it is possible to taka e look at the result obtained in Lighthouse:
 ### **Test Cases**
 
   - #### List of Manual Test Cases perfomed.
-All the Tests have also been performed in all the Devices and the tests includes also Layout testing. 
+All the Tests, icluding Layout Testing have been performed in all Devices. 
 
 <details>
     <summary>Click here to see the list of Manual Tests</summary>
@@ -924,7 +924,7 @@ All the Tests have also been performed in all the Devices and the tests includes
 | Home | Latest New Products | Make sure that in each New Product Card the correct information is displayed (Title, Category, Rating, Price, Comments' Quantity, Buttons Cart and Wishlist) for Authenticated Users. | Pass |
 | Home | Latest New Products | Make sure that in each New Product Card the correct information is displayed (Title, Category, Rating, Price, Comments' Quantity) for Non-Authenticated Users. | Pass |
 | Home | Latest Used Products | Make sure that the latest 4 Used Products added to Horizon Shop are displayed in cards with no overlap with other sections. | Pass |
-| Home | Latest Used Products | Make sure that in each Used Product Card the correct information is displayed (Title, Category, Rating, Price, Comments' Quantity, Buttons Cart and Wishlist) for Authenticated Users. | Pass |
+| Home | Latest Used Products | Make sure that in each Used Product Card, the correct information is displayed (Title, Category, Rating, Price, Comments' Quantity, Buttons Cart and Wishlist) for Authenticated Users. | Pass |
 | Home | Latest Used Products | Make sure that in each Used Product Card the correct information is displayed (Title, Category, Rating, Price, Comments' Quantity) for Non-Authenticated Users. | Pass |
 | Home | Testimonials Section | Make sure that the Testimonials area displays a carousel with Users’ Testimonials.| Pass |
 | Home | Testimonials Section | Make sure that the user can use the arrows to switch between Testimonials. | Pass |
@@ -952,20 +952,20 @@ All the Tests have also been performed in all the Devices and the tests includes
 | Cart | Cart Page | Make sure that if no product has been added to the Cart, the user sees a Background Image and message informing that no Products are present. | Pass |
 | Cart | Cart Page | Make sure that if no product has been added to the Cart, a button that redirects the user to the list of products is displayed. | Pass |
 | Cart | Cart Page | Make sure that the users can see the list of products added and no overlaps are present. | Pass |
-| Cart | Cart Page | Make sure that the users can see the quantity of added products added being update when using the dedicated buttons. | Pass |
+| Cart | Cart Page | Make sure that the users can see the quantity of added products being update when using the dedicated buttons. | Pass |
 | Cart | Cart Page | Make sure that the users can see the list of their Shipping Addresses. | Pass |
 | Cart | Cart Page | Make sure that if the user does not have any Shipping Address saved, a message is displayed to the user with a link to go back to the Address Creation. | Pass |
 | Cart | Cart Page | Make sure that a clickable Checkout Button is displayed. | Pass |
 | Cart | Cart Page | Make sure that by clicking on the Checkout Button the user is redirected to the Checkout page. | Pass |
-| Checkout | Summary | Make sure that a summary with the important information of the order are displayed. | Pass |
+| Checkout | Summary | Make sure that a summary with the important information of the order is displayed. | Pass |
 | Checkout | Summary | Make sure that the summary contains the User Details. | Pass |
 | Checkout | Summary | Make sure that the summary contains the Shipping Address Details. | Pass |
-| Checkout | Summary | Make sure that the summary contains the List of Products present in the  user cart. | Pass |
+| Checkout | Summary | Make sure that the summary contains the List of Products present in the user cart. | Pass |
 | Checkout | Stripe | Make sure that the Stripe Payment Form is displayed. | Pass |
-| Checkout | Stripe | Make sure that the a Pay Now Button is displayed and/or it is disabled if the form is not filled in correctly. | Pass |
-| Checkout | Stripe | Make sure that a Continue Shopping Button, that redirect the user to the All Products List Page, is displayed.  | Pass |
+| Checkout | Stripe | Make sure that the a Pay Now Button is displayed and/or is disabled if the form is not filled in correctly. | Pass |
+| Checkout | Stripe | Make sure that a Continue Shopping Button, that redirects the user to the All Products List Page, is displayed.  | Pass |
 | Checkout | Stripe | Make sure that the fields in the Payment form are editable. | Pass |
-| Checkout | Stripe | Make sure that if a non valid *Credit/Debit Card* and/or incorrect *Valid Date* are entered, an error message is displayed to the user. | Pass |
+| Checkout | Stripe | Make sure that if a invalid *Credit/Debit Card* and/or incorrect *Valid Date* are entered, an error message is displayed to the user. | Pass |
 | Checkout | Stripe | Make sure that if the form is correctly filled-in, the Pay Now button is clickable. | Pass |
 | Checkout | Payment Success | Make sure that by clicking on the Pay Now Button a Wheel Spinner is displayed and the Pay Now Button is not visible. | Pass |
 | Checkout | Payment Success | Make sure that when clicking on the Pay Now Button if the Payment is processed correctly, the user is redirected to the Payment Success Page. | Pass |
@@ -1014,11 +1014,11 @@ All the Tests have also been performed in all the Devices and the tests includes
 | My Admin | Product List | Make sure that an Edit Button is displayed. | Pass |
 | My Admin | Product List | Make sure that by clicking on the Edit Button the Admin User can update the information of a product. | Pass |
 | My Admin | Product List | Make sure that every page is responsive and that no overlaps are present. | Pass |
-| My Admin | Deleted Product List | Make sure that by clicking Deleted Product List Sub-Section the  Admin User is able to see the products in deleted Status. | Pass |
+| My Admin | Deleted Product List | Make sure that by clicking Deleted Product List Sub-Section the Admin User is able to see the products in deleted Status. | Pass |
 | My Admin | Deleted Product List | Make sure that the Admin User can visualise basic information of the Deleted Products. | Pass |
 | My Admin | Deleted Product List | Make sure that a Restore Button is present and when clicking on it, the product is restored and available in all the Products List. | Pass |
 | My Admin | Deleted Product List | Make sure that after restoring the product the Admin User is redirected to the Product List and a message confirming the action is displayed. | Pass |
-| Dashboard | My Profile | Make sure that the My Profile Section includes the Edit Profile, Change Password, Add address and List Addresses subsection. | Pass |
+| Dashboard | My Profile | Make sure that the My Profile Section includes the Edit Profile, Change Password, Add address and List Addresses Sub-Sections. | Pass |
 | My Profile | Edit Profile | Make sure that by clicking Edit Profile the Admin User is able to access the personal information form. | Pass |
 | My Profile | Edit Profile | Make sure that in the Edit Profile Form the user can edit only his/her own personal information. | Pass |
 | My Profile | Change password | Make sure that by clicking Change Password Sub-Section, the user is able to successfully access the Change Password Page. | Pass |
@@ -1029,7 +1029,7 @@ All the Tests have also been performed in all the Devices and the tests includes
 | My Products | My Order | Make sure that a Details Button is present and when clicking on it the user can see the details of the Order. | Pass |
 | My Products | My Order | Make sure that in the Details Page the Account, the Shipping Address, the Order and Product details, including the cost, are displayed.  | Pass |
 | My Products | My Order | Make sure that every page is responsive and that no overlaps are present. | Pass |
-| My Products | Sell Product | Make sure that by clicking Add Product, the user is able to access the Add Product Page form. | Pass |
+| My Products | Sell Product | Make sure that by clicking Add/Sell Product, the user is able to access the Add/Sell Product Page form. | Pass |
 | My Products | Sell Product | Make sure that after filling-in the form and clicking on the Create Button, the user is redirected to the Products List Page if the form is valid. | Pass |
 | My Products | Sell Product | Make sure that after the redirect to the Products List Page a Message is displayed to the user confirming the creation of the product. | Pass |
 | My Products | Sell Product | Make sure that the user is obliged to fill the mandatory fields correctly. | Pass |
@@ -1041,22 +1041,22 @@ All the Tests have also been performed in all the Devices and the tests includes
 | My Products | Product List | Make sure that an Edit Button is displayed. | Pass |
 | My Products | Product List | Make sure that by clicking on the Edit Button the user can update the information of a product. | Pass |
 | My Products | Product List | Make sure that every page is responsive and that no overlaps are present. | Pass |
-| My Products | My Wishlist | Make sure that by clicking My Wishlist Sub-Section the user is able to access his/her own personal wishlist. | Pass |
-| My Products | My Wishlist | Make sure that the authenticated users can see the list of products in cards and no overlaps are present. | Pass |
-| My Products | My Wishlist | Make sure that the user can remove the products from the wishlist by clicking on a remove button displayed on each card. | Pass |
-| My Products | My Wishlist | Make sure that the Remove Button redirects the user to the Wishlist Sub-Section and a message confirming the deletion is displayed. | Pass |
+| My Wishlist |  Wishlist    | Make sure that by clicking My Wishlist Section the user is able to access his/her own personal wishlist. | Pass |
+| My Wishlist |  Wishlist    | Make sure that the authenticated users can see the list of products in cards and no overlaps are present. | Pass |
+| My Wishlist |  Wishlist    | Make sure that the user can remove the products from the wishlist by clicking on a remove button displayed on each card. | Pass |
+| My Wishlist |  Wishlist    | Make sure that the Remove Button redirects the user to the Wishlist Sub-Section and a message confirming the deletion is displayed. | Pass |
 | Dashboard | My Testimonials | Make sure that the My Testimonials Section includes the Add Testimonial and Testimonial List Sub-Sections. | Pass |
 | My Testimonials | Add Testimonial | Make sure that by clicking Add Testimonial the user is able to access the Add Testimonial Page form. | Pass |
 | My Testimonials | Add Testimonial | Make sure that after filling-in the form, the user is redirected to the Testimonials List Page if the form is valid. | Pass |
 | My Testimonials | Add Testimonial | Make sure that after the redirect to the Testimonials List Page a message is displayed to the user confirming the creation of the Testimonials. | Pass |
 | My Testimonials | Add Testimonial | Make sure that the user is obliged to fill the mandatory fields correctly. | Pass |
 | My Testimonials | Testimonials List | Make sure that when clicking on the Testimonials List Sub-Section, the user is able to access his/her own personal Testimonials List. | Pass |
-| My Testimonials | Testimonials List | Make sure that the user can visualise the information of his/hers Testimonials. | Pass |
+| My Testimonials | Testimonials List | Make sure that the user can visualise the information of his/her Testimonials. | Pass |
 | My Testimonials | Testimonials List | Make sure that a Delete Button is present and that the user can click on it to delete the entered Testimonials. | Pass |
 | My Testimonials | Testimonials List | Make sure that by clicking on the Delete Button a modal requesting confirmation is opened. | Pass |
 | My Testimonials | Testimonials List | Make sure that after confirmation the user is redirected to the Testimonials List and a message confirm the action is displayed. | Pass |
 | My Testimonials | Testimonials List | Make sure that an Edit Button is displayed. | Pass |
-| My Testimonials | Testimonials List | Make sure that by clicking on the Edit Button the user can update the information of a Testimonials. | Pass |
+| My Testimonials | Testimonials List | Make sure that by clicking on the Edit Button, the user can update the information of a Testimonials. | Pass |
 | My Testimonials | Testimonials List | Make sure that every page is responsive and that no overlap are present. | Pass |
 
 </details>
@@ -1093,7 +1093,7 @@ Additional tests include checks on different devices using the Toggle Device Emu
 
 
 ### **Future Implementation**
-A million of additional features are ready to be implemented in the future to offer a better user experience, and better services thorough the Horizon Shop website. Unfortunately, due to timing constraints not all the desired features have been implemented. Example of those are listed below and will be implemented in future releases:
+A million of additional features are ready to be implemented in the future to offer a better user experience and better services thorough the Horizon Shop website. Unfortunately, due to time constraints not all the desired features have been implemented. Example of those are listed below and will be implemented in future releases:
 
 - Out of Stock Functionality: 
 The Out of Stock Functionality will indicate when a product is out of stock, to do this the quantity of each item needs to be included. If the requested quantity is larger than the available products, a message will inform the customer that that particular item is out of stock. This will be implemented for new and used products, with selling customers able to indicate the quantity they want to sell.
@@ -1113,4 +1113,4 @@ Users should be able to select the quantity of the desired products before addin
 - Admin Orders Management
 Admin Users should be able to change the status of the Orders and provide a feedback to the user if the order has been shipped or delivered. Information should be displayed to the Customer. 
 
-Many other functionality to implement! 
+Many other functionalities to implement! 

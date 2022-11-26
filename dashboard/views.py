@@ -54,7 +54,7 @@ class DashboardView(LoginRequired, View):
 
     def get(self, request):
         if request.user.is_superuser:
-            orders = Order.objects.all().order_by('-created_at')
+            orders = Order.objects.filter(billed=True).order_by('-created_at')
 
             products = Product.objects.all().count()
 
@@ -65,10 +65,10 @@ class DashboardView(LoginRequired, View):
             orders = Order.objects.filter(
                 created_by=request.user, billed=True).order_by('-created_at')
 
-            products = Product.objects.all().filter(
+            products = Product.objects.filter(
                 created_by=request.user, is_deleted=False).count()
 
-            addresses = ShippingAddress.objects.all().filter(
+            addresses = ShippingAddress.objects.filter(
                 created_by=request.user, is_deleted=False).count()
 
             testimonials = Testimonial.objects.filter(
@@ -271,6 +271,7 @@ class ProductListView(LoginRequired, ListView):
     template_name = 'dashboard/products/products-list.html'
     ordering = ['-created_at']
     fields = '__all__'
+    paginate_by = 8
     permission_denied_message = 'Authentication Error! Access reserved \
                                  only to Authenticated Customers!'
 
@@ -361,6 +362,7 @@ class OrderListView(LoginRequired, ListView):
     template_name = 'dashboard/products/order-list.html'
     ordering = ['-created_at']
     fields = '__all__'
+    paginate_by = 6
     permission_denied_message = 'Authentication Error! Access reserved \
                                  only to Authenticated Customers!'
 
@@ -437,6 +439,7 @@ class CategoryListView(ListView):
     template_name = 'dashboard/admin/category-list.html'
     ordering = ['name']
     fields = ['name', ]
+    paginated_by = 9
 
     def get_queryset(self):
         queryset = Category.objects.filter(is_deleted=False)
@@ -550,6 +553,7 @@ class SubCategoryListView(ListView):
     template_name = 'dashboard/admin/sub-category-list.html'
     ordering = ['name']
     fields = ['category', 'name', ]
+    paginated_by = 9
 
     def get_queryset(self):
         queryset = SubCategory.objects.filter(is_deleted=False)
@@ -637,6 +641,7 @@ class TestimonialListView(ListView):
     template_name = 'dashboard/testimonials/testimonials-list.html'
     ordering = ['-created_at']
     fields = '__all__'
+    paginate_by = 6
 
     def get_testimonial_auth_user(self):
         """
