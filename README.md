@@ -50,11 +50,11 @@
 
 ## **Overview**
 
-#### Internet users all around the world love to buy and sell products online. Since the Covid-19 pandemic hit, our ways to shop have drastically changed. 
-#### E-commerce business has grown exponentially making online shopping not only a habit but also a pleasure! Online shopping is in fact part of our life with products available just at a (mouse) click.
-#### Horizon Shop is not like any other e-commerce website. All the products that you have ever wanted are there for you. You can browse, buy or sell. Just surf and choose. Hey...We are waiting for you, fill your cart and enjoy your journey with us.
+##### Internet users all around the world love to buy and sell products online. Since the Covid-19 pandemic hit, our ways to shop have drastically changed. 
+##### E-commerce business has grown exponentially making online shopping not only a habit but also a pleasure! Online shopping is in fact part of our life with products available just at a (mouse) click.
+##### Horizon Shop is not like any other e-commerce website. All the products that you have ever wanted are there for you. You can browse, buy or sell. Just surf and choose. Hey...We are waiting for you, fill your cart and enjoy your journey with us.
 
-#### The Horizon Shop website is intuitive and user-friendly! The users can register to the website with a few easy steps by entering Username and Email and have access to all Horizon Shop great services! The users can also subscribe to a newsletter and receive regular updates as well as provide/review a testimonial, comment on the Products, Report issues or Request support!
+##### The Horizon Shop website is intuitive and user-friendly! The users can register to the website with a few easy steps by entering Username and Email and have access to all Horizon Shop great services! The users can also subscribe to a newsletter and receive regular updates as well as provide/review a testimonial, comment on the Products, Report issues or Request support!
 
 
 
@@ -81,15 +81,13 @@ Click in the image above to access the Live Website or [click here!](https://hor
 ## **Marketing Strategies** 
 
 ### **SEO**
-Customers all around the world looking to buy and/or sell products when search for their next eCommerce looks for example at the description of the Websites in the Search Results. 
-To make sure that Horizon Shop is more visible it was crucial to put in place some SEO practice in order to increase the traffic on the Website and more opportunities to convert prospects into customers.
-Best practices used in Horizon Shop for the SEO: 
-- Meta Tag Keywords: A set of the most researched Keywords has been used between Short-tail and Long-tail Keywords (also with the help of the auto-complete feature of google search) in order to tell to the Search Engine about the content of Horizon Shop! Keywords are important because they are what people are searching for and the content you are providing to fill that need.
-- Meta Tag Description: The Description is a short snippet paragraph displayed underneath the Website Title Link that describe the Website content. It is the first thing that a Customer see when they search for website and it was implemented a specific and relevant Description that attract customers. 
-- Strong and Effective Titles and Heading has been used in Horizon Shop to help Google understand the content of the Website, but also because the pages more user-friendly. 
-- Horizon Shop has been realized with just one idea, create a User Friendly Website with a great and easy Design in order to offer a great user experience to the customers! This is because quick load times lead to better Search Engine Optimization (SEO) rankings, making it easier for people to find your website in the first place
-- To provide the best user experience possible to the customers and improve the websites' SEO ranking as well as improving the pages load speed all the Images has been optimized.
-- CDN have been used in Horizon Shop because CDNs improve a website’s loading speed and performance and consequentially it improves search engine ranking and search engine optimization increasing the SEO of the Website since Google gives priority to websites that have faster load times and those that are easy to crawl repeatedly.
+#### Search Engine Optimization (SEO) is a fundamental tool to improve the traffic of a website. Website ranking high in the results reported by searching engines get more visibilities and hence more prospects converted into customers. Horizon Shop aims at being one of the most sought e-commerce all around the world. Best practices used in Horizon Shop for the SEO are listed below:
+- Meta Tag Keywords: A set of the most researched Keywords has been used between Short-tail and Long-tail Keywords (also with the help of the auto-complete feature of google search) in order to tell the Search Engine about the content of Horizon Shop! Keywords such as “great offers”, “good customer service”, “E-commerce” are what the our customers are looking for and can find when googling Horizon Shop.
+- Meta Tag Description: The Description is a short snippet paragraph displayed underneath the Website Title Link that describe the Website content. It is the first thing that a Customer see when they search for website. The Horizon Shop tag description include a bumper sticker  implemented to attract customers.  
+- Strong and Effective Titles and Headings have been used in Horizon Shop to help Google understand the content of the Website making the pages more user-friendly. 
+- Horizon Shop has been realized with one main aim, create a User Friendly Website with a great and easy Design to offer a great user experience to the customers! Particular care has been applied in obtaining great responsiveness thorough the entire website, as quick load times lead to better SEO rankings, making it easier for people to find our website. 
+- Together with the responsiveness, the images showing Horizon Shop new and used products have been optimised resulting in faster-page-load to provide the best user experience possible to the customers and consequently improve the websites SEO ranking. 
+- CDN have been used in Horizon Shop as CDNs improve a website’s loading speep/performance and consequentially it improves search engine ranking and search engine optimization increasing the SEO of the Website since Google gives priority to websites that have faster load times and those that are easy to crawl repeatedly.
 
 
 To provide usefull information for search engines a Robot.txt and a Sitemap.xml file has also been created and added to Horizon Shop. 
@@ -428,36 +426,30 @@ Sitemap: https://horizonshop.herokuapp.com/sitemap.xml
 <br>
 
 ### **Social Media**
-Social Media are great to boost the market of a website! It is an effective way to connect with more customers and improve the visibility of the website increasing awareness about the brand.
-Social Media also helps build trust, authority and also to show the brand personality!
-
-One of the most valuable social media platform is Facebook and it has been used to create a business page that matches the branding of the website and increase the visibility. 
-
-The Facebook Page shows offers as can be seen in the screenshot below: 
+##### Social Media are great to boost the market of a website! They are an effective tool to connect with more customers and improve the visibility of the website increasing awareness about the brand. Social Media also helps building trust showing company values, but also offers and services!
+##### One of the most valuable social media platform is Facebook which has been used to publicize the work and dedication of Horizon Shop and its team.
+##### The Horizon Shop Facebook page is a show case of all the unmissable deals on offer:
 
 <img src="static/images/readme/facebook/fb-home.webp" alt="Facebook - Page" width="1200px"/>
 
-To gain our customer trust, part of the Horizon Shop Team is also shown in one of the Post:
+##### The Horizon Shop Team is always ready for our customer with their dynamicity and kindness to go the extra mail, see our post below to meet some of them:
 
 <img src="static/images/readme/facebook/fb-team.webp" alt="Facebook - Horizon Shop Team" width="1200px"/>
 
-The user that enters in the Facebook Page is Welcomed with a first message: 
+##### The user that enters in the Facebook Page is Welcomed with a first message: 
 
 <img src="static/images/readme/facebook/fb-welcome.webp" alt="Facebook - Welcome Message" width="1200px"/>
 
-The Facebook Page can be accessed using the link below: 
+##### The Facebook Page can be accessed using the link below: 
  [Horizon Shop Facebook Page](https://www.facebook.com/iehorizonshop)
 
 <br>
 
 ### **Newsletter**
-Newsletters are one of the most powerful digital marketing tools.
-They let you communicate directly with prospects and customers in a personalized way by serving valuable content and relevant promotions straight to their inboxes.
-In Horizon Shop anyone can Sign Up for the Newsletter and no registration is required! 
+##### Newsletters are one of the most powerful digital marketing tools. Thanks to Newsletter management and administrators can directly communicate with prospects and customers in a personalized way providing valuable content and relevant promotions straight to their inboxes. In Horizon Shop anyone can Sign Up for the Newsletter and no registration is required!
+##### One of the most used Newsletter is Mailchimp, an all-in-one marketing platform, that helps manage and communicate to clients, customers, and other interested parties. Mailchimp has been implemented in the Footer Section of Horizon Shop!
 
-One of the most used is Mailchimp that it is an all-in-one marketing platform that helps manage and talk to clients, customers, and other interested parties and has been implemented in the Footer of Horizon Shop! 
  
-
 
 ---
 
@@ -1230,13 +1222,8 @@ Sources:
     <summary>Home Page Wireframes</summary> 
 
 <details>
-    <summary>Click here for Desktop View - Anonymous </summary>  
-<img src="static/images/readme/wireframes/homepage-desktop-anonymous.webp" alt="Desktop View Homepage" width="800px"/>
-</details>
-
-<details>
-    <summary>Click here for Desktop View - Authenticated </summary>  
-<img src="static/images/readme/wireframes/homepage-desktop-authenticated.webp" alt="Desktop View Homepage" width="800px"/>
+    <summary>Click here for Desktop View</summary>  
+<img src="static/images/readme/wireframes/homepage-desktop.webp" alt="Desktop View Homepage" width="800px"/>
 </details>
 
 <details>
@@ -1259,20 +1246,141 @@ Sources:
 
 <details>
     <summary>Click here for Desktop View</summary>
-<img src="static/images/readme/wireframes/contact-us-desktop.webp" alt="Desktop View Contact Us Page" width="800px"/>
+<img src="static/images/readme/wireframes/contact-desktop.webp" alt="Desktop View Contact Us Page" width="800px"/>
 </details>
 
 <details>
     <summary>Click here for Tablet View</summary>
-<img src="static/images/readme/wireframes/contact-us-tablet.webp" alt="Tablet View Contact Us Page" width="600px"/>
+<img src="static/images/readme/wireframes/contact-tablet.webp" alt="Tablet View Contact Us Page" width="600px"/>
 </details>
 
 <details>
     <summary>Click here for Smartphone View</summary>
-<img src="static/images/readme/wireframes/contact-us-smartphone.webp" alt="Smartphone View Contact Us Page" width="400px"/>
+<img src="static/images/readme/wireframes/contact-smartphone.webp" alt="Smartphone View Contact Us Page" width="400px"/>
 </details>
 
 </details>
+
+
+- ## Products Pages
+
+<details>
+    <summary>Products Pages Wireframes</summary>
+
+<details>
+    <summary>Click here for Desktop View</summary>
+<img src="static/images/readme/wireframes/products-desktop.webp" alt="Desktop View Products Pages" width="800px"/>
+</details>
+
+<details>
+    <summary>Click here for Tablet View</summary>
+<img src="static/images/readme/wireframes/products-tablet.webp" alt="Tablet View Products Pages" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Smartphone View</summary>
+<img src="static/images/readme/wireframes/products-smartphone.webp" alt="Smartphone View Products Pages" width="400px"/>
+</details>
+
+</details>
+
+
+- ## Product Details Page
+
+<details>
+    <summary>Products Pages Wireframes</summary>
+
+<details>
+    <summary>Click here for Desktop View</summary>
+<img src="static/images/readme/wireframes/single-product-desktop.webp" alt="Desktop View Product Details Page" width="800px"/>
+</details>
+
+<details>
+    <summary>Click here for Tablet View</summary>
+<img src="static/images/readme/wireframes/single-product-tablet.webp" alt="Tablet View Product Details Page" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Smartphone View</summary>
+<img src="static/images/readme/wireframes/single-product-smartphone.webp" alt="Smartphone View Product Details Page" width="400px"/>
+</details>
+
+</details>
+
+
+- ## Cart Page
+
+<details>
+    <summary>Cart Pages Wireframes</summary>
+
+<details>
+    <summary>Click here for Empty Cart Desktop View</summary>
+<img src="static/images/readme/wireframes/cart-empty-desktop.webp" alt="Desktop View Cart Page" width="800px"/>
+</details>
+
+<details>
+    <summary>Click here for Cart with Product Desktop View</summary>
+<img src="static/images/readme/wireframes/cart-desktop.webp" alt="Desktop View Cart Page" width="800px"/>
+</details>
+
+<details>
+    <summary>Click here for Tablet View</summary>
+<img src="static/images/readme/wireframes/cart-tablet.webp" alt="Tablet View Cart Page" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Smartphone View</summary>
+<img src="static/images/readme/wireframes/cart-smartphone.webp" alt="Smartphone View Cart Page" width="400px"/>
+</details>
+
+</details>
+
+
+- ## Checkout Page
+
+<details>
+    <summary>Checkout Page Wireframes</summary>
+
+<details>
+    <summary>Click here for Desktop View</summary>
+<img src="static/images/readme/wireframes/checkout-desktop.webp" alt="Desktop View Checkout Page" width="800px"/>
+</details>
+
+<details>
+    <summary>Click here for Tablet View</summary>
+<img src="static/images/readme/wireframes/checkout-tablet.webp" alt="Tablet View Checkout Page" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Smartphone View</summary>
+<img src="static/images/readme/wireframes/checkout-smartphone.webp" alt="Smartphone View Checkout Page" width="400px"/>
+</details>
+
+</details>
+
+
+- ## Success Payment Page
+
+<details>
+    <summary>Success Payment Page Wireframes</summary>
+
+<details>
+    <summary>Click here for Desktop View</summary>
+<img src="static/images/readme/wireframes/payment-success-desktop.webp" alt="Desktop View Success Payment Page" width="800px"/>
+</details>
+
+<details>
+    <summary>Click here for Tablet View</summary>
+<img src="static/images/readme/wireframes/payment-success-tablet.webp" alt="Tablet View Success Payment Page" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Smartphone View</summary>
+<img src="static/images/readme/wireframes/payment-success-smartphone.webp" alt="Smartphone View Success Payment Page" width="400px"/>
+</details>
+
+</details>
+
 
 - ## Dashboard
 
@@ -1280,38 +1388,352 @@ Sources:
 <details>
     <summary>Dashboard Pages Wireframes</summary>
 
+- ### My Horizon Shop
+<details>
+    <summary>My Horizon Shop Section Wireframes</summary>
+
+<details>
+    <summary>Click here for Desktop View - Admin My Horizon Shop Section</summary>
+<img src="static/images/readme/wireframes/admin-myhorizonshop-desktop.webp" alt="Desktop View My Horizon Shop Section" width="800px"/>
+</details>
+
+<details>
+    <summary>Click here for Tablet View - Admin My Horizon Shop Section</summary>
+<img src="static/images/readme/wireframes/admin-myhorizonshop-tablet.webp" alt="Tablet View My Horizon Shop Section" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Smartphone View - Admin My Horizon Shop Section</summary>
+<img src="static/images/readme/wireframes/admin-myhorizonshop-smartphone.webp" alt="Smartphone View My Horizon Shop Section" width="400px"/>
+</details>
+
+<details>
+    <summary>Click here for Desktop View - Customer My Horizon Shop Section</summary>
+<img src="static/images/readme/wireframes/customer-myhorizonshop-desktop.webp" alt="Desktop View Customer My Horizon Shop Section" width="800px"/>
+</details>
+
+<details>
+    <summary>Click here for Tablet View - Customer My Horizon Shop Section</summary>
+<img src="static/images/readme/wireframes/customer-myhorizonshop-tablet.webp" alt="Customer My Horizon Shop Section" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Smartphone View - Customer My Horizon Shop Section</summary>
+<img src="static/images/readme/wireframes/customer-myhorizonshop-smartphone.webp" alt="Smartphone View Customer My Horizon Shop Section" width="400px"/>
+</details>
+
+</details>
+
+
+
+- ## Management
+
+
+<details>
+    <summary>Management Pages Wireframes</summary>
+
+
+- ### My Admin
+<details>
+    <summary>My Admin Section Wireframes</summary>
+
+<details>
+    <summary>Click here for Desktop View - Add Category Sub-Section</summary>
+<img src="static/images/readme/wireframes/add-category-desktop.webp" alt="Desktop View Add Category Sub-Section" width="800px"/>
+</details>
+
+<details>
+    <summary>Click here for Tablet View - Add Category Sub-Section</summary>
+<img src="static/images/readme/wireframes/add-category-tablet.webp" alt="Tablet View Add Category Sub-Section" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Smartphone View - Add Category Sub-Section</summary>
+<img src="static/images/readme/wireframes/add-category-smartphone.webp" alt="Smartphone View Add Category Sub-Section" width="400px"/>
+</details>
+
+<details>
+    <summary>Click here for Desktop View - Categories' List Sub-Section</summary>
+<img src="static/images/readme/wireframes/category-list-desktop.webp" alt="Desktop View Categories' List Sub-Section" width="800px"/>
+</details>
+
+<details>
+    <summary>Click here for Tablet View - Categories' List Sub-Section</summary>
+<img src="static/images/readme/wireframes/category-list-tablet.webp" alt="Tablet View Categories' List Sub-Section" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Smartphone View - Categories' List Sub-Section</summary>
+<img src="static/images/readme/wireframes/category-list-smartphone.webp" alt="Smartphone View Categories' List Sub-Section" width="400px"/>
+</details>
+
+details>
+    <summary>Click here for Desktop View - Deleted Categories Sub-Section</summary>
+<img src="static/images/readme/wireframes/deleted-categories-desktop.webp" alt="Desktop View Deleted Categories Sub-Section" width="800px"/>
+</details>
+
+<details>
+    <summary>Click here for Tablet View - Deleted Categories Sub-Section</summary>
+<img src="static/images/readme/wireframes/deleted-categories-tablet.webp" alt="Tablet View Deleted Categories Sub-Section" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Smartphone View - Deleted Categories Sub-Section</summary>
+<img src="static/images/readme/wireframes/deleted-categories-smartphone.webp" alt="Smartphone View Deleted Categories Sub-Section" width="400px"/>
+</details>
+
+<details>
+    <summary>Click here for Desktop View - Add Sub-Category Sub-Section</summary>
+<img src="static/images/readme/wireframes/add-subcategory-desktop.webp" alt="Desktop View Add Sub-Category Sub-Section" width="800px"/>
+</details>
+
+<details>
+    <summary>Click here for Tablet View - Add Sub-Category Sub-Section</summary>
+<img src="static/images/readme/wireframes/add-subcategory-tablet.webp" alt="Tablet View Add Sub-Category Sub-Section" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Smartphone View - Add Sub-Category Sub-Section</summary>
+<img src="static/images/readme/wireframes/add-subcategory-smartphone.webp" alt="Smartphone View Add Sub-Category Sub-Section" width="400px"/>
+</details>
+
+<details>
+    <summary>Click here for Desktop View - Sub-Categories' List Sub-Section</summary>
+<img src="static/images/readme/wireframes/subcategory-list-desktop.webp" alt="Desktop View Sub-Categories' List Sub-Section" width="800px"/>
+</details>
+
+<details>
+    <summary>Click here for Tablet View - Sub-Categories' List Sub-Section</summary>
+<img src="static/images/readme/wireframes/subcategory-list-tablet.webp" alt="Tablet View Sub-Categories' List Sub-Section" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Smartphone View - Sub-Categories' List Sub-Section</summary>
+<img src="static/images/readme/wireframes/subcategory-list-smartphone.webp" alt="Smartphone View Sub-Categories' List Sub-Section" width="400px"/>
+</details>
+
+details>
+    <summary>Click here for Desktop View - Deleted Sub-Categories Sub-Section</summary>
+<img src="static/images/readme/wireframes/deleted-subcategories-desktop.webp" alt="Desktop View Deleted Sub-Categories Sub-Section" width="800px"/>
+</details>
+
+<details>
+    <summary>Click here for Tablet View - Deleted Sub-Categories Sub-Section</summary>
+<img src="static/images/readme/wireframes/deleted-subcategories-tablet.webp" alt="Tablet View Deleted Sub-Categories Sub-Section" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Smartphone View - Deleted Sub-Categories Sub-Section</summary>
+<img src="static/images/readme/wireframes/deleted-subcategories-smartphone.webp" alt="Smartphone View Deleted Sub-Categories Sub-Section" width="400px"/>
+</details>
+
+</details>
+
+
+
 - ### My Profile
 <details>
     <summary>My Profile Section Wireframes</summary>
 
 <details>
     <summary>Click here for Desktop View - Edit Profile Sub-Section</summary>
-<img src="static/images/readme/wireframes/profile-edit-desktop.webp" alt="Desktop View Edit Profile Sub-Section" width="800px"/>
+<img src="static/images/readme/wireframes/edit-profile-desktop.webp" alt="Desktop View Edit Profile Sub-Section" width="800px"/>
 </details>
 
 <details>
     <summary>Click here for Tablet View - Edit Profile Sub-Section</summary>
-<img src="static/images/readme/wireframes/profile-edit-tablet.webp" alt="Tablet View Edit Profile Sub-Section" width="600px"/>
+<img src="static/images/readme/wireframes/edit-profile-tablet.webp" alt="Tablet View Edit Profile Sub-Section" width="600px"/>
 </details>
 
 <details>
     <summary>Click here for Smartphone View - Edit Profile Sub-Section</summary>
-<img src="static/images/readme/wireframes/profile-edit-smartphone.webp" alt="Smartphone View Edit Profile Sub-Section" width="400px"/>
+<img src="static/images/readme/wireframes/edit-profile-smartphone.webp" alt="Smartphone View Edit Profile Sub-Section" width="400px"/>
 </details>
 
 <details>
     <summary>Click here for Desktop View - Change Profile Sub-Section</summary>
-<img src="static/images/readme/wireframes/profile-change-password-desktop.webp" alt="Desktop View Change Profile Sub-Section" width="800px"/>
+<img src="static/images/readme/wireframes/change-password-profile-desktop.webp" alt="Desktop View Change Profile Sub-Section" width="800px"/>
 </details>
 
 <details>
     <summary>Click here for Tablet View - Change Profile Sub-Section</summary>
-<img src="static/images/readme/wireframes/profile-change-password-tablet.webp" alt="Tablet View Change Profile Sub-Section" width="600px"/>
+<img src="static/images/readme/wireframes/change-password-profile-tablet.webp" alt="Tablet View Change Profile Sub-Section" width="600px"/>
 </details>
 
 <details>
     <summary>Click here for Smartphone View - Change Profile Sub-Section</summary>
-<img src="static/images/readme/wireframes/profile-change-password-smartphone.webp" alt="Smartphone View Change Profile Sub-Section" width="400px"/>
+<img src="static/images/readme/wireframes/change-password-profile-smartphone.webp" alt="Smartphone View Change Profile Sub-Section" width="400px"/>
+</details>
+
+<details>
+    <summary>Click here for Desktop View - Add Address Sub-Section</summary>
+<img src="static/images/readme/wireframes/add-address-desktop.webp" alt="Desktop View Add Address Sub-Section" width="800px"/>
+</details>
+
+<details>
+    <summary>Click here for Tablet View - Add Address Sub-Section</summary>
+<img src="static/images/readme/wireframes/add-address-tablet.webp" alt="Tablet View Add Address Sub-Section" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Smartphone View - Add Address Sub-Section</summary>
+<img src="static/images/readme/wireframes/add-address-smartphone.webp" alt="Smartphone View Add Address Sub-Section" width="400px"/>
+</details>
+
+<details>
+    <summary>Click here for Desktop View - Addresses' List Sub-Section</summary>
+<img src="static/images/readme/wireframes/addresses-list-desktop.webp" alt="Desktop View Addresses' List Sub-Section" width="800px"/>
+</details>
+
+<details>
+    <summary>Click here for Tablet View - Addresses' List Sub-Section</summary>
+<img src="static/images/readme/wireframes/addresses-list-tablet.webp" alt="Tablet View Addresses' List Sub-Section" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Smartphone View - Addresses' List Sub-Section</summary>
+<img src="static/images/readme/wireframes/addresses-list-smartphone.webp" alt="Smartphone View Addresses' List Sub-Section" width="400px"/>
+</details>
+
+</details>
+
+
+- ### My Orders/Orders
+<details>
+    <summary>My Orders/Orders Section Wireframes</summary>
+
+<details>
+    <summary>Click here for Desktop View - Admin Orders Section</summary>
+<img src="static/images/readme/wireframes/admin-orders-desktop.webp" alt="Desktop View Admin Orders Section" width="800px"/>
+</details>
+
+<details>
+    <summary>Click here for Tablet View - Admin Orders Section</summary>
+<img src="static/images/readme/wireframes/admin-orders-tablet.webp" alt="Tablet View Admin Orders Section" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Smartphone View - Admin Orders Section</summary>
+<img src="static/images/readme/wireframes/admin-orders-smartphone.webp" alt="Smartphone Admin Orders Section" width="400px"/>
+</details>
+
+<details>
+    <summary>Click here for Desktop View - Customer My Orders Section</summary>
+<img src="static/images/readme/wireframes/customer-my-orders-desktop.webp" alt="Desktop View Customer My Orders Section" width="800px"/>
+</details>
+
+<details>
+    <summary>Click here for Tablet View - Customer My Orders Section</summary>
+<img src="static/images/readme/wireframes/customer-my-orders-tablet.webp" alt="Tablet View Customer My Orders Section" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Smartphone View - Customer My Orders Section</summary>
+<img src="static/images/readme/wireframes/customer-my-orders-smartphone.webp" alt="Smartphone Customer My Orders Section" width="400px"/>
+</details>
+
+<details>
+    <summary>Click here for Desktop View - Order Details Sub-Section</summary>
+<img src="static/images/readme/wireframes/order-details-desktop.webp" alt="Desktop View Order Details" width="800px"/>
+</details>
+
+<details>
+    <summary>Click here for Tablet View - Order Details</summary>
+<img src="static/images/readme/wireframes/order-details-tablet.webp" alt="Tablet View Order Details" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Smartphone View - Order Details</summary>
+<img src="static/images/readme/wireframes/order-details-smartphone.webp" alt="Smartphone View Order Details" width="400px"/>
+</details>
+
+</details>
+
+
+- ### My Products
+<details>
+    <summary>My Products Section Wireframes</summary>
+
+<details>
+    <summary>Click here for Desktop View - Admin Add Product Sub-Section</summary>
+<img src="static/images/readme/wireframes/admin-add-product-desktop.webp" alt="Desktop View Admin Add Product Sub-Section" width="800px"/>
+</details>
+
+<details>
+    <summary>Click here for Tablet View - Admin Add Product Sub-Section</summary>
+<img src="static/images/readme/wireframes/admin-add-product-tablet.webp" alt="Tablet View Admin Add Product Sub-Section" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Smartphone View - Admin Add Product Sub-Section</summary>
+<img src="static/images/readme/wireframes/admin-add-product-smartphone.webp" alt="Smartphone Admin Add Product Sub-Section" width="400px"/>
+</details>
+
+<details>
+    <summary>Click here for Desktop View - Customer Sell Product Sub-Section</summary>
+<img src="static/images/readme/wireframes/customer-sell-product-desktop.webp" alt="Desktop View Customer Sell Product Sub-Section" width="800px"/>
+</details>
+
+<details>
+    <summary>Click here for Tablet View - Customer Sell Product Sub-Section</summary>
+<img src="static/images/readme/wireframes/customer-sell-product-tablet.webp" alt="Tablet View Customer Sell Product Sub-Section" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Smartphone View - Customer Sell Product Sub-Section</summary>
+<img src="static/images/readme/wireframes/customer-sell-product-smartphone.webp" alt="Smartphone Customer Sell Product Sub-Section" width="400px"/>
+</details>
+
+<details>
+    <summary>Click here for Desktop View - Products' List Sub-Section</summary>
+<img src="static/images/readme/wireframes/products-list-desktop.webp" alt="Desktop View Products' List Sub-Section" width="800px"/>
+</details>
+
+<details>
+    <summary>Click here for Tablet View - Products' List Sub-Section</summary>
+<img src="static/images/readme/wireframes/products-list-tablet.webp" alt="Tablet View Products' List Sub-Section" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Smartphone View - Products' List Sub-Section</summary>
+<img src="static/images/readme/wireframes/products-list-smartphone.webp" alt="Smartphone View Products' List Sub-Section" width="400px"/>
+</details>
+
+<details>
+    <summary>Click here for Desktop View - Deleted Products Sub-Section</summary>
+<img src="static/images/readme/wireframes/deleted-products-desktop.webp" alt="Desktop View Deleted Products Sub-Section" width="800px"/>
+</details>
+
+<details>
+    <summary>Click here for Tablet View - Deleted Products Sub-Section</summary>
+<img src="static/images/readme/wireframes/deleted-products-tablet.webp" alt="Tablet View Deleted Products Sub-Section" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Smartphone View - Deleted Products Sub-Section</summary>
+<img src="static/images/readme/wireframes/deleted-products-smartphone.webp" alt="Smartphone View Deleted Products Sub-Section" width="400px"/>
+</details>
+
+</details>
+
+
+- ### My Wishlist
+<details>
+    <summary>My Wishlist Section Wireframes</summary>
+
+<details>
+    <summary>Click here for Desktop View - My Wishlist Section</summary>
+<img src="static/images/readme/wireframes/wishlist-desktop.webp" alt="Desktop View My Wishlist Section" width="800px"/>
+</details>
+
+<details>
+    <summary>Click here for Tablet View - My Wishlist Section</summary>
+<img src="static/images/readme/wireframes/wishlist-tablet.webp" alt="Tablet View My Wishlist Section" width="600px"/>
+</details>
+
+<details>
+    <summary>Click here for Smartphone View - My Wishlist Section</summary>
+<img src="static/images/readme/wireframes/wishlist-smartphone.webp" alt="Smartphone My Wishlist Section" width="400px"/>
 </details>
 
 </details>
@@ -1319,36 +1741,36 @@ Sources:
 
 - ### My Testimonials
 <details>
-    <summary>My Feedback Section Wireframes</summary>
+    <summary>My Testimonials Section Wireframes</summary>
 
 <details>
-    <summary>Click here for Desktop View - Add Feedback Sub-Section</summary>
-<img src="static/images/readme/wireframes/feedback-desktop.webp" alt="Desktop View Add Feedback Sub-Section" width="800px"/>
+    <summary>Click here for Desktop View - Add Testimonials Sub-Section</summary>
+<img src="static/images/readme/wireframes/add-testimonial-desktop.webp" alt="Desktop View Add Testimonials Sub-Section" width="800px"/>
 </details>
 
 <details>
-    <summary>Click here for Tablet View - Add Feedback Sub-Section</summary>
-<img src="static/images/readme/wireframes/feedback-tablet.webp" alt="Tablet View Add Feedback Sub-Section" width="600px"/>
+    <summary>Click here for Tablet View - Add Testimonials Sub-Section</summary>
+<img src="static/images/readme/wireframes/add-testimonial-tablet.webp" alt="Tablet View Add Testimonials Sub-Section" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for Smartphone View - Add Feedback Sub-Section</summary>
-<img src="static/images/readme/wireframes/feedback-smartphone.webp" alt="Smartphone Add FeedbackList Sub-Section" width="400px"/>
+    <summary>Click here for Smartphone View - Add Testimonials Sub-Section</summary>
+<img src="static/images/readme/wireframes/add-testimonial-smartphone.webp" alt="Smartphone Add Testimonials Sub-Section" width="400px"/>
 </details>
 
 <details>
-    <summary>Click here for Desktop View - Feedback List Sub-Section</summary>
-<img src="static/images/readme/wireframes/feedback-list-desktop.webp" alt="Desktop View Feedback List Sub-Section" width="800px"/>
+    <summary>Click here for Desktop View - Testimonial List Sub-Section</summary>
+<img src="static/images/readme/wireframes/testimonial-list-desktop.webp" alt="Desktop View Testimonial List Sub-Section" width="800px"/>
 </details>
 
 <details>
-    <summary>Click here for Tablet View - Feedback List Sub-Section</summary>
-<img src="static/images/readme/wireframes/feedback-list-tablet.webp" alt="Tablet View Feedback List Sub-Section" width="600px"/>
+    <summary>Click here for Tablet View - Testimonial List Sub-Section</summary>
+<img src="static/images/readme/wireframes/testimonial-list-tablet.webp" alt="Tablet View Testimonial List Sub-Section" width="600px"/>
 </details>
 
 <details>
-    <summary>Click here for Smartphone View - Feedback List Sub-Section</summary>
-<img src="static/images/readme/wireframes/feedback-list-smartphone.webp" alt="Smartphone View Feedback List Sub-Section" width="400px"/>
+    <summary>Click here for Smartphone View - Testimonial List Sub-Section</summary>
+<img src="static/images/readme/wireframes/testimonial-list-smartphone.webp" alt="Smartphone View Testimonial List Sub-Section" width="400px"/>
 </details>
 
 </details>
@@ -1377,6 +1799,7 @@ Sources:
 
 
 </details>
+
 ---
 
 ## **Technologies Used**
@@ -1911,6 +2334,9 @@ The testing phases have been also carried out using the **W3C Javascript Validat
 Below it is possible to taka e look at the result obtained in Lighthouse:
 
 <details>
+    <summary>Click here for Lighthouse the Lighthouse Results</summary>
+
+<details>
     <summary>Click here for Lighthouse Desktop - Homepage</summary>
 <img src="static/images/readme/lighthouse/lh-home-desktop.webp" alt="Lighthouse Desktop Homepage" width="600px"/>
 </details>
@@ -2269,7 +2695,7 @@ Below it is possible to taka e look at the result obtained in Lighthouse:
     <summary>Click here for Lighthouse Mobile - [Admin/Customer] List Testimonials</summary>
 <img src="static/images/readme/lighthouse/lh-customer-list-testimonials-mobile.webp" alt="Lighthouse Mobile [Admin/Customer] List Testimonials" width="600px"/>
 </details>
----------------
+
 <details>
     <summary>Click here for Lighthouse Desktop - [Admin/Customer] Update Testimonial</summary>
 <img src="static/images/readme/lighthouse/lh-customer-update-testimonials-desktop.webp" alt="Lighthouse Desktop [Admin/Customer] Update Testimonial" width="600px"/>
@@ -2279,7 +2705,7 @@ Below it is possible to taka e look at the result obtained in Lighthouse:
     <summary>Click here for Lighthouse Mobile - [Admin/Customer] Update Testimonial</summary>
 <img src="static/images/readme/lighthouse/lh-customer-update-testimonials-mobile.webp" alt="Lighthouse Mobile [Admin/Customer] Update Testimonial" width="600px"/>
 </details>
----------------
+
 <details>
     <summary>Click here for Lighthouse Desktop - [Admin/Customer] Delete Testimonial</summary>
 <img src="static/images/readme/lighthouse/lh-customer-delete-testimonials-desktop.webp" alt="Lighthouse Desktop [Admin/Customer] Delete Testimonial" width="600px"/>
@@ -2320,7 +2746,9 @@ Below it is possible to taka e look at the result obtained in Lighthouse:
 <img src="static/images/readme/lighthouse/lh-logout-mobile.webp" alt="Lighthouse Mobile Sign Out" width="600px"/>
 </details>
 
+</details>
 
+<br><br>
 
 - ### **Test Cases**
 
@@ -2533,12 +2961,15 @@ Users that sell or buy products should receive rewards point that can be used to
 Users should be able to select the quantity of the desired products before adding them to the cart. 
  
 - Admin Orders Management
-Admin Users should be able to change the status of the Orders and provide a feedback to the user if the order has been shipped or delivered, including the information in the Customers Pages. 
+Admin Users should be able to change the status of the Orders and provide a feedback to the user if the order has been shipped or delivered. Information should be displayed to the Customer. 
+
+Many other functionality to implement! 
+
 
 ---
 
 ## **Development** 
-### Deployment
+### Deployment:
 
 - ### **Github**
 The repository for the project Horizon Shop has been created using Github using the following procedures:
@@ -2563,17 +2994,28 @@ Heroku is a platform as a service (PaaS) used to run, operate the Horizon Shop w
 7.	Go in the Settings Tab
 8.	In the Config Vars section click on the Reveal Config Vars Button
 9.	Enter “PORT” in the Key field, “8000” in the Value field and then press Add
-10.	Go in the Buildpacks section and click on the Add Buildpack Button
-11.	Select python and press Save Changes
-12.	Go in the Deploy Tab 
-13.	In the Deployment method section select Github to connect with your repository
-14.	In the App connected to Github section type the name of the repository (Example: Horizon Shop) and then press Add
-15.	Go in the Manual section, select the correct branch and click on Deploy Branch
-16.	Click on the View Button as soon as the deploy is finished and you will be redirected to a new page with your application. 
+10. Ensure that the following key are set up in order to run the project Horizon Shop: 
+    - AWS_ACCESS_KEY_ID
+    - AWS_SECRET_ACCESS_KEY
+    - DATABASE_URL
+    - EMAIL_HOST_PASSWORD
+    - EMAIL_HOST_USER
+    - SECRET_KEY
+    - STRIPE_PUBLIC_KEY
+    - STRIPE_SECRET_KEY
+    - STRIPE_WH_SECRET
+    - USE_AWS
+11.	Go in the Buildpacks section and click on the Add Buildpack Button
+12.	Select python and press Save Changes
+13.	Go in the Deploy Tab 
+14.	In the Deployment method section select Github to connect with your repository
+15.	In the App connected to Github section type the name of the repository (Example: Horizon Shop) and then press Add
+16.	Go in the Manual section, select the correct branch and click on Deploy Branch
+17.	Click on the View Button as soon as the deploy is finished and you will be redirected to a new page with your application. 
 
 
 - ### **GitHub Pages**
-The project was deployed to GitHub Pages using the following steps:
+A project can be deployed to GitHub Pages using the following steps:
 1.	Log in to GitHub and locate the GitHub Repository created
 2.	Click on the Setting Button
 3.	On the left menu bar, click on the "Pages" Tab
@@ -2608,12 +3050,13 @@ In order to create a Local Clone follow the steps below:
 
 ## **Credits**
 
-#### Thanks to my Mentor, Narender Singh, for his guide and support in the realization of this project, for his availability and for being willing to talk to me on a Sunday night!!
-#### Thanks to the useful references and suggestions derived from sources listed below, I manage to gain a deeper understanding of how Django works and is used, including the integration with HTML. In addition, continuous trial and error tests provided a useful means to further experiment on the usage of these used programming languages for the creation of the site.
-
+#### Thanks to my Mentor, Narender Singh, for his guide and support in the realization of this project, and for always being available to talk to me even on a Sunday night!!
+#### Thanks to the useful references and suggestions derived from sources listed below, I manage to gain a deeper understanding of how Django works and is used, including the integration with HTML. In addition, continuous trial and error tests provided a useful means to further experiment on the usage of these programming languages for the creation of the site.
 
 - ### Content & Media
-#### The landing Page of the website was initially realised using a bootstrap template. This Template has been gradually updated to meet the need of the website. A Django framework has been used for the realization of the site. The content of the application is entirely customised. In order to consolidate the knowledge acquired during the Code Institute Course dedicated to Django (as well as the HTML, CSS and Javascript), I have used the websites listed below studying and focussing on the writing coding procedures and its best practices:
+#### The landing Page of the website was initially realised using a bootstrap template. This Template has been gradually updated to meet the need of the website. 
+
+#### A Django framework has been used for the realization of the site. The content of the application is entirely customised. In order to consolidate the knowledge acquired during the Code Institute Course dedicated to Django (as well as the HTML, CSS and Javascript), I have used the websites listed below studying and focussing on the writing coding procedures and its best practices:
 - [Medium.com](https://medium.com/@inceptiondj.info/html-css-coding-best-practice-fadb9870a00f)
 - [Learn.shayhowe.com](https://learn.shayhowe.com/html-css/writing-your-best-code/)
 
@@ -2631,32 +3074,47 @@ In order to create a Local Clone follow the steps below:
 - [Djangoproject.com - Messages](https://docs.djangoproject.com/en/4.1/ref/contrib/messages/)
 
 
-#### The most complex developing portions of the Parkland Website application were:
+#### The most complex developing portion of the Horizon Shop Website application were:
+- The realization of the Cart.
+- The logic associated to the "Add/Remove to Cart" functionality.
+- The logic associated to it including the filtering on the Products/Order Tables.
+- The interaction between tables into the database to being able to display the correct information on the front-end.
+- The implementation of the Checkout Page and Stripe as payment method.
+- The Webhook Handler. 
 
 
-#### The following website were inspirational and helped me understanding how to structure the logic on the gravity of the coin entered in the table. I have customized and created my own code taking inspiration from:
+#### Thanks to the Website listed below that have been inspirational and helped me understand better Django contents I have created and customeized my own code in order to realize all the logics necessary for the Cart and the Checkout process including the Stripe Payment System.
+#### Below the sources of studies: 
+- [Thanks to Very Academy - Python Django Project Ecommerce Store](https://www.youtube.com/watch?v=UqSJCVePEWU&t=8724s)
+- [Thanks to JustDjango - Django and Stripe Payment Tutorials](https://www.youtube.com/watch?v=722A27IoQnk&t=2257s)
+- [Stripe.com/docs](https://stripe.com/docs/payments/checkout)
+- [Stripe.com - Payment Status Updates](https://stripe.com/docs/payments/payment-intents/verifying-status)
+- [Stripe.com - Triggering Actions with Webhooks](https://stripe.com/docs/payments/handling-payment-events)
+
+
+#### The following website were inspirational and helped me understanding how to structure the logic on the queries and how to structure them in a better way. I have customized and created my own code taking inspiration from:
 - [Djangoproject.com - Making queries](https://docs.djangoproject.com/en/4.1/topics/db/queries/)
 - [pythonguides.com](https://pythonguides.com/python-django-filter/)
 - [Thanks to StackOverflow and the Comunity - Difference Queryset](https://stackoverflow.com/questions/5945912/how-to-get-the-difference-of-two-querysets-in-django)
 - [Thanks to Codemy.com - Youtube Video Fetch Data](https://www.youtube.com/watch?v=H3joYTIRqKk&list=PLCC34OHNcOtqW9BJmgQPPzUpJ8hl49AGy&index=6)
+- [Thanks to Very Academy - Youtube video Ecommerce Store](https://www.youtube.com/watch?v=UqSJCVePEWU&list=PLOLrQ9Pn6caxY4Q1U9RjO1bulQp5NDYS_)
 - [Books.agiliq.com - How to use Q](https://books.agiliq.com/projects/django-orm-cookbook/en/latest/query_relatedtool.html)
-
+  
 
 #### Listed here additional sources of the studies: 
-
 - [Developer.mozilla.org - Django](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django)
 - [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
 - [Developer.mozilla.org - Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox)
 
-
 #### Source for the Template of the Landing Page:
 - [Thanks to Themewagon for the Bootstrap 5 Template](https://themewagon.com/)
-
 
 #### Listed here the source of studies for the automation testing: 
 - [Djangoproject.com - Testing Overview](https://docs.djangoproject.com/en/4.1/topics/testing/overview/)
 - [Djangoproject.com - Testing tools](https://docs.djangoproject.com/en/dev/topics/testing/tools/)
 - [Developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Testing)
+- [Thanks to Very Academy it was possible to gain deeper knowledge on how to write Test Automation](https://www.youtube.com/watch?v=UqSJCVePEWU&t=8724s)
+
 
 - [Favicon.io](https://favicon.io/) was used to include the favicon in the website.
 
@@ -2667,6 +3125,8 @@ In order to create a Local Clone follow the steps below:
 #### Thanks to Kasia Bogucka and Narender Singh for suggesting the use of github wiki site to create the Markdown file. They have also provided the link for the Sample Readme of Code Institute.
 - [Sample Readme File - Code Institute](https://github.com/Code-Institute-Solutions/SampleREADME)
 - [Markdown - Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+
+#### Thanks to the Guide prepared by the Code Institute Team is was very simple to migrate the Database from PostgreSQL to ElephantSQL.
 
 #### All the Images as well as the Video included in the Home Page have been taken from [Pexels.com](https://www.pexels.com/)
 
