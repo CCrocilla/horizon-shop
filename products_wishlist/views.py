@@ -24,7 +24,7 @@ class WishlistView(LoginRequired, ListView):
     fields = '__all__'
     permission_denied_message = 'Authentication Error! Access reserved \
                                  only to Authenticated Customers!'
-    paginate_by = 6
+    paginate_by = 8
 
     def get_queryset(self):
         """
