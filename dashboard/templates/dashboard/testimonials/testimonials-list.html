@@ -18,7 +18,7 @@
 
         {% for testimonial in testimonial_list %}
 
-        {% if testimonial.created_by.id == user.id %}
+        {% if testimonial.created_by.id == user.id or user.is_superuser %}
         <div class="col-12">
 
             <div class="p-3 mb-2 mt-2 alert alert-dark rounded-3 shadow-lg">
@@ -27,7 +27,13 @@
                         <strong>{{testimonial.title}}</strong>
                     </a>
                 </h3>
-                <div><strong>Author:</strong> {{ testimonial.created_by.username }}</div>
+
+                {% if user.is_superuser %}
+                <div>
+                    <strong>Author:</strong> {{ testimonial.created_by.username }}
+                </div>
+                {% endif %}
+
                 <div class="ratings p-0">
                     <strong>Rating:</strong>
                     {% with ''|center:testimonial.rating_stars as range %}
