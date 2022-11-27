@@ -644,13 +644,12 @@ class TestimonialListView(ListView):
     fields = '__all__'
     paginate_by = 6
 
-    def get_testimonial_auth_user(self):
-        """
-        Return a list of all the Testimonial
-        for the authenticated user.
-        """
-        user = self.request.user
-        return Testimonial.objects.filter(created_by=user)
+    def get_queryset(self):
+        if self.request.user.is_superuser:
+            queryset = Testimonial.objects.all()
+        else:
+            queryset = Testimonial.objects.filter(created_by=self.request.user)
+        return queryset
 
 
 class TestimonialDetailsView(DetailView):
@@ -669,7 +668,7 @@ class TestimonialUpdateView(SuccessMessageMixin, UpdateView):
     """
     model = Testimonial
     template_name = 'dashboard/testimonials/testimonial-update.html'
-    fields = ['title', 'comment']
+    form_class = TestimonialForm
     success_url = reverse_lazy('testimonials-list')
     success_message = "Testimonial updated successfully!"
 
