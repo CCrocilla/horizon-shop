@@ -556,7 +556,8 @@ class SubCategoryListView(ListView):
     paginate_by = 9
 
     def get_queryset(self):
-        queryset = SubCategory.objects.filter(is_deleted=False)
+        queryset = SubCategory.objects.filter(
+            is_deleted=False).order_by('category')
 
         return queryset
 
