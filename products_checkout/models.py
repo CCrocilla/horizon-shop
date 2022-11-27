@@ -79,10 +79,13 @@ class Order(models.Model):
         Function to return the price of the Order.
         """
         order_total_price = 0
+        delivery_cost = 0
         for item in self.cart_products.all():
             order_total_price += item.product_price()
             if order_total_price < FREE_DELIVERY_THRESHOLD:
-                order_total_price += DELIVERY_COST
+                delivery_cost = DELIVERY_COST
+        order_total_price += delivery_cost
+
         return order_total_price
 
     def quantity_products(self):
