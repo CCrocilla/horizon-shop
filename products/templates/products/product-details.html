@@ -149,9 +149,10 @@
                         <i class="fas fa-star text-yellow"></i>
                         {% endfor %}
                         {% endwith %}
+                        ({{product.get_count_rating}})
                     </li>
                     {% else %}
-                    <li> No Rating </li>
+                    <li> No Rating ({{product.get_count_rating}})</li>
                     {% endif %}
 
                 </ul>
