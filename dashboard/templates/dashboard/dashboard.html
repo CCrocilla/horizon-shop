@@ -157,9 +157,11 @@
                             <div class="card rounded-3">
                                 <div class="card-body">
                                     <h4 class="card-title mb-4 fs-4">Latest Transaction</h4>
-                                    <div class="table-responsive">
+                                    <div class="table-responsive rounded-bottom">
 
-                                        <table class="table table-vcenter table-mobile-md card-table">
+                                        {% if orders %}
+
+                                        <table class="table table-vcenter table-mobile-xl card-table">
                                             <thead>
                                                 <tr>
                                                     <th class="bg-dark text-yellow">Order Number</th>
@@ -176,7 +178,6 @@
 
                                                 {% for order in orders %}
                                                 <tr>
-                                                    {% if order %}
                                                     <td data-label="Order Number">
                                                         <div class="d-flex align-items-center">
                                                             <div class="flex-fill">
@@ -237,20 +238,36 @@
                                                             View Details
                                                         </a>
                                                     </td>
-                                                    {% else %}
-
-                                                    <td data-label="No Orders">
-                                                        <div class="btn-list flex-nowrap">
-                                                            <p class="text-right">
-                                                                No orders!
-                                                            </p>
-                                                        </div>
-                                                    </td>
-                                                    {% endif %}
                                                 </tr>
                                                 {% endfor %}
                                             </tbody>
                                         </table>
+
+                                        {% else %}
+
+                                        <table class="table table-vcenter card-table">
+                                            <thead>
+                                                <tr>
+                                                    <th class="bg-dark text-yellow">Orders</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="bg-yellow">
+                                                    <td data-label="Orders">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="flex-fill">
+                                                                <div class="fw-bold">
+                                                                    <h2>No Orders!</h2>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        {% endif %}
+
                                     </div>
                                 </div>
                             </div>
