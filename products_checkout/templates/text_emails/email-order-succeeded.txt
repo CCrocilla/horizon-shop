@@ -1,6 +1,6 @@
-Hello {% if order.created_by.first_name and order.created_by.last_name %}First Name: {{ order.created_by.first_name }} Last Name: {{ order.created_by.last_name }}{% else %}Username: {{ order.created_by.username }}{% endif %}, 
+Hello {% if order.created_by.first_name and order.created_by.last_name %}{{ order.created_by.first_name }} {{ order.created_by.last_name }}{% else %}{{ order.created_by.username }}{% endif %}, 
 
-Thanks for your order! Your Payment was succeed. We will send you a confirmation email as soon as your products are dispatched! 
+Thanks for your order! Your Payment was successful. We will send you a confirmation email as soon as your products are dispatched! 
 
 Below the summary of your order:
 - Order Details
@@ -16,7 +16,7 @@ Last Name: {{ order.created_by.last_name }}{% else %}Username: {{ order.created_
 Street: {{ order.shipping_address.address_street }}
 Apartment Number: {{ order.shipping_address.apartment_number }}
 
-If you have any questions, feel free to contact us via the Contact Us Page or to the following email: {{ contact_email }}.
+If you have any questions, feel free to contact us via the Contact Us Page or using the following email: {{ contact_email }}.
 
 Please note: This e-mail was sent from a notification-only address that can't accept incoming e-mail. Please do not reply to this message
 

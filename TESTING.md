@@ -1089,7 +1089,7 @@ Additional tests include checks on different devices using the Toggle Device Emu
 * Surface Duo
 
 ### **Bugs**
-- No other bugs could be found in the website during the test phase.
+- No other bugs, other than the ones described in Agile Board (Issues: [#113](https://github.com/CCrocilla/horizon-shop/issues/113) and [#124](https://github.com/CCrocilla/horizon-shop/issues/124) ), have been found in the website during the test phase. The Issue #124 has already been fixed while regarding issue #113 a fix could not be implemented due to timing constraints.  This will be sorted in future releases.
 
 
 ### **Future Implementation**
