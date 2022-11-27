@@ -24,6 +24,8 @@
     <div class="row d-flex align-items-center mt-5">
         <div class="list-group">
 
+            {% if order_list %}
+
             {% for order in order_list %}
             <div class="col-12">
                 <div
@@ -63,6 +65,20 @@
             </div>
 
             {% endfor %}
+
+            {% else %}
+
+            <div class="container my-5">
+                <div class="row bg-yellow rounded-3 my-5">
+                    <div class="col-10 offset-1">
+                        <div class="single-service p-5">
+                            <h2>No Orders!</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% endif %}
 
         </div>
     </div>

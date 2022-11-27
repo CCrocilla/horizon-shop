@@ -18,6 +18,8 @@
 
     <div class="row d-flex align-items-center">
 
+        {% if wishlist_list %}
+
         {% for wish in wishlist_list %}
 
         <div class="col-12 offset-sm-2 col-sm-8 offset-md-0 col-md-6 col-lg-6 col-xl-4 col-xxl-3 mb-4">
@@ -129,6 +131,20 @@
         </div>
 
         {% endfor %}
+
+        {% else %}
+
+        <div class="container my-5">
+            <div class="row bg-yellow rounded-3 my-5">
+                <div class="col-10 offset-1">
+                    <div class="single-service p-5">
+                        <h2>No Products in your Wishlist!</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% endif %}
 
     </div>
 </div>
