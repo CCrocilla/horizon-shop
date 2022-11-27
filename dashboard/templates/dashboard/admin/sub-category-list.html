@@ -34,21 +34,20 @@
 
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-sm-minwidth btn-outline-danger rounded-3 mt-4"
-                    data-bs-toggle="modal" data-bs-target="#staticBackdrop{{ subcategory.slug }}">
+                    data-bs-toggle="modal" data-bs-target="#modal{{ subcategory.slug }}">
                     Delete
                 </button>
 
                 <!-- Modal -->
-                <div class="modal fade" id="staticBackdrop{{ subcategory.slug }}" data-bs-backdrop="static"
-                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel{{ subcategory.slug }}"
-                    aria-hidden="true">
+                <div class="modal fade" id="modal{{ subcategory.slug }}" data-bs-keyboard="false" tabindex="-1"
+                    aria-labelledby="modalLabel{{ subcategory.slug }}" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content bg-dark rounded-3">
                             <form method="POST">
                                 {% csrf_token%}
                                 <div class="modal-header d-flex justify-content-center bg-yellow">
                                     <h1 class="fs-4 modal-title d-flex justify-content-center text-center text-dark"
-                                        id="staticBackdropLabel{{ subcategory.slug }}">Are you sure?</h1>
+                                        id="modalLabel{{ subcategory.slug }}">Are you sure?</h1>
                                 </div>
                                 <div class="fs-6 modal-body d-flex justify-content-center m-3 text-yellow text-center">
                                     <p>
