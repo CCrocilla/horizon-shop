@@ -111,7 +111,7 @@
                 href="{% url 'product-update' product.slug %}" aria-label="Update">Edit</a>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-sm-minwidth btn-outline-danger rounded-3" data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop{{ product.slug }}">
+                data-bs-target="#modal{{ product.slug }}">
                 Delete
             </button>
             {% endif %}
@@ -122,9 +122,8 @@
 
 
             <!-- Modal -->
-            <div class="modal fade" id="staticBackdrop{{ product.slug }}" data-bs-backdrop="static"
-                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel{{ product.slug }}"
-                aria-hidden="true">
+            <div class="modal fade" id="modal{{ product.slug }}" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel{{ product.slug }}" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content bg-dark rounded-3">
                         <form method="POST">
