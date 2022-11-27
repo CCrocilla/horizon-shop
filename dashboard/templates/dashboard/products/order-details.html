@@ -180,7 +180,6 @@
                                                                 <th>Name</th>
                                                                 <th>Condition</th>
                                                                 <th>Quantity</th>
-                                                                <th>Delivery Cost</th>
                                                                 <th>Final Price</th>
                                                             </tr>
                                                         </thead>
@@ -238,15 +237,7 @@
                                                                 <td data-label="Quantity">
                                                                     <div class="card-text">{{ product.quantity }}</div>
                                                                 </td>
-                                                                <td data-label="Delivery">
-                                                                    <div class="card-text">
-                                                                        {% if product.product_price <= 50.01 %}
-                                                                        10.00 Euro
-                                                                        {% else %}
-                                                                        FREE
-                                                                        {% endif %}
-                                                                    </div>
-                                                                </td>
+
                                                                 <td data-label="Price">
                                                                     <div class="btn-list flex-nowrap">
                                                                         <p class="text-right">
