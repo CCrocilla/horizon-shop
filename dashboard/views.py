@@ -41,7 +41,9 @@ from .forms import CustomerExtraForm
 from .forms import ShippingAddressForm
 from .forms import TestimonialForm
 from .forms import ProductForm
+from .forms import ProductUpdateForm
 from .forms import ProductAdminForm
+from .forms import ProductUpdateAdminForm
 from .forms import CategoryForm
 from .forms import SubCategoryForm
 
@@ -313,12 +315,12 @@ class ProductUpdateView(SuccessMessageMixin, UpdateView):
     success_message = "Product updated successfully!"
 
     def get_form_class(self):
-        form_class = ProductAdminForm
+        form_class = ProductUpdateAdminForm
 
         if self.request.user.is_superuser:
-            form_class = ProductAdminForm
+            form_class = ProductUpdateAdminForm
         else:
-            form_class = ProductForm
+            form_class = ProductUpdateForm
 
         return form_class
 

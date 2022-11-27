@@ -1040,6 +1040,7 @@ All the Tests, icluding Layout Testing have been performed in all Devices.
 | My Products | Product List | Make sure that after confirmation the user is redirected to the Product List and a message confirm the deletion is displayed. | Pass |
 | My Products | Product List | Make sure that an Edit Button is displayed. | Pass |
 | My Products | Product List | Make sure that by clicking on the Edit Button the user can update the information of a product. | Pass |
+| My Products | Product List | Make sure that by clicking on the Edit Button the user (both Admin and Customers) are not able to edit the products' prices. | Pass |
 | My Products | Product List | Make sure that every page is responsive and that no overlaps are present. | Pass |
 | My Wishlist |  Wishlist    | Make sure that by clicking My Wishlist Section the user is able to access his/her own personal wishlist. | Pass |
 | My Wishlist |  Wishlist    | Make sure that the authenticated users can see the list of products in cards and no overlaps are present. | Pass |
@@ -1094,6 +1095,9 @@ Additional tests include checks on different devices using the Toggle Device Emu
 
 ### **Future Implementation**
 A million of additional features are ready to be implemented in the future to offer a better user experience and better services thorough the Horizon Shop website. Unfortunately, due to time constraints not all the desired features have been implemented. Example of those are listed below and will be implemented in future releases:
+
+- Update Prices existing Products: 
+In future releases users (both admin users and customers) should be able to update the price of the items they want to sell. Specifically, if a selling items is considered too expensive by other customers, the seller should be able to decrease the price (if he/she wishes to do so) without compromising any other existing orders on the website. 
 
 - Out of Stock Functionality: 
 The Out of Stock Functionality will indicate when a product is out of stock, to do this the quantity of each item needs to be included. If the requested quantity is larger than the available products, a message will inform the customer that that particular item is out of stock. This will be implemented for new and used products, with selling customers able to indicate the quantity they want to sell.
