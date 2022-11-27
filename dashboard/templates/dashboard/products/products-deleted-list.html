@@ -19,6 +19,7 @@
     </ol>
 
     <div class="row d-flex align-items-center mt-5">
+        {% if product_list %}
 
         {% for product in product_list %}
 
@@ -28,6 +29,20 @@
         {% include 'dashboard/includes/product.html' %}
 
         {% endfor %}
+
+        {% else %}
+
+        <div class="container my-5">
+            <div class="row bg-yellow rounded-3 my-5">
+                <div class="col-10 offset-1">
+                    <div class="single-service p-5">
+                        <h2>No Deleted Products Available!</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% endif %}
 
     </div>
 </div>

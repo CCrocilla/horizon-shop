@@ -17,6 +17,8 @@
     </ol>
 
     <div class="row">
+        {% if category_list %}
+
         {% for category in category_list %}
 
         <div class="col-12 col-lg-6 col-xxl-4">
@@ -42,6 +44,20 @@
         </div>
 
         {% endfor %}
+
+        {% else %}
+
+        <div class="container my-5">
+            <div class="row bg-yellow rounded-3 my-5">
+                <div class="col-10 offset-1">
+                    <div class="single-service p-5">
+                        <h2>No Deleted Categories Available!</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% endif %}
 
     </div>
 </div>
