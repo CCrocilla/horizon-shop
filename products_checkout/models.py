@@ -8,6 +8,9 @@ from dashboard.models import ShippingAddress
 
 from products_cart.models import CartProducts
 
+from horizon_shop.settings import DELIVERY_COST
+from horizon_shop.settings import FREE_DELIVERY_THRESHOLD
+
 
 class Order(models.Model):
     order_number = models.CharField(
@@ -78,6 +81,8 @@ class Order(models.Model):
         order_total_price = 0
         for item in self.cart_products.all():
             order_total_price += item.product_price()
+            if order_total_price < FREE_DELIVERY_THRESHOLD:
+                order_total_price += DELIVERY_COST
         return order_total_price
 
     def quantity_products(self):

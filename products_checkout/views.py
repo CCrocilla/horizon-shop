@@ -17,6 +17,9 @@ from horizon_shop.settings import STRIPE_SECRET_KEY
 from horizon_shop.settings import STRIPE_WH_SECRET
 from horizon_shop.settings import STRIPE_CURRENCY
 
+from horizon_shop.settings import DELIVERY_COST
+from horizon_shop.settings import FREE_DELIVERY_THRESHOLD
+
 from django.shortcuts import render
 from django.shortcuts import reverse
 from django.shortcuts import redirect
@@ -42,6 +45,9 @@ from products_cart.models import CartProducts
 
 from products_cart.forms import CheckoutForm
 
+# from products_cart.context_processors import DELIVERY_COST
+# from products_cart.context_processors import FREE_DELIVERY_THRESHOLD
+
 
 class CheckoutView(LoginRequired, View):
     """
@@ -60,6 +66,7 @@ class CheckoutView(LoginRequired, View):
 
         if order.shipping_address:
             total_order = order.total_price()
+
             total_stripe = round(total_order * 100)
             stripe.api_key = stripe_secret_key
             intent = stripe.PaymentIntent.create(
@@ -98,7 +105,9 @@ class CheckoutView(LoginRequired, View):
             order.shipping_address = ShippingAddress.objects.get(
                 created_by=request.user, id=shipping_address_id
                 )
-            order.total_price = request.POST.get('total_price_cart')
+            order.total_price = order.total_price()
+            if order.total_price < FREE_DELIVERY_THRESHOLD:
+                order.total_price += DELIVERY_COST
             order.save()
 
             return HttpResponseRedirect(reverse('checkout'))
@@ -138,9 +147,12 @@ def stripe_webhook(request):
         intent = event['data']['object']
 
         customer_email = intent['receipt_email']
+        amount = intent['amount']
 
         order_id = intent["metadata"]["order_id"]
         order = Order.objects.get(id=order_id)
+        order.total_price = amount / 100
+        order.save()
 
         try:
             send_mail(
@@ -158,7 +170,7 @@ def stripe_webhook(request):
         except SMTPException as e:
             print('There was an error sending an email: ', e)
 
-        PaymentSuccess(request, order_id)
+        PaymentSuccess(request, order_id, )
 
     elif event['type'] == 'charge.failed':
         intent = event['data']['object']
@@ -173,7 +185,7 @@ def stripe_webhook(request):
     return HttpResponse(status=200, )
 
 
-def PaymentSuccess(request, order_id):
+def PaymentSuccess(request, order_id,):
     """
     Payment Success
     """
