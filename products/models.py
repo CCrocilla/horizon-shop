@@ -146,6 +146,10 @@ class Product(SoftDeleteModel):
             product=self).aggregate(rating_avg=Avg('rating_stars'))
         return (rating['rating_avg'])
 
+    def get_count_rating(self):
+        rating_count = ProductRating.objects.filter(product=self).count()
+        return rating_count
+
 
 class ProductComment(models.Model):
     product = models.ForeignKey(
