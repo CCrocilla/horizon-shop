@@ -18,8 +18,8 @@ class CategoryAdmin(admin.ModelAdmin):
 @admin.register(SubCategory)
 class SubCategoryAdmin(admin.ModelAdmin):
     """ Sub-Categories """
-    list_display = ('name', )
-    list_filter = ('name', )
+    list_display = ('name', 'category')
+    list_filter = ('name', 'category')
     search_fields = ('name', )
     prepopulated_fields = {'slug': ('name',)}
 
