@@ -11,6 +11,7 @@ def cart_contents(request):
 
     total_products_cart = 0
     total_price_cart = 0
+    total_price_no_delivery = 0
     delivery = 0
 
     if request.user.is_authenticated:
@@ -23,11 +24,17 @@ def cart_contents(request):
             total_products_cart = order.quantity_products()
             total_price_cart = order.total_price()
 
-        if total_price_cart < FREE_DELIVERY_THRESHOLD:
-            delivery = DELIVERY_COST
+            for item in order.cart_products.all():
+                if item.product.discounted_price:
+                    total_price_no_delivery += (
+                        item.product.discounted_price * item.quantity)
+                else:
+                    total_price_no_delivery += (
+                        item.product.price * item.quantity)
 
     return {
         'total_products_cart': total_products_cart,
         'total_price_cart': total_price_cart,
         'delivery_cost': delivery,
+        'total_price_no_delivery': total_price_no_delivery
         }
